@@ -10,7 +10,7 @@ PDF versions of the program manuals are in the “docs” subdirectory.
 
 # License:
 
-U.S.: [Public Domain](https://www.usa.gov/publicdomain/label/1.0)
+U.S.: [Public Domain](https://www.usa.gov/publicdomain/label/1.0)  
 International: [CC0](https://creativecommons.org/publicdomain/zero/1.0)
 
 # Contents
