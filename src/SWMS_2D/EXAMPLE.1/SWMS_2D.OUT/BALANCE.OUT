@@ -1,0 +1,62 @@
+ Example 1 - Column Test                                                 
+ 
+ Program SWMS_2D
+ Time independent boundary conditions
+ Vertical plane flow, V = L*L
+ Units: L = cm   , T = sec  , M = -    
+
+ Time [T]             Total     Sub-region number ...
+
+       .0000                      1
+ Area    [V]          .610E+02   .610E+02
+ Volume  [V]          .471E+01   .471E+01
+ InFlow  [V/T]        .000E+00   .000E+00
+ hMean   [L]         -.150E+03     -149.7
+
+     60.0000                      1
+ Area    [V]          .610E+02   .610E+02
+ Volume  [V]          .551E+01   .551E+01
+ InFlow  [V/T]        .720E-02   .720E-02
+ hMean   [L]         -.141E+03     -140.8
+ WatBalT [V]         -.803E-04
+ WatBalR [%]              .010
+
+    900.0000                      1
+ Area    [V]          .610E+02   .610E+02
+ Volume  [V]          .811E+01   .811E+01
+ InFlow  [V/T]        .212E-02   .212E-02
+ hMean   [L]         -.114E+03     -114.4
+ WatBalT [V]         -.267E-03
+ WatBalR [%]              .008
+
+   1800.0000                      1
+ Area    [V]          .610E+02   .610E+02
+ Volume  [V]          .977E+01   .977E+01
+ InFlow  [V/T]        .165E-02   .165E-02
+ hMean   [L]         -.979E+02      -97.9
+ WatBalT [V]         -.427E-03
+ WatBalR [%]              .008
+
+   2700.0000                      1
+ Area    [V]          .610E+02   .610E+02
+ Volume  [V]          .111E+02   .111E+02
+ InFlow  [V/T]        .144E-02   .144E-02
+ hMean   [L]         -.842E+02      -84.2
+ WatBalT [V]         -.574E-03
+ WatBalR [%]              .009
+
+   3600.0000                      1
+ Area    [V]          .610E+02   .610E+02
+ Volume  [V]          .124E+02   .124E+02
+ InFlow  [V/T]        .132E-02   .132E-02
+ hMean   [L]         -.721E+02      -72.1
+ WatBalT [V]         -.661E-03
+ WatBalR [%]              .009
+
+   5400.0000                      1
+ Area    [V]          .610E+02   .610E+02
+ Volume  [V]          .146E+02   .146E+02
+ InFlow  [V/T]        .118E-02   .118E-02
+ hMean   [L]         -.497E+02      -49.7
+ WatBalT [V]         -.901E-03
+ WatBalR [%]              .009

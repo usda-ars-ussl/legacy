@@ -1,0 +1,79 @@
+*** BLOCK A: BASIC INFORMATION ********************************************************
+Heading
+'Example 7 - Water and Solute Infiltration Test '
+LUnit  TUnit  MUnit                 (indicated units are obligatory for all input data)
+'cm'   'min'  '-'
+Kat                (0:horizontal plane, 1:axisymmetric vertical flow, 2:vertical plane)
+1
+MaxIt   TolTh    TolH           (maximum number of iterations and precision tolerances)
+20      .0001    .1
+lWat    lChem   CheckF  ShortF  FluxF   AtmInF  SeepF  DrainF  FreeD lTemp lWDep lEquil
+t       t       f       t       f       f       f      f       f     t     f     t
+*** BLOCK B: MATERIAL INFORMATION *****************************************************
+NMat    NLay    hTab1   hTabN   NPar
+  2      2      .001    200.    9
+thr     ths     tha     thm     Alfa    n       Ks      Kk      thk
+.0001   .399    .0001   .399    .0174   1.3757  .0207   .0207   .399
+.0001   .339    .0001   .339    .0139   1.6024  .0315   .0315   .339
+*** BLOCK C: TIME INFORMATION *********************************************************
+dt      dtMin   dtMax   DMul    DMul2   MPL
+.1      .001    1000.   1.33    .33     6
+TPrint(1),TPrint(2),...,TPrint(MPL)                                  (print-time array)
+720 1440 3600 7200 10800 14400 
+*** BLOCK G: SOLUTE TRANSPORT INFORMATION *********************************************
+Epsi    lUpW    lArtD   lTDep   cTolA  cTolR   MaxItC  PeCr
+0.5     t       f       t       0.0    0.0     1       2.
+Bulk.d. DispL  DispT   Frac  (1...NMat)
+ 1.30    0.5    0.1    1.0
+ 1.30    0.5    0.1    1.0
+Dif.w.  Dif.g. ------------------------------------------------------------- (1.solute)
+ 0.026   3.0
+ KS     Nu   Beta Henry   SnkL1 SnkS1 SnkG1 SnkL1' SnkS1' SnkG1' SnkL0 SnkS0 SnkG0 Alfa
+ 0.1    0.0  1.0 1.33e-7 1.39e-4 0.0   0.0  2.5e-4  0.0    0.0    0.0   0.0   0.0   0.0
+ 0.1    0.0  1.0 1.33e-7 1.39e-4 0.0   0.0  2.5e-4  0.0    0.0    0.0   0.0   0.0   0.0
+Dif.w.  Dif.g. ------------------------------------------------------------- (2.solute)
+ 0.026   3.0
+ KS     Nu   Beta Henry   SnkL1 SnkS1 SnkG1 SnkL1' SnkS1' SnkG1' SnkL0 SnkS0 SnkG0 Alfa
+ 0.05    0.0  1.0  0.0   6.94e-6 0.0   0.0  1.67e-5 0.0    0.0    0.0   0.0   0.0   0.0
+ 0.05    0.0  1.0  0.0   6.94e-6 0.0   0.0  1.67e-5 0.0    0.0    0.0   0.0   0.0   0.0
+Dif.w.  Dif.g. ------------------------------------------------------------- (3.solute)
+ 0.026   3.0
+ KS     Nu   Beta Henry   SnkL1 SnkS1 SnkG1 SnkL1' SnkS1' SnkG1' SnkL0 SnkS0 SnkG0 Alfa
+ 0.2    0.0  1.0 1.33e-3 3.47e-6 0.0   0.0 1.67e-6 0.0    0.0    0.0   0.0   0.0   0.0
+ 0.2    0.0  1.0 1.33e-3 3.47e-6 0.0   0.0 1.67e-6 0.0    0.0    0.0   0.0   0.0   0.0
+Temperature dependence
+Dif.w.  Dif.g. ------------------------------------------------------------- (1.solute)
+ 0.0     0.0
+ KS     Nu    Beta Henry SnkL1 SnkS1 SnkG1 SnkL1' SnkS1' SnkG1' SnkL0  SnkS0 SnkG0 Alfa
+ 0.0    0.0   0.0   0.0  51213. 0.0   0.0  81171   0.0    0.0    0.0    0.0   0.0   0.0
+Dif.w.  Dif.g. ------------------------------------------------------------- (2.solute)
+ 0.0     0.0
+ KS     Nu    Beta Henry SnkL1 SnkS1 SnkG1 SnkL1' SnkS1' SnkG1' SnkL0  SnkS0 SnkG0 Alfa
+ 0.0    0.0   0.0   0.0  51213. 0.0   0.0  81171   0.0    0.0    0.0    0.0   0.0   0.0
+Dif.w.  Dif.g. ------------------------------------------------------------- (3.solute)
+ 0.0     0.0
+ KS     Nu    Beta Henry SnkL1 SnkS1 SnkG1 SnkL1' SnkS1' SnkG1' SnkL0  SnkS0 SnkG0 Alfa
+ 0.0    0.0   0.0   0.0  51213. 0.0   0.0  81171   0.0    0.0    0.0    0.0   0.0   0.0
+KodCB(1),KodCB(2),.....,KodCB(NumBP)
+-1     -1      -1      -1      -1       -7      -7      -7      -7      -7
+-7     -7      -7      -7      -7       -7      -7      -7      -7      -7
+2       2    
+cTop   cBot
+1.      0.      0.      0.      0.      0.      0.      0.     0.5
+0.      0.      0.      0.      0.      0.      0.      0.     0.5
+0.      0.      0.      0.      0.      0.      0.      0.     0.5
+tPulse
+7200
+*** BLOCK H: HEAT TRANSPORT INFORMATION ***********************************************
+Qn      Qo    Th. Disper.    B1      B2      B3       Cn       Co      Cw
+0.600  0.001  0.5   0.1  5.25e+6  8.45e+6 3.313e+7 6.912e+7 9.036e+7 1.505e+8
+0.660  0.001  0.5   0.1  5.25e+6  8.45e+6 3.313e+7 6.912e+7 9.036e+7 1.505e+8
+KodTB(1),KodTB(2),.....,KodTB(NumBP)
+-1      -1      -1      -1      -1      -2      -2      -2      -2      -2
+-2      -2      -2      -2      -2      -2      -2      -2      -2      -2
+-3      -3
+TBound(1),TBound(2),.....,TBound(6)
+30.      0.      0.      0.      0.      0.
+Amplit   tPeriod 
+0.       3600.
+*** END OF INPUT FILE 'SELECTOR.IN' ***************************************************

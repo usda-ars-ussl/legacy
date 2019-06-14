@@ -1,0 +1,68 @@
+ Example 4 - Solute Transport with Nitrification Chain                          
+                      
+ 
+ Program CHAIN_2D
+ Time independent boundary conditions
+ Vertical plane flow, V = L*L
+ Units: L = m    , T = days , M = -    
+
+ Max. number of iterations             20
+ Absolute water content tolerance [-]  .00010
+ Absolute pressure head tolerance [L]  .01000
+
+
+ MatNum         thR    thS    tha    thm      alpha         n          Ks          Kk          thk
+
+    1           .000  1.000   .000  1.000    .500E-01    .200E+01    .100E+01    .100E+01    .100E+01
+
+
+ MatNum          Qe     Q        h         C         K
+ 
+    1          1.000  1.000      .000   .22E-08    .100E+01
+    1           .990   .990    -2.850   .69E-02    .734E+00
+    1           .900   .900    -9.686   .18E-01    .302E+00
+    1           .850   .850   -12.395   .19E-01    .206E+00
+    1           .750   .750   -17.638   .19E-01    .993E-01
+    1           .650   .650   -23.383   .16E-01    .465E-01
+    1           .500   .500   -34.641   .11E-01    .127E-01
+    1           .350   .350   -53.529   .57E-02    .237E-02
+    1           .200   .200   -97.980   .20E-02    .183E-03
+    1           .100   .100  -198.997   .50E-03    .795E-05
+
+ Solute transport information
+ ============================
+
+ Galerkin finite-element method
+
+ Number of species in the chain :   3
+
+ Mat.     Bulk.D.    DispL     DispT    Fraction
+   1    1000.0000     .0000     .0000    1.0000
+
+    Dif.w.      Dif.g.   -------------------------------------------------- ( 1.solute)
+   .1800E+00   .0000E+00
+ Mat.     KS         Nu         Beta      Henry      SinkL1     SinkS1     SinkG1     SinkL1`    SinkS1`    SinkG1`    SinkL0     SinkS0     SinkG0      Alfa
+   1  .1000E-02  .0000E+00  .1000E+01  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .5000E-02  .5000E-02  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00
+
+ No adsorption or linear adsorp. isotherm for material  1
+
+    Dif.w.      Dif.g.   -------------------------------------------------- ( 2.solute)
+   .1800E+00   .0000E+00
+ Mat.     KS         Nu         Beta      Henry      SinkL1     SinkS1     SinkG1     SinkL1`    SinkS1`    SinkG1`    SinkL0     SinkS0     SinkG0      Alfa
+   1  .0000E+00  .0000E+00  .1000E+01  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .1000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00
+
+ No adsorption or linear adsorp. isotherm for material  1
+
+    Dif.w.      Dif.g.   -------------------------------------------------- ( 3.solute)
+   .1800E+00   .0000E+00
+ Mat.     KS         Nu         Beta      Henry      SinkL1     SinkS1     SinkG1     SinkL1`    SinkS1`    SinkG1`    SinkL0     SinkS0     SinkG0      Alfa
+   1  .0000E+00  .0000E+00  .1000E+01  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00
+
+ No adsorption or linear adsorp. isotherm for material  1
+
+   Conc1     Conc2     Conc3     Conc4     cSink     cWell     Conc7     gAtm          d
+  .100E+01  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00     .0000
+  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00     .0000
+  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00     .0000
+
+ tPulse =           366.000

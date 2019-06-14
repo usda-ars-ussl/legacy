@@ -1,0 +1,25 @@
+*** INPUT FILE 'GENER2.IN' *********************************************
+AxisymetricFlow                            (Type of flow being analyzed)
+  f
+Angle  Aniz1  Aniz2                            (Anisotrophy Information)
+  0.     1.     1.
+NS     lEquil      (number of solutes and equilibrium or nonequilibrium)
+1        f
+NCol   NLin       (number of nodes in horizontal and vertical direction)
+ 2      16
+x(1)   z(NLin)                     (x, z-coordinate of left bottom node)
+  0     -30.
+*** SPACE INCREMENTS ***************************************************
+dx-array                                     (number of items is NCol-1)
+ 1
+dz-array                                     (number of items is NLin-1)
+ 15*2
+*** LINE ATTRIBUTES ****************************************************
+LineN Code  hInit    Q   MatNum  Beta  Axz  Bxz  Dxz  Temp Conc  Sorb
+  1    1      0.0    0.    1     0.     1.   1.   1.   0.    0.   0.
+  2    0      0.0    0.    1     0.     1.   1.   1.   0.    0.   0.
+ 15    0      0.0    0.    1     0.     1.   1.   1.   0.    0.   0.
+ 16    2      0.0    0.    1     0.     1.   1.   1.   0.    0.   0.
+*** END OF FILE 'GENER2.IN' ********************************************
+  
+

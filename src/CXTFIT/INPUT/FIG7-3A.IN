@@ -1,0 +1,203 @@
+ 3
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-3a:Steady saturated flow in a sand column
+  EC vs. Time at 11 cm  (sho shiozawa, unpublished, f0)
+INVERSE    MODE      NREDU 
+   1         1        1   
+ MODC       ZL(BLANK IF MODE=NREDU=1)
+   3        
+*** BLOCK B: INVERSE PROBLEM *********************************************
+  MIT       ILMT    MASS
+  150        1        0
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+    V         D         R      Mu 
+    3.0      1.0       1.0      0.0
+     1        1         0        0
+    0.01    0.01      999      999
+    100      100      999      999
+*** BLOCK D: BVP; MODB=0 ZERO; =1 Dirac ; =2 STEP; =3 A PULSE  ***********
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   2
+   1.0
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP 
+    0   
+*** BLOCK G: DATA FOR INVERSE PROBLEM ************************************ 
+INPUTM =0; Z,T,C  =1; T,C FOR SAME Z  =2; Z,C FOR SAME T
+   1
+  11.0
+  TIME     CONC     (Give "0 0 0" after last data set.)
+   2.52   0.0000
+   2.68   0.0002
+   2.93   0.0005
+   3.18   0.0013
+   3.35   0.0027
+   3.43   0.0040
+   3.60   0.0141
+   3.68   0.0258
+   3.77   0.0375
+   3.85   0.0641
+   3.93   0.0956
+   4.02   0.1418
+   4.10   0.1920
+   4.18   0.2560
+   4.27   0.3258
+   4.35   0.3930
+   4.43   0.4620
+   4.52   0.5306
+   4.60   0.5986
+   4.68   0.6626
+   4.77   0.7165
+   4.85   0.7689
+   4.93   0.8108
+   5.02   0.8497
+   5.10   0.8785
+   5.18   0.9034
+   5.27   0.9241
+   5.35   0.9404
+   5.43   0.9554
+   5.60   0.9674
+   5.77   0.9821
+   5.93   0.9885
+   6.10   0.9938
+   6.43   0.9961
+   6.77   1.0000
+     0.0     0.0
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-3a:Steady saturated flow in a sand column
+  EC vs. Time at 17 cm  (sho shiozawa, unpublished, f0)
+INVERSE    MODE      NREDU 
+   1         1        1   
+ MODC       ZL(BLANK IF MODE=NREDU=1)
+   3        
+*** BLOCK B: INVERSE PROBLEM *********************************************
+  MIT       ILMT    MASS
+  150        1        0
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+    V         D         R      Mu 
+    3.0      1.0       1.0      0.0
+     1        1         0        0
+    0.01    0.01      999       999
+    100      100      999       999
+*** BLOCK D: BVP; MODB=0 ZERO; =1 Dirac ; =2 STEP; =3 A PULSE  ***********
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   2
+   1.0
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP 
+    0   
+*** BLOCK G: DATA FOR INVERSE PROBLEM ************************************ 
+INPUTM =0; Z,T,C  =1; T,C FOR SAME Z  =2; Z,C FOR SAME T
+   1
+  17.0
+  TIME     CONC     (Give "0 0 0" after last data set.)
+   5.10   0.0001
+   5.43   0.0011
+   5.68   0.0059
+   5.77   0.0141
+   5.93   0.0351
+   6.02   0.0541
+   6.10   0.0783
+   6.18   0.1123
+   6.27   0.1521
+   6.35   0.1990
+   6.43   0.2542
+   6.52   0.3170
+   6.60   0.3792
+   6.68   0.4455
+   6.77   0.5114
+   6.85   0.5740
+   6.93   0.6368
+   7.02   0.6917
+   7.10   0.7396
+   7.18   0.7853
+   7.27   0.8226
+   7.35   0.8562
+   7.43   0.8807
+   7.52   0.9012
+   7.60   0.9203
+   7.77   0.9470
+   7.93   0.9612
+   8.10   0.9748
+   8.43   0.9867
+   8.68   0.9916
+   9.18   0.9989
+   9.43   0.9992
+   9.52   0.9995
+   9.77   0.9998
+   9.93   1.0000
+   0         0
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-3a:Steady saturated flow in a sand column
+  EC vs. Time at 23 cm  (sho shiozawa, unpublished, f0)
+INVERSE    MODE      NREDU 
+   1         1        1   
+ MODC       ZL(BLANK IF MODE=NREDU=1)
+   3        
+*** BLOCK B: INVERSE PROBLEM *********************************************
+  MIT       ILMT    MASS
+  150        1        0
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+    V         D         R      Mu 
+    3.0      1.0       1.0      0.0
+     1        1         0        0
+    0.01    0.01      999       999
+    100      100      999       999
+*** BLOCK D: BVP; MODB=0 ZERO; =1 Dirac ; =2 STEP; =3 A PULSE  ***********
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   2
+   1.0
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP 
+    0   
+*** BLOCK G: DATA FOR INVERSE PROBLEM ************************************ 
+INPUTM =0; Z,T,C  =1; T,C FOR SAME Z  =2; Z,C FOR SAME T
+   1
+  23.0
+  TIME     CONC     (Give "0 0 0" after last data set.)
+   7.10   0.0001
+   7.35   0.0024
+   7.52   0.0049
+   7.77   0.0061
+   8.02   0.0129
+   8.10   0.0202
+   8.18   0.0292
+   8.27   0.0396
+   8.35   0.0600
+   8.43   0.0770
+   8.52   0.1062
+   8.60   0.1393
+   8.68   0.1794
+   8.77   0.2250
+   8.85   0.2788
+   8.93   0.3331
+   9.02   0.3902
+   9.10   0.4545
+   9.18   0.5147
+   9.27   0.5704
+   9.35   0.6281
+   9.43   0.6796
+   9.52   0.7249
+   9.60   0.7679
+   9.68   0.8035
+   9.77   0.8381
+   9.85   0.8674
+   9.93   0.8907
+  10.02   0.9127
+  10.18   0.9371
+  10.35   0.9632
+  10.68   0.9853
+  11.02   0.9949
+  11.35   0.9992
+  11.60   1.0000
+     0         0
+

@@ -1,0 +1,18 @@
+ Example 6 - Solute Transport with Kinetic Linear Cation Adsorption             
+                      
+ 
+ Program CHAIN_2D
+ Time independent boundary conditions
+ Vertical plane flow, V = L*L
+ Units: L = cm   , T = day  , M = -    
+
+
+ TLevel   Time         dt     IterC   Peclet  Courant
+
+   11    .500E+00    .867E-01    1     2.057      .675
+   16    .100E+01    .626E-01    1     2.057      .487
+   29    .250E+01    .629E-01    1     2.057      .490
+   50    .500E+01    .632E-01    1     2.057      .492
+   67    .700E+01    .630E-01    1     2.057      .491
+   92    .100E+02    .633E-01    1     2.057      .493
+  173    .200E+02    .654E-01    1     2.057      .509

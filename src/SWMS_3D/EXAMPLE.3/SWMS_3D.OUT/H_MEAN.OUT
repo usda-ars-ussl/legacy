@@ -1,0 +1,12 @@
+ Example 3b - Comparison with the 3-D analytical solution                
+ 
+ Program SWMS_3D
+ Date:  21. 7.    Time:  12:36: 8
+ Time independent boundary conditions
+ Units: L = m    , T = days , M = -    
+
+
+     Time         hAtm       hRoot     hKode3     hKode1      hSeep     hKode5     hKode6 ... 
+      [T]          [L]        [L]        [L]        [L]        [L]        [L]        [L]
+
+      1.0000         .0         .0         .0         .0         .0         .0         .0

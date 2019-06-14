@@ -1,0 +1,129 @@
+$
+
+     *******************************************************************
+     *                                                                 *
+     *     CXTFIT VERSION 2.1 (4/17/99)                                *
+     *     ANALYTICAL SOLUTIONS FOR ONE-DIMENSIONAL CDE                *
+     *     NON-LINEAR LEAST-SQUARES ANALYSIS                           *
+     *                                                                 *
+     *     Fig.7-9a: TRITIUM EFFLUENT FROM GLENDALE CLAY LOAM          *
+     *     (UNITS: cm, d, micro g) (EX.3.2, van Genuchten, 1974)       *
+     *                                                                 *
+     *     DATA INPUT FILE:  Fig7-9a.in                                *
+     *                                                                 *
+     *******************************************************************
+
+
+     MODEL DESCRIPTION
+     =================
+        DETERMINISTIC NONEQUILIBRIUM CDE (MODE=2)
+        FLUX-AVERAGED CONCENTRATION
+        REDUCED TIME (T), POSITION(Z)
+          (ALL PARAMETERS EXCEPT D AND V ARE DIMENSIONLESS)
+        CHARACTERISTIC LENGTH =   30.0000
+          FOR DIMENSIONLESS PARAMETERS
+
+
+     INITIAL VALUES OF COEFFICIENTS
+     ==============================
+     NAME        INITIAL VALUE   FITTING
+      V........     .3750E+02      N
+      D........     .2000E+01      Y
+      R........     .1000E+01      N
+      beta.....     .9000E+00      Y
+      omega....     .1000E+02      Y
+      mu1......     .0000E+00      N
+      mu2......     .0000E+00      N
+
+
+     BOUNDARY, INITIAL, AND PRODUCTION CONDITIONS
+     ===========================================
+       SINGLE PULSE OF CONC. =    1.0000 & DURATION =    3.1020
+       SOLUTE FREE INITIAL CONDITION
+       NO PRODUCTION TERM 
+
+
+     PARAMETER ESTIMATION MODE
+     =========================
+       MAXIMUM NUMBER OF ITERATIONS =  150
+       TWO-REGION PHYSICAL NONEQUILIBRIUM MODEL
+
+
+     ITER     SSQ        D....     beta.     omega
+      0    .7719E+00  .200E+01  .900E+00  .100E+02
+      1    .3481E-01  .186E+01  .522E+00  .657E+01
+      2    .2951E-01  .105E+01  .515E+00  .600E+01
+      3    .2901E-01  .523E+00  .517E+00  .509E+01
+      4    .2163E-01  .412E+00  .679E+00  .209E+01
+      5    .1598E-01  .559E+01  .676E+00  .247E+01
+      6    .8745E-02  .126E+02  .779E+00  .136E+01
+      7    .7420E-02  .146E+02  .814E+00  .933E+00
+      8    .7379E-02  .163E+02  .828E+00  .827E+00
+      9    .7367E-02  .155E+02  .822E+00  .872E+00
+     10    .7367E-02  .156E+02  .823E+00  .870E+00
+     11    .7367E-02  .156E+02  .823E+00  .870E+00
+
+
+
+     COVARIANCE MATRIX FOR FITTED PARAMETERS
+     =======================================
+                D....  beta.  omega
+         D....  1.000
+         beta.   .960  1.000
+         omega  -.930  -.985  1.000
+
+       RSQUARE FOR REGRESSION OF OBSERVED VS PREDICTED = .99869071
+          (COEFFICIENT OF DETERMINATION)
+
+       MEAN SQUARE FOR ERROR (MSE) =   .2232E-03
+
+
+     NON-LINEAR LEAST SQUARES ANALYSIS, FINAL RESULTS
+     ================================================
+
+                                                95% CONFIDENCE LIMITS
+      NAME      VALUE     S.E.COEFF. T-VALUE      LOWER        UPPER
+      D....  .1557E+02   .4149E+01 .3753E+01   .7129E+01    .2401E+02
+      beta.  .8227E+00   .3103E-01 .2651E+02   .7595E+00    .8858E+00
+      omega  .8705E+00   .2644E+00 .3293E+01   .3326E+00    .1408E+01
+
+
+     ------------------ORDERED BY COMPUTER INPUT-------------------
+                                        CONCENTRATION         RESI-
+$    NO    DISTANCE       TIME        OBS        FITTED       DUAL
+      1      1.0000       .5120       .0010       .0016      -.0006
+      2      1.0000       .5990       .0160       .0199      -.0039
+      3      1.0000       .6860       .0820       .0918      -.0098
+      4      1.0000       .7300       .1380       .1548      -.0168
+      5      1.0000       .8170       .2960       .3124      -.0164
+      6      1.0000       .9040       .4650       .4721      -.0071
+      7      1.0000       .9920       .5930       .6045      -.0115
+      8      1.0000      1.0790       .6850       .7028      -.0178
+      9      1.0000      1.1660       .7640       .7757      -.0117
+     10      1.0000      1.2530       .8060       .8304      -.0244
+     11      1.0000      1.3400       .8500       .8720      -.0220
+     12      1.0000      1.4280       .9010       .9039      -.0029
+     13      1.0000      1.5580       .9150       .9375      -.0225
+     14      1.0000      1.6460       .9230       .9535      -.0305
+     15      1.0000      1.7540       .9470       .9678      -.0208
+     16      1.0000      2.0160       .9670       .9870      -.0200
+     17      1.0000      2.6040       .9810       .9984      -.0174
+     18      1.0000      3.1250      1.0000       .9998       .0002
+     19      1.0000      3.3420       .9860       .9999      -.0139
+     20      1.0000      3.5160      1.0150       .9999       .0151
+     21      1.0000      3.7120       .9710       .9747      -.0037
+     22      1.0000      3.8420       .8380       .8288       .0092
+     23      1.0000      3.9510       .6380       .6268       .0112
+     24      1.0000      4.0380       .4800       .4757       .0043
+     25      1.0000      4.1250       .3530       .3570      -.0040
+     26      1.0000      4.2550       .2360       .2339       .0021
+     27      1.0000      4.3860       .1660       .1535       .0125
+     28      1.0000      4.5160       .1180       .1006       .0174
+     29      1.0000      4.7770       .0660       .0422       .0238
+     30      1.0000      5.0370       .0380       .0173       .0207
+     31      1.0000      5.3850       .0180       .0050       .0130
+     32      1.0000      5.8180       .0080       .0010       .0070
+     33      1.0000      6.2510       .0040       .0002       .0038
+     34      1.0000      6.7910       .0020       .0000       .0020
+     35      1.0000      7.3310       .0060       .0000       .0060
+     36      1.0000      7.4390       .0003       .0000       .0003

@@ -1,0 +1,54 @@
+*** BLOCK A: BASIC INFORMATION *****************************************************
+Heading
+'Example 4 - Solute Transport with Nitrification Chain'
+LUnit  TUnit  MUnit              (indicated units are obligatory for all input data)
+'m'    'days' '-'
+Kat             (0:horizontal plane, 1:axisymmetric vertical flow, 2:vertical plane)
+  2
+MaxIt   TolTh    TolH         (maximum number of iterations and precision tolerance)
+  20    .0001    .01
+lWat    lChem   CheckF  ShortF  FluxF  AtmInF SeepF DrainF FreeD  lTemp lWDep lEquil
+f       t       f       t       f      f      t     f      f      f      f     t
+*** BLOCK B: MATERIAL INFORMATION **************************************************
+NMat    NLay    hTab1   hTabN   NPar
+  1      1      .001    200.     9
+thr     ths     tha     thm     Alfa    n       Ks      Kk      thk
+ .0     1.0     .0      1.0     .05     2.0     1.0     1.0     1.0
+*** BLOCK C: TIME INFORMATION ******************************************************
+dt      dtMin   dtMax   DMul    DMul2   MPL
+1       .0001    100.   1.3     .33     3
+TPrint(1),TPrint(2),...,TPrint(MPL)                               (print-time array)
+50 100 200
+*** BLOCK E: SEEPAGE INFORMATION (only if SeepF =.true.) ***************************
+NSeep                                                      (number of seepage faces)
+  1
+NSP(1),NSP(2),.......,NSP(NSeep)                      (number of nodes in each s.f.)
+  2
+NP(i,1),NP(i,2),.....,NP(i,NSP(i))                 (nodal number array of i-th s.f.)
+  401  	402
+*** BLOCK G: SOLUTE TRANSPORT INFORMATION ******************************************
+Epsi    lUpW   lArtD   lTDep   cTolA  cTolR   MaxItC   PeCr
+ 0.5    f      f       f       0.0    0.0     1        10
+Bulk.d. DispL  DispT  Frac  (1...NMat)
+ 1000    0.0    0.0   1.0
+Dif.w.  Dif.g. ---------------------------------------------------------- (1.solute)
+ 0.18    0.0
+ KS    Nu   Beta Henry SnkL1 SnkS1 SnkG1 SnkL1' SnkS1' SnkG1' SnkL0 SnkS0 SnkG0 Alfa
+0.001  0.0  1.0   0.0   0.0   0.0   0.0  0.005  0.005   0.0    0.0   0.0   0.0   0.0
+Dif.w.  Dif.g. ---------------------------------------------------------- (2.solute)
+ 0.18    0.0
+ KS    Nu   Beta Henry SnkL1 SnkS1 SnkG1 SnkL1' SnkS1' SnkG1' SnkL0 SnkS0 SnkG0 Alfa
+ 0.0   0.0  1.0   0.0   0.0   0.0   0.0   0.1    0.0    0.0    0.0   0.0   0.0   0.0
+Dif.w.  Dif.g. ---------------------------------------------------------- (3.solute)
+ 0.18    0.0
+ KS    Nu   Beta Henry SnkL1 SnkS1 SnkG1 SnkL1' SnkS1' SnkG1' SnkL0 SnkS0 SnkG0 Alfa
+ 0.0   0.0  1.0   0.0   0.0   0.0   0.0   0.0    0.0    0.0    0.0   0.0   0.0   0.0
+KodCB(1),KodCB(2),.....,KodCB(NumBP)
+-1     -1      -2      -2
+cTop   cBot
+ 1.     0.      0.      0.      0.      0.      0.      0.      0.
+ 0.     0.      0.      0.      0.      0.      0.      0.      0.
+ 0.     0.      0.      0.      0.      0.      0.      0.      0.
+tPulse
+ 366
+*** END OF INPUT FILE 'SELECTOR.IN' ************************************************

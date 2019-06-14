@@ -1,0 +1,71 @@
+3
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-11:Stochastic stream tube model with a random v
+Nonreactive solute (R=1), emsemble-averaged flux conc., <cf>
+INVERSE    MODE     NREDU 
+   0         3        1   
+MODC       ZL
+   1   
+*** BLOCK C: TRANSPORT PARAMETERS *****************************************
+<V>   <D>  <Kd>   mu   Sig-v Sig-Kd Sig-D  Rho-vk  Rho/theta   
+ 50.  200.  0.0   0.0   0.5   0.0    0.5    0.0     4.0
+*** BLOCK D: BVP; MODB=0 ZERO; =1 DIRAC; =2 STEP; =3 A PULSE  ************
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   1
+   1.0     0   
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONST; =2 STEP; =3 EXP; =4 DELTA *******
+  MODI
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP     
+    0      
+*** BLOCK H: POSITION AND TIME FOR DIRECT PROBLEM ************************
+    NZ       DZ       ZI       NT       DT        TI       MPRINT
+    1       0.0     100.0     101      0.05       0.0       1
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-11:Stochastic stream tube model with a random v
+Nonreactive solute (R=1), field-scale flux conc., <vcf>/<v>
+INVERSE    MODE     NREDU 
+   0         3        1   
+MODC       ZL
+   2   
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+<V>   <D>  <Kd>   mu   Sig-v Sig-Kd Sig-D  Rho-vk  Rho/theta   
+ 50.  200.  0.0   0.0   0.5   0.0    0.5    0.0     4.0
+*** BLOCK D: BVP; MODB=0 ZERO; =1 DIRAC; =2 STEP; =3 A PULSE  ************
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   1
+   1.0     0   
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONST; =2 STEP; =3 EXP; =4 DELTA *******
+  MODI
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP     
+    0      
+*** BLOCK H: POSITION AND TIME FOR DIRECT PROBLEM ************************
+    NZ       DZ       ZI       NT       DT        TI       MPRINT
+    1       0.0     100.0     101      0.05       0.0       1
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-11;Stochastic stream tube model with a random v
+Nonreactive solute (R=1), field-scale resident conc., <cr>
+INVERSE    MODE     NREDU 
+   0         3        1   
+MODC       ZL
+   3   
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+<V>   <D>  <Kd>   mu   Sig-v Sig-Kd Sig-D  Rho-vk  Rho/theta   
+ 50.  200.  0.0   0.0   0.5   0.0    0.5    0.0     4.0
+*** BLOCK D: BVP; MODB=0 ZERO; =1 DIRAC; =2 STEP; =3 A PULSE  ************
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   1
+   1.0     0   
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONST; =2 STEP; =3 EXP; =4 DELTA *******
+  MODI
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP     
+    0      
+*** BLOCK H: POSITION AND TIME FOR DIRECT PROBLEM ************************
+    NZ       DZ       ZI       NT       DT        TI       MPRINT
+    1       0.0     100.0     101      0.05       0.0       1
+

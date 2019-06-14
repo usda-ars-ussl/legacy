@@ -1,0 +1,71 @@
+3
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-13; Stochastic stream tube model with a random v
+Reactive solute, Effect of corretation v-Kd (=1)
+INVERSE    MODE     NREDU 
+   0         3        1   
+MODC       ZL
+   3   
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+<V>   <D>  <Kd>   mu   Sig-v Sig-Kd Sig-D  Rho-vKd  Rho/theta
+ 50.   20.  1.0   0.0   0.5   0.2    0.0    1.0     4.0
+*** BLOCK D: BVP; MODB=0 ZERO; =1 DIRAC; =2 STEP; =3 A PULSE  ************
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   1
+   1.0     0
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONST; =2 STEP; =3 EXP; =4 DELTA *******
+  MODI
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP    
+    0      
+*** BLOCK H: POSITION AND TIME FOR DIRECT PROBLEM ************************
+    NZ       DZ       ZI       NT       DT        TI       MPRINT
+   101      1.5      0.0       1       0.0       5.0       2
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-13; Stochastic stream tube model with a random v
+Reactive solute, Effect of corretation v-Kd (=-1)
+INVERSE    MODE     NREDU 
+   0         3        1   
+MODC       ZL
+   3   
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+ <V>   <D>  <Kd>   mu   Sig-v Sig-Kd Sig-D  Rho-vk  Rho/theta   
+  50.  20.  1.0   0.0   0.5   0.2    0.0    -1.0     4.0
+*** BLOCK D: BVP; MODB=0 ZERO; =1 DIRAC; =2 STEP; =3 A PULSE  ************
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   1
+   1.0     0
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONST; =2 STEP; =3 EXP; =4 DELTA *******
+  MODI
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP    
+    0      
+*** BLOCK H: POSITION AND TIME FOR DIRECT PROBLEM ************************
+    NZ       DZ       ZI       NT       DT        TI       MPRINT
+   101      1.5      0.0       1       0.0       5.0       2
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-13; Stochastic stream tube model with a random v
+Reactive solute, Effect of corretation v-Kd (=0)
+INVERSE    MODE     NREDU 
+   0         3        1   
+MODC       ZL
+   3   
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+<V>   <D>  <Kd>   mu   Sig-v Sig-Kd Sig-D  Rho-vk  Rho/theta   
+ 50.   20.  1.0   0.0   0.5   0.2    0.0    0.0     4.0
+*** BLOCK D: BVP; MODB=0 ZERO; =1 DELTA FUNC.; =2 STEP; =3 A PULSE  ******
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   1
+   1.0     0
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONST; =2 STEP; =3 EXP; =4 DELTA *******
+  MODI
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP    
+    0      
+*** BLOCK H: POSITION AND TIME FOR DIRECT PROBLEM ************************
+    NZ       DZ       ZI       NT       DT        TI       MPRINT
+   101      1.5      0.0       1       0.0       5.0       2
+

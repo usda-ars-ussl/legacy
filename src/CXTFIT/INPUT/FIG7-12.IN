@@ -1,0 +1,43 @@
+1
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-12: FIELD-SCALE BROMIDE MOVEMENT (After JURY ET AL.,1982)
+ (UNITS: MILIMETERS, DAYS, REDUCED C)
+INVERSE    MODE     NREDU 
+   1         3        1   
+MODC       ZL
+   3   
+*** BLOCK B: INVERSE PROBLEM *********************************************
+  MIT       ILMT    MASS
+  50         1        0
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+<V>    <D>   <Kd>    mu   SD.v  SD.Kd SD.D  Rho-vKd  Rho/theta   
+25.0   50.0  0.0    0.0   0.5   0.0   0.5    0.0     4.0
+ 1      1      0     0      1     0    1       0   
+1.0    1.0    999    999   0.01  999   0.01   999
+100.   500.   999    999   1.5   999   1.5    999    
+*** BLOCK D: BVP; MODB=0 ZERO; =1 Dirac ; =2 STEP; =3 A PULSE  ***********
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   3
+   1.0     1.69    0
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONST; =2 STEP; =3 EXP; =4 DELTA *******
+  MODI
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP     MPRO (LEAVE BLANK IF MODE=1,3)
+    0      
+*** BLOCK H: POSITION AND TIME FOR INVERSE PROBLEM ***********************
+INPUTM =0; Z,T,C  =1; T,C FOR SAME Z  =2; Z,C FOR SAME T;=3 cxtfit ver.1
+ 3
+    C          Z          T   (3F10.0, Give "0 0 0" after last data set.)
+     0.062     300.0       5.0
+     0.076     300.0      10.0
+     0.059     300.0      15.0
+     0.038     300.0      20.0
+     0.014     300.0      25.0
+     0.007     300.0      30.0
+     0.004     300.0      35.0
+     0.003     300.0      40.0
+     0.001     300.0      45.0
+     0.000     300.0      50.0
+        0         0         0
+

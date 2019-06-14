@@ -1,0 +1,40 @@
+ Example 3b - Comparison with the 3-D analytical solution                
+ 
+ Program SWMS_3D
+ Date:  21. 7.    Time:  12:36: 8
+ Time independent boundary conditions
+ Units: L = m    , T = days , M = -    
+
+ Time [T]             Total     Sub-region number ...
+
+       .0000                      1
+ Volume  [L3]      .288E+07   .288E+07
+ Water   [L3]      .864E+06   .864E+06
+ InFlow  [L3/T]    .000E+00   .000E+00
+ hMean   [L]       .000E+00         .0
+ ConcVol [M]       .000E+00   .000E+00
+ cMean   [M/L3]    .000E+00   .000E+00
+
+     50.0000                      1
+ Volume  [L3]      .288E+07   .288E+07
+ Water   [L3]      .864E+06   .864E+06
+ InFlow  [L3/T]    .000E+00   .000E+00
+ hMean   [L]       .000E+00         .0
+ ConcVol [M]       .295E+05   .295E+05
+ cMean   [M/L3]    .114E-01   .114E-01
+ CncBalT [M]      -.900E+03
+ CncBalR [%]          2.018
+
+    100.0000                      1
+ Volume  [L3]      .288E+07   .288E+07
+ ConcVol [M]       .474E+05   .474E+05
+ cMean   [M/L3]    .183E-01   .183E-01
+ CncBalT [M]      -.202E+04
+ CncBalR [%]          2.009
+
+    365.0000                      1
+ Volume  [L3]      .288E+07   .288E+07
+ ConcVol [M]       .731E+05   .731E+05
+ cMean   [M/L3]    .282E-01   .282E-01
+ CncBalT [M]      -.393E+04
+ CncBalR [%]           .835

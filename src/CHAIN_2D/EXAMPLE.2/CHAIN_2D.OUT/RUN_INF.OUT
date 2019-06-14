@@ -1,0 +1,17 @@
+ Example 2 - Grass Field Problem (Hupselse Beek 1982)                           
+                      
+ 
+ Program CHAIN_2D
+ Time dependent boundary conditions
+ Vertical plane flow, V = L*L
+ Units: L = cm   , T = day  , M = -    
+
+
+ TLevel   Time         dt      Iter  ItCum
+
+   70    .120E+03    .500E+00    2    166
+  132    .151E+03    .500E+00    3    335
+  192    .181E+03    .500E+00    3    522
+  254    .212E+03    .500E+00    3    673
+  328    .243E+03    .500E+00    2    912
+  388    .273E+03    .500E+00    6   1067

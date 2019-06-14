@@ -1,0 +1,17 @@
+ Example 7 - Water and Solute Infiltration Test                                 
+                      
+ 
+ Program CHAIN_2D
+ Time independent boundary conditions
+ Axisymmetric flow, V = L*L*L
+ Units: L = cm   , T = min  , M = -    
+
+
+ TLevel   Time         dt     IterW IterC   ItCum  Peclet   Courant
+
+  135    .720E+03    .231E+02    3    1    516     8.688      .926
+  164    .144E+04    .248E+02    2    1    585     8.870      .976
+  249    .360E+04    .254E+02    2    1    755     8.886      .990
+  390    .720E+04    .153E+02    1    1    968     8.879      .597
+  531    .108E+05    .145E+02    1    1   1109     8.878      .565
+  672    .144E+05    .143E+02    1    1   1250     8.877      .557

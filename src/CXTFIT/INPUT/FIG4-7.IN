@@ -1,0 +1,48 @@
+2
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig4.7; Stochastic stream tube model with a random v
+     CONSTANT DURATION vs. (CONSTANT MASS)
+INVERSE    MODE     NREDU 
+   0         3        1   
+MODC       ZL
+   3   
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+<V>   <D>  <Kd>   mu   Sig-v Sig-Kd Sig-D  Rho-vKd  Rho/theta
+ 50.  20.   0.0   0.0    0.5    0.0    0.5    0.0     4.0
+*** BLOCK D: BVP; MODB=0 ZERO; =1 DIRAC; =2 STEP; =3 A PULSE  ************
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   3
+   1.0       1.0       0
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONST; =2 STEP; =3 EXP; =4 DIRAC *******
+  MODI
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP   
+    0      
+*** BLOCK H: POSITION AND TIME FOR DIRECT PROBLEM ************************
+    NZ       DZ       ZI       NT       DT        TI       MPRINT
+   101       4.0     0.0       1       0.0       3.0       2
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig4.7; Stochastic stream tube model with a random v
+     (CONSTANT DURATION) vs. CONSTANT MASS
+INVERSE    MODE     NREDU 
+   0         3        1   
+MODC       ZL
+   4   
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+<V>   <D>  <Kd>   mu   Sig-v Sig-Kd Sig-D  Rho-vKd  Rho/theta
+50.   20.   0.0   0.0    0.5    0.0    0.5    0.0     4.0
+*** BLOCK D: BVP; MODB=0 ZERO; =1 DIRAC; =2 STEP; =3 A PULSE  ************
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   3
+   1.0       1.0       1
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONST; =2 STEP; =3 EXP; =4 DIRAC *******
+  MODI
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP    
+    0      
+*** BLOCK H: POSITION AND TIME FOR DIRECT PROBLEM ************************
+    NZ       DZ       ZI       NT       DT        TI       MPRINT
+   101       4.0     0.0       1       0.0       3.0       2
+

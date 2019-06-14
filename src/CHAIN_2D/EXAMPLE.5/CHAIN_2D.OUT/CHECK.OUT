@@ -1,0 +1,52 @@
+ Example 5 - Solute Transport with Nonlinear Cation Adsorption - Freundlich isot
+ erm                  
+ 
+ Program CHAIN_2D
+ Time independent boundary conditions
+ Vertical plane flow, V = L*L
+ Units: L = cm   , T = day  , M = -    
+
+ Max. number of iterations             20
+ Absolute water content tolerance [-]  .00010
+ Absolute pressure head tolerance [L]  .01000
+
+
+ MatNum         thR    thS    tha    thm      alpha         n          Ks          Kk          thk
+
+    1           .000   .633   .000   .633    .100E-01    .200E+01    .649E+01    .649E+01    .633E+00
+
+
+ MatNum          Qe     Q        h         C         K
+ 
+    1          1.000   .633      .000   .00E+00    .649E+01
+    1           .990   .627   -14.249   .88E-03    .477E+01
+    1           .900   .570   -48.432   .22E-02    .196E+01
+    1           .850   .538   -61.974   .24E-02    .134E+01
+    1           .750   .475   -88.192   .24E-02    .645E+00
+    1           .650   .411  -116.913   .20E-02    .302E+00
+    1           .500   .317  -173.205   .14E-02    .824E-01
+    1           .350   .222  -267.643   .73E-03    .154E-01
+    1           .200   .127  -489.898   .25E-03    .119E-02
+    1           .100   .063  -994.987   .63E-04    .516E-04
+
+ Solute transport information
+ ============================
+
+ Galerkin finite-element method
+
+ Number of species in the chain :   1
+
+ Mat.     Bulk.D.    DispL     DispT    Fraction
+   1        .8840    2.7270     .0000    1.0000
+
+    Dif.w.      Dif.g.   -------------------------------------------------- ( 1.solute)
+   .0000E+00   .0000E+00
+ Mat.     KS         Nu         Beta      Henry      SinkL1     SinkS1     SinkG1     SinkL1`    SinkS1`    SinkG1`    SinkL0     SinkS0     SinkG0      Alfa
+   1  .1687E+01  .0000E+00  .1615E+01  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00
+
+ Freundlich nonlinear adsorption isotherm for material  1
+
+   Conc1     Conc2     Conc3     Conc4     cSink     cWell     Conc7     gAtm          d
+  .100E+02  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00     .0000
+
+ tPulse =            14.919

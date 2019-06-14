@@ -1,0 +1,52 @@
+ Example 3a - Comparison with the 2-D analytical solution                       
+                      
+ 
+ Program CHAIN_2D
+ Time independent boundary conditions
+ Vertical plane flow, V = L*L
+ Units: L = m    , T = days , M = -    
+
+ Max. number of iterations             20
+ Absolute water content tolerance [-]  .00010
+ Absolute pressure head tolerance [L]  .01000
+
+
+ MatNum         thR    thS    tha    thm      alpha         n          Ks          Kk          thk
+
+    1           .020   .300   .020   .300    .410E-01    .196E+01    .300E-01    .300E-01    .300E+00
+
+
+ MatNum          Qe     Q        h         C         K
+ 
+    1          1.000   .300      .000   .00E+00    .300E-01
+    1           .990   .297    -3.386   .16E-02    .217E-01
+    1           .900   .272   -11.779   .40E-02    .873E-02
+    1           .850   .258   -15.150   .43E-02    .593E-02
+    1           .750   .230   -21.729   .41E-02    .281E-02
+    1           .650   .202   -29.003   .35E-02    .130E-02
+    1           .500   .160   -43.426   .24E-02    .348E-03
+    1           .350   .118   -67.993   .12E-02    .632E-04
+    1           .200   .076  -126.999   .41E-03    .468E-05
+    1           .100   .048  -264.559   .10E-03    .193E-06
+
+ Solute transport information
+ ============================
+
+ Galerkin finite-element method
+
+ Number of species in the chain :   1
+
+ Mat.     Bulk.D.    DispL     DispT    Fraction
+   1    1400.0000   10.0000   10.0000    1.0000
+
+    Dif.w.      Dif.g.   -------------------------------------------------- ( 1.solute)
+   .0000E+00   .0000E+00
+ Mat.     KS         Nu         Beta      Henry      SinkL1     SinkS1     SinkG1     SinkL1`    SinkS1`    SinkG1`    SinkL0     SinkS0     SinkG0      Alfa
+   1  .0000E+00  .0000E+00  .1000E+01  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00
+
+ No adsorption or linear adsorp. isotherm for material  1
+
+   Conc1     Conc2     Conc3     Conc4     cSink     cWell     Conc7     gAtm          d
+  .100E+01  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00     .0000
+
+ tPulse =           366.000

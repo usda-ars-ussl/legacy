@@ -1,0 +1,47 @@
+ Example 1 - Column Test                                                 
+ 
+ Program SWMS_3D
+ Date:   6. 3.    Time:  15:50:52
+ Time independent boundary conditions
+ Units: L = cm   , T = day  , M = -    
+
+ Max. number of iterations             20
+ Absolute water content tolerance [-]  .00010
+ Absolute pressure head tolerance [L]  .01000
+
+
+ MatNum,        thR    thS    tha    thm      alpha         n          Ks          Kk          thk
+
+    1           .050   .450   .050   .450    .410E+01    .200E+01    .500E+01    .500E+01    .450E+00
+
+
+ MatNum          Qe     Q        h         C         K
+ 
+    1          1.000   .450      .000   .73E-07    .500E+01
+    1           .990   .446     -.035   .23E+00    .367E+01
+    1           .900   .410     -.118   .58E+00    .151E+01
+    1           .850   .390     -.151   .62E+00    .103E+01
+    1           .750   .350     -.215   .61E+00    .496E+00
+    1           .650   .310     -.285   .53E+00    .232E+00
+    1           .500   .250     -.422   .36E+00    .635E-01
+    1           .350   .190     -.653   .19E+00    .118E-01
+    1           .200   .130    -1.195   .64E-01    .913E-03
+    1           .100   .090    -2.427   .16E-01    .397E-04
+
+ Solute transport information
+ ============================
+
+ Galerkin finite-element method
+
+ Artificial dispersion is added when Peclet number is higher than     2.000
+
+  Bulk.d.   Difus.         Disper.        Adsorp.    SinkL1    SinkS1    SinkL0    SinkS0
+  .140E+01  .100E-01  .100E+01  .250E+00  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00
+
+   Conc1     Conc2     Conc3     Conc4     Conc5     Conc6
+  .100E+01  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00
+
+   Conc7     Conc8     Conc9     Conc10    cWell     cSink
+  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00
+
+ tPulse =            50.000

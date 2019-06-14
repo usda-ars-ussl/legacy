@@ -1,0 +1,100 @@
+$
+
+     *******************************************************************
+     *                                                                 *
+     *     CXTFIT VERSION 2.1 (4/17/99)                                *
+     *     ANALYTICAL SOLUTIONS FOR ONE-DIMENSIONAL CDE                *
+     *     NON-LINEAR LEAST-SQUARES ANALYSIS                           *
+     *                                                                 *
+     *     Fig.7-12: FIELD-SCALE BROMIDE MOVEMENT (After JURY ET AL.,19*
+     *      (UNITS: MILIMETERS, DAYS, REDUCED C)                       *
+     *                                                                 *
+     *     DATA INPUT FILE:  Fig7-12.in                                *
+     *                                                                 *
+     *******************************************************************
+
+
+     MODEL DESCRIPTION
+     =================
+        STOCHASTIC EQUILIBRIUM CDE WITH VARIABLE V & Kd (MODE=3)
+         SD.v=SD.D, FIELD SCALE DISPERSIVITY IS CONSTANT ( =<D>/<V> )
+          <R> = 1+RHO*<Kd>/THETA =    1.0000,  RHO/THETA =    4.0000
+        ENSEMBLE AVERAGE OF RESIDENT CONCENTRATION (THIRD-TYPE INPUT)
+        REAL TIME (t), POSITION(x)
+          (D,V,mu, AND gamma ARE ALSO DIMENSIONAL)
+
+
+     INITIAL VALUES OF COEFFICIENTS
+     ==============================
+     NAME        INITIAL VALUE  FITTING   MIN VALUE     MAX VALUE
+      <V>......     .2500E+02      Y      .1000E+01     .1000E+03
+      <D>......     .5000E+02      Y      .1000E+01     .5000E+03
+      <Kd>.....     .0000E+00      N
+      mu1......     .0000E+00      N
+      SD.v.....     .5000E+00      Y      .1000E-01     .1500E+01
+      SD.Kd....     .0000E+00      N
+      SD.D.....     .5000E+00      N
+     RhovKd....     .0000E+00      N
+
+
+     BOUNDARY, INITIAL, AND PRODUCTION CONDITIONS
+     ===========================================
+       SINGLE PULSE OF CONC. =    1.0000 & DURATION =    1.6900
+         DURATION TIME IS CONSTANT FOE ALL TUBES
+       SOLUTE FREE INITIAL CONDITION
+       NO PRODUCTION TERM 
+
+
+     PARAMETER ESTIMATION MODE
+     =========================
+       MAXIMUM NUMBER OF ITERATIONS =   50
+
+
+     ITER     SSQ        <V>..     <D>..     SD.v.
+      0    .4168E-02  .250E+02  .500E+02  .500E+00
+      1    .7574E-03  .280E+02  .447E+02  .708E+00
+      2    .5286E-03  .296E+02  .154E+03  .757E+00
+      3    .5185E-03  .304E+02  .135E+02  .797E+00
+      4    .5182E-03  .305E+02  .306E+01  .802E+00
+      5    .5182E-03  .305E+02  .257E+01  .802E+00
+      6    .5182E-03  .305E+02  .255E+01  .802E+00
+      7    .5182E-03  .305E+02  .255E+01  .802E+00
+
+
+
+     COVARIANCE MATRIX FOR FITTED PARAMETERS
+     =======================================
+                <V>..  <D>..  SD.v.
+         <V>..  1.000
+         <D>.. -1.000  1.000
+         SD.v.  1.000 -1.000  1.000
+
+       RSQUARE FOR REGRESSION OF OBSERVED VS PREDICTED = .93395220
+          (COEFFICIENT OF DETERMINATION)
+
+       MEAN SQUARE FOR ERROR (MSE) =   .7403E-04
+
+
+     NON-LINEAR LEAST SQUARES ANALYSIS, FINAL RESULTS
+     ================================================
+
+                                                95% CONFIDENCE LIMITS
+      NAME      VALUE     S.E.COEFF. T-VALUE      LOWER        UPPER
+      <V>..  .3054E+02   .1873E+03 .1631E+00  -.4123E+03    .4734E+03
+      <D>..  .2549E+01   .5590E+05 .4560E-04  -.1322E+06    .1322E+06
+      SD.v.  .8024E+00   .7636E+01 .1051E+00  -.1725E+02    .1886E+02
+
+
+     ------------------ORDERED BY COMPUTER INPUT-------------------
+                                        CONCENTRATION         RESI-
+$    NO    DISTANCE       TIME        OBS        FITTED       DUAL
+      1    300.0000      5.0000       .0620       .0675      -.0055
+      2    300.0000     10.0000       .0760       .0813      -.0053
+      3    300.0000     15.0000       .0590       .0593      -.0003
+      4    300.0000     20.0000       .0380       .0400      -.0020
+      5    300.0000     25.0000       .0140       .0269      -.0129
+      6    300.0000     30.0000       .0070       .0183      -.0113
+      7    300.0000     35.0000       .0040       .0127      -.0087
+      8    300.0000     40.0000       .0030       .0090      -.0060
+      9    300.0000     45.0000       .0010       .0064      -.0054
+     10    300.0000     50.0000       .0000       .0047      -.0047

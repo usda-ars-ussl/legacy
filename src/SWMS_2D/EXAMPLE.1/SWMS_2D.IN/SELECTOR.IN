@@ -1,0 +1,29 @@
+*** BLOCK A: BASIC INFORMATION *****************************************
+Heading
+'Example 1 - Column Test'
+LUnit  TUnit  MUnit  BUnit     (units are obligatory for all input data)
+'cm'   'sec'  '-'    '-'
+Kat (0:horizontal plane, 1:axisymmetric vertical flow, 2:vertical plane)
+  2
+MaxIt   TolTh   TolH       (maximum number of iterations and tolerances)
+  20    .0001   0.01
+lWat	lChem	ChecF	ShortF  FluxF   AtmInF  SeepF  FreeD  DrainF
+ t	 f	  f      t       t       f       t      f      f
+*** BLOCK B: MATERIAL INFORMATION **************************************
+NMat    NLay    hTab1   hTabN   NPar
+  1      1      .001    200.     9
+thr     ths     tha     thm     Alfa    n       Ks      Kk      thk
+ .02    .350    .02     .350    .0410   1.964  .000722 .000695 .2875
+*** BLOCK C: TIME INFORMATION ******************************************
+dt      dtMin   dtMax   DMul    DMul2   MPL
+  1.    .01     60.     1.1     .33     6
+TPrint(1),TPrint(2),...,TPrint(MPL)                   (print-time array)
+ 60 900 1800 2700 3600 5400
+*** BLOCK E: SEEPAGE INFORMATION (only if SeepF =.true.) ***************
+NSeep                                          (number of seepage faces)
+  1
+NSP(1),NSP(2),.......,NSP(NSeep)          (number of nodes in each s.f.)
+  2
+NP(i,1),NP(i,2),.....,NP(i,NSP(i))     (nodal number array of i-th s.f.)
+  111     112
+*** END OF INPUT FILE 'SELECTOR.IN' ************************************

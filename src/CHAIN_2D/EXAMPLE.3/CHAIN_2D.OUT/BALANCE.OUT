@@ -1,0 +1,38 @@
+ Example 3a - Comparison with the 2-D analytical solution                       
+                      
+ 
+ Program CHAIN_2D
+ Time independent boundary conditions
+ Vertical plane flow, V = L*L
+ Units: L = m    , T = days , M = -    
+
+ Time [T]             Total     Sub-region number ...
+
+       .0000                      1
+ Area    [V]          .240E+05   .240E+05
+ Volume  [V]          .720E+04   .720E+04
+ InFlow  [V/T]        .000E+00   .000E+00
+ hMean   [L]          .000E+00         .0
+ ConcVol [VM/L3] 1    .000E+00   .000E+00
+ cMean   [M/L3]  1    .000E+00   .000E+00
+
+     50.0000                      1
+ Area    [V]          .240E+05   .240E+05
+ ConcVol [VM/L3] 1    .165E+03   .165E+03
+ cMean   [M/L3]  1    .229E-01   .229E-01
+ CncBalT [VM/L3] 1   -.275E+01
+ CncBalR [%]     1       1.639
+
+    100.0000                      1
+ Area    [V]          .240E+05   .240E+05
+ ConcVol [VM/L3] 1    .260E+03   .260E+03
+ cMean   [M/L3]  1    .361E-01   .361E-01
+ CncBalT [VM/L3] 1   -.488E+01
+ CncBalR [%]     1       1.845
+
+    365.0000                      1
+ Area    [V]          .240E+05   .240E+05
+ ConcVol [VM/L3] 1    .687E+03   .687E+03
+ cMean   [M/L3]  1    .955E-01   .955E-01
+ CncBalT [VM/L3] 1   -.887E+01
+ CncBalR [%]     1       1.274

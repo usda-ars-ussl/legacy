@@ -1,0 +1,140 @@
+ 6
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-14a; Nonequilibrium field-scale transport (MODE=4)
+    Negative correlation v-Kd (Alpha = 2.5), <cr>
+INVERSE    MODE     NREDU 
+   0         4        0   
+MODC       ZL
+   3      100.0
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+<V>   <D>   <Kd>   Omega   mu1   mu2  Sig-v  Sig-Kd Sig-D Rho-vKd Rho/theta
+ 50.   20.   1.0    20.0   0.0   0.0   0.5    0.2   0.0    -1.0   4.0
+*** BLOCK D: BVP; MODB=0 ZERO; =1 Delta FUNC.; =2 STEP; =3 A PULSE *******
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   1
+  1.0        0
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP     
+    0      
+*** BLOCK H: POSITION AND TIME FOR DIRECT PROBLEM ************************
+    NZ       DZ       ZI       NT       DT        TI       MPRINT
+   151      1.0      0.0        1       0.0       1.0       2
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-14a; Nonequilibrium field-scale transport (MODE=4)
+    Negative correlation v-Kd (Alpha = 2.5), <cT>
+INVERSE    MODE     NREDU 
+   0         4        0   
+MODC       ZL
+   4      100.0
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+<V>   <D>   <Kd>   Omega   mu1   mu2  Sig-v  Sig-Kd Sig-D Rho-vKd Rho/theta
+ 50.   20.   1.0    20.0   0.0   0.0   0.5    0.2   0.0    -1.0   4.0
+*** BLOCK D: BVP; MODB=0 ZERO; =1 Delta FUNC.; =2 STEP; =3 A PULSE *******
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   1
+  1.0        0
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP     
+    0      
+*** BLOCK H: POSITION AND TIME FOR DIRECT PROBLEM ************************
+    NZ       DZ       ZI       NT       DT        TI       MPRINT
+   151      1.0      0.0        1       0.0       1.0       2
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-14b; Nonequilibrium field-scale transport (MODE=4)
+    Negative correlation v-Kd (Alpha = 0.5), <cr>
+INVERSE    MODE     NREDU 
+   0         4        0   
+MODC       ZL
+   3      100.0
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+<V>   <D>   <Kd>   Omega   mu1   mu2  Sig-v  Sig-Kd Sig-D Rho-vKd  Rho/theta
+ 50.   20.   1.0    4.0   0.0   0.0   0.5    0.2   0.0    -1.0   4.0
+*** BLOCK D: BVP; MODB=0 ZERO; =1 Delta FUNC.; =2 STEP; =3 A PULSE *******
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   1
+  1.0        0
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP     
+    0      
+*** BLOCK H: POSITION AND TIME FOR DIRECT PROBLEM ************************
+    NZ       DZ       ZI       NT       DT        TI       MPRINT
+   151      1.0      0.0        1       0.0       1.0       2
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-14b; Nonequilibrium field-scale transport (MODE=4)
+    Negative correlation v-Kd (Alpha = 0.5), <cT>
+INVERSE    MODE     NREDU 
+   0         4        0   
+MODC       ZL
+   4      100.0
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+<V>   <D>   <Kd>   Omega   mu1   mu2  Sig-v  Sig-Kd Sig-D Rho-vKd  Rho/theta
+ 50.   20.   1.0    4.0   0.0   0.0   0.5    0.2   0.0    -1.0   4.0
+*** BLOCK D: BVP; MODB=0 ZERO; =1 Dirac FUNC.; =2 STEP; =3 A PULSE *******
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   1
+  1.0        0
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP     
+    0      
+*** BLOCK H: POSITION AND TIME FOR DIRECT PROBLEM ************************
+    NZ       DZ       ZI       NT       DT        TI       MPRINT
+   151      1.0      0.0        1       0.0       1.0       2
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-14c; Nonequilibrium field-scale transport (MODE=4)
+    Negative correlation v-Kd (Alpha = 0.1), <cr>
+INVERSE    MODE     NREDU 
+   0         4        0   
+MODC       ZL
+   3      100.0
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+<V>   <D>   <Kd>   Omega   mu1   mu2  Sig-v  Sig-Kd Sig-D Rho-vKd  Rho/theta
+ 50.   20.   1.0    0.8   0.0   0.0   0.5    0.2   0.0    -1.0   4.0
+*** BLOCK D: BVP; MODB=0 ZERO; =1 Delta FUNC.; =2 STEP; =3 A PULSE *******
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   1
+  1.0        0
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP     
+    0      
+*** BLOCK H: POSITION AND TIME FOR DIRECT PROBLEM ************************
+    NZ       DZ       ZI       NT       DT        TI       MPRINT
+   151      1.0      0.0        1       0.0       1.0       2
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-14c; Nonequilibrium field-scale transport (MODE=4)
+    Negative correlation v-Kd (Alpha = 0.1), <cT>
+INVERSE    MODE     NREDU 
+   0         4        0   
+MODC       ZL
+   4      100.0
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+<V>   <D>   <Kd>   Omega   mu1   mu2  Sig-v  Sig-Kd Sig-D Rho-vKd  Rho/theta
+ 50.   20.   1.0    0.8   0.0   0.0   0.5    0.2   0.0    -1.0   4.0
+*** BLOCK D: BVP; MODB=0 ZERO; =1 Delta FUNC.; =2 STEP; =3 A PULSE *******
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   1
+  1.0        0
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP     
+    0      
+*** BLOCK H: POSITION AND TIME FOR DIRECT PROBLEM ************************
+    NZ       DZ       ZI       NT       DT        TI       MPRINT
+   151      1.0      0.0        1       0.0       1.0       2
+

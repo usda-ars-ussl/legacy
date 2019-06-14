@@ -1,0 +1,94 @@
+4
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-6a. Two-site CDE (Alpha=0.08,f=1 one-site model, Beta=1/R)
+ Effect of the fraction of equilibrium site, f
+INVERSE    MODE      NREDU   
+   0         2         1     
+ MODC      ZL 
+   1       50
+*** BLOCK C: TRANSPORT PARAMETERS *(Omega=Alpha*(R-1)*ZL/v)***************
+    V      D      R    Beta     omega   Mu1      Mu2  
+   20.    10.    5.0   0.2      0.8     0.0      0.0
+** BLOCK D: BVP; MODB=0 ZERO; =1 Dirac; =2 STEP; =3 A PULSE  *************
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   1
+   1.0      
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP  
+    0    
+*** BLOCK H: POSITION AND TIME FOR DIRECT PROBLEM ************************
+    NZ       DZ       ZI       NT       DT        TI       MPRINT
+     1       1.0    50.0       101       0.2     0.0       1
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-6a. Two-site CDE (Alpha=0.08,f=0.7)
+ Effect of the fraction of equilibrium site, f
+INVERSE    MODE      NREDU   
+   0         2         1     
+ MODC      ZL 
+   1       50
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+    V      D      R    Beta     omega   Mu1      Mu2  
+   20.    10.    5.0   0.44     0.56    0.0      0.0
+** BLOCK D: BVP; MODB=0 ZERO; =1 Dirac; =2 STEP; =3 A PULSE  *************
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   1
+   1.0 
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP  
+    0    
+*** BLOCK H: POSITION AND TIME FOR DIRECT PROBLEM ************************
+    NZ       DZ       ZI       NT       DT        TI       MPRINT
+     1       1.0    50.0       101       0.2     0.0       1
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-6a. Two-site CDE (Alpha=0.08,f=0.7)
+ Effect of the fraction of equilibrium site, f
+INVERSE    MODE      NREDU   
+   0         2         1     
+ MODC      ZL 
+   1       50
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+    V      D      R    Beta     omega   Mu1      Mu2  
+   20.    10.    5.0   0.76      0.24     0.0      0.0
+** BLOCK D: BVP; MODB=0 ZERO; =1 Dirac; =2 STEP; =3 A PULSE  *************
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   1
+   1.0     
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP  
+    0    
+*** BLOCK H: POSITION AND TIME FOR DIRECT PROBLEM ************************
+    NZ       DZ       ZI       NT       DT        TI       MPRINT
+     1       1.0    50.0       101       0.2     0.0       1
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-6a. Two-site CDE (f=1, equilibrium CDE, MODE=1)
+ Effect of the fraction of equilibrium site, f
+INVERSE    MODE      NREDU 
+   0         1        1
+ MODC       ZL(BLANK IF MODE=NREDU=1)
+   1
+*** BLOCK C: TRANSOPRT PARAMETERS ****************************************
+    V         D         R       Mu 
+   20.0      10.0      5.0      0.0
+*** BLOCK D: BVP; MODB=0 ZERO; =1 delta FUNC.; =2 STEP; =3 A PULSE  ******
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   1
+   1.0  
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP 
+    0
+*** BLOCK H: POSITION AND TIME FOR DIRECT PROBLEM ************************
+    NZ       DZ       ZI       NT       DT        TI       MPRINT
+     1       1.0    50.0       101      0.2      0.0       1
+

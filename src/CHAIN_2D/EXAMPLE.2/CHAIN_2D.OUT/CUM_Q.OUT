@@ -1,0 +1,18 @@
+ Example 2 - Grass Field Problem (Hupselse Beek 1982)                           
+                      
+ 
+ Program CHAIN_2D
+ Time dependent boundary conditions
+ Vertical plane flow, V = L*L
+ Units: L = cm   , T = day  , M = -    
+ All cumulative fluxes (CumQ) are positive out of the region
+
+     Time     CumQAP      CumQRP     CumQA      CumQR     CumQ3       CumQ1      CumQS      CumQ5       CumQ6 ....
+      [T]       [V]         [V]       [V]        [V]       [V]         [V]        [V]        [V]         [V]
+
+    120.0000  -.276E+01   .512E+01  -.276E+01   .512E+01   .747E+00   .000E+00   .000E+00   .000E+00   .000E+00
+    151.0000  -.785E+01   .129E+02  -.785E+01   .129E+02   .120E+01   .000E+00   .000E+00   .000E+00   .000E+00
+    181.0000  -.161E+02   .208E+02  -.161E+02   .208E+02   .134E+01   .000E+00   .000E+00   .000E+00   .000E+00
+    212.0000  -.171E+02   .316E+02  -.171E+02   .316E+02   .145E+01   .000E+00   .000E+00   .000E+00   .000E+00
+    243.0000  -.226E+02   .391E+02  -.226E+02   .391E+02   .148E+01   .000E+00   .000E+00   .000E+00   .000E+00
+    273.0000  -.254E+02   .444E+02  -.254E+02   .443E+02   .149E+01   .000E+00   .000E+00   .000E+00   .000E+00

@@ -1,0 +1,16 @@
+ Example 5 - Solute Transport with Nonlinear Cation Adsorption - Freundlich isot
+ erm                  
+ 
+ Program CHAIN_2D
+ Time independent boundary conditions
+ Vertical plane flow, V = L*L
+ Units: L = cm   , T = day  , M = -    
+
+
+ TLevel   Time         dt     IterC   Peclet  Courant
+
+   75    .500E+01    .193E+00    3      .092      .811
+   93    .100E+02    .299E+00    2      .092      .914
+  108    .150E+02    .334E+00    4      .092      .909
+  190    .200E+02    .420E-01    2      .092      .968
+  329    .250E+02    .198E-01    2      .092      .633

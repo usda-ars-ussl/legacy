@@ -1,0 +1,22 @@
+*** INPUT FILE 'GENER3.IN' *********************************************
+Aniz1  Aniz2  Aniz3   --- CosAngle ---        (Anisotrophy Informations)
+  1.     1.     1.    1  1  1  0  0  0
+NLinZ  NColX  NColY   (Number of nodal points in a particular direction)
+  56     2     2
+xCol(1)yCol(1)z(NLin)      (x,y,z-coordinates of front left bottom node)
+  0      0       0
+*** SPACE INCREMENTS ***************************************************
+dx-array (number of items is NColX-1):
+  1
+dy-array (number of items is NColY-1):
+  1
+dz-array (number of items is NLinZ-1):
+  4*.25  2*.5  39*1  10*2
+*** LINE ATTRIBUTES ****************************************************
+LineNumber  Code  hInit   Conc  Q    MatNum  Beta  Axz  Bxz  Dxz
+  1          1      .75    0.   0.     1     0.     1.   1.   1.
+  2          0     -150    0.   0.     1     0.     1.   1.   1.
+  55         0     -150    0.   0.     1     0.     1.   1.   1.
+  56        -2     -150    0.   0.     1     0.     1.   1.   1.
+*** END OF INPUT FILE 'GENER3.IN' **************************************
+  

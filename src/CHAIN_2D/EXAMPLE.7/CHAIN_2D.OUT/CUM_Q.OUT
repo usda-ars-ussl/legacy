@@ -1,0 +1,18 @@
+ Example 7 - Water and Solute Infiltration Test                                 
+                      
+ 
+ Program CHAIN_2D
+ Time independent boundary conditions
+ Axisymmetric flow, V = L*L*L
+ Units: L = cm   , T = min  , M = -    
+ All cumulative fluxes (CumQ) are positive out of the region
+
+     Time     CumQAP      CumQRP     CumQA      CumQR     CumQ3       CumQ1      CumQS      CumQ5       CumQ6 ....
+      [T]       [V]         [V]       [V]        [V]       [V]         [V]        [V]        [V]         [V]
+
+    720.0000   .000E+00   .000E+00   .000E+00   .000E+00   .000E+00  -.223E+05   .000E+00  -.274E+04   .000E+00
+   1440.0000   .000E+00   .000E+00   .000E+00   .000E+00   .000E+00  -.423E+05   .000E+00  -.264E+04   .000E+00
+   3600.0000   .000E+00   .000E+00   .000E+00   .000E+00   .000E+00  -.102E+06   .000E+00   .295E+05   .000E+00
+   7200.0000   .000E+00   .000E+00   .000E+00   .000E+00   .000E+00  -.201E+06   .000E+00   .118E+06   .000E+00
+  10800.0000   .000E+00   .000E+00   .000E+00   .000E+00   .000E+00  -.300E+06   .000E+00   .214E+06   .000E+00
+  14400.0000   .000E+00   .000E+00   .000E+00   .000E+00   .000E+00  -.399E+06   .000E+00   .312E+06   .000E+00

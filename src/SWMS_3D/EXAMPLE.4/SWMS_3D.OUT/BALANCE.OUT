@@ -1,0 +1,124 @@
+ Example 1 - Column Test                                                 
+ 
+ Program SWMS_3D
+ Date:   6. 3.    Time:  15:50:52
+ Time independent boundary conditions
+ Units: L = cm   , T = day  , M = -    
+
+ Time [T]             Total     Sub-region number ...
+
+       .0000                      1
+ Volume  [L3]      .494E+06   .494E+06
+ Water   [L3]      .171E+06   .171E+06
+ InFlow  [L3/T]    .000E+00   .000E+00
+ hMean   [L]       .800E+01        8.0
+ ConcVol [M]       .000E+00   .000E+00
+ cMean   [M/L3]    .000E+00   .000E+00
+
+       .2500                      1
+ Volume  [L3]      .494E+06   .494E+06
+ Water   [L3]      .171E+06   .171E+06
+ InFlow  [L3/T]    .168E+03   .168E+03
+ hMean   [L]       .781E+01        7.8
+ ConcVol [M]       .276E+03   .276E+03
+ cMean   [M/L3]    .167E-02   .167E-02
+ WatBalT [L3]      .218E+00
+ WatBalR [%]           .045
+ CncBalT [M]       .293E+02
+ CncBalR [%]         10.619
+
+      1.5000                      1
+ Volume  [L3]      .494E+06   .494E+06
+ Water   [L3]      .172E+06   .172E+06
+ InFlow  [L3/T]    .360E+03   .360E+03
+ hMean   [L]       .780E+01        7.8
+ ConcVol [M]       .183E+04   .183E+04
+ cMean   [M/L3]    .964E-02   .964E-02
+ WatBalT [L3]      .188E+00
+ WatBalR [%]           .006
+ CncBalT [M]       .651E+02
+ CncBalR [%]          3.565
+
+      5.0000                      1
+ Volume  [L3]      .494E+06   .494E+06
+ Water   [L3]      .172E+06   .172E+06
+ InFlow  [L3/T]    .165E+02   .165E+02
+ hMean   [L]       .797E+01        8.0
+ ConcVol [M]       .569E+04   .569E+04
+ cMean   [M/L3]    .286E-01   .286E-01
+ WatBalT [L3]      .124E+00
+ WatBalR [%]           .001
+ CncBalT [M]       .895E+02
+ CncBalR [%]          1.572
+
+     10.0000                      1
+ Volume  [L3]      .494E+06   .494E+06
+ Water   [L3]      .172E+06   .172E+06
+ InFlow  [L3/T]   -.598E+01  -.598E+01
+ hMean   [L]       .802E+01        8.0
+ ConcVol [M]       .107E+05   .107E+05
+ cMean   [M/L3]    .527E-01   .527E-01
+ WatBalT [L3]      .140E+00
+ WatBalR [%]           .001
+ CncBalT [M]       .902E+02
+ CncBalR [%]           .843
+
+     20.0000                      1
+ Volume  [L3]      .494E+06   .494E+06
+ Water   [L3]      .172E+06   .172E+06
+ InFlow  [L3/T]    .217E+02   .217E+02
+ hMean   [L]       .805E+01        8.1
+ ConcVol [M]       .198E+05   .198E+05
+ cMean   [M/L3]    .958E-01   .958E-01
+ WatBalT [L3]     -.153E+00
+ WatBalR [%]           .000
+ CncBalT [M]       .839E+02
+ CncBalR [%]           .424
+
+     30.0000                      1
+ Volume  [L3]      .494E+06   .494E+06
+ Water   [L3]      .172E+06   .172E+06
+ InFlow  [L3/T]    .120E+02   .120E+02
+ hMean   [L]       .808E+01        8.1
+ ConcVol [M]       .278E+05   .278E+05
+ cMean   [M/L3]    .134E+00   .134E+00
+ WatBalT [L3]      .105E-01
+ WatBalR [%]           .000
+ CncBalT [M]       .838E+02
+ CncBalR [%]           .301
+
+     50.0000                      1
+ Volume  [L3]      .494E+06   .494E+06
+ Water   [L3]      .172E+06   .172E+06
+ InFlow  [L3/T]    .255E+01   .255E+01
+ hMean   [L]       .810E+01        8.1
+ ConcVol [M]       .418E+05   .418E+05
+ cMean   [M/L3]    .200E+00   .200E+00
+ WatBalT [L3]     -.555E+01
+ WatBalR [%]           .005
+ CncBalT [M]       .925E+02
+ CncBalR [%]           .221
+
+    100.0000                      1
+ Volume  [L3]      .494E+06   .494E+06
+ Water   [L3]      .172E+06   .172E+06
+ InFlow  [L3/T]    .391E-01   .391E-01
+ hMean   [L]       .811E+01        8.1
+ ConcVol [M]       .283E+05   .283E+05
+ cMean   [M/L3]    .133E+00   .133E+00
+ WatBalT [L3]     -.276E+02
+ WatBalR [%]           .012
+ CncBalT [M]       .301E+01
+ CncBalR [%]           .011
+
+    200.0000                      1
+ Volume  [L3]      .494E+06   .494E+06
+ Water   [L3]      .172E+06   .172E+06
+ InFlow  [L3/T]    .109E+00   .109E+00
+ hMean   [L]       .811E+01        8.1
+ ConcVol [M]       .116E+05   .116E+05
+ cMean   [M/L3]    .556E-01   .556E-01
+ WatBalT [L3]     -.217E+02
+ WatBalR [%]           .005
+ CncBalT [M]      -.378E+02
+ CncBalR [%]           .307

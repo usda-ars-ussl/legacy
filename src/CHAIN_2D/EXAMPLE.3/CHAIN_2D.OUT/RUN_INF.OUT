@@ -1,0 +1,14 @@
+ Example 3a - Comparison with the 2-D analytical solution                       
+                      
+ 
+ Program CHAIN_2D
+ Time independent boundary conditions
+ Vertical plane flow, V = L*L
+ Units: L = m    , T = days , M = -    
+
+
+ TLevel   Time         dt     IterC   Peclet  Courant
+
+   11    .500E+02    .867E+01    1     2.500      .173
+   14    .100E+03    .188E+02    1     2.500      .375
+   21    .365E+03    .343E+02    1     2.500      .686

@@ -1,0 +1,541 @@
+C    -----------------------------------------------------------
+      SUBROUTINE STOCDE(C1,C2,VAR1,VAR2)
+C
+C       PURPOSE: ROUTE EXECUTION FOR STOCHASTC MODELS 
+C
+      IMPLICIT REAL*8(A-H,O-Z)
+C
+C
+      COMMON MODC,MM,A,B,DA,CX,P,BETA,BETR,OMEGA,R,DMU1,DMU2,MODE,
+     &      MCON,TT,ZZ,STOPER,LEVEL,ICHEB
+      COMMON/MODAT/INDEX(15),INVERSE,NREDU,NVAR,ZL,MIT,MDEG,MASS,
+     &     DUMTP(50),DUMGA1(50),MNEQ,ISKIP,PHIM,PHIIM
+      COMMON/STOCH/MODD,MODK,MODS,MSTOCH,CORR,MCORR,MSD,SDLNK,
+     & V,SDLNV,VMAX,VMIN,D,AVEY,SDLNY,YMAX,YMIN,ALPHA,SDLND
+     & ,DK,RHOTH,MD56,MK34,MAL8
+      COMMON/BOUN/MODB,NPULSE,TPULSE(50),PULSE(50),MASSST
+      COMMON/INITI/MODI,NINI,CINI(50),ZINI(50)
+      COMMON/PROD/MODP,NPRO1,NPRO2,GAMMA1(50),ZPRO1(50),GAMMA2(50),
+     &    ZPRO2(50)
+      EXTERNAL CONPROV,CONPROY
+C
+      MODS=MODE
+      C1=0.0
+      C2=0.0
+      VAR1=0.0
+      VAR2=0.0
+      C12=0.0
+      C22=0.0
+C 
+      IF(MOD(MODE,2).EQ.1) MODE=1
+      IF(MOD(MODE,2).EQ.0) MODE=2                                    
+C
+C  INTM: Calculation control code for the numerical integration 
+C      INTM=1 log-transformed Romberg
+C          =2 log-transformed Gauss-Chebyshev (current setting)
+       INTM=1
+C
+C    MCON=0 CALUCULATE PHASE1 & PHASE2 FOR TOTAL RESIDENT CONC.
+C    MCON=1            PHASE1 ONLY
+C    MCON=2            PHASE2 ONLY
+C
+C  MSD;  Calculation control code for ensemble averages 
+C    MSD=0  <C>
+C    MSD=1  <C*C>
+C    (If INVERSE=-1, skip VARIANCE.)
+        MCON=1
+      IF(MODC.EQ.4.OR.MODC.EQ.6) MCON=0
+      IF(MSTOCH.EQ.1.OR.MSTOCH.EQ.3) THEN
+        IF(INTM.EQ.2 ) THEN
+           MSD=0
+           CALL CHEBYLOG2(CONPROV,C1,VMIN,VMAX)
+              IF(INVERSE.EQ.0) THEN
+                 MSD=1
+                 CALL CHEBYLOG2(CONPROV,C12,VMIN,VMAX)
+              END IF
+         ELSE
+           MSD=0
+           CALL ROMB(CONPROV,C1,VMIN,VMAX)
+              IF(INVERSE.EQ.0) THEN
+                 MSD=1
+                 CALL ROMB(CONPROV,C12,VMIN,VMAX)
+              END IF
+        END IF
+C 
+        IF(MODC.EQ.4.OR.MODC.EQ.6) GO TO 10
+C 
+       IF(MODE.EQ.2) THEN
+        MCON=2
+C
+          IF(INTM.EQ.2 ) THEN
+            MSD=0
+            CALL CHEBYLOG2(CONPROV,C2,VMIN,VMAX)
+              IF(INVERSE.EQ.0) THEN
+                 MSD=1
+                 CALL CHEBYLOG2(CONPROV,C22,VMIN,VMAX)
+              END IF
+           ELSE
+             MSD=0
+             CALL ROMB(CONPROV,C2,VMIN,VMAX)
+               IF(INVERSE.EQ.0) THEN
+                  MSD=1
+                  CALL ROMB(CONPROV,C22,VMIN,VMAX)
+               END IF
+           END IF
+       END IF
+C
+       GO TO 10
+      END IF
+C
+      IF(MSTOCH.EQ.2.OR.MSTOCH.EQ.4) THEN
+        IF(INTM.EQ.2) THEN
+           MSD=0
+           CALL CHEBYLOG2(CONPROY,C1,YMIN,YMAX)
+              IF(INVERSE.EQ.0) THEN
+                 MSD=1
+                 CALL CHEBYLOG2(CONPROY,C12,YMIN,YMAX)
+              END IF
+         ELSE
+           MSD=0
+           CALL ROMB2(CONPROY,C1,YMIN,YMAX)
+              IF(INVERSE.EQ.0) THEN
+                 MSD=1
+                 CALL ROMB2(CONPROY,C12,YMIN,YMAX)
+              END IF
+        END IF
+C 
+         IF(MODC.EQ.4.OR.MODC.EQ.6) GO TO 10
+C
+         IF(MODE.EQ.2) THEN
+           MCON=2
+          IF(INTM.EQ.2) THEN
+            MSD=0
+            CALL CHEBYLOG2(CONPROY,C2,YMIN,YMAX)
+              IF(INVERSE.EQ.0) THEN
+                 MSD=1
+                 CALL CHEBYLOG2(CONPROY,C22,YMIN,YMAX)
+              END IF
+          ELSE
+           MSD=0
+           CALL ROMB2(CONPROY,C2,YMIN,YMAX)
+              IF(INVERSE.EQ.0) THEN
+                 MSD=1
+                 CALL ROMB2(CONPROY,C22,YMIN,YMAX)
+              END IF
+          END IF
+         END IF
+C 
+      END IF
+C
+  10  IF(INVERSE.EQ.0) THEN
+         VAR1=C12-C1*C1
+         VAR2=C22-C2*C2
+      END IF
+      MODE=MODS
+C
+      RETURN
+      END
+C     ------------------------------------------------------------------
+      REAL*8 FUNCTION CONPROV(V)
+C
+C     PURPOSE: CALCULATE ARGUMENT OF STOCHASTIC MODELS 
+C                  FOR A LOG-NORMAL VELOCITY DISTRIBUTION 
+C
+      IMPLICIT REAL*8(A-H,O-Z)
+      DIMENSION SGAMMA1(50),SGAMMA2(50),STPULSE(50)
+      COMMON MODC,MM,A,B,DA,CX,P,BETA,BETR,OMEGA,R,DMU1,DMU2,MODE,
+     &       MCON,TT,ZZ,STOPER,LEVEL,ICHEB
+      COMMON/MODAT/INDEX(15),INVERSE,NREDU,NVAR,ZL,MIT,MDEG,MASS,
+     &     DUMTP(50),DUMGA1(50),MNEQ,ISKIP,PHIM,PHIIM
+      COMMON/STOCH/MODD,MODK,MODS,MSTOCH,CORR,MCORR,MSD,SDLNK,
+     & AVEV,SDLNV,VMAX,VMIN,D,AVEY,SDLNY,YMAX,YMIN,ALPHA,SDLND
+     & ,DK,RHOTH,MD56,MK34,MAL8
+      COMMON/BOUN/MODB,NPULSE,TPULSE(50),PULSE(50),MASSST
+      COMMON/PROD/MODP,NPRO1,NPRO2,GAMMA1(50),ZPRO1(50),GAMMA2(50),
+     &   ZPRO2(50)
+C
+C    SAVE ORIGINAL PARAMETER VALUES
+C
+      T=TT
+      MMODE=MODE
+      SD=D
+      SP=P
+      SR=R
+      SDK=DK
+      SBETA=BETA
+      SBETR=BETR
+      IF(MODS.EQ.8) SALPHA=ALPHA
+      SOMEGA=OMEGA
+      SDMU1=DMU1
+      SDMU2=DMU2
+      SPULSE=PULSE(1)
+      DO 10 I=1,10
+      STPULSE(I)=TPULSE(I)
+      SGAMMA1(I)=GAMMA1(I)
+      SGAMMA2(I)=GAMMA2(I)
+   10 CONTINUE
+C
+      IF(DABS(V).LT.1.D-30) V=AVEV*1.D-30  
+C
+C  -----------------------------------------------------------
+C   ASSIGN NONDIMENTIONAL PARAMETERS TO EACH STREAM TUBE
+C  ------------------------------------------------------------    
+      TT=T/AVEV*V
+C
+C ----- D & P -----------------------------------------
+      M56=0
+      IF(MODS.EQ.5.OR.MODS.EQ.6) THEN
+          M56=1
+          SDLND=SDLNY
+      END IF
+      IF((M56.EQ.1.AND.MSTOCH.NE.3).OR.
+     &             (M56.EQ.0.AND.MODD.EQ.0)) THEN
+       P=P/AVEV*V
+      ELSE IF((M56.EQ.1.AND.MCORR.EQ.1).OR.
+     &       (M56.EQ.0.AND.MODD.GE.1)) THEN
+       D=(V/AVEV)**(SDLND/SDLNV)*SD*DBEXP(0.5*(SDLNV-SDLND)*SDLND)
+        P=P/AVEV*V*SD/D
+      ELSE IF((M56.EQ.1.AND.MCORR.EQ.-1).OR.
+     &       (M56.EQ.0.AND.MODD.LE.-1)) THEN
+       D=(V/AVEV)**(-SDLND/SDLNV)*SD*DBEXP(0.5*(-SDLNV-SDLND)*SDLND)
+        P=P/AVEV*V*SD/D
+      END IF
+C
+C -----  Kd & R -----------------------------------------
+      M34=0
+      IF(MODS.EQ.3.OR.MODS.EQ.4) THEN
+         M34=1
+         SDLNK=SDLNY
+      END IF
+      IF((M34.EQ.1.AND.MSTOCH.NE.3).OR.(M34.EQ.0.AND.MODK.EQ.0)) THEN
+         GO TO 12
+      ELSE IF((M34.EQ.1.AND.MCORR.EQ.1).OR.
+     &       (M34.EQ.0.AND.MODK.GE.1)) THEN
+        DK=(V/AVEV)**(SDLNK/SDLNV)*SDK*DBEXP(0.5*(SDLNV-SDLNK)*SDLNK)
+        R=1.0+RHOTH*DK
+      ELSE IF((M34.EQ.1.AND.MCORR.EQ.-1).OR.
+     &       (M34.EQ.0.AND.MODK.LE.-1)) THEN
+        DK=(V/AVEV)**(-SDLNK/SDLNV)*SDK*DBEXP(0.5*(-SDLNV-SDLNK)*SDLNK)
+        R=1.0+RHOTH*DK
+      END IF
+C ----- MODE 4,6,8 ONE-SITE MODEL(MNEQ=1)
+C        MODS(=MODE) (SEE SUBROUTINE STOCDE)  
+      IF(MNEQ.EQ.1) THEN
+         DMU2=DMU2/(SR-1.0)*(R-1.0)
+         BETA=1.0/R
+         OMEGA=OMEGA/(SR-1.0)*(R-1.0)
+      END IF
+C ------ MODE 3,5 EQUILIBRIUM CDE 
+C    DECAY COEFFICIENTS ARE SAME BOTH IN LIQUID AND SORBED PHASES.
+      IF(MODS.EQ.3.OR.MODS.EQ.5) THEN
+         DMU1=DMU1/SR*R
+      END IF
+C
+C ------- ALPHA FOR MODE 8 ------------------------------
+   12 IF(MODS.EQ.8.AND.MSTOCH.EQ.3) THEN
+        IF(MCORR.EQ.1) THEN
+        ALPHA=(V/AVEV)**(SDLNY/SDLNV)*SALPHA*
+     &             DBEXP(0.5*(SDLNV-SDLNY)*SDLNY)
+        ELSE IF(MCORR.EQ.-1) THEN
+          ALPHA=(V/AVEV)**(-SDLNY/SDLNV)*SALPHA*
+     &             DBEXP(0.5*(-SDLNV-SDLNY)*SDLNY)
+        END IF
+          OMEGA=SOMEGA/SALPHA*ALPHA
+      END IF
+C
+      OMEGA=OMEGA/V*AVEV
+      DMU1=DMU1/V*AVEV
+      DMU2=DMU2/V*AVEV
+      DO 20 I=1,10
+      TPULSE(I)=TPULSE(I)/AVEV*V
+      GAMMA1(I)=GAMMA1(I)/V*AVEV
+      GAMMA2(I)=GAMMA2(I)/V*AVEV
+   20 CONTINUE
+      IF(MODB.EQ.1.AND.MASSST.NE.1) PULSE(1)=PULSE(1)/AVEV*V
+      IF(MODB.EQ.3.AND.MASSST.EQ.1) TPULSE(2)=STPULSE(2)
+C      
+C    CALUCULATE CONCENTRAION FOR PARTICULAR SETS OF PARAMETER VALUES      
+C
+      CALL DETCDE(C1,C2)
+      IF(MCON.EQ.1) THEN
+        C=C1
+C Total resident conc.        
+      ELSE IF(MCON.EQ.0) THEN
+        C=C1*BETA*R+C2*(1.0-BETA)*R
+      ELSE IF(MCON.EQ.2) THEN
+C dimensional nonequilibrium conc <c2>      
+        IF(NREDU.EQ.0) THEN
+         C=C2*DK
+C dimensionless nonequilibrium conc <c2/Kd>      
+        ELSE
+         C=C2
+        END IF
+      END IF
+C
+C    CALUCULATE LOGNORMAL PDF
+C
+      IF (MSTOCH.EQ.4.AND.MCORR.NE.0) THEN
+        IF(MODS.EQ.3.OR.MODS.EQ.4) THEN
+          PROB=BLNPROB(V,AVEV,SDLNV,SDK,AVEY,SDLNY,CORR)
+        ELSE IF(MODS.EQ.5.OR.MODS.EQ.6) THEN
+          PROB=BLNPROB(V,AVEV,SDLNV,SD,AVEY,SDLNY,CORR)
+        ELSE IF(MODS.EQ.8) THEN
+          PROB=BLNPROB(V,AVEV,SDLNV,SALPHA,AVEY,SDLNY,CORR)
+        END IF
+      ELSE
+      PROB=XLNPROB(V,AVEV,SDLNV)
+      END IF
+C
+C     CONPROV = ARGUMENT FOR NUMERICAL INTEGRATION
+C      
+      IF(MSD.EQ.0) THEN
+        IF(MODC.EQ.2) THEN
+          CONPROV=PROB*C*V/AVEV
+        ELSE 
+          CONPROV=PROB*C
+        END IF
+      ELSE
+        IF(MODC.EQ.2) THEN
+          CONPROV=PROB*C*C*V*V/AVEV/AVEV
+        ELSE 
+          CONPROV=PROB*C*C
+        END IF
+      END IF
+C
+C    RETURN PARAMETER VALUES TO ORIGINAL
+C
+      TT=T
+      MODE=MMODE
+      P=SP
+      D=SD
+      IF(MODS.EQ.8) ALPHA=SALPHA
+      R=SR
+      DK=SDK
+      BETA=SBETA
+      BETR=SBETR
+      OMEGA=SOMEGA
+      DMU1=SDMU1
+      DMU2=SDMU2
+      PULSE(1)=SPULSE
+      DO 30 I=1,10
+      TPULSE(I)=STPULSE(I)
+      GAMMA1(I)=SGAMMA1(I)
+      GAMMA2(I)=SGAMMA2(I)
+   30 CONTINUE
+C
+      RETURN
+      END
+C
+C     ------------------------------------------------------------------
+      REAL*8 FUNCTION CONPROY(Y)
+C
+C     PURPOSE: CALCULATE ARGUMENT OF STOCHASTIC MODELS 
+C       FOR A LOG-NORMAL DISTRIBUTION OF ANOTHER PARAMETER (v,D,K,alpha)  
+C
+      IMPLICIT REAL*8(A-H,O-Z)
+      COMMON MODC,MM,A,B,DA,CX,P,BETA,BETR,OMEGA,R,DMU1,DMU2,MODE,
+     & MCON,TT,ZZ,STOPER,LEVEL,ICHEB
+      COMMON/MODAT/INDEX(15),INVERSE,NREDU,NVAR,ZL,MIT,MDEG,MASS,
+     & DUMTP(50),DUMGA1(50),MNEQ,ISKIP,PHIM,PHIIM
+      COMMON/STOCH/MODD,MODK,MODS,MSTOCH,CORR,MCORR,MSD,SDLNK,
+     & AVEV,SDLNV,VMAX,VMIN,D,AVEY,SDLNY,YMAX,YMIN,ALPHA,SDLND
+     & ,DK,RHOTH,MD56,MK34,MAL8
+      COMMON/BOUN/MODB,NPULSE,TPULSE(50),PULSE(50),MASSST
+      COMMON/PROD/MODP,NPRO1,NPRO2,GAMMA1(50),ZPRO1(50),GAMMA2(50),
+     & ZPRO2(50)
+      EXTERNAL CONPROV
+C
+C    SAVE ORIGINAL PARAMETER VALUES
+C
+
+      MMODE=MODE
+      SP=P
+      SDK=DK
+      SDD=D
+      SALPHA=ALPHA
+      SR=R
+      SBETA=BETA
+      SBETR=BETR
+      SOMEGA=OMEGA
+      SDMU1=DMU1
+      SDMU2=DMU2
+      IF(MODS.EQ.3.OR.MODS.EQ.4) THEN
+        AVEY=DK
+        DK=Y
+      END IF
+      IF(MODS.EQ.5.OR.MODS.EQ.6) THEN
+        AVEY=D
+        D=Y
+      END IF
+      IF(MODS.EQ.8) THEN
+        AVEY=ALPHA
+        ALPHA=Y
+      END IF
+C
+C  
+C   ASSIGN NONDIMENTIONAL PARAMETERS TO EACH STREAM TUBE
+C      
+C ------ MODE 3 EQUILIBRIUM CDE 
+C    DECAY COEFFICIENTS ARE SAME BOTH IN LIQUID AND SORBED PHASES.
+      IF(MODS.EQ.3.OR.MODS.EQ.4) THEN
+        R=1+RHOTH*DK
+        IF(MNEQ.EQ.1) THEN
+          DMU2=DMU2/(SR-1.0)*(R-1.0)
+          BETA=1.0/R
+          OMEGA=OMEGA/(SR-1.0)*(R-1.0)
+        END IF 
+        IF(MODS.EQ.3) DMU1=DMU1/SR*R
+      END IF
+      IF(MODS.EQ.5.OR.MODS.EQ.6) THEN
+      P=P*SDD/D
+      END IF
+      IF(MODS.EQ.8) THEN
+      OMEGA=OMEGA/SALPHA*ALPHA
+      END IF
+C
+      PROB=XLNPROB(Y,AVEY,SDLNY)
+
+C      
+C    CALUCULATE CONCENTRAION FOR PARTICULAR SETS OF PARAMETER VALUES      
+C
+C  MSTOCH=2; ONLY Y is stocahstic    
+      IF(MSTOCH.EQ.2) THEN
+C      
+        CALL DETCDE(C1,C2)
+C
+        IF(MCON.EQ.1) THEN
+           C=C1
+          ELSE IF(MCON.EQ.0) THEN
+           C=C1*BETA*R+C2*(1.0-BETA)*R
+          ELSE IF(MCON.EQ.2) THEN
+          IF(NREDU.EQ.0) THEN
+               C=C2*DK
+             ELSE
+               C=C2
+             END IF
+          END IF
+C
+C     CONPROY = ARGUMENT FOR NEMERICAL INTEGRATION
+C      
+
+        IF(MSD.EQ.0) THEN
+          CONPROY=PROB*C
+        ELSE
+          CONPROY=PROB*C*C
+        END IF
+      END IF
+C
+C  MSTOCH=4; Both v and Y are stocahstic    
+      IF(MSTOCH.EQ.4) THEN
+        CALL ROMB(CONPROV,C,VMIN,VMAX)
+          IF(MCORR.EQ.0) THEN
+            CONPROY=C*PROB
+          ELSE IF(MCORR.EQ.2) THEN
+            CONPROY=C
+          END IF
+      END IF
+CC
+C    RETURN PARAMETER VALUES TO ORIGINAL
+C
+      MODE=MMODE
+      P=SP
+      DK=SDK
+      D=SDD
+      ALPHA=SALPHA
+      R=SR
+      BETA=SBETA
+      BETR=BETA*R
+      OMEGA=SOMEGA
+      DMU1=SDMU1
+      DMU2=SDMU2
+C
+      RETURN
+      END
+C     ------------------------------------------------------------------
+      SUBROUTINE LIMIT(X,SDLNX,XMIN1,XMAX1)
+C
+C     PURPOSE:  TO CALCULATE INTEGRATION LIMITS FOR A LOG-NORMAL 
+C        DISTRIBUTION FOR STOCHASTIC MODELS USING NEWTON-RAPHSON METHOD
+C
+      IMPLICIT REAL*8 (A-H,O-Z)
+      COMMON/STOCH/MODD,MODK,MODS,MSTOCH,CORR,MCORR,MSD,SDLNK,
+     &  V,SDLNV,VMAX,VMIN,D,AVEY,SDLNY,YMAX,YMIN,ALPHA,SDLND
+     & ,DK,RHOTH,MD56,MK34,MAL8
+C
+C     XMOD; MODE(MOST PROBABLE VALUE)
+C     Initial value for NR method
+C      XMIN mode - mode*standard deviation
+C      XMAX mode + mode*standard deviation
+      XLNM=DLOG(X)-0.5*SDLNX*SDLNX
+      XMOD=DBEXP(XLNM-SDLNX*SDLNX)
+      XMIN1=DMAX1(1.D-5,XMOD-XMOD*SDLNX)
+      XMAX1=XMOD+XMOD*SDLNX
+      CMIN=1.D-07
+C     ----- CALCULATE XMIN -----
+      DO 4 I=1,15
+      CLST=XLNPROB(XMIN1,X,SDLNX)
+C      WRITE(*,*) I,CLST,XMIN1
+C     WRITE(7,*) I,CLST,XMIN1
+      IF(CLST.LT.CMIN) GOTO 20
+      SLOPE=-CLST/(2.0*SDLNX*SDLNX*XMIN1)*(DLOG(XMIN1)-XLNM+SDLNX*SDLNX)
+      XMIN1=XMIN1-CLST/SLOPE
+      IF(XMIN1.LE.0.0) THEN
+       XMIN1=1.0D-30
+       GOTO 20
+      END IF
+    4 CONTINUE
+      WRITE(*,100)
+      WRITE(7,100)
+  100 FORMAT('   WARNING ! OUT OF RANGE (LOWER LIMIT)')
+C
+C     ----- CALCULATE VMAX -----
+   20 DO 5 I=1,15
+      CLST=XLNPROB(XMAX1,X,SDLNX)
+c      WRITE(*,*) I,CLST,XMAX1
+      IF(CLST.LT.CMIN) GOTO 30
+      SLOPE=-CLST/(2.0*SDLNX*SDLNX*XMAX1)*(DLOG(XMAX1)-XLNM+SDLNX*SDLNX)
+      XMAX1=XMAX1-CLST/SLOPE
+    5 CONTINUE
+      WRITE(*,101)
+      WRITE(7,101)
+  101 FORMAT('   WARNING ! OUT OF RANGE FOR (UPPER LIMIT)')
+C
+   30 RETURN
+      END
+C
+C     ------------------------------------------------------------------
+      REAL*8 FUNCTION XLNPROB(X,AVEX,SDLNX)
+C
+C     PURPOSE: SINGLE LOG-NORMAL DISTRIBUTION
+C
+      IMPLICIT REAL*8(A-H,O-Z)
+C
+       PI=3.14159265
+       DPI=DSQRT(2*PI)
+       XLNM=DLOG(AVEX)-0.5*SDLNX*SDLNX
+       XLN=DLOG(X)
+       ARG=(XLN-XLNM)*(XLN-XLNM)/(2.*SDLNX*SDLNX)
+       XLNPROB=DBEXP(-ARG)/(DPI*SDLNX*X)
+C
+      RETURN
+      END
+C
+C     ------------------------------------------------------------------
+      REAL*8 FUNCTION BLNPROB(X,AVEX,SDLNX,Y,AVEY,SDLNY,RHO)
+C
+C     PURPOSE: BIVARIATE LOG-NORMAL DISTRIBUTION
+C
+      IMPLICIT REAL*8(A-H,O-Z)
+C
+       PI=3.14159265
+       XLNM=DLOG(AVEX)-0.5*SDLNX*SDLNX
+       YLNM=DLOG(AVEY)-0.5*SDLNY*SDLNY
+       X1=(DLOG(X)-XLNM)/SDLNX
+       Y1=(DLOG(Y)-YLNM)/SDLNY
+       ARG1=(X1*X1-2*RHO*X1*Y1+Y1*Y1)/(2.0*(1.0-RHO*RHO))
+       ARG2=2.0*PI*SDLNX*SDLNY*X*Y*DSQRT(1.0-RHO*RHO)
+       BLNPROB=DBEXP(-ARG1)/ARG2
+C
+      RETURN
+      END
+C

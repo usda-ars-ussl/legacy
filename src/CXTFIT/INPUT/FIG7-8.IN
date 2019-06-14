@@ -1,0 +1,132 @@
+5
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-8a. IVP for the nonequilibrium CDE
+ Effect of beta, beta=0.1 (Toride et. al, 1993, WRR, p2167-2182)
+INVERSE    MODE      NREDU   
+   0         2         2     
+ MODC      ZL 
+   3       50
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+    V      D      R    Beta     omega   Mu1      Mu2  
+   20.    100.    2.0   0.1      1.0     0.2     0.2
+*** BLOCK D: BVP; MODB=0 ZERO; =1 Dirac; =2 STEP; =3 A PULSE  ************
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   0
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI
+    2
+    3
+   0.3      0.0
+   1.0      0.5
+   0.1      1.0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP  
+    0    
+*** BLOCK H: POSITION AND TIME FOR DIRECT PROBLEM ************************
+    NZ       DZ       ZI       NT       DT        TI       MPRINT
+    101     0.025     0.0       1       0.0      1.0       2
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-8a. IVP for the nonequilibrium CDE (Data at Z=0.5 and 1)
+ Effect of beta, beta=0.1 (Toride et. al, 1993, WRR, p2167-2182)
+INVERSE    MODE      NREDU   
+   0         2         2     
+ MODC      ZL 
+   3       50
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+    V      D      R    Beta     omega   Mu1      Mu2  
+   20.    100.    2.0   0.1      1.0     0.2     0.2
+*** BLOCK D: BVP; MODB=0 ZERO; =1 Dirac; =2 STEP; =3 A PULSE  ************
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   0
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI
+    2
+    3
+   0.3      0.0
+   1.0      0.5
+   0.1      1.0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP  
+    0    
+*** BLOCK H: POSITION AND TIME FOR DIRECT PROBLEM ************************
+    NZ       DZ       ZI       NT       DT        TI       MPRINT
+     2       0.5    0.4999      1       0.0      1.0       2
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-8b. IVP for the nonequilibrium CDE
+ Effect of beta, beta=0.5 (Toride et. al, 1993, WRR, p2167-2182)
+INVERSE    MODE      NREDU   
+   0         2         2     
+ MODC      ZL 
+   3       50
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+    V      D      R    Beta     omega   Mu1      Mu2  
+   20.    100.    2.0   0.5      1.0     0.2     0.2
+*** BLOCK D: BVP; MODB=0 ZERO; =1 Dirac; =2 STEP; =3 A PULSE  ************
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   0
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI
+    2
+    3
+   0.3      0.0
+   1.0      0.5
+   0.1      1.0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP  
+    0    
+*** BLOCK H: POSITION AND TIME FOR DIRECT PROBLEM ************************
+    NZ       DZ       ZI       NT       DT        TI       MPRINT
+    101     0.025     0.0       1       0.0      1.0       2
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-8b. IVP for the nonequilibrium CDE (Data at Z=0.5,1)
+ Effect of beta, beta=0.5 (Toride et. al, 1993, WRR, p2167-2182)
+INVERSE    MODE      NREDU   
+   0         2         2     
+ MODC      ZL 
+   3       50
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+    V      D      R    Beta     omega   Mu1      Mu2  
+   20.    100.    2.0   0.5      1.0     0.2     0.2
+*** BLOCK D: BVP; MODB=0 ZERO; =1 Dirac; =2 STEP; =3 A PULSE *************
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   0
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI
+    2
+    3
+   0.3      0.0
+   1.0      0.5
+   0.1      1.0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP  
+    0    
+*** BLOCK H: POSITION AND TIME FOR DIRECT PROBLEM ************************
+    NZ       DZ       ZI       NT       DT        TI       MPRINT
+     2       0.5    0.4999      1       0.0      1.0       2
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-8c. IVP for the nonequilibrium CDE
+ Effect of beta, beta=0.9 (Toride et. al, 1993, WRR, p2167-2182)
+INVERSE    MODE      NREDU   
+   0         2         2     
+ MODC      ZL 
+   3       50
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+    V      D      R    Beta     omega   Mu1      Mu2  
+   20.    100.    2.0   0.9      1.0     0.2     0.2
+*** BLOCK D: BVP; MODB=0 ZERO; =1 Dirac; =2 STEP; =3 A PULSE *************
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   0
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI
+    2
+    3
+   0.3      0.0
+   1.0      0.5
+   0.1      1.0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP  
+    0    
+*** BLOCK H: POSITION AND TIME FOR DIRECT PROBLEM ************************
+    NZ       DZ       ZI       NT       DT        TI       MPRINT
+    101     0.025     0.0       1       0.0      1.0       2
+

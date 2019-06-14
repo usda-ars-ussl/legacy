@@ -1,0 +1,35 @@
+*** BLOCK A: BASIC INFORMATION *****************************************
+Heading
+'Example 4 - Infiltration Test '
+LUnit  TUnit  MUnit  (indicated units are obligatory for all input data)
+'cm'   'min'  '-'
+Kat (0:horizontal plane, 1:axisymmetric vertical flow, 2:vertical plane)
+1
+MaxIt   TolTh   TolH       (maximum number of iterations and tolerances)
+20	.0005   0.1
+lWAt	lChem	CheckF  ShortF  FluxF   AtmInF  SeepF  FreeD  DrainF
+t	t	f	f	t	f	f      f      f
+*** BLOCK B: MATERIAL INFORMATION **************************************
+NMat    NLay    hTab1   hTabN   NPar
+  2      2      .001    200.    9    
+thr     ths     tha     thm     Alfa    n       Ks      Kk      thk
+.0001   .399    .0001   .399    .0174   1.3757  .0207   .0207   .399
+.0001   .339    .0001   .339    .0139   1.6024  .0315   .0315   .339
+*** BLOCK C: TIME INFORMATION ******************************************
+dt      dtMin   dtMax   DMul    DMul2   MPL
+.1      .001    100.    1.33    .33     10
+TPrint(1),TPrint(2),...,TPrint(MPL)                   (print-time array)
+ 60 180 360 720 1440 2160 2880 4320 5760 7200
+*** BLOCK G: SOLUTE TRANSPORT INFORMATION ******************************
+Epsi	lUpW    lArtD   PeCr
+0.5	t       f       0.
+Bulk.d. Difus.	  Disper.    Adsorp.   SinkL1	 SinkS1   SinkL0 SinkS0
+1.4	0.026	0.50  0.10   0.100   -3.472E-5 -6.9444E-6   0.     0.
+1.4	0.026	0.50  0.10   0.100   -3.472E-5 -6.9444E-6   0.     0.
+KodCB(1),KodCB(2),.....,KodCB(NumBP)
+1	1	1	1	1
+cTop   cBot
+1.	0.	0.	0.	0.	0.
+tPulse
+7200
+*** END OF INPUT FILE 'SELECTOR.IN' ************************************

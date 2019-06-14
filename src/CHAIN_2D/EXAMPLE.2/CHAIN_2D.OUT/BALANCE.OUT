@@ -1,0 +1,63 @@
+ Example 2 - Grass Field Problem (Hupselse Beek 1982)                           
+                      
+ 
+ Program CHAIN_2D
+ Time dependent boundary conditions
+ Vertical plane flow, V = L*L
+ Units: L = cm   , T = day  , M = -    
+
+ Time [T]             Total     Sub-region number ...
+
+     90.0000                      1          2
+ Area    [V]          .230E+03   .400E+02   .190E+03
+ Volume  [V]          .789E+02   .143E+02   .646E+02
+ InFlow  [V/T]        .000E+00   .000E+00   .000E+00
+ hMean   [L]          .600E+02      -35.0       80.0
+
+    120.0000                      1          2
+ Area    [V]          .230E+03   .400E+02   .190E+03
+ Volume  [V]          .758E+02   .126E+02   .632E+02
+ InFlow  [V/T]        .118E+00   .732E-01   .446E-01
+ hMean   [L]          .190E+02      -72.4       38.2
+ WatBalT [V]         -.701E-01
+ WatBalR [%]              .813
+
+    151.0000                      1          2
+ Area    [V]          .230E+03   .400E+02   .190E+03
+ Volume  [V]          .727E+02   .112E+02   .615E+02
+ InFlow  [V/T]       -.437E+00  -.180E+00  -.258E+00
+ hMean   [L]         -.781E+01     -117.6       15.3
+ WatBalT [V]         -.214E+00
+ WatBalR [%]              .978
+
+    181.0000                      1          2
+ Area    [V]          .230E+03   .400E+02   .190E+03
+ Volume  [V]          .730E+02   .118E+02   .611E+02
+ InFlow  [V/T]       -.286E+00  -.391E+00   .105E+00
+ hMean   [L]         -.768E+01      -94.9       10.7
+ WatBalT [V]         -.119E+00
+ WatBalR [%]              .312
+
+    212.0000                      1          2
+ Area    [V]          .230E+03   .400E+02   .190E+03
+ Volume  [V]          .630E+02   .839E+01   .546E+02
+ InFlow  [V/T]       -.643E+00  -.351E+00  -.292E+00
+ hMean   [L]         -.925E+02     -313.3      -46.0
+ WatBalT [V]         -.275E+00
+ WatBalR [%]              .549
+
+    243.0000                      1          2
+ Area    [V]          .230E+03   .400E+02   .190E+03
+ Volume  [V]          .610E+02   .967E+01   .513E+02
+ InFlow  [V/T]       -.793E-01  -.387E-01  -.406E-01
+ hMean   [L]         -.905E+02     -193.2      -68.9
+ WatBalT [V]          .625E-02
+ WatBalR [%]              .010
+
+    273.0000                      1          2
+ Area    [V]          .230E+03   .400E+02   .190E+03
+ Volume  [V]          .586E+02   .101E+02   .485E+02
+ InFlow  [V/T]        .104E+01   .106E+01  -.163E-01
+ hMean   [L]         -.103E+03     -172.0      -87.9
+ WatBalT [V]          .103E+00
+ WatBalR [%]              .145

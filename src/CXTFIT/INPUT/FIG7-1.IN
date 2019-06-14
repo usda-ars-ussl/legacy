@@ -1,0 +1,98 @@
+ 4
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-1: The deterministic CDE (BVP+PVP)
+  Effect of the first-decay constant (Mu=0)
+INVERSE    MODE      NREDU 
+   0         1        1
+ MODC       ZL(BLANK IF MODE=NREDU=1)
+   3
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+    V         D         R      Mu 
+   25.0      37.5      3.0      0.0
+*** BLOCK D: BVP; MODB=0 ZERO; =1 Dirac ; =2 STEP; =3 A PULSE  ***********
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   3
+  1.0       5.0
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI( 3 steps distribution)
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP 
+    1
+   0.5   
+*** BLOCK H: POSITION AND TIME FOR DIRECT PROBLEM ************************
+    NZ       DZ       ZI       NT       DT        TI       MPRINT
+   101       1.0     0.0       1        0.0       7.5       2
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-1: The deterministic CDE (BVP+PVP)
+  Effect of the first-decay constant (Mu=0.25)
+INVERSE    MODE      NREDU 
+   0         1        1
+ MODC       ZL(BLANK IF MODE=NREDU=1)
+   3
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+    V         D         R      Mu 
+   25.0      37.5      3.0      0.25
+*** BLOCK D: BVP; MODB=0 ZERO; =1 Dirac ; =2 STEP; =3 A PULSE  ***********
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   3
+  1.0       5.0
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI( 3 steps distribution)
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP 
+    1
+   0.5   
+*** BLOCK H: POSITION AND TIME FOR DIRECT PROBLEM ************************
+    NZ       DZ       ZI       NT       DT        TI       MPRINT
+   101       1.0     0.0       1        0.0       7.5       2
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-1: The deterministic CDE (BVP+PVP)
+  Effect of the first-decay constant (Mu=0.5)
+INVERSE    MODE      NREDU 
+   0         1        1
+ MODC       ZL(BLANK IF MODE=NREDU=1)
+   3
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+    V         D         R      Mu 
+   25.0      37.5      3.0      0.5
+*** BLOCK D: BVP; MODB=0 ZERO; =1 Dirac ; =2 STEP; =3 A PULSE  ***********
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   3
+  1.0       5.0
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI( 3 steps distribution)
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP 
+    1
+   0.5   
+*** BLOCK H: POSITION AND TIME FOR DIRECT PROBLEM ************************
+    NZ       DZ       ZI       NT       DT        TI       MPRINT
+   101       1.0     0.0       1        0.0       7.5       2
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-1: The deterministic CDE (BVP+PVP)
+  Effect of the first-decay constant (Mu=1.0)
+INVERSE    MODE      NREDU 
+   0         1        1
+ MODC       ZL(BLANK IF MODE=NREDU=1)
+   3
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+    V         D         R      Mu 
+   25.0      37.5      3.0     1.0
+*** BLOCK D: BVP; MODB=0 ZERO; =1 Dirac ; =2 STEP; =3 A PULSE  ***********
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   3
+  1.0       5.0
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI( 3 steps distribution)
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP 
+    1
+   0.5   
+*** BLOCK H: POSITION AND TIME FOR DIRECT PROBLEM ************************
+    NZ       DZ       ZI       NT       DT        TI       MPRINT
+   101       1.0     0.0       1        0.0       7.5       2
+

@@ -1,0 +1,100 @@
+ Example 7 - Water and Solute Infiltration Test                                 
+                      
+ 
+ Program CHAIN_2D
+ Time independent boundary conditions
+ Axisymmetric flow, V = L*L*L
+ Units: L = cm   , T = min  , M = -    
+
+ Max. number of iterations             20
+ Absolute water content tolerance [-]  .00010
+ Absolute pressure head tolerance [L]  .10000
+
+
+ MatNum         thR    thS    tha    thm      alpha         n          Ks          Kk          thk
+
+    1           .000   .399   .000   .399    .174E-01    .138E+01    .207E-01    .207E-01    .399E+00
+    2           .000   .339   .000   .339    .139E-01    .160E+01    .315E-01    .315E-01    .339E+00
+
+
+ MatNum          Qe     Q        h         C         K
+ 
+    1          1.000   .399      .000   .30E-06    .207E-01
+    1           .990   .395    -5.282   .10E-02    .732E-02
+    1           .900   .359   -33.237   .13E-02    .140E-02
+    1           .850   .339   -49.451   .12E-02    .738E-03
+    1           .750   .299   -90.493   .81E-03    .219E-03
+    1           .650   .259  -152.895   .51E-03    .626E-04
+    1           .500   .200  -342.544   .20E-03    .723E-05
+    1           .350   .140  -925.067   .55E-04    .425E-06
+    1           .200   .080 -4159.356   .72E-05    .526E-08
+    1           .100   .040-26368.180   .57E-06    .232E-10
+ 
+    2          1.000   .339      .000   .00E+00    .315E-01
+    2           .990   .336    -7.568   .70E-03    .174E-01
+    2           .900   .305   -35.571   .13E-02    .505E-02
+    2           .850   .288   -49.021   .12E-02    .307E-02
+    2           .750   .254   -78.478   .10E-02    .120E-02
+    2           .650   .220  -115.837   .78E-03    .456E-03
+    2           .500   .170  -204.185   .42E-03    .876E-04
+    2           .350   .119  -395.102   .17E-03    .103E-04
+    2           .200   .068 -1031.622   .39E-04    .384E-06
+    2           .100   .034 -3284.115   .62E-05    .675E-08
+
+ Solute transport information
+ ============================
+
+ Upstream weighting finite-element method
+
+ Number of species in the chain :   3
+
+ Mat.     Bulk.D.    DispL     DispT    Fraction
+   1       1.3000     .5000     .1000    1.0000
+   2       1.3000     .5000     .1000    1.0000
+
+    Dif.w.      Dif.g.   -------------------------------------------------- ( 1.solute)
+   .2600E-01   .3000E+01
+ Mat.     KS         Nu         Beta      Henry      SinkL1     SinkS1     SinkG1     SinkL1`    SinkS1`    SinkG1`    SinkL0     SinkS0     SinkG0      Alfa
+   1  .1000E+00  .0000E+00  .1000E+01  .1330E-06  .1390E-03  .0000E+00  .0000E+00  .2500E-03  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00
+
+ No adsorption or linear adsorp. isotherm for material  1
+   2  .1000E+00  .0000E+00  .1000E+01  .1330E-06  .1390E-03  .0000E+00  .0000E+00  .2500E-03  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00
+
+ No adsorption or linear adsorp. isotherm for material  2
+
+    Dif.w.      Dif.g.   -------------------------------------------------- ( 2.solute)
+   .2600E-01   .3000E+01
+ Mat.     KS         Nu         Beta      Henry      SinkL1     SinkS1     SinkG1     SinkL1`    SinkS1`    SinkG1`    SinkL0     SinkS0     SinkG0      Alfa
+   1  .5000E-01  .0000E+00  .1000E+01  .0000E+00  .6940E-05  .0000E+00  .0000E+00  .1670E-04  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00
+
+ No adsorption or linear adsorp. isotherm for material  1
+   2  .5000E-01  .0000E+00  .1000E+01  .0000E+00  .6940E-05  .0000E+00  .0000E+00  .1670E-04  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00
+
+ No adsorption or linear adsorp. isotherm for material  2
+
+    Dif.w.      Dif.g.   -------------------------------------------------- ( 3.solute)
+   .2600E-01   .3000E+01
+ Mat.     KS         Nu         Beta      Henry      SinkL1     SinkS1     SinkG1     SinkL1`    SinkS1`    SinkG1`    SinkL0     SinkS0     SinkG0      Alfa
+   1  .2000E+00  .0000E+00  .1000E+01  .1330E-02  .3470E-05  .0000E+00  .0000E+00  .1670E-05  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00
+
+ No adsorption or linear adsorp. isotherm for material  1
+   2  .2000E+00  .0000E+00  .1000E+01  .1330E-02  .3470E-05  .0000E+00  .0000E+00  .1670E-05  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00  .0000E+00
+
+ No adsorption or linear adsorp. isotherm for material  2
+
+   Conc1     Conc2     Conc3     Conc4     cSink     cWell     Conc7     gAtm          d
+  .100E+01  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00     .5000
+  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00     .5000
+  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00     .5000
+
+ tPulse =          7200.000
+
+ Heat transport information
+ ==========================
+
+    Qn     Qo      Thermal. Disper.      B1         B2         B3        Cn         Co         Cw
+   .600   .001      .500      .100   .525E+07   .845E+07   .331E+08   .691E+08   .904E+08   .151E+09
+   .660   .001      .500      .100   .525E+07   .845E+07   .331E+08   .691E+08   .904E+08   .151E+09
+
+    BValT1    BValT2    BValT3    BValT4    BValT5...  
+    30.000      .000      .000      .000      .000      .000

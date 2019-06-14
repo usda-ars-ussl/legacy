@@ -1,0 +1,18 @@
+ Example 7 - Water and Solute Infiltration Test                                 
+                      
+ 
+ Program CHAIN_2D
+ Time independent boundary conditions
+ Axisymmetric flow, V = L*L*L
+ Units: L = cm   , T = min  , M = -    
+
+
+     Time         hAtm       hRoot     hKode3     hKode1      hSeep     hKode5     hKode6 ... 
+      [T]          [L]        [L]        [L]        [L]        [L]        [L]        [L]
+
+    720.0000         .0         .0         .0         .0         .0        3.8     -127.6
+   1440.0000         .0         .0         .0         .0         .0        3.8     -116.5
+   3600.0000         .0         .0         .0         .0         .0        3.8     -100.4
+   7200.0000         .0         .0         .0         .0         .0        3.8      -94.7
+  10800.0000         .0         .0         .0         .0         .0        3.8      -93.7
+  14400.0000         .0         .0         .0         .0         .0        3.8      -93.3

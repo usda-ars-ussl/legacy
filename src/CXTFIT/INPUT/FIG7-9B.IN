@@ -1,0 +1,250 @@
+  4 
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-9b:BORON EFFLUENT (Exp3-1,van Genuchten,1974)
+(Kd=1.04, unit, cm, d, micro g)(see CXTFIT ver.1,EX.4A,Fig.5)
+INVERSE    MODE      NREDU 
+   1         2        2   
+ MODC       ZL
+   1       30.0
+*** BLOCK B: INVERSE PROBLEM *********************************************
+  MIT       ILMT    MASS 
+  50        0        0
+  MNEQ      MDEG
+   0         0
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+    V       D       R      Beta    omega     Mu1      Mu2  
+   38.5    15.5    3.9     0.5     0.2        0.       0.
+     0       0       0      1       1         0        0
+*** BLOCK D: BVP; MODB=0 ZERO; =1 DIRAC; =2 STEP; =3 A PULSE  ************
+  MODB (Reduced Conc.& time) =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   3
+   1.0     6.494
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODP 
+    0   
+*** BLOCK G: DATA FOR INVERSE PROBLEM ************************************
+INPUTM =0; Z,T,C  =1; T,C FOR SAME Z  =2; Z,C FOR SAME T
+   1
+   1.0
+        TIME       CONC     (Give "0 0 0" after last data set.)
+        1.80      0.015
+        1.95      0.075
+        2.10      0.170
+        2.25      0.265
+        2.40      0.340
+        2.60      0.430
+        2.85      0.535
+        3.15      0.620
+        3.50      0.687
+        4.00      0.738
+        4.60      0.777
+        5.30      0.819
+        6.00      0.852
+        6.70      0.880
+        7.30      0.882
+        7.75      0.852
+        8.00      0.776
+        8.25      0.699
+        8.55      0.621
+        8.90      0.527
+        9.30      0.433
+        9.80      0.357
+       10.50      0.269
+       11.50      0.186
+       12.70      0.133
+       14.00      0.090
+       15.50      0.054
+       17.00      0.040
+       18.50      0.029
+       20.00      0.025
+       0           0
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Table 7.2a:BORON EFFLUENT (Exp3-1,van Genuchten,1974)
+(Kd=1.04, unit, cm, d, micro g)(Two parameters, Initial Beta=0.1)
+INVERSE    MODE      NREDU 
+   1         2        2   
+ MODC       ZL
+   1       30.0
+*** BLOCK B: INVERSE PROBLEM *********************************************
+  MIT       ILMT    MASS 
+   50        0        0
+  MNEQ      MDEG
+   0         0
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+    V       D       R      Beta    omega     Mu1      Mu2  
+   38.5    15.5    3.9     0.1     0.2        0.       0.
+     0       0       0      1       1         0        0
+*** BLOCK D: BVP; MODB=0 ZERO; =1 DIRAC; =2 STEP; =3 A PULSE  ************
+  MODB (Reduced Conc.& time) =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   3
+   1.0     6.494
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODP 
+    0   
+*** BLOCK G: DATA FOR INVERSE PROBLEM ************************************
+INPUTM =0; Z,T,C  =1; T,C FOR SAME Z  =2; Z,C FOR SAME T
+   1
+   1.0
+        TIME       CONC     (Give "0 0 0" after last data set.)
+        1.80      0.015
+        1.95      0.075
+        2.10      0.170
+        2.25      0.265
+        2.40      0.340
+        2.60      0.430
+        2.85      0.535
+        3.15      0.620
+        3.50      0.687
+        4.00      0.738
+        4.60      0.777
+        5.30      0.819
+        6.00      0.852
+        6.70      0.880
+        7.30      0.882
+        7.75      0.852
+        8.00      0.776
+        8.25      0.699
+        8.55      0.621
+        8.90      0.527
+        9.30      0.433
+        9.80      0.357
+       10.50      0.269
+       11.50      0.186
+       12.70      0.133
+       14.00      0.090
+       15.50      0.054
+       17.00      0.040
+       18.50      0.029
+       20.00      0.025
+       0           0
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Table 7.2b:BORON EFFLUENT (Exp3-1,van Genuchten,1974)
+(Kd=1.04, unit, cm, d, micro g)(Three parameters,Initial Beta=0.5)
+INVERSE    MODE      NREDU 
+   1         2        2   
+ MODC       ZL
+   1       30.0
+*** BLOCK B: INVERSE PROBLEM *********************************************
+  MIT       ILMT    MASS 
+   50        0        0
+  MNEQ      MDEG
+   0         0
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+    V       D       R      Beta    omega     Mu1      Mu2  
+   38.5    15.5    3.9     0.5     0.2        0.       0.
+     0       1       0      1       1         0        0
+*** BLOCK D: BVP; MODB=0 ZERO; =1 DIRAC; =2 STEP; =3 A PULSE  ************
+  MODB (Reduced Conc.& time) =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   3
+   1.0     6.494
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODP 
+    0   
+*** BLOCK G: DATA FOR INVERSE PROBLEM ************************************
+INPUTM =0; Z,T,C  =1; T,C FOR SAME Z  =2; Z,C FOR SAME T
+   1
+   1.0
+        TIME       CONC     (Give "0 0 0" after last data set.)
+        1.80      0.015
+        1.95      0.075
+        2.10      0.170
+        2.25      0.265
+        2.40      0.340
+        2.60      0.430
+        2.85      0.535
+        3.15      0.620
+        3.50      0.687
+        4.00      0.738
+        4.60      0.777
+        5.30      0.819
+        6.00      0.852
+        6.70      0.880
+        7.30      0.882
+        7.75      0.852
+        8.00      0.776
+        8.25      0.699
+        8.55      0.621
+        8.90      0.527
+        9.30      0.433
+        9.80      0.357
+       10.50      0.269
+       11.50      0.186
+       12.70      0.133
+       14.00      0.090
+       15.50      0.054
+       17.00      0.040
+       18.50      0.029
+       20.00      0.025
+       0           0
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Table 7.2b:BORON EFFLUENT (Exp3-1,van Genuchten,1974)
+(Kd=1.04, unit, cm, d, micro g)(Three parameters,Initial Beta=0.1)
+INVERSE    MODE      NREDU 
+   1         2        2   
+ MODC       ZL
+   1       30.0
+*** BLOCK B: INVERSE PROBLEM *********************************************
+  MIT       ILMT    MASS 
+   50        0        0
+  MNEQ      MDEG
+   0         0
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+    V       D       R      Beta    omega     Mu1      Mu2  
+   38.5    15.5    3.9     0.1     0.2        0.       0.
+     0       1       0      1       1         0        0
+*** BLOCK D: BVP; MODB=0 ZERO; =1 DIRAC; =2 STEP; =3 A PULSE  ************
+  MODB (Reduced Conc.& time) =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   3
+   1.0     6.494
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODP 
+    0   
+*** BLOCK G: DATA FOR INVERSE PROBLEM ************************************
+INPUTM =0; Z,T,C  =1; T,C FOR SAME Z  =2; Z,C FOR SAME T
+   1
+   1.0
+        TIME       CONC     (Give "0 0 0" after last data set.)
+        1.80      0.015
+        1.95      0.075
+        2.10      0.170
+        2.25      0.265
+        2.40      0.340
+        2.60      0.430
+        2.85      0.535
+        3.15      0.620
+        3.50      0.687
+        4.00      0.738
+        4.60      0.777
+        5.30      0.819
+        6.00      0.852
+        6.70      0.880
+        7.30      0.882
+        7.75      0.852
+        8.00      0.776
+        8.25      0.699
+        8.55      0.621
+        8.90      0.527
+        9.30      0.433
+        9.80      0.357
+       10.50      0.269
+       11.50      0.186
+       12.70      0.133
+       14.00      0.090
+       15.50      0.054
+       17.00      0.040
+       18.50      0.029
+       20.00      0.025
+       0           0
+

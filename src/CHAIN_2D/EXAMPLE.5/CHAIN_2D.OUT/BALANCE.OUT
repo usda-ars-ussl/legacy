@@ -1,0 +1,52 @@
+ Example 5 - Solute Transport with Nonlinear Cation Adsorption - Freundlich isot
+ erm                  
+ 
+ Program CHAIN_2D
+ Time independent boundary conditions
+ Vertical plane flow, V = L*L
+ Units: L = cm   , T = day  , M = -    
+
+ Time [T]             Total     Sub-region number ...
+
+       .0000                      1
+ Area    [V]          .108E+02   .108E+02
+ Volume  [V]          .680E+01   .680E+01
+ InFlow  [V/T]        .000E+00   .000E+00
+ hMean   [L]          .000E+00         .0
+ ConcVol [VM/L3] 1    .000E+00   .000E+00
+ cMean   [M/L3]  1    .000E+00   .000E+00
+
+      5.0000                      1
+ Area    [V]          .108E+02   .108E+02
+ ConcVol [VM/L3] 1    .408E+03   .408E+03
+ cMean   [M/L3]  1    .672E+01   .672E+01
+ CncBalT [VM/L3] 1   -.490E+01
+ CncBalR [%]     1        .925
+
+     10.0000                      1
+ Area    [V]          .108E+02   .108E+02
+ ConcVol [VM/L3] 1    .568E+03   .568E+03
+ cMean   [M/L3]  1    .849E+01   .849E+01
+ CncBalT [VM/L3] 1   -.811E+01
+ CncBalR [%]     1        .766
+
+     15.0000                      1
+ Area    [V]          .108E+02   .108E+02
+ ConcVol [VM/L3] 1    .593E+03   .593E+03
+ cMean   [M/L3]  1    .867E+01   .867E+01
+ CncBalT [VM/L3] 1   -.441E+02
+ CncBalR [%]     1       2.714
+
+     20.0000                      1
+ Area    [V]          .108E+02   .108E+02
+ ConcVol [VM/L3] 1    .199E+03   .199E+03
+ cMean   [M/L3]  1    .382E+01   .382E+01
+ CncBalT [VM/L3] 1   -.604E+01
+ CncBalR [%]     1        .345
+
+     25.0000                      1
+ Area    [V]          .108E+02   .108E+02
+ ConcVol [VM/L3] 1    .261E+02   .261E+02
+ cMean   [M/L3]  1    .958E+00   .958E+00
+ CncBalT [VM/L3] 1   -.534E+01
+ CncBalR [%]     1        .281

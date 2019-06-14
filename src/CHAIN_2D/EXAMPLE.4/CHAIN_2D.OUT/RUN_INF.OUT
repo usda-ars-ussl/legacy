@@ -1,0 +1,14 @@
+ Example 4 - Solute Transport with Nitrification Chain                          
+                      
+ 
+ Program CHAIN_2D
+ Time independent boundary conditions
+ Vertical plane flow, V = L*L
+ Units: L = m    , T = days , M = -    
+
+
+ TLevel   Time         dt     IterC   Peclet  Courant
+
+   50    .500E+02    .100E+01    1     5.556     1.000
+  100    .100E+03    .100E+01    1     5.556     1.000
+  200    .200E+03    .100E+01    1     5.556     1.000

@@ -1,0 +1,12 @@
+    1   20
+Fig. 11: Exponential distribution about (5,0,0)
+       5.0       1.0      10.0       5.0       5.0
+       0.5       1.0       0.0       0.0
+      20.0       1.0         2         0 
+IVP, exponential for spherical coordinate
+   35    0    0    0
+       5.0       1.0       2.0      40.0
+       0.0       1.0       1.0
+       1.0       0.0      40.0
+       1.0       0.0      40.0
+       0.0       0.0       0.0

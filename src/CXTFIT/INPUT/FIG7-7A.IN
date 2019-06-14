@@ -1,0 +1,48 @@
+2
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-7a. Two-site CDE (R=5, Alpha=0.08,f=0.3)
+ Same Beta*R for different sets of R,Alpha,f (Dirac input)
+INVERSE    MODE      NREDU   
+   0         2         1     
+ MODC      ZL 
+   1       50
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+    V      D      R    Beta     omega   Mu1      Mu2  
+   20.    10.    5.0   0.44     0.56    0.0      0.0
+** BLOCK D: BVP; MODB=0 ZERO; =1 Dirac; =2 STEP; =3 A PULSE  *************
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   1
+   1.0 
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP  
+    0    
+*** BLOCK H: POSITION AND TIME FOR DIRECT PROBLEM ************************
+    NZ       DZ       ZI       NT       DT        TI       MPRINT
+     1       1.0    50.0       101       0.2     0.0       1
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-7a. Two-site CDE (R=10,Alpha=0.028,f=0.135)
+ Same Beta*R for different sets of R,Alpha,f (Dirac input)
+INVERSE    MODE      NREDU   
+   0         2         1     
+ MODC      ZL 
+   1       50
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+    V      D      R    Beta     omega   Mu1      Mu2  
+   20.    10.    10.0   0.22     0.55    0.0      0.0
+** BLOCK D: BVP; MODB=0 ZERO; =1 Dirac; =2 STEP; =3 A PULSE  *************
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   1
+   1.0 
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP  
+    0    
+*** BLOCK H: POSITION AND TIME FOR DIRECT PROBLEM ************************
+    NZ       DZ       ZI       NT       DT        TI       MPRINT
+     1       1.0    50.0       101       0.2     0.0       1
+

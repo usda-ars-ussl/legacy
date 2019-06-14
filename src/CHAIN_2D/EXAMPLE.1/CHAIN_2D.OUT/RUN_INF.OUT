@@ -1,0 +1,17 @@
+ Example 1 - Column Test                                                        
+                      
+ 
+ Program CHAIN_2D
+ Time independent boundary conditions
+ Vertical plane flow, V = L*L
+ Units: L = cm   , T = sec  , M = -    
+
+
+ TLevel   Time         dt      Iter  ItCum
+
+   62    .600E+02    .265E+01    3    238
+  155    .900E+03    .151E+02    4    591
+  200    .180E+04    .223E+02    4    768
+  237    .270E+04    .258E+02    4    914
+  266    .360E+04    .371E+02    4   1027
+  310    .540E+04    .539E+02    3   1197

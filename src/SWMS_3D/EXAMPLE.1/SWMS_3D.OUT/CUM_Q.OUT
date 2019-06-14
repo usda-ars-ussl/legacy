@@ -1,0 +1,17 @@
+ Example 1 - Column Test                                                 
+ 
+ Program SWMS_3D
+ Date:  21. 7.    Time:  12:33:12
+ Time independent boundary conditions
+ Units: L = cm   , T = sec  , M = -    
+ All cumulative fluxes (CumQ) are positive out of the region
+
+     Time     CumQAP      CumQRP     CumQA      CumQR     CumQ3       CumQ1      CumQS      CumQ5       CumQ6 ....
+      [T]      [L3]        [L3]       [L3]       [L3]      [L3]        [L3]       [L3]       [L3]        [L3]
+
+     60.0000   .000E+00   .000E+00   .000E+00   .000E+00   .000E+00  -.801E+00   .000E+00   .000E+00   .000E+00
+    900.0000   .000E+00   .000E+00   .000E+00   .000E+00   .000E+00  -.340E+01   .000E+00   .000E+00   .000E+00
+   1800.0000   .000E+00   .000E+00   .000E+00   .000E+00   .000E+00  -.506E+01   .000E+00   .000E+00   .000E+00
+   2700.0000   .000E+00   .000E+00   .000E+00   .000E+00   .000E+00  -.644E+01   .000E+00   .000E+00   .000E+00
+   3600.0000   .000E+00   .000E+00   .000E+00   .000E+00   .000E+00  -.768E+01   .000E+00   .000E+00   .000E+00
+   5400.0000   .000E+00   .000E+00   .000E+00   .000E+00   .000E+00  -.991E+01   .000E+00   .000E+00   .000E+00

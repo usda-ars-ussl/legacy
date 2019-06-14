@@ -1,0 +1,62 @@
+ Example 2 - Grass Field Problem (Hupselse Beek 1982)                    
+ 
+ Program SWMS_3D
+ Date:  21. 7.    Time:  12:34:19
+ Time dependent boundary conditions
+ Units: L = cm   , T = day  , M = -    
+
+ Time [T]             Total     Sub-region number ...
+
+     90.0000                      1          2
+ Volume  [L3]      .230E+03   .500E+02   .180E+03
+ Water   [L3]      .789E+02   .179E+02   .610E+02
+ InFlow  [L3/T]    .000E+00   .000E+00   .000E+00
+ hMean   [L]       .600E+02      -30.0       85.0
+
+    120.0000                      1          2
+ Volume  [L3]      .230E+03   .500E+02   .180E+03
+ Water   [L3]      .758E+02   .157E+02   .601E+02
+ InFlow  [L3/T]    .118E+00   .830E-01   .347E-01
+ hMean   [L]       .190E+02      -68.2       43.2
+ WatBalT [L3]     -.701E-01
+ WatBalR [%]           .813
+
+    151.0000                      1          2
+ Volume  [L3]      .230E+03   .500E+02   .180E+03
+ Water   [L3]      .727E+02   .141E+02   .586E+02
+ InFlow  [L3/T]   -.437E+00  -.214E+00  -.223E+00
+ hMean   [L]      -.781E+01     -109.5       20.4
+ WatBalT [L3]     -.214E+00
+ WatBalR [%]           .978
+
+    181.0000                      1          2
+ Volume  [L3]      .230E+03   .500E+02   .180E+03
+ Water   [L3]      .730E+02   .147E+02   .583E+02
+ InFlow  [L3/T]   -.286E+00  -.396E+00   .110E+00
+ hMean   [L]      -.768E+01      -91.5       15.6
+ WatBalT [L3]     -.119E+00
+ WatBalR [%]           .312
+
+    212.0000                      1          2
+ Volume  [L3]      .230E+03   .500E+02   .180E+03
+ Water   [L3]      .630E+02   .107E+02   .523E+02
+ InFlow  [L3/T]   -.643E+00  -.379E+00  -.264E+00
+ hMean   [L]      -.925E+02     -281.8      -39.9
+ WatBalT [L3]     -.275E+00
+ WatBalR [%]           .549
+
+    243.0000                      1          2
+ Volume  [L3]      .230E+03   .500E+02   .180E+03
+ Water   [L3]      .610E+02   .119E+02   .491E+02
+ InFlow  [L3/T]   -.793E-01  -.473E-01  -.320E-01
+ hMean   [L]      -.905E+02     -186.9      -63.8
+ WatBalT [L3]      .622E-02
+ WatBalR [%]           .010
+
+    273.0000                      1          2
+ Volume  [L3]      .230E+03   .500E+02   .180E+03
+ Water   [L3]      .586E+02   .122E+02   .464E+02
+ InFlow  [L3/T]    .104E+01   .108E+01  -.396E-01
+ hMean   [L]      -.103E+03     -175.2      -82.3
+ WatBalT [L3]      .103E+00
+ WatBalR [%]           .145

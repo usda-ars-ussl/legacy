@@ -1,0 +1,250 @@
+ 3
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-3b:Steady saturated flow in a sand column
+  EC vs. Time at 11 cm  (sho shiozawa, unpublished, f5)
+INVERSE    MODE      NREDU 
+   1         1        1   
+ MODC       ZL(BLANK IF MODE=NREDU=1)
+   3        
+*** BLOCK B: INVERSE PROBLEM *********************************************
+  MIT       ILMT    MASS
+  150        1        0
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+    V         D         R      Mu 
+    0.3      0.3       1.0      0.0
+     1        1         0        0
+    0.01   0.001      999      999
+    100      100      999      999
+*** BLOCK D: BVP; MODB=0 ZERO; =1 Dirac ; =2 STEP; =3 A PULSE  ***********
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   0
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI
+    1
+   1.0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP 
+    0   
+*** BLOCK G: DATA FOR INVERSE PROBLEM ************************************ 
+INPUTM =0; Z,T,C  =1; T,C FOR SAME Z  =2; Z,C FOR SAME T
+   1
+  11.0
+  TIME     CONC     (Give "0 0 0" after last data set.)
+ 27.37  1.0000
+ 29.37  0.9974
+ 30.87  0.9703
+ 32.37  0.9518
+ 32.87  0.9481
+ 33.87  0.9401
+ 34.37  0.9349
+ 34.87  0.9176
+ 35.37  0.8774
+ 35.87  0.8709
+ 36.37  0.8638
+ 36.87  0.8345
+ 37.37  0.8048
+ 37.87  0.7968
+ 38.37  0.7460
+ 38.87  0.7276
+ 39.37  0.6889
+ 39.87  0.6714
+ 40.37  0.6337
+ 40.87  0.6071
+ 41.37  0.5705
+ 41.87  0.5345
+ 42.37  0.4999
+ 42.87  0.4652
+ 43.37  0.4515
+ 43.87  0.4180
+ 44.37  0.3853
+ 44.87  0.3631
+ 45.37  0.3314
+ 45.87  0.3200
+ 46.37  0.2890
+ 46.87  0.2684
+ 47.37  0.2479
+ 47.87  0.2278
+ 48.37  0.2076
+ 48.87  0.1876
+ 49.87  0.1678
+ 50.87  0.1384
+ 51.87  0.1192
+ 52.87  0.1004
+ 53.87  0.0913
+ 54.87  0.0829
+ 55.87  0.0647
+ 56.87  0.0564
+ 57.87  0.0480
+ 58.87  0.0398
+ 60.37  0.0321
+ 60.87  0.0327
+ 62.37  0.0246
+ 63.87  0.0264
+ 64.87  0.0171
+ 66.37  0.0181
+  0.0     0.0
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-3b:Steady saturated flow in a sand column
+  EC vs. Time at 17 cm  (sho shiozawa, unpublished, f5)
+INVERSE    MODE      NREDU 
+   1         1        1   
+ MODC       ZL(BLANK IF MODE=NREDU=1)
+   3        
+*** BLOCK B: INVERSE PROBLEM *********************************************
+  MIT       ILMT    MASS
+  150        1        0
+*** BLOCK C: TRANSPRT PARAMETERS *****************************************
+    V         D         R      Mu 
+    0.3      0.3       1.0      0.0
+     1        1         0        0
+    0.01   0.001      999      999
+    100      100      999      999
+*** BLOCK D: BVP; MODB=0 ZERO; =1 Dirac ; =2 STEP; =3 A PULSE  ***********
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   0
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI
+    1
+   1.0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP 
+    0   
+*** BLOCK G: DATA FOR INVERSE PROBLEM ************************************ 
+INPUTM =0; Z,T,C  =1; T,C FOR SAME Z  =2; Z,C FOR SAME T
+   1
+  17.0
+  TIME     CONC     (Give "0 0 0" after last data set.)
+ 37.87  0.9971
+ 39.37  0.9877
+ 40.87  0.9867
+ 42.37  0.9862
+ 44.37  0.9857
+ 45.87  0.9751
+ 47.37  0.9844
+ 48.87  0.9741
+ 50.37  0.9738
+ 51.87  0.9541
+ 53.37  0.9531
+ 54.87  0.9276
+ 55.87  0.9181
+ 56.87  0.8986
+ 58.37  0.8530
+ 58.87  0.8435
+ 59.87  0.8068
+ 60.87  0.7694
+ 61.37  0.7508
+ 61.87  0.7320
+ 62.37  0.6950
+ 63.37  0.6570
+ 64.37  0.6193
+ 65.37  0.5711
+ 66.37  0.5135
+ 67.37  0.4647
+ 68.37  0.4162
+ 69.37  0.3678
+ 70.37  0.3283
+ 71.37  0.2891
+ 72.37  0.2778
+ 73.37  0.2478
+ 74.37  0.2086
+ 75.37  0.1792
+ 76.37  0.1684
+ 77.87  0.1296
+ 79.37  0.1280
+ 80.87  0.0905
+ 82.37  0.0804
+ 83.87  0.0616
+ 85.37  0.0519
+ 86.87  0.0514
+ 88.37  0.0419
+ 90.37  0.0413
+ 91.87  0.0318
+ 93.87  0.0223
+ 95.87  0.0128
+   0         0
+*** BLOCK A: MODEL DESCRIPTION ******************************************
+Fig.7-3a:Steady saturated flow in a sand column
+  EC vs. Time at 23 cm  (sho shiozawa, unpublished, f5)
+INVERSE    MODE      NREDU 
+   1         1        1   
+ MODC       ZL(BLANK IF MODE=NREDU=1)
+   3        
+*** BLOCK B: INVERSE PROBLEM ********************************************
+  MIT       ILMT    MASS
+  150        1        0
+*** BLOCK C: TRANSPRT PARAMETERS *****************************************
+    V         D         R      Mu 
+    0.3      0.3       1.0      0.0
+     1        1         0        0
+    0.01   0.001      999      999
+    100      100      999      999
+*** BLOCK D: BVP; MODB=0 ZERO; =1 Dirac ; =2 STEP; =3 A PULSE  ***********
+  MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   0
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI
+    1
+   1.0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+   MODP 
+    0   
+*** BLOCK G: DATA FOR INVERSE PROBLEM ************************************ 
+INPUTM =0; Z,T,C  =1; T,C FOR SAME Z  =2; Z,C FOR SAME T
+   1
+  23.0
+  TIME     CONC     (Give "0 0 0" after last data set.)
+ 55.87  0.9901
+ 57.37  0.9715
+ 58.87  0.9715
+ 60.37  0.9715
+ 61.87  0.9714
+ 63.37  0.9710
+ 64.87  0.9708
+ 66.37  0.9712
+ 67.87  0.9620
+ 69.37  0.9627
+ 70.87  0.9634
+ 72.37  0.9652
+ 73.87  0.9585
+ 74.87  0.9517
+ 75.87  0.9359
+ 76.87  0.9392
+ 77.87  0.9245
+ 78.87  0.9091
+ 79.87  0.8847
+ 80.87  0.8708
+ 81.87  0.8552
+ 82.87  0.8293
+ 83.87  0.7927
+ 84.87  0.7742
+ 85.87  0.7362
+ 86.87  0.6967
+ 87.87  0.6569
+ 88.87  0.6157
+ 89.87  0.5735
+ 90.87  0.5407
+ 91.37  0.5288
+ 92.87  0.4647
+ 93.87  0.4217
+ 94.87  0.3884
+ 95.87  0.3654
+ 96.87  0.3326
+ 97.87  0.2911
+ 99.37  0.2479
+100.87  0.2242
+102.37  0.2015
+103.87  0.1626
+105.37  0.1594
+108.37  0.1214
+109.87  0.0869
+112.87  0.0695
+114.37  0.0529
+117.37  0.0537
+118.87  0.0458
+120.37  0.0380
+124.37  0.0310
+128.37  0.0241
+130.37  0.0245
+131.87  0.0162
+     0         0
+

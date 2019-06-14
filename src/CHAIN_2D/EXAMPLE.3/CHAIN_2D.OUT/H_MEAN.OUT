@@ -1,0 +1,13 @@
+ Example 3a - Comparison with the 2-D analytical solution                       
+                      
+ 
+ Program CHAIN_2D
+ Time independent boundary conditions
+ Vertical plane flow, V = L*L
+ Units: L = m    , T = days , M = -    
+
+
+     Time         hAtm       hRoot     hKode3     hKode1      hSeep     hKode5     hKode6 ... 
+      [T]          [L]        [L]        [L]        [L]        [L]        [L]        [L]
+
+      1.0000         .0         .0         .0         .0         .0         .0         .0

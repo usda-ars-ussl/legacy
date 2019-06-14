@@ -1,0 +1,45 @@
+ Example 3b - Comparison with the 3-D analytical solution                
+ 
+ Program SWMS_3D
+ Date:  21. 7.    Time:  12:36: 8
+ Time independent boundary conditions
+ Units: L = m    , T = days , M = -    
+
+ Max. number of iterations             20
+ Absolute water content tolerance [-]  .00010
+ Absolute pressure head tolerance [L]  .01000
+
+
+ MatNum,        thR    thS    tha    thm      alpha         n          Ks          Kk          thk
+
+    1           .020   .300  -.020   .300    .410E-01    .196E+01    .300E+00    .300E+00    .300E+00
+
+
+ MatNum          Qe     Q        h         C         K
+ 
+    1          1.000   .300      .000   .00E+00    .300E+00
+    1           .990   .297    -3.386   .18E-02    .217E+00
+    1           .900   .268   -11.779   .46E-02    .873E-01
+    1           .850   .252   -15.150   .49E-02    .593E-01
+    1           .750   .220   -21.729   .47E-02    .281E-01
+    1           .650   .188   -29.003   .40E-02    .130E-01
+    1           .500   .140   -43.426   .27E-02    .348E-02
+    1           .350   .092   -67.993   .14E-02    .632E-03
+    1           .200   .044  -126.999   .47E-03    .468E-04
+    1           .100   .012  -264.559   .12E-03    .193E-05
+
+ Solute transport information
+ ============================
+
+ Galerkin finite-element method
+
+  Bulk.d.   Difus.         Disper.        Adsorp.    SinkL1    SinkS1    SinkL0    SinkS0
+  .150E+04  .000E+00  .100E+01  .500E+00  .400E-03 -.100E-01 -.100E-01  .000E+00  .000E+00
+
+   Conc1     Conc2     Conc3     Conc4     Conc5     Conc6
+  .100E+01  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00
+
+   Conc7     Conc8     Conc9     Conc10    cWell     cSink
+  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00  .000E+00
+
+ tPulse =           366.000

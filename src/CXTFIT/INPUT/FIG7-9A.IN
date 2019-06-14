@@ -1,0 +1,70 @@
+  1 
+*** BLOCK A: MODEL DESCRIPTION *******************************************
+Fig.7-9a: TRITIUM EFFLUENT FROM GLENDALE CLAY LOAM
+(UNITS: cm, d, micro g) (EX.3.2, van Genuchten, 1974) 
+INVERSE    MODE      NREDU 
+   1         2        2   
+ MODC       ZL
+   1       30.0
+*** BLOCK B: INVERSE PROBLEM *********************************************
+  MIT       ILMT    MASS 
+  150        0        0
+  MNEQ      MDEG
+   0         0
+*** BLOCK C: TRANSPORT PARAMETERS ****************************************
+    V       D       R      Beta    omega     Mu1      Mu2  
+   37.5     2.0     1.0    0.9     10.        0.       0.
+     0       1       0      1       1         0        0
+*** BLOCK D: BVP; MODB=0 ZERO; =1 Dirac.; =2 STEP; =3 A PULSE  ***********
+  MODB (Reduced Conc.& time) =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
+   3
+   1.0     3.102
+*** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODI
+    0
+*** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
+  MODP 
+    0   
+*** BLOCK G: DATA FOR INVERSE PROBLEM ************************************
+INPUTM =0; Z,T,C  =1; T,C FOR SAME Z  =2; Z,C FOR SAME T
+   1
+   1.0
+        TIME       CONC     (Give "0 0 0" after last data set.)
+        0.512      0.001
+        0.599      0.016
+        0.686      0.082
+        0.730      0.138
+        0.817      0.296
+        0.904      0.465
+        0.992      0.593
+        1.079      0.685
+        1.166      0.764
+        1.253      0.806
+        1.340      0.850
+        1.428      0.901
+        1.558      0.915
+        1.646      0.923
+        1.754      0.947
+        2.016      0.967
+        2.604      0.981
+        3.125      1.000
+        3.342      0.986
+        3.516      1.015
+        3.712      0.971
+        3.842      0.838
+        3.951      0.638
+        4.038      0.480
+        4.125      0.353
+        4.255      0.236
+        4.386      0.166
+        4.516      0.118
+        4.777      0.066
+        5.037      0.038
+        5.385      0.018
+        5.818      0.008
+        6.251      0.004
+        6.791      0.002
+        7.331      0.006
+        7.439      0.0003
+      0           0
+

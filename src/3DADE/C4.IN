@@ -1,0 +1,19 @@
+     model  max iter  indirect  #gaucheb   
+         6         0         0       100
+EXAMPLE 4: FIGURE 3B
+         v         R        to        mu    lambda
+       0.0       1.5       0.0      0.25       0.5
+         0         0         0         0         0
+        Dx        Dy        Dz
+     100.0      10.0      10.0
+         0         0         0
+        Co         a	     b        x1        x2
+       1.0       7.5       7.5       5.0      25.0
+        dt	tmin      tmax
+       0.0       1.0       1.0
+        dx      xmin      xmax
+       5.0       0.0     100.0
+        dy      ymin      ymax
+       0.0       0.0       0.0
+        dz      zmin      zmax
+       0.0       0.0       0.0

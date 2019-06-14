@@ -1,0 +1,29 @@
+ Example 1 - Column Test                                                 
+ 
+ Program SWMS_3D
+ Date:  21. 7.    Time:  12:33:12
+ Time independent boundary conditions
+ Units: L = cm   , T = sec  , M = -    
+
+ Max. number of iterations             20
+ Absolute water content tolerance [-]  .00010
+ Absolute pressure head tolerance [L]  .01000
+
+
+ MatNum,        thR    thS    tha    thm      alpha         n          Ks          Kk          thk
+
+    1           .020   .350   .020   .350    .410E-01    .196E+01    .722E-03    .695E-03    .287E+00
+
+
+ MatNum          Qe     Q        h         C         K
+ 
+    1          1.000   .350      .000   .00E+00    .722E-03
+    1           .990   .347    -3.386   .19E-02    .717E-03
+    1           .900   .317   -11.779   .47E-02    .704E-03
+    1           .850   .301   -15.150   .50E-02    .699E-03
+    1           .750   .267   -21.729   .49E-02    .443E-03
+    1           .650   .234   -29.003   .42E-02    .205E-03
+    1           .500   .185   -43.426   .28E-02    .548E-04
+    1           .350   .135   -67.993   .14E-02    .994E-05
+    1           .200   .086  -126.999   .48E-03    .736E-06
+    1           .100   .053  -264.559   .12E-03    .304E-07
