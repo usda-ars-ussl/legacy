@@ -117,7 +117,7 @@
       Qm=Par(4)
       Alfa=Par(5)
       n=Par(6)
-      
+
       m=1.d0-1.d0/n
       HMin=-1.d300**(1.d0/n)/max(Alfa,1.d0)
       QeeM=(1.d0+(-Alfa*HMin)**n)**(-m)
@@ -129,7 +129,7 @@
 ************************************************************************
 
       real function FS(h,Par)
-      
+
       implicit double precision(A-H,O-Z)
       double precision n,m
       real h,Par(10)
@@ -142,7 +142,7 @@
       n=Par(6)
       m=1.d0-1.d0/n
       Qees=dmin1((Qs-Qa)/(Qm-Qa),.999999999999999d0)
-      Hs=-1.d0/Alfa*(Qees**(-1.d0/m)-1.d0)**(1.d0/n) 
+      Hs=-1.d0/Alfa*(Qees**(-1.d0/m)-1.d0)**(1.d0/n)
       if(h.lt.Hs) then
         HMin=-1.d300**(1./n)/max(Alfa,1.d0)
         HH=max(dble(h),HMin)
@@ -150,9 +150,9 @@
         Qe=Qee*(Qm-Qa)/(Qs-Qa)
         FS=max(Qe,1.d-37)
       else
-        FS=1.d0 
-      end if  
-      return 
+        FS=1.d0
+      end if
+      return
       end
-      
-* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||

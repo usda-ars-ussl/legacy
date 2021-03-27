@@ -414,7 +414,7 @@ c                iCheck=1
       end if
 
 *     Free Drainage
-      if(FreeD) then      
+      if(FreeD) then
         do 15 i=1,NumBP
           n=KXB(i)
           k=Kode(n)

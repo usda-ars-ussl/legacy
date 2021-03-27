@@ -21,8 +21,8 @@ dt      dtMin   dtMax   DMul    DMul2   MPL
 TPrint(1),TPrint(2),...,TPrint(MPL)                   (print-time array)
  120 151 181 212 243 273
 *** BLOCK D: SINK INFORMATION ******************************************
-P0      P2H     P2L     P3      r2H     r2L      
- -10.   -200.   -800.   -8000.  0.5     0.1     
-POptm(1),POptm(2),...,POptm(NMat)              
+P0      P2H     P2L     P3      r2H     r2L
+ -10.   -200.   -800.   -8000.  0.5     0.1
+POptm(1),POptm(2),...,POptm(NMat)
  -25.   -25.
-*** END OF INPUT FILE 'SELECTOR.IN' ************************************
+*** END OF INPUT FILE 'SELECTOR.IN' ************************************

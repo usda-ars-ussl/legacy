@@ -1,9 +1,9 @@
- Example 2 - Grass Field Problem (Hupselse Beek 1982)                    
- 
+ Example 2 - Grass Field Problem (Hupselse Beek 1982)
+
  Program SWMS_2D
  Time dependent boundary conditions
  Vertical plane flow, V = L*L
- Units: L = cm   , T = day  , M = -    
+ Units: L = cm   , T = day  , M = -
 
 
  Time  ***     90.0000 ***

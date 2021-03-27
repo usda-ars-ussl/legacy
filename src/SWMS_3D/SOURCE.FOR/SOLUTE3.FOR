@@ -146,8 +146,8 @@
             Di(4)=+(x(j)-x(i))*(y(k)-y(i))-(x(k)-x(i))*(y(j)-y(i))
             Det=(x(l)-x(i))*Bi(4)+(y(l)-y(i))*Ci(4)+(z(l)-z(i))*Di(4)
             VE=Det/6.
-            
-*           Calculate Velocities            
+
+*           Calculate Velocities
             AA=1./VE/6.
             Ai=CAxx*Bi(1)+CAxy*Ci(1)+CAxz*Di(1)
             Aj=CAxx*Bi(2)+CAxy*Ci(2)+CAxz*Di(2)
@@ -208,7 +208,7 @@
             VxEE=-ConE*Vxx
             VyEE=-ConE*Vyy
             VzEE=-ConE*Vzz
-            
+
             if(Level.eq.1) then
               cS=cBound(12)
               if(cBound(12).gt.conc(i)) cS=cS+(conc(i)-cBound(12))/4.
@@ -381,7 +381,7 @@
               else
                 if(Q(i).gt.0.) then
                   cKod=3
-                  if(abs(Kode(i)).eq.1.or.abs(Kode(i)).ge.5) 
+                  if(abs(Kode(i)).eq.1.or.abs(Kode(i)).ge.5)
      !                                    cBnd=cBound(-KodCB(j))
                   if(abs(Kode(i)).eq.3) cBnd=crt
                   if(abs(Kode(i)).eq.4) cBnd=cPrec
@@ -463,8 +463,8 @@
      !          ListNE(NumNP),Fc(NumNP),Gc(NumNP),WeTab(6,5*NumEl),
      !          thSat(NMat),Conc(NumNP),ConO(NumNP)
 
-      do 11 i=1,NumNP 
-        M=MatNum(i) 
+      do 11 i=1,NumNP
+        M=MatNum(i)
         if(NLevel.eq.2) then
           cS=cSink
           if(cS.gt.Conc(i)) cS=Conc(i)
@@ -481,7 +481,7 @@
       call PeCour(NumNP,NumEl,NumElD,NMat,x,y,z,Vx,Vy,Vz,KX,MatNum,
      !            Dispxx,Dispyy,Dispzz,ChPar,theta,dt,dtMaxC,Peclet,
      !            Courant,lUpW,lArtD,PeCr,PeCrMx)
-      if(lUpW) 
+      if(lUpW)
      !  call WeFact(NumNP,NumEl,NumElD,x,y,z,KX,WeTab,Vx,Vy,Vz,Dispxx,
      !              Dispyy,Dispzz,Dispxy,Dispxz,Dispyz)
       return
@@ -505,7 +505,7 @@
         Vx(i)=0.
         Vy(i)=0.
         Vz(i)=0.
-11    continue    
+11    continue
       do 14 e=1,NumEl
         CAxx=ConAxx(e)
         CAyy=ConAyy(e)
@@ -570,7 +570,7 @@
       return
       end
 
-************************************************************************    
+************************************************************************
 
 *     Calculate the dispersion coefficient
 
@@ -786,7 +786,7 @@ c      TanH(zz)=(exp(zz)-exp(-zz))/(exp(zz)+exp(-zz))
           if(VyMax.gt.0.) dt2=Cour2*delY*RMin/VyMax
           if(VzMax.gt.0.) dt3=Cour3*delZ*RMin/VzMax
           dtMaxC=amin1(dtMaxC,dt1,dt2,dt3)
-          
+
           PeCrMx=amax1(PeCrMx,amax1(PecX*CourX,PecY*CourY,PecZ*CourZ))
 
 11      continue
@@ -833,7 +833,7 @@ c      TanH(zz)=(exp(zz)-exp(-zz))/(exp(zz)+exp(-zz))
           ii=ii+1
 13      continue
         B(i)=B(i)+Sum
-14    continue              
+14    continue
       B(NumNP)=B(NumNP)/A(MBand,NumNP)
       do 16 k=1,N1
         i=NumNP-k
@@ -845,8 +845,8 @@ c      TanH(zz)=(exp(zz)-exp(-zz))/(exp(zz)+exp(-zz))
           Sum=Sum+A(j,i)*B(jj)
 15      continue
         B(i)=(B(i)-Sum)/A(MBand,i)
-16    continue  
+16    continue
       return
-      end    
+      end
 
 * ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||

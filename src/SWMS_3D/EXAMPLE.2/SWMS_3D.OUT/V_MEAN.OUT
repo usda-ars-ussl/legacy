@@ -1,9 +1,9 @@
- Example 2 - Grass Field Problem (Hupselse Beek 1982)                    
- 
+ Example 2 - Grass Field Problem (Hupselse Beek 1982)
+
  Program SWMS_3D
  Date:  21. 7.    Time:  12:34:19
  Time dependent boundary conditions
- Units: L = cm   , T = day  , M = -    
+ Units: L = cm   , T = day  , M = -
  All fluxes (v) are positive out of the region
 
      Time       rAtm       rRoot      vAtm       vRoot      vKode3     vKode1     vSeep      vKode5     vKode6 ...

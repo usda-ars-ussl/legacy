@@ -1,6 +1,6 @@
-     model  max iter  indirect  #gaucheb   
+     model  max iter  indirect  #gaucheb
         11         0         0       100
-EXAMPLE 1: FIGURE 2A				  
+EXAMPLE 1: FIGURE 2A				
          v         R        to        mu    lambda
       50.0       1.0       0.0       0.0       0.0
          0         0         0         0         0

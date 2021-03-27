@@ -1,7 +1,7 @@
 C    ------------------------------------------------------------------
       REAL*8 FUNCTION DBEXP(A)
 C
-C     PURPOSE:  TO CALCULATE DEXP(A) 
+C     PURPOSE:  TO CALCULATE DEXP(A)
 C
       IMPLICIT REAL*8(A-H,O-Z)
       DBEXP=0.D00
@@ -49,7 +49,7 @@ C
         EXPBI0=DBEXP(Z)*(P1+Y*(P2+Y*(P3+Y*(P4+Y*(P5+Y*(P6+Y*P7))))))
       ELSE
         AX=DABS(X)
-        Y=3.75/AX 
+        Y=3.75/AX
        EXPBI0=DBEXP(AX+Z)/DSQRT(AX)*(Q1+Y*(Q2+Y*(Q3+Y*(Q4+Y*(Q5+Y*
      $         (Q6+Y*(Q7+Y*(Q8+Y*Q9))))))))
       ENDIF
@@ -72,7 +72,7 @@ C
         EXPBI1=DBEXP(Z)*X*(P1+Y*(P2+Y*(P3+Y*(P4+Y*(P5+Y*(P6+Y*P7))))))
       ELSE
         AX=DABS(X)
-        Y=3.75/AX 
+        Y=3.75/AX
         EXPBI1=DBEXP(AX+Z)/DSQRT(AX)*(Q1+Y*(Q2+Y*(Q3+Y*(Q4+Y*(Q5+Y*
      $         (Q6+Y*(Q7+Y*(Q8+Y*Q9))))))))
         IF(X.LT.0.) EXPBI1=-EXPBI1
@@ -83,7 +83,7 @@ C
 C--------------------------------------------------------------
       REAL*8 FUNCTION PHI1(TAU)
 C
-C     PURPOSE: TO CALCULATE SERIES IN EXPONENTIAL BVP 
+C     PURPOSE: TO CALCULATE SERIES IN EXPONENTIAL BVP
 C               FOR EQUILLIBRIUM PHASE
 C
       IMPLICIT REAL*8(A-H,O-Z)
@@ -96,13 +96,13 @@ C
       C=TPULSE(1)-B
 C
       PHI1=ZERO
-      FN=ONE     
+      FN=ONE
       DO 12 N=1,25
        SUMK=ZERO
        K=1
        CK=1.0
        FNK=FN
-       FN=FN*N 
+       FN=FN*N
     9  CK=-CK
        SUMK=SUMK+CK*(T-TAU)**(N-K)/(C**K)/FNK
        IF (N.EQ.K) GOTO 12
@@ -110,7 +110,7 @@ C
        K=K+1
        GOTO 9
    12  PHI1=PHI1+SUMK*((OMOM*TAU)**N)/FN
-C  
+C
        RETURN
        END
 C------------------------------------------------------------------
@@ -130,13 +130,13 @@ C
       C=TPULSE(1)-B
 C
       PHI2=ZERO
-      FN=ONE  
+      FN=ONE
       DO 12 N=1,25
        SUMK=ZERO
        K=1
        CK=1.0
        FNK=FN
-       FN=FN*N 
+       FN=FN*N
     9  CK=-CK
        SUMK=SUMK+CK*(T-TAU)**(N-K+1)/(C**K)/FNK/(N-K+1)
        IF (N.EQ.K) GOTO 12
@@ -144,7 +144,7 @@ C
        K=K+1
        GOTO 9
    12  PHI2=PHI2+SUMK*((OMOM*TAU)**N)/FN
-C  
+C
        RETURN
        END
 C     ------------------------------------------------------------------
@@ -203,4 +203,4 @@ C      introduce RT  (8/24/94  Nobuo Toride)
       RETURN
       END
 C
-
+

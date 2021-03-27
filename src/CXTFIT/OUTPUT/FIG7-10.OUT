@@ -26,7 +26,7 @@ $
 
      INITIAL VALUES OF COEFFICIENTS
      ==============================
-     NAME        INITIAL VALUE 
+     NAME        INITIAL VALUE
       <V>......     .2000E+02
       <D>......     .2000E+02
       <Kd>.....     .0000E+00
@@ -42,9 +42,9 @@ $
        SINGLE PULSE OF CONC. =    1.0000 & DURATION =    2.0000
          DURATION TIME IS CONSTANT FOE ALL TUBES
        SOLUTE FREE INITIAL CONDITION
-       NO PRODUCTION TERM 
- 
- 
+       NO PRODUCTION TERM
+
+
 $ T=  3.00000     (CONC. VS. DEPTH)
 $ Sum(C*dZ) =     39.83392
 $    Z          <C>          VAR(C)
@@ -177,7 +177,7 @@ $
 
      INITIAL VALUES OF COEFFICIENTS
      ==============================
-     NAME        INITIAL VALUE 
+     NAME        INITIAL VALUE
       <V>......     .2000E+02
       <D>......     .2000E+02
       <Kd>.....     .0000E+00
@@ -193,9 +193,9 @@ $
        SINGLE PULSE OF CONC. =    1.0000 & DURATION =    2.0000
          DURATION TIME IS CONSTANT FOE ALL TUBES
        SOLUTE FREE INITIAL CONDITION
-       NO PRODUCTION TERM 
- 
- 
+       NO PRODUCTION TERM
+
+
 $ T=  3.00000     (CONC. VS. DEPTH)
 $ Sum(C*dZ) =     39.99979
 $    Z          <C>          VAR(C)
@@ -328,7 +328,7 @@ $
 
      INITIAL VALUES OF COEFFICIENTS
      ==============================
-     NAME        INITIAL VALUE 
+     NAME        INITIAL VALUE
       <V>......     .2000E+02
       <D>......     .2000E+02
       <Kd>.....     .0000E+00
@@ -344,9 +344,9 @@ $
        SINGLE PULSE OF CONC. =    1.0000 & DURATION =    2.0000
          DURATION TIME IS CONSTANT FOE ALL TUBES
        SOLUTE FREE INITIAL CONDITION
-       NO PRODUCTION TERM 
- 
- 
+       NO PRODUCTION TERM
+
+
 $ T=  3.00000     (CONC. VS. DEPTH)
 $ Sum(C*dZ) =     40.00015
 $    Z          <C>          VAR(C)

@@ -1,7 +1,7 @@
 C    -----------------------------------------------------------
       SUBROUTINE STOCDE(C1,C2,VAR1,VAR2)
 C
-C       PURPOSE: ROUTE EXECUTION FOR STOCHASTC MODELS 
+C       PURPOSE: ROUTE EXECUTION FOR STOCHASTC MODELS
 C
       IMPLICIT REAL*8(A-H,O-Z)
 C
@@ -26,11 +26,11 @@ C
       VAR2=0.0
       C12=0.0
       C22=0.0
-C 
-      IF(MOD(MODE,2).EQ.1) MODE=1
-      IF(MOD(MODE,2).EQ.0) MODE=2                                    
 C
-C  INTM: Calculation control code for the numerical integration 
+      IF(MOD(MODE,2).EQ.1) MODE=1
+      IF(MOD(MODE,2).EQ.0) MODE=2
+C
+C  INTM: Calculation control code for the numerical integration
 C      INTM=1 log-transformed Romberg
 C          =2 log-transformed Gauss-Chebyshev (current setting)
        INTM=1
@@ -39,7 +39,7 @@ C    MCON=0 CALUCULATE PHASE1 & PHASE2 FOR TOTAL RESIDENT CONC.
 C    MCON=1            PHASE1 ONLY
 C    MCON=2            PHASE2 ONLY
 C
-C  MSD;  Calculation control code for ensemble averages 
+C  MSD;  Calculation control code for ensemble averages
 C    MSD=0  <C>
 C    MSD=1  <C*C>
 C    (If INVERSE=-1, skip VARIANCE.)
@@ -61,9 +61,9 @@ C    (If INVERSE=-1, skip VARIANCE.)
                  CALL ROMB(CONPROV,C12,VMIN,VMAX)
               END IF
         END IF
-C 
+C
         IF(MODC.EQ.4.OR.MODC.EQ.6) GO TO 10
-C 
+C
        IF(MODE.EQ.2) THEN
         MCON=2
 C
@@ -103,7 +103,7 @@ C
                  CALL ROMB2(CONPROY,C12,YMIN,YMAX)
               END IF
         END IF
-C 
+C
          IF(MODC.EQ.4.OR.MODC.EQ.6) GO TO 10
 C
          IF(MODE.EQ.2) THEN
@@ -124,7 +124,7 @@ C
               END IF
           END IF
          END IF
-C 
+C
       END IF
 C
   10  IF(INVERSE.EQ.0) THEN
@@ -138,8 +138,8 @@ C
 C     ------------------------------------------------------------------
       REAL*8 FUNCTION CONPROV(V)
 C
-C     PURPOSE: CALCULATE ARGUMENT OF STOCHASTIC MODELS 
-C                  FOR A LOG-NORMAL VELOCITY DISTRIBUTION 
+C     PURPOSE: CALCULATE ARGUMENT OF STOCHASTIC MODELS
+C                  FOR A LOG-NORMAL VELOCITY DISTRIBUTION
 C
       IMPLICIT REAL*8(A-H,O-Z)
       DIMENSION SGAMMA1(50),SGAMMA2(50),STPULSE(50)
@@ -175,11 +175,11 @@ C
       SGAMMA2(I)=GAMMA2(I)
    10 CONTINUE
 C
-      IF(DABS(V).LT.1.D-30) V=AVEV*1.D-30  
+      IF(DABS(V).LT.1.D-30) V=AVEV*1.D-30
 C
 C  -----------------------------------------------------------
 C   ASSIGN NONDIMENTIONAL PARAMETERS TO EACH STREAM TUBE
-C  ------------------------------------------------------------    
+C  ------------------------------------------------------------
       TT=T/AVEV*V
 C
 C ----- D & P -----------------------------------------
@@ -219,13 +219,13 @@ C -----  Kd & R -----------------------------------------
         R=1.0+RHOTH*DK
       END IF
 C ----- MODE 4,6,8 ONE-SITE MODEL(MNEQ=1)
-C        MODS(=MODE) (SEE SUBROUTINE STOCDE)  
+C        MODS(=MODE) (SEE SUBROUTINE STOCDE)
       IF(MNEQ.EQ.1) THEN
          DMU2=DMU2/(SR-1.0)*(R-1.0)
          BETA=1.0/R
          OMEGA=OMEGA/(SR-1.0)*(R-1.0)
       END IF
-C ------ MODE 3,5 EQUILIBRIUM CDE 
+C ------ MODE 3,5 EQUILIBRIUM CDE
 C    DECAY COEFFICIENTS ARE SAME BOTH IN LIQUID AND SORBED PHASES.
       IF(MODS.EQ.3.OR.MODS.EQ.5) THEN
          DMU1=DMU1/SR*R
@@ -253,20 +253,20 @@ C
    20 CONTINUE
       IF(MODB.EQ.1.AND.MASSST.NE.1) PULSE(1)=PULSE(1)/AVEV*V
       IF(MODB.EQ.3.AND.MASSST.EQ.1) TPULSE(2)=STPULSE(2)
-C      
-C    CALUCULATE CONCENTRAION FOR PARTICULAR SETS OF PARAMETER VALUES      
+C
+C    CALUCULATE CONCENTRAION FOR PARTICULAR SETS OF PARAMETER VALUES
 C
       CALL DETCDE(C1,C2)
       IF(MCON.EQ.1) THEN
         C=C1
-C Total resident conc.        
+C Total resident conc.
       ELSE IF(MCON.EQ.0) THEN
         C=C1*BETA*R+C2*(1.0-BETA)*R
       ELSE IF(MCON.EQ.2) THEN
-C dimensional nonequilibrium conc <c2>      
+C dimensional nonequilibrium conc <c2>
         IF(NREDU.EQ.0) THEN
          C=C2*DK
-C dimensionless nonequilibrium conc <c2/Kd>      
+C dimensionless nonequilibrium conc <c2/Kd>
         ELSE
          C=C2
         END IF
@@ -287,17 +287,17 @@ C
       END IF
 C
 C     CONPROV = ARGUMENT FOR NUMERICAL INTEGRATION
-C      
+C
       IF(MSD.EQ.0) THEN
         IF(MODC.EQ.2) THEN
           CONPROV=PROB*C*V/AVEV
-        ELSE 
+        ELSE
           CONPROV=PROB*C
         END IF
       ELSE
         IF(MODC.EQ.2) THEN
           CONPROV=PROB*C*C*V*V/AVEV/AVEV
-        ELSE 
+        ELSE
           CONPROV=PROB*C*C
         END IF
       END IF
@@ -329,8 +329,8 @@ C
 C     ------------------------------------------------------------------
       REAL*8 FUNCTION CONPROY(Y)
 C
-C     PURPOSE: CALCULATE ARGUMENT OF STOCHASTIC MODELS 
-C       FOR A LOG-NORMAL DISTRIBUTION OF ANOTHER PARAMETER (v,D,K,alpha)  
+C     PURPOSE: CALCULATE ARGUMENT OF STOCHASTIC MODELS
+C       FOR A LOG-NORMAL DISTRIBUTION OF ANOTHER PARAMETER (v,D,K,alpha)
 C
       IMPLICIT REAL*8(A-H,O-Z)
       COMMON MODC,MM,A,B,DA,CX,P,BETA,BETR,OMEGA,R,DMU1,DMU2,MODE,
@@ -372,10 +372,10 @@ C
         ALPHA=Y
       END IF
 C
-C  
+C
 C   ASSIGN NONDIMENTIONAL PARAMETERS TO EACH STREAM TUBE
-C      
-C ------ MODE 3 EQUILIBRIUM CDE 
+C
+C ------ MODE 3 EQUILIBRIUM CDE
 C    DECAY COEFFICIENTS ARE SAME BOTH IN LIQUID AND SORBED PHASES.
       IF(MODS.EQ.3.OR.MODS.EQ.4) THEN
         R=1+RHOTH*DK
@@ -383,7 +383,7 @@ C    DECAY COEFFICIENTS ARE SAME BOTH IN LIQUID AND SORBED PHASES.
           DMU2=DMU2/(SR-1.0)*(R-1.0)
           BETA=1.0/R
           OMEGA=OMEGA/(SR-1.0)*(R-1.0)
-        END IF 
+        END IF
         IF(MODS.EQ.3) DMU1=DMU1/SR*R
       END IF
       IF(MODS.EQ.5.OR.MODS.EQ.6) THEN
@@ -395,12 +395,12 @@ C    DECAY COEFFICIENTS ARE SAME BOTH IN LIQUID AND SORBED PHASES.
 C
       PROB=XLNPROB(Y,AVEY,SDLNY)
 
-C      
-C    CALUCULATE CONCENTRAION FOR PARTICULAR SETS OF PARAMETER VALUES      
 C
-C  MSTOCH=2; ONLY Y is stocahstic    
+C    CALUCULATE CONCENTRAION FOR PARTICULAR SETS OF PARAMETER VALUES
+C
+C  MSTOCH=2; ONLY Y is stocahstic
       IF(MSTOCH.EQ.2) THEN
-C      
+C
         CALL DETCDE(C1,C2)
 C
         IF(MCON.EQ.1) THEN
@@ -416,7 +416,7 @@ C
           END IF
 C
 C     CONPROY = ARGUMENT FOR NEMERICAL INTEGRATION
-C      
+C
 
         IF(MSD.EQ.0) THEN
           CONPROY=PROB*C
@@ -425,7 +425,7 @@ C
         END IF
       END IF
 C
-C  MSTOCH=4; Both v and Y are stocahstic    
+C  MSTOCH=4; Both v and Y are stocahstic
       IF(MSTOCH.EQ.4) THEN
         CALL ROMB(CONPROV,C,VMIN,VMAX)
           IF(MCORR.EQ.0) THEN
@@ -454,7 +454,7 @@ C
 C     ------------------------------------------------------------------
       SUBROUTINE LIMIT(X,SDLNX,XMIN1,XMAX1)
 C
-C     PURPOSE:  TO CALCULATE INTEGRATION LIMITS FOR A LOG-NORMAL 
+C     PURPOSE:  TO CALCULATE INTEGRATION LIMITS FOR A LOG-NORMAL
 C        DISTRIBUTION FOR STOCHASTIC MODELS USING NEWTON-RAPHSON METHOD
 C
       IMPLICIT REAL*8 (A-H,O-Z)

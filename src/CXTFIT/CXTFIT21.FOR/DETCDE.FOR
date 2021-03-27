@@ -70,7 +70,7 @@ C
 C    -----------------------------------------------------------
       SUBROUTINE BOUND(C1,C2)
 C
-C       PURPOSE: BOUNDARY VALUE PROBLEM FOR EQUILIBRIUM AND 
+C       PURPOSE: BOUNDARY VALUE PROBLEM FOR EQUILIBRIUM AND
 C                   NONEQUILIBRIUM CDE
 C
       IMPLICIT REAL*8 (A-H,O-Z)
@@ -96,7 +96,7 @@ C       MCON=0,1 CALCULATE PHASE 1 CONC.
 C       MCON=0,2 CALCULATE PHASE 2 CONC.
 C
 C MODJH: Calculation control code for step input
-C     MODJH=0; evaluate Eq.(3.23) or (3.24); 
+C     MODJH=0; evaluate Eq.(3.23) or (3.24);
 C          =1 Eq.(3.21) or (3.22) based on Goldstein's J-function
       MODJH=1
 C
@@ -108,15 +108,15 @@ C
       IF (TT.GT.1.D-07) GO TO 1
       RETURN
 C
-    1 GO TO (10,20,20,20,30,40) MODB 
+    1 GO TO (10,20,20,20,30,40) MODB
 C ---- DELTA INPUT -----------------------------------
 C  >>>  ADJUSTMENT FOR  DIMENSIONAL DELTA INPUT  <<<<
    10       IF(NREDU.LE.1) THEN
-              BMASS=PULSE(1)*V/ZL 
+              BMASS=PULSE(1)*V/ZL
             ELSE
               BMASS=PULSE(1)
             END IF
-C            
+C
         C1=CC0(TT)*DBEXP(-OMEGA*TT/BETR)
         IF(MODE.EQ.1) THEN
            C1=C1*BMASS
@@ -136,12 +136,12 @@ C
            C2=C2*BMASS
         END IF
         GO TO 99
-C 
+C
 C ---- STEPWISE INPUT -----------------------------
    20 DO 25 I=1,NPULSE
           TT=TT-TPULSE(I)
         IF (TT.LE.0.D00) GO TO 99
-C   EQUILIBRIUM CDE        
+C   EQUILIBRIUM CDE
         IF(MODE.EQ.1) THEN
            A1=CC4(TT,DA)
            GOTO 27
@@ -194,7 +194,7 @@ C  CONSTANT TERM
            A1=CC4(TT,DA)
            GOTO 32
         END IF
-C 
+C
        IF(MCON.EQ.0.OR.MCON.EQ.1) THEN
            MC=1
            CALL CHEBYCON(CBAL,A11,0.D00,TT,MC)
@@ -255,7 +255,7 @@ C       IF(MODE.EQ.1.OR.MODB.EQ.6) GOTO 99
            CALL CHEBY(CBIN2,C2,0.D00,TT)
            C2=C2*OMEGA/(R-BETR)
         END IF
-C  
+C
    99 IF(C1.LT.1.0D-50) C1=0.0
       IF(C2.LT.1.0D-50) C2=0.0
       TT=T
@@ -263,8 +263,8 @@ C
       END
 C   -----------------------------------------------
       SUBROUTINE INITIAL(C1,C2)
-C  
-C       PURPOSE: INITIAL VALUE PROBLEM FOR EQUILIBRIUM AND 
+C
+C       PURPOSE: INITIAL VALUE PROBLEM FOR EQUILIBRIUM AND
 C                   NONEQUILIBRIUM CDE
 C
       IMPLICIT REAL*8 (A-H,O-Z)
@@ -283,12 +283,12 @@ C      MODI=1   CONSTANT INITIAL CONCENTRATION
 C      MODI=2   STEPWISE INITIAL CONCENTRATION
 C      MODI=3   EXPONENTIAL INITIAL CONCENTRATION
 C      MODI=4   DELTA(Z-Z0) & CONSTANT BACKGROUND
-C 
+C
         C1=0.0
         C2=0.0
         A1=0.0
         A2=0.0
-C        
+C
        MMODI=MODI
        IF(MODI.EQ.4) THEN
          IF(CINI(1).GT.1.E-7) THEN
@@ -321,11 +321,11 @@ C --- Initial concentration for small T --------
             C1=CINI(I-1)
             C2=CINI(I-1)
            RETURN
-         END IF 
+         END IF
     2 CONTINUE
         END IF
        RETURN
-C 
+C
     9   C1=CINI(1)+CINI(2)*DBEXP(-ZINI(1)*Z)
         C2=C1
        RETURN
@@ -354,7 +354,7 @@ C
         G=G+(CINI(I-1)-CINI(I))*DG*(CC2(T,ZINI(I))-1.0)
        END IF
    15 CONTINUE
-      C1=G*DBEXP(-A*T)+A1   
+      C1=G*DBEXP(-A*T)+A1
       IF(MODE.EQ.1) GOTO 40
       IF(MCON.EQ.1) GOTO 40
 C
@@ -406,7 +406,7 @@ C
       ELSE
        G=DMASS*DG*CC5(T,ZINI(2))
       END IF
-        C1=C1+G*DBEXP(-A*T)+DMASS*A1   
+        C1=C1+G*DBEXP(-A*T)+DMASS*A1
       IF(MODE.EQ.1) GOTO 100
       IF(MCON.EQ.1) GOTO 100
 C
@@ -420,7 +420,7 @@ C           (See Toride et al. 1993 SSSAJ, p1406-)
 C   ------------------------------------------------
       SUBROUTINE PRODUC(C1,C2)
 C
-C       PURPOSE: PRODUCTION VALUE PROBLEM FOR EQUILIBRIUM AND 
+C       PURPOSE: PRODUCTION VALUE PROBLEM FOR EQUILIBRIUM AND
 C                   NONEQUILIBRIUM CDE
 C
       IMPLICIT REAL*8 (A-H,O-Z)
@@ -445,16 +445,16 @@ C
 C
     5  IF(MODE.EQ.1.AND.(NPRO1.EQ.1.OR.MODP.EQ.1)) THEN
 C
-C  MODP1:  Calculation control code for constant production 
-C                     for the equilibrium CDE 
-C     MODP1=0; evaluate the integral in Eq.(2.32) 
+C  MODP1:  Calculation control code for constant production
+C                     for the equilibrium CDE
+C     MODP1=0; evaluate the integral in Eq.(2.32)
 C          =1   Eq.(2.33) or (2.34) (current setting)
           MODP1=1
 C
           GO TO (6,7) MODP1
     6      IF((OMEGA+DMU1).LT.1.D-07) THEN
              C1=PROD0(T)
-             RETURN 
+             RETURN
           ELSE
            C1=GAMMA1(1)/DMU1*(1-DBEXP(-(DMU1*T)/BETR)*
      &                               (1-CC1(T))-CC4(T,DA))

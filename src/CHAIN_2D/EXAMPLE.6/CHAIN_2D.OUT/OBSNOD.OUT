@@ -3,7 +3,7 @@
 
                                Node( 31)
 
-     time        hNew    theta    Temp       Conc       Sorb    
+     time        hNew    theta    Temp       Conc       Sorb
        .000       .000   .4450     .000   .000E+00   .000E+00
        .010       .000   .4450     .000   .755E-21   .728E-24
        .023       .000   .4450     .000   .313E-18   .391E-21

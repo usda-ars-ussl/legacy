@@ -1,10 +1,10 @@
  Example 5 - Solute Transport with Nonlinear Cation Adsorption - Freundlich isot
- erm                  
- 
+ erm
+
  Program CHAIN_2D
  Time independent boundary conditions
  Vertical plane flow, V = L*L
- Units: L = cm   , T = day  , M = -    
+ Units: L = cm   , T = day  , M = -
 
  Max. number of iterations             20
  Absolute water content tolerance [-]  .00010
@@ -17,7 +17,7 @@
 
 
  MatNum          Qe     Q        h         C         K
- 
+
     1          1.000   .633      .000   .00E+00    .649E+01
     1           .990   .627   -14.249   .88E-03    .477E+01
     1           .900   .570   -48.432   .22E-02    .196E+01

@@ -124,8 +124,8 @@
             Bi(2)=y(l)-y(i)
             Bi(3)=y(i)-y(j)
             AE=(Ci(3)*Bi(2)-Ci(2)*Bi(3))/2.
-            
-*           Calculate Velocities            
+
+*           Calculate Velocities
             AE1=1./AE/2.
             Ai=CAxx*Bi(1)+CAxz*Ci(1)
             Aj=CAxx*Bi(2)+CAxz*Ci(2)
@@ -164,7 +164,7 @@
             end if
             VxEE=-ConE*Vxx
             VzEE=-ConE*Vzz
-            
+
             if(KAT.eq.1) xMul=2.*3.1416*(x(i)+x(j)+x(l))/3.
             if(Level.eq.NLevel) then
               cS=cBound(5)
@@ -308,7 +308,7 @@
               else
                 if(Q(i).gt.0.) then
                   cKod=3
-                  if(abs(Kode(i)).eq.1.or.abs(Kode(i)).ge.5) 
+                  if(abs(Kode(i)).eq.1.or.abs(Kode(i)).ge.5)
      !                                    cBnd=cBound(-KodCB(j))
                   if(abs(Kode(i)).eq.3) cBnd=crt
                   if(abs(Kode(i)).eq.4) cBnd=cPrec
@@ -387,8 +387,8 @@
      !          ListNE(NumNP),Fc(NumNP),Gc(NumNP),WeTab(3,2*NumEl),
      !          thSat(NMat),Conc(NumNP),ConO(NumNP)
 
-      do 11 i=1,NumNP 
-        M=MatNum(i) 
+      do 11 i=1,NumNP
+        M=MatNum(i)
         if(NLevel.eq.2) then
           cS=cSink
           if(cS.gt.Conc(i)) cS=Conc(i)
@@ -405,7 +405,7 @@
       call PeCour(NumNP,NumEl,NumElD,NMat,x,y,Vx,Vz,KX,MatNum,Dispxx,
      !            Dispzz,ChPar,theta,dt,dtMaxC,Peclet,Courant,lUpW,
      !            lArtD,PeCr)
-      if(lUpW) 
+      if(lUpW)
      !  call WeFact(NumNP,NumEl,NumElD,x,y,KX,WeTab,Vx,Vz,Dispxx,
      !              Dispzz,Dispxz)
       return
@@ -426,7 +426,7 @@
       do 11 i=1,NumNP
         Vx(i)=0.
         Vz(i)=0.
-11    continue    
+11    continue
       do 14 e=1,NumEl
         CAxx=ConAxx(e)
         CAzz=ConAzz(e)
@@ -450,7 +450,7 @@
           A=1./Area/2.
           Ai=CAxx*vi+CAxz*wi
           Aj=CAxx*vj+CAxz*wj
-          Ak=CAxx*vk+CAxz*wk  
+          Ak=CAxx*vk+CAxz*wk
           Vxx=A*(Ai*hNew(i)+Aj*hNew(j)+Ak*hNew(k))
           if(KAT.gt.0) Vxx=Vxx+CAxz
           Ai=CAxz*vi+CAzz*wi
@@ -472,7 +472,7 @@
       return
       end
 
-************************************************************************    
+************************************************************************
 
 *     Calculate the dispersion coefficient
 
@@ -693,7 +693,7 @@
           ii=ii+1
 13      continue
         B(i)=B(i)+Sum
-14    continue              
+14    continue
       B(NumNP)=B(NumNP)/A(MBand,NumNP)
       do 16 k=1,N1
         i=NumNP-k
@@ -705,8 +705,8 @@
           Sum=Sum+A(j,i)*B(jj)
 15      continue
         B(i)=(B(i)-Sum)/A(MBand,i)
-16    continue  
+16    continue
       return
-      end    
+      end
 
 * ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||

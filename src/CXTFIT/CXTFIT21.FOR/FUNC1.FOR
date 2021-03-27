@@ -21,8 +21,8 @@ C
       IF(MC.EQ.1) THEN
         CBI1=DSQRT(TAU/((1-BETA)*BETA*(T-TAU)))*OMEGA/R
         CTRAN=G*EXPBI1(XII,-AA-BT)*CBI1
-      ELSE                                          
-      
+      ELSE
+
         CTRAN=OMEGA/(R-BETR)*G*EXPBI0(XII,-AA-BT)
       END IF
       RETURN
@@ -52,7 +52,7 @@ C
           IF(MODC.NE.3.AND.MODC.NE.4) THEN
              IF(Z.LT.1.D-07.AND.T.GT.0.D00) THEN
                 CBJ=OMEGA/(R-BETR)*DBEXP(-BT)
-                RETURN 
+                RETURN
              END IF
            END IF
             CBJ=CX*G*(1.0-GOLD(BT,AT))*DBEXP(-AT*DMU2/OMEGA)
@@ -128,8 +128,8 @@ C
 C     ------------------------------------------------------------------
       REAL*8 FUNCTION CBIN1(TAU)
 C
-C     PURPOSE: CALCULATE ARGUMENT IN INTEGRAL FOR ARBITARY INPUT 
-C                GIVEN IN FUNCTION CINPUT 
+C     PURPOSE: CALCULATE ARGUMENT IN INTEGRAL FOR ARBITARY INPUT
+C                GIVEN IN FUNCTION CINPUT
 C
       IMPLICIT REAL*8 (A-H,O-Z)
       COMMON MODC,MM,A,B,DA,CX,P,BETA,BETR,OMEGA,R,DMU1,DMU2,MODE,
@@ -156,7 +156,7 @@ C
 C     ------------------------------------------------------------------
       REAL*8 FUNCTION CBIN2(TAU)
 C
-C     PURPOSE: CALCULATE ARGUMENT IN INTEGRAL FOR ARBITARY INPUT 
+C     PURPOSE: CALCULATE ARGUMENT IN INTEGRAL FOR ARBITARY INPUT
 C                GIVEN IN FUNCTION CINPUT FOR NONEQUILIBRIUM PHASE
 C
       IMPLICIT REAL*8 (A-H,O-Z)
@@ -185,16 +185,16 @@ C
      &       MCON,T,Z,STOPER,LEVEL,ICHEB
       COMMON/INITI/MODI,NINI,CINI(50),ZINI(50)
 C
-C    
+C
       BETA=BETR/R
       CIVP=0.0
       DG=DBEXP(-(DMU1+DA)/BETR*TAU)
-C      
+C
 C      MODI=1   CONSTANT INITIAL CONCENTRATION
 C      MODI=2   STEPWISE INITIAL CONCENTRATION
 C      MODI=3   EXPONENTIAL INITIAL CONCENTRATION
 C      MODI=4   DELTA(Z-Z0) & CONSTANT BACKGROUND
-C 
+C
       GO TO (10,10,25,40) MODI
    10 DO 15 I=1,NINI
       IF (I.EQ.1) THEN
@@ -366,7 +366,7 @@ C
 C     PURPOSE: CALCULATE SOLUTIONS FOR DELTA INPUT
 C              TRAVEL TIME DISTRIBUTION FOR EQUILIBRIUM CDE
 C      (ARGUMENT IN BVP FOR STEP INPUT WITH GOLDSTEIN'S J-FUNCTION)
-C      WHEN DMU1=0   CC0(TAU)=d(CC1(TAU))/dTAU 
+C      WHEN DMU1=0   CC0(TAU)=d(CC1(TAU))/dTAU
 C      IF NOT           CC0(TAU)=d(CC4(TAU))/dTAU (DUM=0 IN CC4)
 C
       IMPLICIT REAL*8 (A-H,O-Z)
@@ -408,8 +408,8 @@ C
 C     ------------------------------------------------------------------
       REAL*8 FUNCTION CC2(TAU,Z1)
 C
-C     PURPOSE: CALCULATE ARGUMENT FOR STEPWISE INITIAL 
-C                            & PRODUCTION PROFILES 
+C     PURPOSE: CALCULATE ARGUMENT FOR STEPWISE INITIAL
+C                            & PRODUCTION PROFILES
 C          SEE VAN GENUCHTEN & ALVES (1982) A(X,T) OF A5 & A6
 C
 C
@@ -449,7 +449,7 @@ C
 C     ------------------------------------------------------------------
       REAL*8 FUNCTION CC3(TAU,Z1)
 C
-C     PURPOSE: CALCULATE ARGUMENT FOR EXPOTENTIAL 
+C     PURPOSE: CALCULATE ARGUMENT FOR EXPOTENTIAL
 C                   INITIAL AND PRODUCTION PROFILES
 C          SEE VAN GENUCHTEN & ALVES (1982) B(X,T) OF A7 & A8
 C
@@ -488,7 +488,7 @@ C -------------------------------------------------
       REAL*8 FUNCTION CC4(TAU,DUM)
 C
 C     PURPOSE: ARGUMENT FOR STEP INPUT OR
-C                CONSTANT PRODUCTION  
+C                CONSTANT PRODUCTION
 C    CC4=INT FROM O TO T CC0(TAU) d TAU (DUM not 0)
 C          SEE VAN GENUCHTEN & ALVES (1982) B(X,T) OF C5 & C6
 C                                         & A(X,T) OF B5 & B6

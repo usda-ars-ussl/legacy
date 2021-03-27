@@ -26,7 +26,7 @@ $
 
      INITIAL VALUES OF COEFFICIENTS
      ==============================
-     NAME        INITIAL VALUE 
+     NAME        INITIAL VALUE
       V........     .2000E+02
       D........     .1000E+03
       R........     .2000E+01
@@ -44,9 +44,9 @@ $
            .30000    .00000
           1.00000    .50000
            .10000   1.00000
-       NO PRODUCTION TERM 
- 
- 
+       NO PRODUCTION TERM
+
+
 $ T= 1.00000   (RESIDENT AND TOTAL RESIDENT CONC. VS. DEPTH)
 $ Sum(C1*dZ) =      .41855   Sum(C2*dZ) =      .61966
 $ MASS  PHASE 1 =      .08371  PHASE 2 =    1.11538  TOTAL =     1.19909
@@ -180,7 +180,7 @@ $
 
      INITIAL VALUES OF COEFFICIENTS
      ==============================
-     NAME        INITIAL VALUE 
+     NAME        INITIAL VALUE
       V........     .2000E+02
       D........     .1000E+03
       R........     .2000E+01
@@ -198,9 +198,9 @@ $
            .30000    .00000
           1.00000    .50000
            .10000   1.00000
-       NO PRODUCTION TERM 
- 
- 
+       NO PRODUCTION TERM
+
+
 $ T= 1.00000   (RESIDENT AND TOTAL RESIDENT CONC. VS. DEPTH)
 $ Sum(C1*dZ) =      .09141   Sum(C2*dZ) =      .21818
 $ MASS  PHASE 1 =      .01828  PHASE 2 =     .39273  TOTAL =      .41101
@@ -235,7 +235,7 @@ $
 
      INITIAL VALUES OF COEFFICIENTS
      ==============================
-     NAME        INITIAL VALUE 
+     NAME        INITIAL VALUE
       V........     .2000E+02
       D........     .1000E+03
       R........     .2000E+01
@@ -253,9 +253,9 @@ $
            .30000    .00000
           1.00000    .50000
            .10000   1.00000
-       NO PRODUCTION TERM 
- 
- 
+       NO PRODUCTION TERM
+
+
 $ T= 1.00000   (RESIDENT AND TOTAL RESIDENT CONC. VS. DEPTH)
 $ Sum(C1*dZ) =      .58678   Sum(C2*dZ) =      .62982
 $ MASS  PHASE 1 =      .58678  PHASE 2 =     .62982  TOTAL =     1.21660
@@ -389,7 +389,7 @@ $
 
      INITIAL VALUES OF COEFFICIENTS
      ==============================
-     NAME        INITIAL VALUE 
+     NAME        INITIAL VALUE
       V........     .2000E+02
       D........     .1000E+03
       R........     .2000E+01
@@ -407,9 +407,9 @@ $
            .30000    .00000
           1.00000    .50000
            .10000   1.00000
-       NO PRODUCTION TERM 
- 
- 
+       NO PRODUCTION TERM
+
+
 $ T= 1.00000   (RESIDENT AND TOTAL RESIDENT CONC. VS. DEPTH)
 $ Sum(C1*dZ) =      .11623   Sum(C2*dZ) =      .20838
 $ MASS  PHASE 1 =      .11623  PHASE 2 =     .20838  TOTAL =      .32461
@@ -444,7 +444,7 @@ $
 
      INITIAL VALUES OF COEFFICIENTS
      ==============================
-     NAME        INITIAL VALUE 
+     NAME        INITIAL VALUE
       V........     .2000E+02
       D........     .1000E+03
       R........     .2000E+01
@@ -462,9 +462,9 @@ $
            .30000    .00000
           1.00000    .50000
            .10000   1.00000
-       NO PRODUCTION TERM 
- 
- 
+       NO PRODUCTION TERM
+
+
 $ T= 1.00000   (RESIDENT AND TOTAL RESIDENT CONC. VS. DEPTH)
 $ Sum(C1*dZ) =      .62700   Sum(C2*dZ) =      .54606
 $ MASS  PHASE 1 =     1.12860  PHASE 2 =     .10921  TOTAL =     1.23782

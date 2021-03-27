@@ -1,9 +1,9 @@
- Example 3b - Comparison with the 3-D analytical solution                
- 
+ Example 3b - Comparison with the 3-D analytical solution
+
  Program SWMS_3D
  Date:  21. 7.    Time:  12:36: 8
  Time independent boundary conditions
- Units: L = m    , T = days , M = -    
+ Units: L = m    , T = days , M = -
  All fluxes (v) are positive out of the region
 
      Time       rAtm       rRoot      vAtm       vRoot      vKode3     vKode1     vSeep      vKode5     vKode6 ...

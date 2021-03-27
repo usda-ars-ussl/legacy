@@ -1,12 +1,12 @@
- Example 1 - Column Test                                                 
- 
+ Example 1 - Column Test
+
  Program SWMS_3D
  Date:   6. 3.    Time:  15:50:52
  Time independent boundary conditions
- Units: L = cm   , T = day  , M = -    
+ Units: L = cm   , T = day  , M = -
 
 
-     Time         hAtm       hRoot     hKode3     hKode1      hSeep     hKode5     hKode6 ... 
+     Time         hAtm       hRoot     hKode3     hKode1      hSeep     hKode5     hKode6 ...
       [T]          [L]        [L]        [L]        [L]        [L]        [L]        [L]
 
        .2500         .0         .0         .0       12.4        -.1         .0         .0

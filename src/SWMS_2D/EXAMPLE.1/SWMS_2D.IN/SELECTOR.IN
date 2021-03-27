@@ -26,4 +26,4 @@ NSP(1),NSP(2),.......,NSP(NSeep)          (number of nodes in each s.f.)
   2
 NP(i,1),NP(i,2),.....,NP(i,NSP(i))     (nodal number array of i-th s.f.)
   111     112
-*** END OF INPUT FILE 'SELECTOR.IN' ************************************
+*** END OF INPUT FILE 'SELECTOR.IN' ************************************

@@ -26,7 +26,7 @@ $
 
      INITIAL VALUES OF COEFFICIENTS
      ==============================
-     NAME        INITIAL VALUE 
+     NAME        INITIAL VALUE
       <V>......     .5000E+02
       <D>......     .2000E+02
       <Kd>.....     .0000E+00
@@ -42,9 +42,9 @@ $
        DIRAC DELTA INPUT , MASS =   1.0000
          AMOUNT OF SOLUTE DEPENDS ON LOCAL V  (input=V delta/<V>)
        SOLUTE FREE INITIAL CONDITION
-       NO PRODUCTION TERM 
- 
- 
+       NO PRODUCTION TERM
+
+
 $ T=  1.00000     (CONC. VS. DEPTH)
 $ Sum(C*dZ) =     49.68837
 $    Z          <C>          VAR(C)
@@ -177,7 +177,7 @@ $
 
      INITIAL VALUES OF COEFFICIENTS
      ==============================
-     NAME        INITIAL VALUE 
+     NAME        INITIAL VALUE
       <V>......     .5000E+02
       <D>......     .2000E+02
       <Kd>.....     .0000E+00
@@ -193,9 +193,9 @@ $
        SOLUTE FREE INPUT
        DELTA WITH CONSTANT INITIAL CONDITION
          C(Z,0) =   50.0000 * DELTA( Z -     .0000 ) +    .0000
-       NO PRODUCTION TERM 
- 
- 
+       NO PRODUCTION TERM
+
+
 $ T=  1.00000     (CONC. VS. DEPTH)
 $ Sum(C*dZ) =     49.93137
 $    Z          <C>          VAR(C)

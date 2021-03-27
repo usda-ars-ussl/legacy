@@ -13,7 +13,7 @@ x(1)   z(NLin)                     (x, z-coordinate of left bottom node)
 dx-array                                     (number of items is NCol-1)
   4*10 5 4 2 4 5 7 8 10 15 20
 dz-array                                     (number of items is NLin-1)
-  12*5 4*10 4*25                 
+  12*5 4*10 4*25
 *** LINE ATTRIBUTES ****************************************************
 LineNumber  Code  hInit    Q  MatNum Beta  Axz  Bxz  Dxz  Temp  Conc
   1          1       0.    0.   1     0.    1.   1.   1.   0.    0.
@@ -21,5 +21,5 @@ LineNumber  Code  hInit    Q  MatNum Beta  Axz  Bxz  Dxz  Temp  Conc
  20          0       0.    0.   1     0.    1.   1.   1.   0.    0.
  21          2       0.    0.   1     0.    1.   1.   1.   0.    0.
 *** END OF FILE 'GENER2.IN' ********************************************
-  
-
+
+

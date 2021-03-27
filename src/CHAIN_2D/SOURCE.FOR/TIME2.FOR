@@ -5,7 +5,7 @@
 
       dtMax=amin1(dtMaxW,dtMaxC)
       tFix=amin1(tPrint,tAtm,tMax)
-      if(Iter.le.3.and.(tFix-t).ge.dMul*dtOpt) 
+      if(Iter.le.3.and.(tFix-t).ge.dMul*dtOpt)
      !  dtOpt=amin1(dtMax,dMul*dtOpt)
       if(Iter.ge.7)
      !  dtOpt=amax1(dtMin,dMul2*dtOpt)
@@ -64,7 +64,7 @@
       end if
       return
       end
-      
+
 ************************************************************************
 
       real function Fqh(GWL,Aqh,Bqh)

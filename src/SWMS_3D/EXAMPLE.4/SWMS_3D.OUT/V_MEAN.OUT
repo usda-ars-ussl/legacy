@@ -1,9 +1,9 @@
- Example 1 - Column Test                                                 
- 
+ Example 1 - Column Test
+
  Program SWMS_3D
  Date:   6. 3.    Time:  15:50:52
  Time independent boundary conditions
- Units: L = cm   , T = day  , M = -    
+ Units: L = cm   , T = day  , M = -
  All fluxes (v) are positive out of the region
 
      Time       rAtm       rRoot      vAtm       vRoot      vKode3     vKode1     vSeep      vKode5     vKode6 ...

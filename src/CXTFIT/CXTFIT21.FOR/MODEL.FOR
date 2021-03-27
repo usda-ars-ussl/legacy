@@ -54,7 +54,7 @@ C         OTHERWISE, mu & gamma ARE DIMENSIONLESS AS DESCRIBED IN TABLE 2.1.
 C
        IF(MODB.EQ.3.AND.MASS.EQ.1) DUMTP(2)=BN(NVAR*2)
 c
-      IF(NREDU.LE.1.OR.NREDU.EQ.3) ZZ=ZZ/ZL 
+      IF(NREDU.LE.1.OR.NREDU.EQ.3) ZZ=ZZ/ZL
        IF(NREDU.LE.1) THEN
           TT=TT*V/ZL
           IF(MODB.EQ.3.OR.MODB.EQ.4) THEN
@@ -63,7 +63,7 @@ c
    21        CONTINUE
           END IF
           IF(MODB.EQ.5)  TPULSE(1)=DUMTP(1)/V*ZL
-          
+
 C     ---- CHANGE gamma TO DIMENSIONLESS VARIABLES FOR MODE=1,3,5
           IF(MOD(MODE,2).EQ.1) THEN
             IF(MODP.EQ.1.OR.MODP.EQ.2) THEN
@@ -78,7 +78,7 @@ C     ---- CHANGE gamma TO DIMENSIONLESS VARIABLES FOR MODE=1,3,5
         END IF
        END IF
 C --------------------------------------------------------
-C  PARAMETER FOR TOTAL MASS 
+C  PARAMETER FOR TOTAL MASS
       IF(MASS.EQ.1) THEN
           IF(MODB.EQ.1.OR.MODB.EQ.2) PULSE(1)=BN(NVAR*2)
           IF(MODB.EQ.3) PULSE(1)=BN(NVAR*2-1)
@@ -150,13 +150,13 @@ C
          CXT1=BETA*R*CXT1
          CXT2=(1-BETA)*R*CXT2
         END IF
-C 
+C
       IF(DABS(CXT1).LT.1.D-30) CXT1=0.0D+0
       IF(DABS(CXT2).LT.1.D-30) CXT2=0.0D+0
       RETURN
-C      
-C ------------- STOCHASTIC CDE  (MODE >= 3)  -----------------      
-C      
+C
+C ------------- STOCHASTIC CDE  (MODE >= 3)  -----------------
+C
 C--- MODE 3 ---------
    33    D=BN(NVAR+2)
          P=V*ZL/D
@@ -336,16 +336,16 @@ C     <RETARDATION COEFFICIENT>
          ELSE
            SDLNK=BN(NVAR+8)
          END IF
-         CORR=BN(NVAR+11) 
-C         
-C -------------------------------------------         
+         CORR=BN(NVAR+11)
+C
+C -------------------------------------------
 C MSTOCH;    Index for stochastic v and Y
 C   MSTOCH=1: V; VARIABLE Y;CONSTANT
 C   MSTOCH=2: V; CONSTANT Y;VARIABLE
-C   MSTOCH=3: POSITIVE OR NEGATIVE CORRELATION BETWEEN  V & Y 
+C   MSTOCH=3: POSITIVE OR NEGATIVE CORRELATION BETWEEN  V & Y
 C   MSTOCH=4: V; VARIABLE Y;VARIABLE
 C
-C ISKIP   Calculation control code for the 
+C ISKIP   Calculation control code for the
 C         evaluation of the integral limits
 C     ISKIP=0 ; CALCULATE INTEGRAL LIMITS
 C     ISKIP=1 ;  SKIP THIS PART.
@@ -381,7 +381,7 @@ C    MCORR=2 BIVARIATE DISTRIBUTION V&Y.
       END IF
 C
 C------- EVALUATE THE MAX AMD MIM  LIM IT FOR THE INTERGRATION  --------
-C  
+C
       IF(MSTOCH.NE.2) THEN
         X=V
          SDLNX=SDLNV
@@ -402,11 +402,11 @@ C         WRITE(*,*) 'Y',Y,SDLNY,YMIN,YMAX
 C
 C   ADUJUST STOP CRITERIA FOR ROMBERG
       CALL CONST2(MODE,STOPER,LEVEL,MSTOCH,P,ICHEB)
-C      
+C
 C ------ CALULATE FILD SCALE CONCENTRATION ---------------
 C
-   50   CALL   STOCDE(CXT1,CXT2,VAR1,VAR2) 
-C   
+   50   CALL   STOCDE(CXT1,CXT2,VAR1,VAR2)
+C
       ISKIP=1
       IF(DABS(CXT1).LT.1.D-30) CXT1=0.0D+0
       IF(DABS(CXT2).LT.1.D-30) CXT2=0.0D+0
@@ -456,10 +456,10 @@ C
             WRITE(*,1202) Z(I),T(J),C1(I),VAR1(I)
        ELSE IF(MOD(MODE,2).EQ.0.AND.MODE.GE.4) THEN
           IF(I.EQ.1) THEN
-            WRITE(*,1200) 
+            WRITE(*,1200)
             WRITE(*,1202) Z(I),T(J),C1(I),C2(I),VAR1(I),VAR2(I)
 C             IF(MSTOCH.EQ.4) THEN
-C                WRITE(KP,1200) 
+C                WRITE(KP,1200)
 C                WRITE(KP,1202) Z(I),T(J),C1(I),C2(I),VAR1(I),VAR2(I)
 C             END IF
          ELSE
@@ -550,9 +550,9 @@ C  ----- NONEQUILIBRIUM FLUX AND RESIDENT CONC.  ---------
                END IF
             ELSE
               IF(NREDU.EQ.0) THEN
-                 WRITE(KP,1108) T(J),AREA1,AREA2 
+                 WRITE(KP,1108) T(J),AREA1,AREA2
               ELSE
-                 WRITE(KP,1104) T(J),AREA1,AREA2 
+                 WRITE(KP,1104) T(J),AREA1,AREA2
               END IF
             END IF
             DO 36 I=1,NZ
@@ -563,7 +563,7 @@ C  ----- NONEQUILIBRIUM FLUX AND RESIDENT CONC.  ---------
              END IF
    36       CONTINUE
 C
-          ELSE 
+          ELSE
 C  ----- EQUILIBRIUM FLUX AND RESIDENT CONC.  ---------
             IF(INVERSE.EQ.-1) THEN
               WRITE(KP,1107) T(J),AREA1
@@ -599,10 +599,10 @@ C       IF(MOD(MODE,2).EQ.1.AND.MODE.GE.3) THEN
        ELSE IF(MOD(MODE,2).EQ.0.AND.MODE.GE.4) THEN
 C       ELSE IF(MOD(MODE,2).EQ.0.AND.MODE.GE.2) THEN
          IF(J.EQ.1) THEN
-          WRITE(*,1200) 
+          WRITE(*,1200)
           WRITE(*,1202) Z(I),T(J),C1(J),C2(J),VAR1(J),VAR2(J)
 C          IF(MSTOCH.EQ.4) THEN
-C            WRITE(KP,1200) 
+C            WRITE(KP,1200)
 C            WRITE(KP,1202) Z(I),T(J),C1(J),C2(J),VAR1(J),VAR2(J)
 C          END IF
          ELSE
@@ -726,9 +726,9 @@ C
             DO 78 J=1,NT
            IF(INVERSE.EQ.-1) THEN
             WRITE(KP,2020) T(J),C1(J)
-           ELSE                                        
+           ELSE
             WRITE(KP,2020) T(J),C1(J),VAR1(J)
-           END IF 
+           END IF
    78  CONTINUE
        GO TO 52
        END IF
@@ -745,7 +745,7 @@ C   ----- NONEQUILBRIUM (MODE=4,6,8) -------------------
             ELSE
              IF(MOFORM.EQ.1) THEN
               WRITE(KP,2210) Z(I),AREA11,AREA12,AREA13,AREA21,AREA22,
-     &                       AREA23 
+     &                       AREA23
              ELSE
                WRITE(KP,1210) Z(I),AREA11,AREA21
              END IF
@@ -769,9 +769,9 @@ C   ----- NONEQUILBRIUM (MODE=4,6,8) -------------------
            END IF
         DO 76 J=1,NT
            IF(INVERSE.EQ.-1) THEN
-                WRITE(KP,2020) T(J),C1(J),C2(J) 
+                WRITE(KP,2020) T(J),C1(J),C2(J)
            ELSE
-                WRITE(KP,2020) T(J),C1(J),C2(J),VAR1(J),VAR2(J) 
+                WRITE(KP,2020) T(J),C1(J),C2(J),VAR1(J),VAR2(J)
            END IF
    76   CONTINUE
 C   ----- EQUILBRIUM (MODE=6,8) -------------------
@@ -779,21 +779,21 @@ C   ----- EQUILBRIUM (MODE=6,8) -------------------
 C
            IF(INVERSE.EQ.-1) THEN
              IF(MOFORM.EQ.1) THEN
-              WRITE(KP,2119) Z(I),AREA11,AREA12,AREA13 
+              WRITE(KP,2119) Z(I),AREA11,AREA12,AREA13
              ELSE
-              WRITE(KP,1119) Z(I),AREA11 
-             END IF 
+              WRITE(KP,1119) Z(I),AREA11
+             END IF
            ELSE
              IF(MOFORM.EQ.1) THEN
-              WRITE(KP,2116) Z(I),AREA11,AREA12,AREA13 
+              WRITE(KP,2116) Z(I),AREA11,AREA12,AREA13
              ELSE
-              WRITE(KP,1116) Z(I),AREA11 
-             END IF 
+              WRITE(KP,1116) Z(I),AREA11
+             END IF
            END IF
         DO 77 J=1,NT
            IF(INVERSE.EQ.-1) THEN
               WRITE(KP,2020) T(J), C1(J)
-           ELSE 
+           ELSE
               WRITE(KP,2020) T(J), C1(J),VAR1(J)
            END IF
    77   CONTINUE
@@ -803,10 +803,10 @@ C
       GO TO 99
 C
 C
- 1000 FORMAT('$ T=',F9.5,'   (FLUX-AVERAGED CONC. VS. DEPTH)', 
+ 1000 FORMAT('$ T=',F9.5,'   (FLUX-AVERAGED CONC. VS. DEPTH)',
      &/,'$ Sum(C1*dZ) = ',F11.5,'   Sum(C2*dZ) = ',F11.5,
      &/'$    Z   ',8X,'C1',12X,'C2')
- 1001 FORMAT('$ T=',F9.5,'   (FLUX-AVERAGED CONC. VS. DEPTH)', 
+ 1001 FORMAT('$ T=',F9.5,'   (FLUX-AVERAGED CONC. VS. DEPTH)',
      &/,'$ Sum(C*dZ) = ',F12.5,
      &/,'$    Z   ',8X,' C')
  1100 FORMAT('$ T=',F8.5,'   (RESIDENT AND TOTAL RESIDENT CONC. VS. DEPT

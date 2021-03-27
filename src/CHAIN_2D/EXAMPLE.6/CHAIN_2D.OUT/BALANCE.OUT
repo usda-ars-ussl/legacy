@@ -1,10 +1,10 @@
- Example 6 - Solute Transport with Kinetic Linear Cation Adsorption             
-                      
- 
+ Example 6 - Solute Transport with Kinetic Linear Cation Adsorption
+
+
  Program CHAIN_2D
  Time independent boundary conditions
  Vertical plane flow, V = L*L
- Units: L = cm   , T = day  , M = -    
+ Units: L = cm   , T = day  , M = -
 
  Time [T]             Total     Sub-region number ...
 

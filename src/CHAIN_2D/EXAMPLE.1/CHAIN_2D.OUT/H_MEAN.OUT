@@ -1,13 +1,13 @@
- Example 1 - Column Test                                                        
-                      
- 
+ Example 1 - Column Test
+
+
  Program CHAIN_2D
  Time independent boundary conditions
  Vertical plane flow, V = L*L
- Units: L = cm   , T = sec  , M = -    
+ Units: L = cm   , T = sec  , M = -
 
 
-     Time         hAtm       hRoot     hKode3     hKode1      hSeep     hKode5     hKode6 ... 
+     Time         hAtm       hRoot     hKode3     hKode1      hSeep     hKode5     hKode6 ...
       [T]          [L]        [L]        [L]        [L]        [L]        [L]        [L]
 
      60.0000         .0         .0         .0         .8     -149.9         .0         .0

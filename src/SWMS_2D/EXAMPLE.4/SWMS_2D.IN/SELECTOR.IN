@@ -11,7 +11,7 @@ lWAt	lChem	CheckF  ShortF  FluxF   AtmInF  SeepF  FreeD  DrainF
 t	t	f	f	t	f	f      f      f
 *** BLOCK B: MATERIAL INFORMATION **************************************
 NMat    NLay    hTab1   hTabN   NPar
-  2      2      .001    200.    9    
+  2      2      .001    200.    9
 thr     ths     tha     thm     Alfa    n       Ks      Kk      thk
 .0001   .399    .0001   .399    .0174   1.3757  .0207   .0207   .399
 .0001   .339    .0001   .339    .0139   1.6024  .0315   .0315   .339

@@ -172,7 +172,7 @@
             Omega=ChPar(jjj+20,M)*exp(TDep(jjj+20)*TT)
             Sorb(jj,i)=Sorb(jj,i)+dt*Omega*(1.-Frac)*xKs*Conc(jj,i)/
      !                             (2.+dt*(Omega+GamS+GamS1))
-22        continue          
+22        continue
         end if
         CumCh0(jj)=CumCh0(jj)+Cum0
         CumCh1(jj)=CumCh1(jj)+Cum1
@@ -291,7 +291,7 @@
           if(Level.eq.NLevel) then
             if(cMid.gt.0.) dConc=fExp*cMid**(fExp-1.)/
      !                           (1.+xNu*cMid**fExp)**2
-            if(.not.lEquil.and.Conc(jj,i).gt.0.) 
+            if(.not.lEquil.and.Conc(jj,i).gt.0.)
      !        SEquiO=xKsO*Conc(jj,i)**fExpO/(1.+xNuO*Conc(jj,i)**fExpO)
           end if
           if(jj.gt.1.and.cPrev.gt.0.) SConcP=cPrev**(fExpP-1.)/
@@ -339,7 +339,7 @@
      !                    dt*(1.-Frac)*(xMuSO+xMuS))/
      !                    (2.+dt*(Omega+GamS+GamS1))
               SSorb=Sorb(jj,i)
-            end if  
+            end if
           end if
         end if
 
@@ -506,7 +506,7 @@
               ic=1
               if(i1.eq.i2) ic=2
               S(j1,j2)=S(j1,j2)+SMul2*ic*(FcE+(Fc(i1)+Fc(i2))/3.)
-              if(iBound.eq.1) 
+              if(iBound.eq.1)
      !          Qc(jj,i1)=Qc(jj,i1)-Eps*S(j1,j2)*Conc(jj,i2)
               if(Level.ne.NLevel) then
                 B(i1)=B(i1)-alf*S(j1,j2)*Conc(jj,i2)
@@ -568,7 +568,7 @@
               else
                 if(Q(i).gt.0.) then
                   cKod=3
-                  if(abs(Kode(i)).eq.1.or.abs(Kode(i)).ge.5) 
+                  if(abs(Kode(i)).eq.1.or.abs(Kode(i)).ge.5)
      !                                    cBnd=cBound(jj,-KodCB(j))
                   if(abs(Kode(i)).eq.3) cBnd=crt(jj)
                   if(abs(Kode(i)).eq.4) cBnd=cPrec(jj)
@@ -648,7 +648,7 @@
       return
       end
 
-************************************************************************    
+************************************************************************
 
 *     Calculate the dispersion coefficient
 
@@ -918,7 +918,7 @@
           ii=ii+1
 13      continue
         B(i)=B(i)+Sum
-14    continue              
+14    continue
       B(NumNP)=B(NumNP)/A(MBand,NumNP)
       do 16 k=1,N1
         i=NumNP-k
@@ -930,8 +930,8 @@
           Sum=Sum+A(j,i)*B(jj)
 15      continue
         B(i)=(B(i)-Sum)/A(MBand,i)
-16    continue  
+16    continue
       return
-      end    
+      end
 
-* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||

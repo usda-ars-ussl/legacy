@@ -1,5 +1,5 @@
- 
- 
+
+
      *******************************************************************
      *                                                                 *
      *     NONLINEAR LEAST SQUARES ANALYSIS                  CFITM     *
@@ -8,16 +8,16 @@
      *     EXAMPLE 2A CHROMIUM (COLUMN NUMBER 4)                       *
      *                                                                 *
      *******************************************************************
- 
- 
+
+
      INITIAL VALUES OF COEFFICIENTS
      ==============================
      NO      NAME       INITIAL VALUE
       1     PECLET          20.000
       2       RF             1.300
       3      PULSE         100.000
- 
- 
+
+
      OBSERVED DATA
      =============
      OBS. NO.     PORE VOLUME     CONCENTRATION
@@ -36,33 +36,33 @@
         13           2.1910           .9660
         14           2.3270           .9940
         15           2.4630           .9990
- 
- 
-     ITERATION     SSQ      PECLET      RF      
+
+
+     ITERATION     SSQ      PECLET      RF
          0       .0047355   20.00000  1.30000
          1       .0030624   19.73079  1.28257
          2       .0029852   19.13818  1.28129
          3       .0029844   19.18510  1.28136
          4       .0029844   19.18510  1.28136
- 
- 
+
+
      CORRELATION MATRIX
      ==================
-           1          2         
-     1   1.0000    
-     2    .2613     1.0000    
- 
- 
- 
+           1          2
+     1   1.0000
+     2    .2613     1.0000
+
+
+
      NON-LINEAR LEAST SQUARES ANALYSIS, FINAL RESULTS
      ================================================
- 
+
                                                       95% CONFIDENCE LIMITS
      VAR  NAME      VALUE      S.E.COEFF.   T-VALUE     LOWER        UPPER
       1  PECLET    19.18510       .9530       20.13    17.1262      21.2440
       2    RF       1.28136       .0068      187.37     1.2666       1.2961
- 
- 
+
+
      ----ORDERED BY COMPUTER INPUT-----   --------ORDERED BY RESIDUALS------
            PORE   CONCENTRATION   RESI-         PORE   CONCENTRATION   RESI-
      NO  VOLUME    OBS.  FITTED    DUAL   NO  VOLUME    OBS.  FITTED    DUAL
@@ -81,8 +81,8 @@
      13   2.191    .966    .957    .009    2    .695    .006    .024   -.018
      14   2.327    .994    .972    .022   11   1.919    .881    .900   -.019
      15   2.463    .999    .982    .017    3    .831    .061    .082   -.021
- 
- 
- 
+
+
+
      END OF PROBLEM
      ==============

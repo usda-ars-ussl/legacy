@@ -1,9 +1,9 @@
- Example 4 - Infiltration Test                                           
- 
+ Example 4 - Infiltration Test
+
  Program SWMS_2D
  Time independent boundary conditions
  Axisymmetric flow, V = L*L*L
- Units: L = cm   , T = min  , M = -    
+ Units: L = cm   , T = min  , M = -
 
  Max. number of iterations             20
  Absolute water content tolerance [-]  .00050
@@ -17,7 +17,7 @@
 
 
  MatNum          Qe     Q        h         C         K
- 
+
     1          1.000   .399      .000   .30E-06    .207E-01
     1           .990   .395    -5.282   .10E-02    .732E-02
     1           .900   .359   -33.237   .13E-02    .140E-02
@@ -28,7 +28,7 @@
     1           .350   .140  -925.067   .55E-04    .425E-06
     1           .200   .080 -4159.356   .72E-05    .526E-08
     1           .100   .040-26368.180   .57E-06    .232E-10
- 
+
     2          1.000   .339      .000   .00E+00    .315E-01
     2           .990   .336    -7.568   .70E-03    .174E-01
     2           .900   .305   -35.571   .13E-02    .505E-02

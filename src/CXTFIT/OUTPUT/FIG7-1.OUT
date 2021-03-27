@@ -24,7 +24,7 @@ $
 
      INITIAL VALUES OF COEFFICIENTS
      ==============================
-     NAME        INITIAL VALUE 
+     NAME        INITIAL VALUE
       V........     .2500E+02
       D........     .3750E+02
       R........     .3000E+01
@@ -36,8 +36,8 @@ $
        SINGLE PULSE OF CONC. =    1.0000 & DURATION =    5.0000
        SOLUTE FREE INITIAL CONDITION
        CONSTANT PRODUCTION   GAMMA =     .5000
- 
- 
+
+
 $ T=  7.50000    (RESIDENT AND TOTAL RESIDENT CONC. VS. DEPTH)
 $ Sum(C*dZ) =   127.59297   Sum(Ct*dZ) =   382.77890 (TOTAL MASS)
 $    Z          C           Ct (=R*C)
@@ -168,7 +168,7 @@ $
 
      INITIAL VALUES OF COEFFICIENTS
      ==============================
-     NAME        INITIAL VALUE 
+     NAME        INITIAL VALUE
       V........     .2500E+02
       D........     .3750E+02
       R........     .3000E+01
@@ -180,8 +180,8 @@ $
        SINGLE PULSE OF CONC. =    1.0000 & DURATION =    5.0000
        SOLUTE FREE INITIAL CONDITION
        CONSTANT PRODUCTION   GAMMA =     .5000
- 
- 
+
+
 $ T=  7.50000    (RESIDENT AND TOTAL RESIDENT CONC. VS. DEPTH)
 $ Sum(C*dZ) =    94.56798   Sum(Ct*dZ) =   283.70394 (TOTAL MASS)
 $    Z          C           Ct (=R*C)
@@ -312,7 +312,7 @@ $
 
      INITIAL VALUES OF COEFFICIENTS
      ==============================
-     NAME        INITIAL VALUE 
+     NAME        INITIAL VALUE
       V........     .2500E+02
       D........     .3750E+02
       R........     .3000E+01
@@ -324,8 +324,8 @@ $
        SINGLE PULSE OF CONC. =    1.0000 & DURATION =    5.0000
        SOLUTE FREE INITIAL CONDITION
        CONSTANT PRODUCTION   GAMMA =     .5000
- 
- 
+
+
 $ T=  7.50000    (RESIDENT AND TOTAL RESIDENT CONC. VS. DEPTH)
 $ Sum(C*dZ) =    72.21285   Sum(Ct*dZ) =   216.63854 (TOTAL MASS)
 $    Z          C           Ct (=R*C)
@@ -456,7 +456,7 @@ $
 
      INITIAL VALUES OF COEFFICIENTS
      ==============================
-     NAME        INITIAL VALUE 
+     NAME        INITIAL VALUE
       V........     .2500E+02
       D........     .3750E+02
       R........     .3000E+01
@@ -468,8 +468,8 @@ $
        SINGLE PULSE OF CONC. =    1.0000 & DURATION =    5.0000
        SOLUTE FREE INITIAL CONDITION
        CONSTANT PRODUCTION   GAMMA =     .5000
- 
- 
+
+
 $ T=  7.50000    (RESIDENT AND TOTAL RESIDENT CONC. VS. DEPTH)
 $ Sum(C*dZ) =    45.79709   Sum(Ct*dZ) =   137.39127 (TOTAL MASS)
 $    Z          C           Ct (=R*C)

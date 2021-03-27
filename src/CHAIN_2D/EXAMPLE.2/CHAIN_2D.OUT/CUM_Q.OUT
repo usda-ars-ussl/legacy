@@ -1,10 +1,10 @@
- Example 2 - Grass Field Problem (Hupselse Beek 1982)                           
-                      
- 
+ Example 2 - Grass Field Problem (Hupselse Beek 1982)
+
+
  Program CHAIN_2D
  Time dependent boundary conditions
  Vertical plane flow, V = L*L
- Units: L = cm   , T = day  , M = -    
+ Units: L = cm   , T = day  , M = -
  All cumulative fluxes (CumQ) are positive out of the region
 
      Time     CumQAP      CumQRP     CumQA      CumQR     CumQ3       CumQ1      CumQS      CumQ5       CumQ6 ....

@@ -1,13 +1,13 @@
- Example 2 - Grass Field Problem (Hupselse Beek 1982)                           
-                      
- 
+ Example 2 - Grass Field Problem (Hupselse Beek 1982)
+
+
  Program CHAIN_2D
  Time dependent boundary conditions
  Vertical plane flow, V = L*L
- Units: L = cm   , T = day  , M = -    
+ Units: L = cm   , T = day  , M = -
 
 
-     Time         hAtm       hRoot     hKode3     hKode1      hSeep     hKode5     hKode6 ... 
+     Time         hAtm       hRoot     hKode3     hKode1      hSeep     hKode5     hKode6 ...
       [T]          [L]        [L]        [L]        [L]        [L]        [L]        [L]
 
     120.0000      -84.2      -73.1      133.2         .0         .0         .0         .0

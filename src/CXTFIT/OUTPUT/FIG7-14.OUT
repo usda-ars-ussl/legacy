@@ -30,7 +30,7 @@ $
 
      INITIAL VALUES OF COEFFICIENTS
      ==============================
-     NAME        INITIAL VALUE 
+     NAME        INITIAL VALUE
       <V>......     .5000E+02
       <D>......     .2000E+02
       <Kd>.....     .1000E+01
@@ -48,9 +48,9 @@ $
        DIRAC DELTA INPUT , MASS =   1.0000
          AMOUNT OF SOLUTE DEPENDS ON LOCAL V  (input=V delta/<V>)
        SOLUTE FREE INITIAL CONDITION
-       NO PRODUCTION TERM 
- 
- 
+       NO PRODUCTION TERM
+
+
 $ T=  1.00000     (CONC. VS. DEPTH)
 $ Sum(C1*dZ) =    11.04183   Sum(s*dZ) =     9.71212
 $    Z         <C1>           <s>          VAR(C1)       VAR(s)
@@ -236,7 +236,7 @@ $
 
      INITIAL VALUES OF COEFFICIENTS
      ==============================
-     NAME        INITIAL VALUE 
+     NAME        INITIAL VALUE
       <V>......     .5000E+02
       <D>......     .2000E+02
       <Kd>.....     .1000E+01
@@ -254,9 +254,9 @@ $
        DIRAC DELTA INPUT , MASS =   1.0000
          AMOUNT OF SOLUTE DEPENDS ON LOCAL V  (input=V delta/<V>)
        SOLUTE FREE INITIAL CONDITION
-       NO PRODUCTION TERM 
- 
- 
+       NO PRODUCTION TERM
+
+
 $ T=  1.00000    (TOTAL RESIDENT CONC. VS. DEPTH)
 $ Sum(Ct*dZ) =     49.89030 (TOTAL MASS)
 $    Z         <Ct>          VAR(Ct)
@@ -443,7 +443,7 @@ $
 
      INITIAL VALUES OF COEFFICIENTS
      ==============================
-     NAME        INITIAL VALUE 
+     NAME        INITIAL VALUE
       <V>......     .5000E+02
       <D>......     .2000E+02
       <Kd>.....     .1000E+01
@@ -461,9 +461,9 @@ $
        DIRAC DELTA INPUT , MASS =   1.0000
          AMOUNT OF SOLUTE DEPENDS ON LOCAL V  (input=V delta/<V>)
        SOLUTE FREE INITIAL CONDITION
-       NO PRODUCTION TERM 
- 
- 
+       NO PRODUCTION TERM
+
+
 $ T=  1.00000     (CONC. VS. DEPTH)
 $ Sum(C1*dZ) =    14.66986   Sum(s*dZ) =     8.69324
 $    Z         <C1>           <s>          VAR(C1)       VAR(s)
@@ -649,7 +649,7 @@ $
 
      INITIAL VALUES OF COEFFICIENTS
      ==============================
-     NAME        INITIAL VALUE 
+     NAME        INITIAL VALUE
       <V>......     .5000E+02
       <D>......     .2000E+02
       <Kd>.....     .1000E+01
@@ -667,9 +667,9 @@ $
        DIRAC DELTA INPUT , MASS =   1.0000
          AMOUNT OF SOLUTE DEPENDS ON LOCAL V  (input=V delta/<V>)
        SOLUTE FREE INITIAL CONDITION
-       NO PRODUCTION TERM 
- 
- 
+       NO PRODUCTION TERM
+
+
 $ T=  1.00000    (TOTAL RESIDENT CONC. VS. DEPTH)
 $ Sum(Ct*dZ) =     49.44283 (TOTAL MASS)
 $    Z         <Ct>          VAR(Ct)
@@ -856,7 +856,7 @@ $
 
      INITIAL VALUES OF COEFFICIENTS
      ==============================
-     NAME        INITIAL VALUE 
+     NAME        INITIAL VALUE
       <V>......     .5000E+02
       <D>......     .2000E+02
       <Kd>.....     .1000E+01
@@ -874,9 +874,9 @@ $
        DIRAC DELTA INPUT , MASS =   1.0000
          AMOUNT OF SOLUTE DEPENDS ON LOCAL V  (input=V delta/<V>)
        SOLUTE FREE INITIAL CONDITION
-       NO PRODUCTION TERM 
- 
- 
+       NO PRODUCTION TERM
+
+
 $ T=  1.00000     (CONC. VS. DEPTH)
 $ Sum(C1*dZ) =    34.53543   Sum(s*dZ) =     3.59230
 $    Z         <C1>           <s>          VAR(C1)       VAR(s)
@@ -1062,7 +1062,7 @@ $
 
      INITIAL VALUES OF COEFFICIENTS
      ==============================
-     NAME        INITIAL VALUE 
+     NAME        INITIAL VALUE
       <V>......     .5000E+02
       <D>......     .2000E+02
       <Kd>.....     .1000E+01
@@ -1080,9 +1080,9 @@ $
        DIRAC DELTA INPUT , MASS =   1.0000
          AMOUNT OF SOLUTE DEPENDS ON LOCAL V  (input=V delta/<V>)
        SOLUTE FREE INITIAL CONDITION
-       NO PRODUCTION TERM 
- 
- 
+       NO PRODUCTION TERM
+
+
 $ T=  1.00000    (TOTAL RESIDENT CONC. VS. DEPTH)
 $ Sum(Ct*dZ) =     48.90461 (TOTAL MASS)
 $    Z         <Ct>          VAR(Ct)

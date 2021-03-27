@@ -109,7 +109,7 @@
 130   format(//' TLevel   Time         dt     IterC   Peclet  Courant'/)
 140   format(' All fluxes (v) are positive out of the region'//
      !'     Time       rAtm       rRoot      vAtm       vRoot      ',
-     !'vKode3     vKode1     vSeep      vKode5     vKode6 ...'/   
+     !'vKode3     vKode1     vSeep      vKode5     vKode6 ...'/
      !'      [T]      [L/T]       [L/T]     [L/T]       [L/T]      ',
      !' [V/T]      [V/T]     [V/T]       [V/T]      [V/T]'/)
 150   format(//
@@ -432,15 +432,15 @@
       subroutine SolInf(K,NumNP,NS,NSD,Kode,Qc,t,dt,IterC,TLevel,ShortF,
      !                  TPrint,NumKD,SMean,ChemS,CumCh0,CumCh1,CumChR,
      !                  cCumA,cCumT,lWat)
-   
+
       integer TLevel
       logical ShortF,lWat
       dimension Qc(NSD,NumNP),Kode(NumNP),CumCh0(NS),CumCh1(NS),
      !          CumChR(NS),ChemS(NSD,NumKD),SMean(NSD,NumKD),cCumA(NS),
      !          cCumT(NS)
-      
+
       do 14 jj=1,NS
-        if(K.eq.1) then  
+        if(K.eq.1) then
           do 11 i=1,NumKD
             SMean(jj,i)=0.
 11        continue
@@ -662,7 +662,7 @@
           if(L.eq.L1) k=n+IJ-1
           write(83,120) m,x(m),y(m),(Temp(j),j=m,k)
 11      continue
-12    continue            
+12    continue
 
 110   format(//' Time  ***',f12.4,' ***'//
      !         '    n    x(n)   z(n)      Temp(n)   Temp(n+1)  ...'/)

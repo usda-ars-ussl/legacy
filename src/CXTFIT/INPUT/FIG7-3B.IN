@@ -2,15 +2,15 @@
 *** BLOCK A: MODEL DESCRIPTION *******************************************
 Fig.7-3b:Steady saturated flow in a sand column
   EC vs. Time at 11 cm  (sho shiozawa, unpublished, f5)
-INVERSE    MODE      NREDU 
-   1         1        1   
+INVERSE    MODE      NREDU
+   1         1        1
  MODC       ZL(BLANK IF MODE=NREDU=1)
-   3        
+   3
 *** BLOCK B: INVERSE PROBLEM *********************************************
   MIT       ILMT    MASS
   150        1        0
 *** BLOCK C: TRANSPORT PARAMETERS ****************************************
-    V         D         R      Mu 
+    V         D         R      Mu
     0.3      0.3       1.0      0.0
      1        1         0        0
     0.01   0.001      999      999
@@ -23,9 +23,9 @@ INVERSE    MODE      NREDU
     1
    1.0
 *** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
-   MODP 
-    0   
-*** BLOCK G: DATA FOR INVERSE PROBLEM ************************************ 
+   MODP
+    0
+*** BLOCK G: DATA FOR INVERSE PROBLEM ************************************
 INPUTM =0; Z,T,C  =1; T,C FOR SAME Z  =2; Z,C FOR SAME T
    1
   11.0
@@ -86,15 +86,15 @@ INPUTM =0; Z,T,C  =1; T,C FOR SAME Z  =2; Z,C FOR SAME T
 *** BLOCK A: MODEL DESCRIPTION *******************************************
 Fig.7-3b:Steady saturated flow in a sand column
   EC vs. Time at 17 cm  (sho shiozawa, unpublished, f5)
-INVERSE    MODE      NREDU 
-   1         1        1   
+INVERSE    MODE      NREDU
+   1         1        1
  MODC       ZL(BLANK IF MODE=NREDU=1)
-   3        
+   3
 *** BLOCK B: INVERSE PROBLEM *********************************************
   MIT       ILMT    MASS
   150        1        0
 *** BLOCK C: TRANSPRT PARAMETERS *****************************************
-    V         D         R      Mu 
+    V         D         R      Mu
     0.3      0.3       1.0      0.0
      1        1         0        0
     0.01   0.001      999      999
@@ -107,9 +107,9 @@ INVERSE    MODE      NREDU
     1
    1.0
 *** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
-   MODP 
-    0   
-*** BLOCK G: DATA FOR INVERSE PROBLEM ************************************ 
+   MODP
+    0
+*** BLOCK G: DATA FOR INVERSE PROBLEM ************************************
 INPUTM =0; Z,T,C  =1; T,C FOR SAME Z  =2; Z,C FOR SAME T
    1
   17.0
@@ -165,15 +165,15 @@ INPUTM =0; Z,T,C  =1; T,C FOR SAME Z  =2; Z,C FOR SAME T
 *** BLOCK A: MODEL DESCRIPTION ******************************************
 Fig.7-3a:Steady saturated flow in a sand column
   EC vs. Time at 23 cm  (sho shiozawa, unpublished, f5)
-INVERSE    MODE      NREDU 
-   1         1        1   
+INVERSE    MODE      NREDU
+   1         1        1
  MODC       ZL(BLANK IF MODE=NREDU=1)
-   3        
+   3
 *** BLOCK B: INVERSE PROBLEM ********************************************
   MIT       ILMT    MASS
   150        1        0
 *** BLOCK C: TRANSPRT PARAMETERS *****************************************
-    V         D         R      Mu 
+    V         D         R      Mu
     0.3      0.3       1.0      0.0
      1        1         0        0
     0.01   0.001      999      999
@@ -186,9 +186,9 @@ INVERSE    MODE      NREDU
     1
    1.0
 *** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
-   MODP 
-    0   
-*** BLOCK G: DATA FOR INVERSE PROBLEM ************************************ 
+   MODP
+    0
+*** BLOCK G: DATA FOR INVERSE PROBLEM ************************************
 INPUTM =0; Z,T,C  =1; T,C FOR SAME Z  =2; Z,C FOR SAME T
    1
   23.0
@@ -247,4 +247,4 @@ INPUTM =0; Z,T,C  =1; T,C FOR SAME Z  =2; Z,C FOR SAME T
 130.37  0.0245
 131.87  0.0162
      0         0
-
+

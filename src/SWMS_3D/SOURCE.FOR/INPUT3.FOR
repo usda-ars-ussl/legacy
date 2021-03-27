@@ -51,7 +51,7 @@
 
 100   format(' Date: ',i3,'.',i2,'.','    Time: ',i3,':',i2,':',i2)
 110   format(/' Max. number of iterations           ',i4/
-     !        ' Absolute water content tolerance [-]',f8.5/ 
+     !        ' Absolute water content tolerance [-]',f8.5/
      !        ' Absolute pressure head tolerance [L]',f8.5/)
       return
       end
@@ -93,10 +93,10 @@
 12      continue
 13    continue
 
-110   format(/' MatNum,        thR    thS    tha    thm      alpha      
+110   format(/' MatNum,        thR    thS    tha    thm      alpha
      !   n          Ks          Kk          thk'/)
 120   format(i5,8x,4f7.3,16e12.3)
-130   format(//' MatNum          Qe     Q        h         C         K') 
+130   format(//' MatNum          Qe     Q        h         C         K')
 140   format(i5,8x,2f7.3,f10.3,e10.2,e12.3)
       return
       end
@@ -442,8 +442,8 @@ c        ConAyz(Num)=0.
       if(MBand.gt.MBandD.or.(lChem.and.2*MBand-1.gt.MBandD)) lOrt=.true.
       if(MBand.gt.10.or.NumNP.gt.300) lOrt=.true.
 
-110   format (////' Element Information'//' Element    C O R N E R    N 
-     !O D E S   ConAxx    ConAyy    ConAzz   ConAxy    ConAxz    ConAyz 
+110   format (////' Element Information'//' Element    C O R N E R    N
+     !O D E S   ConAxx    ConAyy    ConAzz   ConAxy    ConAxz    ConAyz
      ! LayNum'/)
 120   format (i6,i8,7i5,6f8.3,i5)
 130   format (//' Wrong orientation of nodes of element: ',i7,
@@ -528,7 +528,7 @@ c        ConAyz(Num)=0.
 
       integer e
       dimension POptm(NMat),Beta(NumNP),KX(NumElD,8),x(NumNP),y(NumNP),
-     !          z(NumNP) 
+     !          z(NumNP)
 
       write(*,*) 'reading sink information'
       read(30,*)
@@ -577,8 +577,8 @@ c        ConAyz(Num)=0.
       read(30,*)
       read(30,*) epsi,lUpW,lArtD,PeCr
       PeCr=amax1(PeCr,0.1)
-      if(epsi.lt.0.999) NLevel=2      
-      read(30,*) 
+      if(epsi.lt.0.999) NLevel=2
+      read(30,*)
       if(lUpW) then
         write(50,120)
       else
@@ -586,10 +586,10 @@ c        ConAyz(Num)=0.
         if(lArtD) write(50,140) PeCr
       end if
       write(50,150)
-      do 11 M=1,NMat    
+      do 11 M=1,NMat
         read(30,*) (ChPar(j,M),j=1,9)
         write(50,160) (ChPar(j,M),j=1,9)
-11    continue   
+11    continue
       read(30,*)
       read(30,*) (KodCB(i),i=1,NumBP)
       read(30,*)
@@ -598,7 +598,7 @@ c        ConAyz(Num)=0.
       read(30,*)
       read(30,*) tPulse
       write(50,180) tPulse
-  
+
 110   format (/' Solute transport information'/1x,28('='))
 120   format (/' Upstream weighting finite-element method')
 130   format (/' Galerkin finite-element method')
@@ -606,7 +606,7 @@ c        ConAyz(Num)=0.
      !         ' higher than',f10.3)
 150   format (/'  Bulk.d.   Difus.         Disper.        Adsorp.    ',
      !         'SinkL1    SinkS1    SinkL0    SinkS0')
-160   format (10e10.3) 
+160   format (10e10.3)
 170   format (/'   Conc1     Conc2     Conc3     Conc4     Conc5     C',
      !         'onc6'/6e10.3//'   Conc7     Conc8     Conc9     Conc10',
      !         '    cWell     cSink'/6e10.3)
@@ -619,7 +619,7 @@ c        ConAyz(Num)=0.
       subroutine Elem(NUS,NumElD,e,n,KX,i,j,k,l)
       dimension KX(NumElD,9)
       integer e
-      
+
       if(NUS.eq.1) then
         i=KX(e,1)
         j=KX(e,2)

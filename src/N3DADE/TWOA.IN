@@ -2,7 +2,7 @@
 Fig. 8: Heaviside application finite rectangle
       20.0       4.0      20.0      10.0       5.0
       0.50      0.25       0.0       0.0
-      20.0      1.00         1         0 
+      20.0      1.00         1         0
 BVP Dirac for x, Heaviside for y and z
    14    1    1    1
        1.0      20.0

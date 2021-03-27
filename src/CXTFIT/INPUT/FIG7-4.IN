@@ -2,15 +2,15 @@
 *** BLOCK A: MODEL DESCRIPTION *******************************************
 Fig.7-4: Estimation of duration time (MASS = 1 in Block B)
   EC (TDR) vs. Time at 10 cm  (After Dirk Mallants, No.121)
-INVERSE    MODE      NREDU 
-   1         1        1   
+INVERSE    MODE      NREDU
+   1         1        1
  MODC       ZL(BLANK IF MODE=NREDU=1)
-   3        
+   3
 *** BLOCK B: INVERSE PROBLEM *********************************************
   MIT       ILMT    MASS
   150        1        1
 *** BLOCK C: TRANSPORT PARAMETERS ****************************************
-    V         D         R      Mu 
+    V         D         R      Mu
     3.0      1.0       1.0      0.0
      1        1         0        0
     0.01    0.01      999      999
@@ -19,16 +19,16 @@ INVERSE    MODE      NREDU
   MODB                =4 MULTIPLE; =5 EXPONENTIAL; =6 ARBITRARY
    3
    1.0      0.5
-    0        1 
+    0        1
    999      0.1
    999      2.0
 *** BLOCK E: IVP; MODI=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
   MODI
     0
 *** BLOCK F: PVP; MODP=0 ZERO; =1 CONSTANT; =2 STEPWISE; =3 EXPONENTIAL **
-   MODP 
-    0   
-*** BLOCK G: DATA FOR INVERSE PROBLEM ************************************ 
+   MODP
+    0
+*** BLOCK G: DATA FOR INVERSE PROBLEM ************************************
 INPUTM =0,Z,T,C :=1,T,C FOR SAME Z ;=2,Z,C FOR SAME T ;=3, ver.1 format
    3
     C         X         T (3F10.0)  (Give "0 0 0" after last data set.)
@@ -120,4 +120,4 @@ INPUTM =0,Z,T,C :=1,T,C FOR SAME Z ;=2,Z,C FOR SAME T ;=3, ver.1 format
     0.0001  10.0000        35
     0.0000  10.0000  35.88333
      0       0         0
-
+

@@ -7,22 +7,22 @@ C     *          TRANSPORT IN 3-D SEMI-INFINITE POROUS MEDIA             *
 C     *                 JOURNAL OF HYDROLOGY 151:193-228                 *
 C     *                                                                  *
 C     *                 FEIKE J. LEIJ and NOBUO TORIDE                   *
-C     *                                                                  *   
+C     *                                                                  *
 C     *                    U.S. SALINITY LABORATORY                      *
 C     *                    450 W. BIG SPRINGS ROAD                       *
 C     *                    RIVERSIDE, CA 92507-4617                      *
 C     *                    U.S.A.                                        *
-C     *                                                                  *           
+C     *                                                                  *
 C     *                      PHONE (909) 369-4851                        *
 C     *                      FAX   (909) 342-4964                        *
-C     *                                                                  *   
+C     *                                                                  *
 C     *                         MODIFIED: 3/98                           *
 C     ********************************************************************
       IMPLICIT REAL*8(A-H,O-Z)
       PARAMETER (ZIP=1.0D-10,ZERO=0.0D+00,ONE=1.0D+00)
       COMMON X(4),R,PX,PY,PZ,BETA,OMEGA,U1,U2,MP,MC,NGC,NP,BINT
       COMMON OMU1,OMU2,OM1,OM2,OMOM,U1R,U2R
-      COMMON/BVP/ NBP,T0B,DMB,GPB(10),TPB(10),GEB,ALB,JB  
+      COMMON/BVP/ NBP,T0B,DMB,GPB(10),TPB(10),GEB,ALB,JB
       COMMON/IVP/ NIP,X0I,DMI,FPI(10),XPI(10),FEI,ALI,JI
       COMMON/PVP/ NPP,OLAM(10),TLAM(10),XPP(10),X0P,OLAME,TLAME,ALP,JP
       COMMON/TRANS/ Y0,Z0,NYP,YP(5),NZP,ZP(5),ALY,ALZ
@@ -51,13 +51,13 @@ C
       READ(5,201) TITLE
       READ(5,202) V,R,DCX,DCY,DCZ
       READ(5,202) BETA,OMEGA,U1,U2
-C                     
+C
       READ(5,204) UL,CO,MP,MC
       IF(MC.EQ.1) THEN
        WRITE(7,300) TITLE
       ELSE
        WRITE(7,299) TITLE
-      ENDIF 
+      ENDIF
       WRITE(7,210) V,R,DCX,DCY,DCZ,BETA,OMEGA,U1,U2
       PX=V*UL/DCX
       PY=V*UL/DCY
@@ -76,7 +76,7 @@ C
 C     --- BOUNDARY VALUE PROBLEM ---
       READ(5,201) TITLE
       READ(5,200) NP,NBP,NYP,NZP
-      WRITE(7,211) NP          
+      WRITE(7,211) NP
 C     --- DIRAC ---
       IF(NP.GE.1 .AND. NP.LE.9 .OR. NP.EQ.28 .OR. NP.EQ.29) THEN
        READ(5,202) T0,DMB
@@ -87,7 +87,7 @@ C     --- HEAVISIDE ---
       ELSE IF(NP.GE.10.AND.NP.LE.18.OR.NP.EQ.30.OR.NP.EQ.31)THEN
        WRITE(7,213)
        TP(1)=0.
-       TPB(1)=0. 
+       TPB(1)=0.
        READ(5,202) (GP(I),TP(I+1),I=1,NBP)
         DO 2 I=1,NBP
          WRITE(7,214) I,GP(I),TP(I),TP(I+1)
@@ -99,7 +99,7 @@ C     --- EXPONENTIAL ---
        WRITE(7,215) GE,ALB
        GEB=GE/CO
       ENDIF
-      GOTO 13 
+      GOTO 13
 C
 C     --- INITIAL VALUE PROBLEM ---
     3 READ(5,201) TITLE
@@ -145,7 +145,7 @@ C     --- spherical EXPONENTIAL ---
        X0I=X0/UL
        BINT=BINT/UL
        FEI=FE/CO
-      ENDIF        
+      ENDIF
       GOTO 13
 C
 C     --- PRODUCTION VALUE PROBLEM ---
@@ -181,7 +181,7 @@ C     --- spherical EXPONENTIAL ---
       ELSE IF(NP.EQ.35)THEN
        READ(5,202) X0,OLAME,TLAME,ALP,BINT
        WRITE(7,235) X0,OLAME,TLAME,ALP
-       X0P=X0/UL                               
+       X0P=X0/UL
        BINT=BINT/UL
       ENDIF
 C
@@ -193,17 +193,17 @@ C     --- DIRAC/DIRAC ---
        READ(5,202) Z0
        WRITE(7,242) Z0
        Y0=Y0/UL
-       Z0=Z0/UL              
+       Z0=Z0/UL
 C     --- DIRAC/HEAVISIDE ---
       ELSE IF(NP.EQ.2 .OR. NP.EQ.11 .OR. NP.EQ.20) THEN
        READ(5,202) Y0
        READ(5,202) (ZP(I),ZP(I+1),I=1,2*NZP,2)
        WRITE(7,241) Y0
-       WRITE(7,244) 
+       WRITE(7,244)
        DO 14 I=1,2*NZP,2
    14   WRITE(7,214) (I+1)/2,ZP(I),ZP(I+1)
        DO 814 I=1,2*NZP
-  814   ZP(I)=ZP(I)/UL       
+  814   ZP(I)=ZP(I)/UL
        Y0=Y0/UL
 C     --- DIRAC/EXPONENTIAL ---
       ELSE IF(NP.EQ.3 .OR. NP.EQ.12 .OR. NP.EQ.21) THEN
@@ -211,17 +211,17 @@ C     --- DIRAC/EXPONENTIAL ---
        READ(5,202) ALZ,Z0
        WRITE(7,241) Y0
        WRITE(7,246) ALZ,Z0
-       Y0=Y0/UL             
+       Y0=Y0/UL
        Z0=Z0/UL
 C     --- HEAVISIDE/DIRAC ---
       ELSE IF(NP.EQ.4 .OR. NP.EQ.13 .OR. NP.EQ.22) THEN
        READ(5,202) (YP(I),YP(I+1),I=1,2*NYP,2)
        READ(5,202) Z0
-       WRITE(7,243) 
+       WRITE(7,243)
        DO 15 I=1,2*NYP,2
    15   WRITE(7,214) (I+1)/2,YP(I),YP(I+1)
        DO 815 I=1,2*NYP
-  815   YP(I)=YP(I)/UL        
+  815   YP(I)=YP(I)/UL
        WRITE(7,242) Z0
        Z0=Z0/UL
 C     --- HEAVISIDE/HEAVISIDE ---
@@ -232,47 +232,47 @@ C     --- HEAVISIDE/HEAVISIDE ---
        DO 16 I=1,2*NYP,2
    16   WRITE(7,214) (I+1)/2,YP(I),YP(I+1)
        DO 816 I=1,2*NYP
-  816   YP(I)=YP(I)/UL        
+  816   YP(I)=YP(I)/UL
        WRITE(7,244)
-       DO 17 I=1,2*NZP,2   
+       DO 17 I=1,2*NZP,2
    17   WRITE(7,214) (I+1)/2,ZP(I),ZP(I+1)
-       DO 817 I=1,2*NZP 
-  817   ZP(I)=ZP(I)/UL        
+       DO 817 I=1,2*NZP
+  817   ZP(I)=ZP(I)/UL
 C     --- HEAVISIDE/EXPONENTIAL ---
       ELSE IF(NP.EQ.6 .OR. NP.EQ.15 .OR. NP.EQ.24) THEN
        READ(5,202) (YP(I),YP(I+1),I=1,2*NYP,2)
        READ(5,202) ALZ,Z0
-       WRITE(7,243)  
+       WRITE(7,243)
        DO 18 I=1,2*NYP,2
    18   WRITE(7,214) (I+1)/2,YP(I),YP(I+1)
        DO 818 I=1,2*NYP
-  818   YP(I)=YP(I)/UL        
+  818   YP(I)=YP(I)/UL
        WRITE(7,246) ALZ,Z0
        Z0=Z0/UL
 C     --- EXPONENTIAL/DIRAC ---
       ELSE IF(NP.EQ.7 .OR. NP.EQ.16 .OR. NP.EQ.25) THEN
        READ(5,202) ALY,Y0
        READ(5,202) Z0
-       WRITE(7,245) ALY,Y0       
+       WRITE(7,245) ALY,Y0
        WRITE(7,242) Z0
-       Y0=Y0/UL             
+       Y0=Y0/UL
        Z0=Z0/UL
 C     --- EXPONENTIAL/HEAVISIDE ---
       ELSE IF(NP.EQ.8 .OR. NP.EQ.17 .OR. NP.EQ.26) THEN
        READ(5,202) ALY,Y0
-       WRITE(7,245) ALY,Y0       
+       WRITE(7,245) ALY,Y0
        READ(5,202) (ZP(I),ZP(I+1),I=1,2*NZP,2)
        WRITE(7,244)
        DO 19 I=1,2*NZP,2
    19   WRITE(7,214) (I+1)/2,ZP(I),ZP(I+1)
        DO 819 I=1,2*NZP
-  819   ZP(I)=ZP(I)/UL        
-       Y0=Y0/UL 
+  819   ZP(I)=ZP(I)/UL
+       Y0=Y0/UL
 C     --- EXPONENTIAL/EXPONENTIAL ---
       ELSE IF(NP.EQ.9 .OR. NP.EQ.18 .OR. NP.EQ.27) THEN
        READ(5,202) ALY,Y0
-       WRITE(7,245) ALY,Y0       
-       Y0=Y0/UL  
+       WRITE(7,245) ALY,Y0
+       Y0=Y0/UL
        READ(5,202) ALZ,Z0
        WRITE(7,246) ALZ,Z0
        Z0=Z0/UL
@@ -283,7 +283,7 @@ C     --- circular HEAVISIDE ---
        DO 20 I=1,2*NYP,2
    20   WRITE(7,214) (I+1)/2,YP(I),YP(I+1)
        DO 820 I=1,2*NYP
-  820   YP(I)=YP(I)/UL        
+  820   YP(I)=YP(I)/UL
 C     --- circular EXPONENTIAL ---
       ELSE IF(NP.EQ.29.OR. NP.EQ.31 .OR. NP.EQ.33) THEN
        READ(5,202) ALY,BINT
@@ -291,12 +291,12 @@ C     --- circular EXPONENTIAL ---
        WRITE(7,248) ALY
       ENDIF
 C
-C     --- CALCULATE NODE SPACING ---  
+C     --- CALCULATE NODE SPACING ---
       WRITE(7,338)
       DO 21 I=1,4
        READ(5,202) DX(I),XLOW(I),XUP(I)
    21  WRITE(7,340) VN(I),DX(I),XLOW(I),XUP(I)
-C       
+C
        WRITE(7,342) CHAR(12)
 C
       DO 23 I=1,4
@@ -315,16 +315,16 @@ C
         XD(2)=XLOW(2)+(J-1)*DX(2)
         X(2)=XD(2)/UL
         DO 22 K=1,NXST(3)
-         XD(3)=XLOW(3)+(K-1)*DX(3)   
+         XD(3)=XLOW(3)+(K-1)*DX(3)
          X(3)=XD(3)/UL
          DO 22 L=1,NXST(4)
-          XD(4)=XLOW(4)+(L-1)*DX(4)   
+          XD(4)=XLOW(4)+(L-1)*DX(4)
           X(4)=XD(4)/UL
           NUM=NUM+1
           Y1=ZERO
-          Y2=ZERO     
+          Y2=ZERO
           CALL MODELS(Y1,Y2)
-       YT=BETA*R*Y1+(ONE-BETA)*R*Y2       
+       YT=BETA*R*Y1+(ONE-BETA)*R*Y2
        YD1=Y1*CO
        YD2=Y2*CO
        YDT=YT*CO
@@ -363,7 +363,7 @@ C     --- END OF PROBLEM ---
      &,6X,'xend')
   224 FORMAT(/5X,'EXPONENTIAL INITIAL DISTRIBUTION'/7X,'fe=',F10.2,4X,'a
      &lpha=',F10.2)
-  225 FORMAT(/5X,'HEAVISIDE INITIAL DISTRIBUTION FOR SPHERICAL GEOMETRY  
+  225 FORMAT(/5X,'HEAVISIDE INITIAL DISTRIBUTION FOR SPHERICAL GEOMETRY
      &   x0=',F10.2/9X,'i',9X,'f',7X,'rin',6X,'rend')
   226 FORMAT(/5X,'EXPONENTIAL INITIAL DISTRIBUTION FOR SPHERICAL GEOMETR
      &Y    x0=',F10.2/7X,'fe=',F10.2,4X,'alpha=',F10.2)
@@ -372,7 +372,7 @@ C     --- END OF PROBLEM ---
      &m2',7X,'xin',6X,'xend')
   233 FORMAT(5X,  'EXPONENTIAL PRODUCTION PROFILE'/4X,'lam1e=',F10.2,4X,
      &'lam2e=',F10.2,4x,'alpha=',F10.2)
-  234 FORMAT(5X, 'HEAVISIDE PRODUCTION PROFILE FOR SPHERICAL GEOMETRY  
+  234 FORMAT(5X, 'HEAVISIDE PRODUCTION PROFILE FOR SPHERICAL GEOMETRY
      &   x0=',F10.2/9X,'i',6X,'lam1',6X,'lam2',7X,'rin',6X,'rend')
   235 FORMAT(5X, 'EXPONENTIAL INITIAL DISTRIBUTION FOR SPHERICAL GEOMETR
      &Y    x0=',F10.2/4X,'lam1e=',F10.2,4X,'lam2e=',F10.2,4X,'alpha=',
@@ -424,7 +424,7 @@ C
       IMPLICIT REAL*8 (A-H,O-Z)
       COMMON X(4),R,PX,PY,PZ,BETA,OMEGA,U1,U2,MP,MC,NGC,NP,BINT
       COMMON OMU1,OMU2,OM1,OM2,OMOM,U1R,U2R
-      COMMON/BVP/ NBP,T0B,DMB,GPB(10),TPB(10),GEB,ALB,JB  
+      COMMON/BVP/ NBP,T0B,DMB,GPB(10),TPB(10),GEB,ALB,JB
       COMMON/IVP/ NIP,X0I,DMI,FPI(10),XPI(10),FEI,ALI,JI
       COMMON/PVP/ NPP,OLAM(10),TLAM(10),XPP(10),X0P,OLAME,TLAME,ALP,JP
       COMMON/TRANS/ Y0,Z0,NYP,YP(5),NZP,ZP(5),ALY,ALZ
@@ -432,26 +432,26 @@ C
      $ FOUR=4.0D+00,EIGHT=8.0D+00)
       EXTERNAL DI1B,DI2B,HE1B,HE2B,EX1B,EX2B,
      $DI1I,DI2I,HE1I,HE2I,EX1I,EX2I,H1S1I,H1S2I,H2S1I,E1S1I,E1S2I,E2S1I,
-     $HE1P,HE2P,EX1P,EX2P,H1S1P,H2SP,E1S1P,E2SP 
+     $HE1P,HE2P,EX1P,EX2P,H1S1P,H2SP,E1S1P,E2SP
       PI=FOUR*DATAN(ONE)
 C
       Y1=0.
-      Y2=0. 
+      Y2=0.
       IF(MP.EQ.2) GOTO 3
       IF(MP.EQ.3) GOTO 11
 C
 C     --- BOUNDARY VALUE PROBLEM ---
 C     --- DIRAC ---
       IF(NP.GE.1 .AND. NP.LE.9 .OR. NP.EQ.28 .OR. NP.EQ.29) THEN
-       TT=X(1)-T0B            
+       TT=X(1)-T0B
        IF(TT.LE.ZERO) GOTO 103
        Y1=DEXP(-OM2*TT)*GAMY(TT)*GAMZ(TT)*GB(X(2),TT)
        CALL CHEB10(DI1B,RES,ZERO,TT,NGC)
        Y1=DMB*(Y1+RES)
        CALL CHEB10(DI2B,RES,ZERO,TT,NGC)
        Y2=DMB*OM1*RES
-C  
-C     --- HEAVISIDE ---                                               
+C
+C     --- HEAVISIDE ---
       ELSE IF(NP.GE.10.AND.NP.LE.18.OR.NP.EQ.30.OR.NP.EQ.31)THEN
       IF(X(1).LE.TPB(1)) GOTO 103
       DO 31 JB=1,NBP
@@ -472,7 +472,7 @@ C     --- HEAVISIDE ---
         ENDIF
        ELSE
         GOTO 32
-       ENDIF   
+       ENDIF
    31 CONTINUE
    32 Y2=OMEGA*Y2/(OMEGA+U2)
 C
@@ -480,8 +480,8 @@ C     --- EXPONENTIAL ---
       ELSE IF (NP.GE.19.AND.NP.LE.27.OR.NP.EQ.32.OR.NP.EQ.33)THEN
        CALL CHEB10(EX1B,RES,ZERO,X(1),NGC)
        Y1=GEB*RES
-       CALL CHEB10(EX2B,RES,ZERO,X(1),NGC) 
-       Y2=OM1*GEB*RES 
+       CALL CHEB10(EX2B,RES,ZERO,X(1),NGC)
+       Y2=OM1*GEB*RES
       ENDIF
       GOTO 103
 C
@@ -494,43 +494,43 @@ C     --- DIRAC ---
 C
        CALL CHEB10(DI2I,RES,ZERO,X(1),NGC)
        Y2=DMI*OM1*RES
-C  
-C     --- HEAVISIDE ---                                         
+C
+C     --- HEAVISIDE ---
       ELSE IF(NP.GE.10.AND.NP.LE.18.OR.NP.EQ.30.OR.NP.EQ.31)THEN
        DO 34 JI=1,NIP
         if(x(1).le.zip) then
          if(x(2).ge.xpi(ji) .and. x(2).lt.xpi(ji+1)) y1=fpi(ji)
-     &    *YTRANS(X(3))*ZTRANS(X(4))    
-        else   
+     &    *YTRANS(X(3))*ZTRANS(X(4))
+        else
          Y1I=DEXP(-OM2*X(1))*(G1(X(2),X(1),XPI(JI))
      &     -G1(X(2),X(1),XPI(JI+1)))*GAMY(X(1))*GAMZ(X(1))
          CALL CHEB10(HE1I,RES1,ZERO,X(1),NGC)
          Y1=Y1+FPI(JI)*(Y1I+RES1)
-        endif 
+        endif
         Y2I=0.
         IF(X(2).GE.XPI(JI).AND.X(2).LT.XPI(JI+1)) Y2I=YTRANS(X(3))
      &   *ZTRANS(X(4))*DEXP(-OMU2*X(1))
         CALL CHEB10(HE2I,RES2,ZERO,X(1),NGC)
         Y2=Y2+FPI(JI)*(Y2I+OM1*RES2)
    34  CONTINUE
-C 
+C
 C     --- EXPONENTIAL ---
       ELSE IF(NP.GE.19.AND.NP.LE.27.OR.NP.EQ.32.OR.NP.EQ.33)THEN
         if(x(1).le.zip) then
-         y1=fei*dexp(-ali*x(2))*YTRANS(X(3))*ZTRANS(X(4))    
-        else   
+         y1=fei*dexp(-ali*x(2))*YTRANS(X(3))*ZTRANS(X(4))
+        else
          Y1=YTRANS(X(3))*ZTRANS(X(4))*DEXP(-OM2*X(1))*G2(X(2),X(1),ALI)
          CALL CHEB10(EX1I,RES1,ZERO,X(1),NGC)
          Y1=FEI*(Y1+RES1)
-        endif 
+        endif
        Y2=YTRANS(X(3))*ZTRANS(X(4))*DEXP(-ALI*X(2)-OMU2*X(1))
-       CALL CHEB10(EX2I,RES2,ZERO,X(1),NGC) 
+       CALL CHEB10(EX2I,RES2,ZERO,X(1),NGC)
        Y2=FEI*(Y2+OM1*RES2)
 C
 C     --- spherical HEAVISIDE ---
       ELSE IF(NP.EQ.34)THEN
        RS=SQRT((X(2)-X0I)**2+X(3)**2+X(4)**2)
-       JI=1                 
+       JI=1
        RI=XPI(JI)
        if(x(1).le.zip) then
         if(rs.lt.xpi(ji)) then
@@ -540,15 +540,15 @@ C     --- spherical HEAVISIDE ---
           if(rs.lt.xpi(i) .and. rs.ge.xpi(i-1)) y1=fpi(i)
    77    continue
         endif
-       else         
+       else
         BOT=X0I-RI
         TOP=X0I+RI
         CALL CHEB11(H1S1I,RI,RES1,BOT,TOP,NGC)
         CALL CHEB11(H1S2I,RI,RES2,ZERO,X(1),NGC)
-        Y1=FPI(JI)*(DEXP(-OM2*X(1))*RES1+RES2) 
+        Y1=FPI(JI)*(DEXP(-OM2*X(1))*RES1+RES2)
        endif
-       Y2I=0       
-       IF(RS.LT.XPI(JI)) Y2I=DEXP(-OMU2*X(1))               
+       Y2I=0
+       IF(RS.LT.XPI(JI)) Y2I=DEXP(-OMU2*X(1))
        CALL CHEB11(H2S1I,RI,RES,ZERO,X(1),NGC)
        Y2=FPI(JI)*(Y2I+OM1*RES)
        DO 35 JI=2,NIP
@@ -581,15 +581,15 @@ C     --- spherical EXPONENTIAL ---
         top=x0i+bint
         CALL CHEB10(E1S1I,res1,bot,top,NGC)
        endif
-        CALL CHEB10(E1S2I,RES2,zero,x(1),NGC) 
+        CALL CHEB10(E1S2I,RES2,zero,x(1),NGC)
         Y1=FEI*(res1+RES2)
-        CALL CHEB10(E2S1I,RES,zero,top,NGC) 
+        CALL CHEB10(E2S1I,RES,zero,top,NGC)
         Y2=FEI*(DEXP(-OMU2*X(1)-ALI*SQRT((X(2)-X0I)**2+X(3)**2+X(4)**2))
-     &   +OM1*RES)  
-c 
-      ENDIF   
-      GOTO 103 
-C          
+     &   +OM1*RES)
+c
+      ENDIF
+      GOTO 103
+C
 C     --- PRODUCTION VALUE PROBLEM ---
 C     --- HEAVISIDE ---
    11 IF(X(1).LT.ZIP) GOTO 103
@@ -614,12 +614,12 @@ C     --- EXPONENTIAL ---
        CALL CHEB10(EX1P,RES,ZERO,X(1),NGC)
        Y1=RES/BETA/R
        Y2=YTRANS(X(3))*ZTRANS(X(4))*TLAME*DEXP(-ALP*X(2))
-     &   *(1-DEXP(-OMU2*X(1))) 
+     &   *(1-DEXP(-OMU2*X(1)))
        CALL CHEB10(EX2P,RES,ZERO,X(1),NGC)
-       Y2=(Y2+OM2*RES)/(OMEGA+U2)         
+       Y2=(Y2+OM2*RES)/(OMEGA+U2)
 C
 C     --- spherical HEAVISIDE ---
-      ELSE IF(NP.EQ.34)THEN           
+      ELSE IF(NP.EQ.34)THEN
        RS=SQRT((X(2)-X0P)**2+X(3)**2+X(4)**2)
        JP=1
        RI=XPP(JP)
@@ -643,7 +643,7 @@ C     --- spherical HEAVISIDE ---
         CALL CHEB11(H2SP,RI,RES,ZERO,X(1),NGC)
         Y2=Y2-OM2*RES/(OMEGA+U2)
    37  CONTINUE
-C     
+C
 C     --- spherical EXPONENTIAL ---
       ELSE IF(NP.EQ.35) THEN
        CALL CHEB10(E1S1P,RES,ZERO,X(1),NGC)
@@ -651,13 +651,13 @@ C     --- spherical EXPONENTIAL ---
        CALL CHEB10(E2SP,RES,ZERO,X(1),NGC)
        Y2=TLAME*DEXP(-ALP*SQRT((X(2)-X0P)**2+X(3)**2+X(4)**2))
      &   *(1-DEXP(-OMU2*X(1)))+OM2*RES/(OMEGA+U2)
-C     
-      ENDIF       
+C
+      ENDIF
   103 CONTINUE
 C
       RETURN
       END
-C                           
+C
 C     AUXILIARY FUNCTIONS FOR LONG. EQ. AND NONEQ. PROBLEMS
 C     -----------------------------------------------------
       FUNCTION DI1B(TAU)
@@ -665,10 +665,10 @@ C
       IMPLICIT REAL*8(A-H,O-Z)
       COMMON X(4),R,PX,PY,PZ,BETA,OMEGA,U1,U2,MP,MC,NGC,NP,BINT
       COMMON OMU1,OMU2,OM1,OM2,OMOM,U1R,U2R
-      COMMON/BVP/ NBP,T0B,DMB,GPB(10),TPB(10),GEB,ALB,JB  
+      COMMON/BVP/ NBP,T0B,DMB,GPB(10),TPB(10),GEB,ALB,JB
       PARAMETER (ZIP=1.0D-10,TWO=2.0D+00)
 C
-      TT=X(1)-T0B 
+      TT=X(1)-T0B
       DUM=TT-TAU
       IF(DUM.LT.ZIP) DUM=ZIP
       P=TWO*DSQRT(DABS(OMOM*DUM*TAU))
@@ -685,10 +685,10 @@ C
       IMPLICIT REAL*8(A-H,O-Z)
       COMMON X(4),R,PX,PY,PZ,BETA,OMEGA,U1,U2,MP,MC,NGC,NP,BINT
       COMMON OMU1,OMU2,OM1,OM2,OMOM,U1R,U2R
-      COMMON/BVP/ NBP,T0B,DMB,GPB(10),TPB(10),GEB,ALB,JB  
+      COMMON/BVP/ NBP,T0B,DMB,GPB(10),TPB(10),GEB,ALB,JB
       PARAMETER (TWO=2.0D+00)
 C
-      TT=X(1)-T0B              
+      TT=X(1)-T0B
       P=TWO*DSQRT(DABS(OMOM*(TT-TAU)*TAU))
       Q=-OMU2*(TT-TAU)-OM2*TAU
       DI2B=EXPBI0(P,Q)*GB(X(2),TAU)*GAMY(TAU)*GAMZ(TAU)
@@ -696,31 +696,31 @@ C
       END
 C
 C     ----
-      FUNCTION HE1B(TAU,TUP)      
+      FUNCTION HE1B(TAU,TUP)
 C
       IMPLICIT REAL*8(A-H,O-Z)
       COMMON X(4),R,PX,PY,PZ,BETA,OMEGA,U1,U2,MP,MC,NGC,NP,BINT
       COMMON OMU1,OMU2,OM1,OM2,OMOM,U1R,U2R
-      COMMON/BVP/ NBP,T0B,DMB,GPB(10),TPB(10),GEB,ALB,JB  
+      COMMON/BVP/ NBP,T0B,DMB,GPB(10),TPB(10),GEB,ALB,JB
 C
       P=OMEGA*OMEGA*TAU/(OMEGA+U2)/BETA/R
       Q=OMU2*(TUP-TAU)
       HE1B=GOLD(P,Q)*DEXP(-U2R*TAU)*GAMY(TAU)*GAMZ(TAU)*GB(X(2),TAU)
-C     
+C
       RETURN
       END
 C
 C     ----
       FUNCTION HE2B(TAU,TUP)
-C                  
+C
       IMPLICIT REAL*8(A-H,O-Z)
       COMMON X(4),R,PX,PY,PZ,BETA,OMEGA,U1,U2,MP,MC,NGC,NP,BINT
       COMMON OMU1,OMU2,OM1,OM2,OMOM,U1R,U2R
-      COMMON/BVP/ NBP,T0B,DMB,GPB(10),TPB(10),GEB,ALB,JB  
+      COMMON/BVP/ NBP,T0B,DMB,GPB(10),TPB(10),GEB,ALB,JB
       PARAMETER (ONE=1.0D+00)
 C
       P=OMEGA*OMEGA*TAU/(OMEGA+U2)/BETA/R
-      Q=OMU2*(TUP-TAU)                                              
+      Q=OMU2*(TUP-TAU)
       HE2B=(ONE-GOLD(Q,P))*DEXP(-U2R*TAU)*GAMY(TAU)*GAMZ(TAU)
      &*GB(X(2),TAU)
 C
@@ -733,10 +733,10 @@ C
       IMPLICIT REAL*8(A-H,O-Z)
       COMMON X(4),R,PX,PY,PZ,BETA,OMEGA,U1,U2,MP,MC,NGC,NP,BINT
       COMMON OMU1,OMU2,OM1,OM2,OMOM,U1R,U2R
-      COMMON/BVP/ NBP,T0B,DMB,GPB(10),TPB(10),GEB,ALB,JB  
+      COMMON/BVP/ NBP,T0B,DMB,GPB(10),TPB(10),GEB,ALB,JB
       PARAMETER (ZERO=0.0D+00,ZIP=1.0D-10,ONE=1.0D+00,TWO=2.0D+00)
 C
-      TT=X(1)-TAU                                     
+      TT=X(1)-TAU
       U=ALB-OMU2
       IF(ABS(U).LE.ZIP) U=ZIP
       EX1B=DEXP(-ALB*TT-OM2*TAU)*(DEXP(-OMOM*TAU/U)
@@ -751,11 +751,11 @@ C
       IMPLICIT REAL*8(A-H,O-Z)
       COMMON X(4),R,PX,PY,PZ,BETA,OMEGA,U1,U2,MP,MC,NGC,NP,BINT
       COMMON OMU1,OMU2,OM1,OM2,OMOM,U1R,U2R
-      COMMON/BVP/ NBP,T0B,DMB,GPB(10),TPB(10),GEB,ALB,JB  
+      COMMON/BVP/ NBP,T0B,DMB,GPB(10),TPB(10),GEB,ALB,JB
       PARAMETER (ZERO=0.0D+00,ZIP=1.0D-10,ONE=1.0D+00,TWO=2.0D+00)
 C
       TT=X(1)-TAU
-      U=ALB-OMU2               
+      U=ALB-OMU2
       IF(ABS(U).LE.ZIP) U=ZIP
       EX2B=DEXP(-OM2*TAU-OMU2*TT)*(DEXP(-OMOM*TAU/U)/U
      &    *(1-DEXP(-U*TT))-PHI2(TAU))*GAMY(TAU)*GAMZ(TAU)*GB(X(2),TAU)
@@ -771,7 +771,7 @@ C
       COMMON OMU1,OMU2,OM1,OM2,OMOM,U1R,U2R
       COMMON/IVP/ NIP,X0I,DMI,FPI(10),XPI(10),FEI,ALI,JI
       PARAMETER (ZIP=1.0D-10,TWO=2.0D+00)
-C     
+C
       TT=X(1)-TAU
       IF(TT.LE.ZIP) TT=ZIP
       P=TWO*DSQRT(OMOM*TT*TAU)
@@ -783,7 +783,7 @@ C
       END
 C
 C     ----
-      FUNCTION DI2I(TAU)     
+      FUNCTION DI2I(TAU)
 C
       IMPLICIT REAL*8(A-H,O-Z)
       COMMON X(4),R,PX,PY,PZ,BETA,OMEGA,U1,U2,MP,MC,NGC,NP,BINT
@@ -832,11 +832,11 @@ C
       PARAMETER (ZIP=1.0D-10,TWO=2.0D+00)
 C
       TT=X(1)-TAU
-      IF(TT.LE.ZIP) TT=ZIP                  
+      IF(TT.LE.ZIP) TT=ZIP
       DUM=TAU
       IF(TAU.LE.ZIP) DUM=ZIP
       P=TWO*DSQRT(OMOM*TT*TAU)
-      Q=-OM2*TAU-OMU2*TT                    
+      Q=-OM2*TAU-OMU2*TT
       HE2I=(EXPBI0(P,Q)+DSQRT(OM2*TT/OM1/DUM)*EXPBI1(P,Q))
      $*(G1(X(2),TAU,XPI(JI))-G1(X(2),TAU,XPI(JI+1)))*GAMY(TAU)*GAMZ(TAU)
 C
@@ -874,7 +874,7 @@ C
       PARAMETER (ZERO=0.0D+00,ZIP=1.0D-10,ONE=1.0D+00,TWO=2.0D+00)
 C
       TT=X(1)-TAU
-      IF(TT.LE.ZIP) TT=ZIP                  
+      IF(TT.LE.ZIP) TT=ZIP
       DUM=TAU
       IF(TAU.LE.ZIP) DUM=ZIP
       P=TWO*DSQRT(OMOM*TT*TAU)
@@ -892,7 +892,7 @@ C
       COMMON OMU1,OMU2,OM1,OM2,OMOM,U1R,U2R
       COMMON/IVP/ NIP,X0I,DMI,FPI(10),XPI(10),FEI,ALI,JI
       PARAMETER (ZERO=0.0D+00,ZIP=1.0D-10,ONE=1.0D+00,TWO=2.0D+00)
-C     
+C
       H1S1I=GAM6(XI,X(3),X(4),X(1),RI,X0I)*G(XI,X(1),X(2))
 C
       RETURN
@@ -918,7 +918,7 @@ C
       H1S2I=(OM2*EXPBI0(P,Q)+DSQRT(OMOM*TAU/TT)*EXPBI1(P,Q))*RES
 C
       RETURN
-      END                       
+      END
 C
 C     ----
       FUNCTION H1S3I(TAU,XI,RI)
@@ -929,7 +929,7 @@ C
       COMMON/IVP/ NIP,X0I,DMI,FPI(10),XPI(10),FEI,ALI,JI
       PARAMETER (ZERO=0.0D+00,ZIP=1.0D-10,ONE=1.0D+00,TWO=2.0D+00)
 C
-      H1S3I=GAM6(XI,X(3),X(4),TAU,RI,X0I)*G(XI,TAU,X(2))      
+      H1S3I=GAM6(XI,X(3),X(4),TAU,RI,X0I)*G(XI,TAU,X(2))
 C
       RETURN
       END
@@ -950,7 +950,7 @@ C
       H2S1I=RES
 C
       RETURN
-      END                       
+      END
 C
 C     ----
       FUNCTION H2S2I(TAU,XI,RI)
@@ -961,14 +961,14 @@ C
       COMMON/IVP/ NIP,X0I,DMI,FPI(10),XPI(10),FEI,ALI,JI
       PARAMETER (ZERO=0.0D+00,ZIP=1.0D-10,ONE=1.0D+00,TWO=2.0D+00)
 C
-      H2S2I=GAM6(XI,X(3),X(4),TAU,RI,X0I)*G(XI,TAU,X(2))      
+      H2S2I=GAM6(XI,X(3),X(4),TAU,RI,X0I)*G(XI,TAU,X(2))
 C
       RETURN
       END
-C                              
+C
 C     ----
       FUNCTION E1S1I(XI)
-C      
+C
       IMPLICIT REAL*8(A-H,O-Z)
       COMMON X(4),R,PX,PY,PZ,BETA,OMEGA,U1,U2,MP,MC,NGC,NP,BINT
       COMMON OMU1,OMU2,OM1,OM2,OMOM,U1R,U2R
@@ -976,14 +976,14 @@ C
       PARAMETER (ZERO=0.0D+00,ZIP=1.0D-10,ONE=1.0D+00,TWO=2.0D+00)
 C
       E1S1I=dexp(-om2*x(1))
-     $      *GAM7(XI,X(3),X(4),X(1),ALI,X0I)*G(XI,X(1),X(2))      
+     $      *GAM7(XI,X(3),X(4),X(1),ALI,X0I)*G(XI,X(1),X(2))
 C
       RETURN
-      END                                                           
-C                                                                 
+      END
+C
 C     ----
       FUNCTION E1S2I(XI)
-C      
+C
       IMPLICIT REAL*8(A-H,O-Z)
       COMMON X(4),R,PX,PY,PZ,BETA,OMEGA,U1,U2,MP,MC,NGC,NP,BINT
       COMMON OMU1,OMU2,OM1,OM2,OMOM,U1R,U2R
@@ -996,17 +996,17 @@ C
 C
       RETURN
       END
-C                              
+C
 C     ----
       FUNCTION E1S3I(XI,TAU)
-C      
+C
       IMPLICIT REAL*8(A-H,O-Z)
       COMMON X(4),R,PX,PY,PZ,BETA,OMEGA,U1,U2,MP,MC,NGC,NP,BINT
       COMMON OMU1,OMU2,OM1,OM2,OMOM,U1R,U2R
       COMMON/IVP/ NIP,X0I,DMI,FPI(10),XPI(10),FEI,ALI,JI
       PARAMETER (ZERO=0.0D+00,ZIP=1.0D-10,ONE=1.0D+00,TWO=2.0D+00)
-C     
-      TT=X(1)-TAU 
+C
+      TT=X(1)-TAU
       P=TWO*DSQRT(OMOM*TAU*TT)
       Q=-OM2*TAU-OMU2*TT
       E1S3I=(OM2*EXPBI0(P,Q)+DSQRT(OMOM*TAU/TT)*EXPBI1(P,Q))
@@ -1017,7 +1017,7 @@ C
 C
 C     ----
       FUNCTION E2S1I(XI)
-C      
+C
       IMPLICIT REAL*8(A-H,O-Z)
       COMMON X(4),R,PX,PY,PZ,BETA,OMEGA,U1,U2,MP,MC,NGC,NP,BINT
       COMMON OMU1,OMU2,OM1,OM2,OMOM,U1R,U2R
@@ -1030,19 +1030,19 @@ C
 C
       RETURN
       END
-C                              
+C
 C     ----
       FUNCTION E2S2I(XI,TAU)
-C      
+C
       IMPLICIT REAL*8(A-H,O-Z)
       COMMON X(4),R,PX,PY,PZ,BETA,OMEGA,U1,U2,MP,MC,NGC,NP,BINT
       COMMON OMU1,OMU2,OM1,OM2,OMOM,U1R,U2R
       COMMON/IVP/ NIP,X0I,DMI,FPI(10),XPI(10),FEI,ALI,JI
       PARAMETER (ZERO=0.0D+00,ZIP=1.0D-10,ONE=1.0D+00,TWO=2.0D+00)
-C                                         
-      IF(TT.LE.ZIP) TT=ZIP                  
+C
+      IF(TT.LE.ZIP) TT=ZIP
       DUM=TAU
-      TT=X(1)-TAU 
+      TT=X(1)-TAU
       P=TWO*DSQRT(OMOM*TAU*TT)
       Q=-OM2*TAU-OMU2*TT
       E2S2I=(EXPBI0(P,Q)+DSQRT(OM2*TT/OM1/DUM)*EXPBI1(P,Q))
@@ -1062,7 +1062,7 @@ C
 C
       DUM=TAU
       IF(TAU.LE.ZIP) DUM=ZIP
-      TT=X(1)-TAU                          
+      TT=X(1)-TAU
       P=OMEGA*OMEGA*TAU/(OMEGA+U2)/BETA/R
       Q=OMU2*TT
 C
@@ -1084,7 +1084,7 @@ C
       PARAMETER (ZERO=0.0D+00,ZIP=1.0D-10,ONE=1.0D+00,TWO=2.0D+00)
 C
       TT=X(1)-TAU
-      IF(TT.LE.ZIP) TT=ZIP                                
+      IF(TT.LE.ZIP) TT=ZIP
       P=OMEGA*OMEGA*TAU/(OMEGA+U2)/BETA/R
       Q=OMU2*TT
       ARG1=TWO*DSQRT(P*Q)
@@ -1107,8 +1107,8 @@ C
       COMMON/PVP/ NPP,OLAM(10),TLAM(10),XPP(10),X0P,OLAME,TLAME,ALP,JP
       PARAMETER (ZIP=1.0D-10,ONE=1.0D+00,TWO=2.0D+00)
 C
-      TT=X(1)-TAU 
-      IF(TT.LE.ZIP) TT=ZIP                 
+      TT=X(1)-TAU
+      IF(TT.LE.ZIP) TT=ZIP
       P=OMEGA*OMEGA*TAU/(OMEGA+U2)/BETA/R
       Q=OMU2*TT
       EX1P=DEXP(-U2R*TAU)*(OLAME*GOLD(P,Q)
@@ -1128,7 +1128,7 @@ C
       PARAMETER (ZIP=1.0D-10,ZERO=0.0D+00,ONE=1.0D+00,TWO=2.0D+00)
 C
       TT=X(1)-TAU
-      IF(TT.LE.ZIP) TT=ZIP                                
+      IF(TT.LE.ZIP) TT=ZIP
       P=OMEGA*OMEGA*TAU/(OMEGA+U2)/BETA/R
       Q=OMU2*TT
       ARG1=TWO*DSQRT(P*Q)
@@ -1150,11 +1150,11 @@ C
       PARAMETER (ZIP=1.0D-10,ONE=1.0D+00,TWO=2.0D+00)
       EXTERNAL H1S2P
 C
-      TT=X(1)-TAU                          
-      IF(TT.LE.ZIP) TT=ZIP                 
+      TT=X(1)-TAU
+      IF(TT.LE.ZIP) TT=ZIP
       P=OMEGA*OMEGA*TAU/(OMEGA+U2)/BETA/R
       Q=OMU2*TT
-C                       
+C
       BOT=X0P-RI
       TOP=X0P+RI
       CALL CHEB21(H1S2P,TAU,RI,RES,BOT,TOP,NGC)
@@ -1188,12 +1188,12 @@ C
       COMMON/PVP/ NPP,OLAM(10),TLAM(10),XPP(10),X0P,OLAME,TLAME,ALP,JP
       PARAMETER (ZERO=0.0D+00,ZIP=1.0D-10,ONE=1.0D+00,TWO=2.0D+00)
       EXTERNAL H1S2P
-C                                              
+C
       BOT=X0P-RI
       TOP=X0P+RI
       CALL CHEB21(H1S2P,TAU,RI,RES,BOT,TOP,NGC)
       TT=X(1)-TAU
-      IF(TT.LE.ZIP) TT=ZIP                                
+      IF(TT.LE.ZIP) TT=ZIP
       P=OMEGA*OMEGA*TAU/(OMEGA+U2)/BETA/R
       Q=OMU2*TT
       ARG1=TWO*DSQRT(P*Q)
@@ -1214,11 +1214,11 @@ C
       COMMON/PVP/ NPP,OLAM(10),TLAM(10),XPP(10),X0P,OLAME,TLAME,ALP,JP
       PARAMETER (ZERO=0.0D+00,ONE=1.0D+00)
       EXTERNAL E1S2P
-C                   
+C
       BOT=ZERO
       TOP=BINT
       CALL CHEB20(E1S2P,TAU,RES,BOT,TOP,NGC)
-      TT=X(1)-TAU 
+      TT=X(1)-TAU
       P=OMEGA*OMEGA*TAU/(OMEGA+U2)/BETA/R
       Q=OMU2*TT
       E1S1P=DEXP(-U2R*TAU)*RES*(OLAME*GOLD(P,Q)
@@ -1235,7 +1235,7 @@ C
       COMMON OMU1,OMU2,OM1,OM2,OMOM,U1R,U2R
       COMMON/PVP/ NPP,OLAM(10),TLAM(10),XPP(10),X0P,OLAME,TLAME,ALP,JP
       PARAMETER (ZERO=0.0D+00,ONE=1.0D+00)
-C                   
+C
       E1S2P=GAM7(XI,X(3),X(4),TAU,ALP,X0P)*G(XI,TAU,X(2))
 C
       RETURN
@@ -1250,16 +1250,16 @@ C
       COMMON/PVP/ NPP,OLAM(10),TLAM(10),XPP(10),X0P,OLAME,TLAME,ALP,JP
       PARAMETER (ZERO=0.0D+00,ZIP=1.0D-10,ONE=1.0D+00,TWO=2.0D+00)
       EXTERNAL E1S1P
-C                                              
+C
       BOT=ZERO
       TOP=BINT
       CALL CHEB20(E1S1P,TAU,RES,BOT,TOP,NGC)
       TT=X(1)-TAU
-      IF(TT.LE.ZIP) TT=ZIP                                
+      IF(TT.LE.ZIP) TT=ZIP
       P=OMEGA*OMEGA*TAU/(OMEGA+U2)/BETA/R
       Q=OMU2*TT
       ARG1=TWO*DSQRT(P*Q)
-      ARG2=-P-Q       
+      ARG2=-P-Q
       E2SP=DEXP(-U2R*TAU)*RES*(OLAME*(GOLD(Q,P)-EXPBI0(arg1,arg2))
      &    +OMEGA*TLAME*(1.-GOLD(Q,P)+SQRT(Q/P)*EXPBI1(ARG1,arg2))
      &    /(OMEGA+U2))
@@ -1304,7 +1304,7 @@ C
 C
       DUM=T
       IF(DUM.LT.ZIP) DUM=ZIP
-C   
+C
       IF (MC.EQ.1) THEN
        G=DEXP(-U1R*T)
      &    *DSQRT(BETA*R*PX/FOUR/PI/DUM)*((ONE-(BETA*R*(XI-XX)+T)/
@@ -1333,7 +1333,7 @@ C
 C
       DUM=T
       IF(DUM.LT.ZIP) DUM=ZIP
-C   
+C
       IF (MC.EQ.1) THEN
        G1=DEXP(-U1R*T)*(ONE-HALF*ERFC((BETA*R*(XX-XXI)-T)/DSQRT(FOUR
      $  *BETA*R*DUM/PX))-HALF*DEXP(PX*XX)*ERFC((BETA*R*(XX+XXI)+T)
@@ -1364,7 +1364,7 @@ C
 C
       DUM=T
       IF(DUM.LT.ZIP) DUM=ZIP
-C   
+C
       IF (MC.EQ.1) THEN
        G2=(ONE+AL/PX)*DEXP((AL+AL**2/PX-U1)*T/BETA/R)*
      $   (DEXP(-AL*XX)*(ONE-HALF*ERFC((BETA*R*XX-T*(ONE+TWO*AL/
@@ -1395,11 +1395,11 @@ C
 C
       PI=FOUR*DATAN(ONE)
 C
-      IF(T.LT.ZIP) T=ZIP                     
+      IF(T.LT.ZIP) T=ZIP
 C
 C     DIRAC
       IF(NP.EQ.1.OR.NP.EQ.2.OR.NP.EQ.3.OR.NP.EQ.10.OR.NP.EQ.11.OR.
-     &   NP.EQ.12.OR.NP.EQ.19.OR.NP.EQ.20.OR.NP.EQ.21) THEN       
+     &   NP.EQ.12.OR.NP.EQ.19.OR.NP.EQ.20.OR.NP.EQ.21) THEN
        GAMY=DSQRT(BETA*R*PY/FOUR/PI/T)*DEXP(-BETA*R*PY*(X(3)-Y0)**2
      &   /FOUR/T)
 C
@@ -1409,7 +1409,7 @@ C     HEAVISIDE
        SUMY=0.
        DO 11 I=1,2*NYP,2
         SUMY=SUMY+0.5*ERFC(DSQRT(BETA*R*PY/FOUR/T)*(X(3)-YP(I+1)))
-     &      -0.5*ERFC(DSQRT(BETA*R*PY/FOUR/T)*(X(3)-YP(I))) 
+     &      -0.5*ERFC(DSQRT(BETA*R*PY/FOUR/T)*(X(3)-YP(I)))
    11  CONTINUE
        GAMY=SUMY
 C
@@ -1420,7 +1420,7 @@ C     EXPONENTIAL
      &     *ERFC((BETA*R*PY*(Y0-X(3))+2*ALY*T)/sqrt(4.*BETA*R*PY*T))
      &     +0.5*DEXP(ALY*(X(3)-Y0)+ALY*ALY*T/BETA/R/PY)
      &     *ERFC((BETA*R*PY*(X(3)-Y0)+2*ALY*T)/sqrt(4.*BETA*R*PY*T))
-C        
+C
 C     circular HEAVISIDE
       ELSE IF (NP.EQ.28.OR.NP.EQ.30.OR.NP.EQ.32) THEN
        SUMY=0.
@@ -1431,7 +1431,7 @@ C     circular HEAVISIDE
          BOT=X(3)-YP(I)
          TOP=X(3)+YP(I)
          CALL CHEB12(GAM4,T,YP(I),RES,BOT,TOP,NGC)
-        ENDIF  
+        ENDIF
         SUMY=RES+SUMY
         BOT=X(3)-YP(I+1)
         TOP=X(3)+YP(I+1)
@@ -1440,7 +1440,7 @@ C     circular HEAVISIDE
    12  CONTINUE
        GAMY=SUMY
 C
-C     circular EXPONENTIAL 
+C     circular EXPONENTIAL
       ELSE IF (NP.EQ.29.OR.NP.EQ.31.OR.NP.EQ.33) THEN
        BOT=-BINT
        TOP=BINT
@@ -1450,7 +1450,7 @@ C     circular EXPONENTIAL
 C
       RETURN
       END
-C                                        
+C
 C     ------------
       REAL*8 FUNCTION GAMZ(T)
 C
@@ -1461,32 +1461,32 @@ C
       PARAMETER (ZIP=1.0D-10,ONE=1.0D+00,FOUR=4.0D+00)
       PI=FOUR*DATAN(ONE)
 C
-      IF(T.LT.ZIP) T=ZIP                     
+      IF(T.LT.ZIP) T=ZIP
 C
 C     DIRAC
       IF(NP.EQ.1.OR.NP.EQ.10.OR.NP.EQ.19.OR.NP.EQ.4.OR.NP.EQ.13.OR.
-     &   NP.EQ.22.OR.NP.EQ.7.OR.NP.EQ.16.OR.NP.EQ.25) THEN       
+     &   NP.EQ.22.OR.NP.EQ.7.OR.NP.EQ.16.OR.NP.EQ.25) THEN
        GAMZ=DSQRT(BETA*R*PZ/FOUR/PI/T)*DEXP(-BETA*R*PZ*(X(4)-Z0)**2
      &   /FOUR/T)
 C
 C     HEAVISIDE
       ELSE IF(NP.EQ.2.OR.NP.EQ.11.OR.NP.EQ.20.OR.NP.EQ.5.OR.NP.EQ.14.OR.
-     &   NP.EQ.23.OR.NP.EQ.8.OR.NP.EQ.17.OR.NP.EQ.26) THEN       
+     &   NP.EQ.23.OR.NP.EQ.8.OR.NP.EQ.17.OR.NP.EQ.26) THEN
        SUMZ=0.
        DO 11 I=1,2*NZP,2
         SUMZ=SUMZ+0.5*ERFC(DSQRT(BETA*R*PZ/FOUR/T)*(X(4)-ZP(I+1)))
-     &      -0.5*ERFC(DSQRT(BETA*R*PZ/FOUR/T)*(X(4)-ZP(I))) 
+     &      -0.5*ERFC(DSQRT(BETA*R*PZ/FOUR/T)*(X(4)-ZP(I)))
    11  CONTINUE
        GAMZ=SUMZ
 C
 C     EXPONENTIAL
       ELSE IF(NP.EQ.3.OR.NP.EQ.12.OR.NP.EQ.21.OR.NP.EQ.6.OR.NP.EQ.15.OR.
-     &   NP.EQ.24.OR.NP.EQ.9.OR.NP.EQ.18.OR.NP.EQ.27) THEN       
+     &   NP.EQ.24.OR.NP.EQ.9.OR.NP.EQ.18.OR.NP.EQ.27) THEN
        GAMZ=0.5*DEXP(ALZ*(Z0-X(4))+ALZ*ALZ*T/BETA/R/PZ)
      &     *ERFC((BETA*R*PZ*(Z0-X(4))+2*ALZ*T)/sqrt(4.*BETA*R*PZ*T))
      &     +0.5*DEXP(ALZ*(X(4)-Z0)+ALZ*ALZ*T/BETA/R/PZ)
      &     *ERFC((BETA*R*PZ*(X(4)-Z0)+2*ALZ*T)/sqrt(4.*BETA*R*PZ*T))
-C        
+C
 C     circular
       ELSE IF (NP.GE.28) THEN
        GAMZ=1.0
@@ -1494,7 +1494,7 @@ C     circular
 C
       RETURN
       END
-C                                        
+C
 C     functions
 C     ---------
       REAL*8 FUNCTION YTRANS(Y)
@@ -1506,7 +1506,7 @@ C
       COMMON OMU1,OMU2,OM1,OM2,OMOM,U1R,U2R
       COMMON/TRANS/ Y0,Z0,NYP,YP(5),NZP,ZP(5),ALY,ALZ
       PARAMETER (ZERO=0.0D+00)
-C 
+C
       YTRANS=0.
 C
 C     HEAVISIDE
@@ -1526,7 +1526,7 @@ C     circular EXPONENTIAL
       ELSE IF (NP.EQ.29 .OR. NP.EQ.31 .OR. NP.EQ.33) THEN
        YTRANS=DEXP(-ALY*Y)
       ENDIF
-C       
+C
       RETURN
       END
 C
@@ -1540,7 +1540,7 @@ C
       COMMON OMU1,OMU2,OM1,OM2,OMOM,U1R,U2R
       COMMON/TRANS/ Y0,Z0,NYP,YP(5),NZP,ZP(5),ALY,ALZ
       PARAMETER (ZERO=0.0D+00)
-C 
+C
       ZTRANS=0.
 C
 C     HEAVISIDE
@@ -1569,7 +1569,7 @@ C
 C
 C     ---------
       REAL*8 FUNCTION GAM4(PHI,T,RI)
-C 
+C
       IMPLICIT REAL*8(A-H,O-Z)
       COMMON X(4),R,PX,PY,PZ,BETA,OMEGA,U1,U2,MP,MC,NGC,NP,BINT
       COMMON OMU1,OMU2,OM1,OM2,OMOM,U1R,U2R
@@ -1589,19 +1589,19 @@ C
 C
 C     ----------
       REAL*8 FUNCTION GAM5(PHI,T)
-C 
+C
       IMPLICIT REAL*8(A-H,O-Z)
       COMMON X(4),R,PX,PY,PZ,BETA,OMEGA,U1,U2,MP,MC,NGC,NP,BINT
       COMMON OMU1,OMU2,OM1,OM2,OMOM,U1R,U2R
       COMMON/TRANS/ Y0,Z0,NYP,YP(5),NZP,ZP(5),ALY,ALZ
       PARAMETER(ONE=1.0D+00,FOUR=4.0D+00)
       EXTERNAL GAM51
-C      
+C
       PI=FOUR*DATAN(ONE)
 C
       BOT=-BINT
       TOP=BINT
-C 
+C
       CALL CHEB21(GAM51,PHI,T,RES,BOT,TOP,NGC)
       GAM5=RES
 C
@@ -1610,7 +1610,7 @@ C
 C
 C     ----------
       REAL*8 FUNCTION GAM51(PHI,OME,T)
-C 
+C
       IMPLICIT REAL*8(A-H,O-Z)
       COMMON X(4),R,PX,PY,PZ,BETA,OMEGA,U1,U2,MP,MC,NGC,NP,BINT
       COMMON OMU1,OMU2,OM1,OM2,OMOM,U1R,U2R
@@ -1623,13 +1623,13 @@ C
       GAM51=(BETA*R*DSQRT(PY*PZ)/PI/T/FOUR)
      & *DEXP(-ALY*DSQRT((X(3)-PHI)**2+(X(4)-OME)**2)
      & -BETA*R*(PY*PHI*PHI+PZ*OME*OME)/FOUR/T)
-C 
+C
       RETURN
       END
 C
 C     ----------
       REAL*8 FUNCTION GAM6(XI,Y,Z,T,RI,X0)
-C 
+C
       IMPLICIT REAL*8(A-H,O-Z)
       COMMON X(4),R,PX,PY,PZ,BETA,OMEGA,U1,U2,MP,MC,NGC,NP,BINT
       COMMON OMU1,OMU2,OM1,OM2,OMOM,U1R,U2R
@@ -1637,20 +1637,20 @@ C
       PARAMETER(ZIP=1.0D-10,ONE=1.0D+00,TWO=2.0D+00,FOUR=4.0D+00)
       EXTERNAL GAM61
       PI=FOUR*DATAN(ONE)
-C     
+C
       IF(T.LE.ZIP) T=ZIP
       BOT=X(3)-SQRT(RI*RI-(XI-X0)**2)
       TOP=X(3)+SQRT(RI*RI-(XI-X0)**2)
-C 
+C
       CALL CHEB25(GAM61,XI,Y,Z,T,RI,X0,RES,BOT,TOP,NGC)
       GAM6=RES
 C
       RETURN
       END
-C             
+C
 C     ----------
       REAL*8 FUNCTION GAM61(XI,PHI,Y,Z,T,RI,X0)
-C 
+C
       IMPLICIT REAL*8(A-H,O-Z)
       COMMON X(4),R,PX,PY,PZ,BETA,OMEGA,U1,U2,MP,MC,NGC,NP,BINT
       COMMON OMU1,OMU2,OM1,OM2,OMOM,U1R,U2R
@@ -1663,13 +1663,13 @@ C
      $      *(ERFC(DSQRT(BETA*R*PZ/FOUR/T)*(Z-DSQRT(DABS(RI*RI
      $      -(XI-X0)**2-(Y-PHI)**2))))-ERFC(DSQRT(BETA*R*PZ/FOUR/T)
      $      *(Z+DSQRT(DABS(RI*RI-(XI-X0)**2-(Y-PHI)**2)))))/FOUR
-C 
+C
       RETURN
       END
 C
 C     ----------
       REAL*8 FUNCTION GAM7(XI,Y,Z,T,AL,X0)
-C 
+C
       IMPLICIT REAL*8(A-H,O-Z)
       COMMON X(4),R,PX,PY,PZ,BETA,OMEGA,U1,U2,MP,MC,NGC,NP,BINT
       COMMON OMU1,OMU2,OM1,OM2,OMOM,U1R,U2R
@@ -1677,12 +1677,12 @@ C
       PARAMETER(ZERO=0.0D+00,ONE=1.0D+00,FOUR=4.0D+00)
       EXTERNAL GAM71
 C
-      PI=FOUR*DATAN(ONE)          
+      PI=FOUR*DATAN(ONE)
 c
-      GAM7=0.  
+      GAM7=0.
       BOT=-BINT
       TOP=bint
-C 
+C
       CALL CHEB25(GAM71,XI,Y,Z,T,AL,X0,RES,BOT,TOP,NGC)
       GAM7=RES+GAM7
 C
@@ -1691,7 +1691,7 @@ C
 C
 C     ----------
       REAL*8 FUNCTION GAM71(XI,PHI,Y,Z,T,AL,X0)
-C 
+C
       IMPLICIT REAL*8(A-H,O-Z)
       COMMON X(4),R,PX,PY,PZ,BETA,OMEGA,U1,U2,MP,MC,NGC,NP,BINT
       COMMON OMU1,OMU2,OM1,OM2,OMOM,U1R,U2R
@@ -1699,10 +1699,10 @@ C
       PARAMETER(ZERO=0.0D+00,ONE=1.0D+00,FOUR=4.0D+00)
       EXTERNAL GAM72
 C
-      GAM71=0.  
+      GAM71=0.
       BOT=-BINT
       TOP=bint
-C 
+C
       CALL CHEB35(GAM72,XI,PHI,Y,Z,T,AL,X0,RES,BOT,TOP,NGC)
       GAM71=RES+GAM71
 C
@@ -1711,7 +1711,7 @@ C
 C
 C     ----------
       REAL*8 FUNCTION GAM72(XI,PHI,OME,Y,Z,T,AL,X0)
-C 
+C
       IMPLICIT REAL*8(A-H,O-Z)
       COMMON X(4),R,PX,PY,PZ,BETA,OMEGA,U1,U2,MP,MC,NGC,NP,BINT
       COMMON OMU1,OMU2,OM1,OM2,OMOM,U1R,U2R
@@ -1723,10 +1723,10 @@ c
       GAM72=(BETA*R*DSQRT(PY*PZ)/PI/t/FOUR)
      & *DEXP(-AL*DSQRT((XI-X0)**2+(Y-PHI)**2+(Z-OME)**2)
      & -BETA*R*(PY*PHI*PHI+PZ*OME*OME)/FOUR/t)
-C 
+C
       RETURN
       END
-      
+
 C
 C     INTEGRATION ROUTINES
 C     --------------------
@@ -1822,7 +1822,7 @@ C              USING M-POINT GAUSS-CHEBYSHEV QUADRATURE FORMULA
       AREA=(B-A)*PI*SUM/DFLOAT(2*M)
 C
       RETURN
-      END       
+      END
 C
 C    ----------
       SUBROUTINE CHEB21(FUNC,VAR1,CON1,AREA,A,B,M)
@@ -1841,8 +1841,8 @@ C              USING M-POINT GAUSS-CHEBYSHEV QUADRATURE FORMULA
       AREA=(B-A)*PI*SUM/DFLOAT(2*M)
 C
       RETURN
-      END       
-C                                        
+      END
+C
 C     ----------
       SUBROUTINE CHEB25(FUNC,VAR1,CON1,CON2,CON3,CON4,CON5,AREA,A,B,M)
 C
@@ -1860,8 +1860,8 @@ C              USING M-POINT GAUSS-CHEBYSHEV QUADRATURE FORMULA
       AREA=(B-A)*PI*SUM/DFLOAT(2*M)
 C
       RETURN
-      END       
-C                                        
+      END
+C
 C     ----------
       SUBROUTINE CHEB35(FUNC,VAR1,VAR2,CON1,CON2,CON3,CON4,CON5,AREA,A,B
      &,M)
@@ -1881,7 +1881,7 @@ C              USING M-POINT GAUSS-CHEBYSHEV QUADRATURE FORMULA
       AREA=(B-A)*PI*SUM/DFLOAT(2*M)
 C
       RETURN
-      END       
+      END
       FUNCTION ERFC(A)
 C
 C     ----------
@@ -1921,7 +1921,7 @@ C
         EXPBI0=DEXP(Z)*(P1+Y*(P2+Y*(P3+Y*(P4+Y*(P5+Y*(P6+Y*P7))))))
       ELSE
         AX=DABS(X)
-        Y=3.75/AX 
+        Y=3.75/AX
        EXPBI0=DEXP(AX+Z)/DSQRT(AX)*(Q1+Y*(Q2+Y*(Q3+Y*(Q4+Y*(Q5+Y*
      $         (Q6+Y*(Q7+Y*(Q8+Y*Q9))))))))
       ENDIF
@@ -1946,7 +1946,7 @@ C
         EXPBI1=DEXP(Z)*X*(P1+Y*(P2+Y*(P3+Y*(P4+Y*(P5+Y*(P6+Y*P7))))))
       ELSE
         AX=DABS(X)
-        Y=3.75/AX 
+        Y=3.75/AX
         EXPBI1=DEXP(AX+Z)/DSQRT(AX)*(Q1+Y*(Q2+Y*(Q3+Y*(Q4+Y*(Q5+Y*
      $         (Q6+Y*(Q7+Y*(Q8+Y*Q9))))))))
         IF(X.LT.0.) EXPBI1=-EXPBI1
@@ -2017,10 +2017,10 @@ C
       IMPLICIT REAL*8(A-H,O-Z)
       COMMON X(4),R,PX,PY,PZ,BETA,OMEGA,U1,U2,MP,MC,NGC,NP,BINT
       COMMON OMU1,OMU2,OM1,OM2,OMOM,U1R,U2R
-      COMMON/BVP/ NBP,T0B,DMB,GPB(10),TPB(10),GEB,ALB,JB  
+      COMMON/BVP/ NBP,T0B,DMB,GPB(10),TPB(10),GEB,ALB,JB
       PARAMETER(ZERO=0.0D+00,ZIP=1.0D-10,ONE=1.0D+00,TWO=2.0D+00,
      & FOUR=4.0D+00)
-C                  
+C
       U=ALB-OMU2
       IF(ABS(U).LE.ZIP) U=ZIP
       PHI1=ZERO
@@ -2030,7 +2030,7 @@ C
        K=1
        CK=ONE
        FNK=FN
-       FN=FN*N 
+       FN=FN*N
     9  CK=-CK
        SUMK=SUMK+CK*(X(1)-TAU)**(N-K)/(U**K)/FNK
        IF (N.EQ.K) GOTO 12
@@ -2038,7 +2038,7 @@ C
        K=K+1
        GOTO 9
    12  PHI1=PHI1+SUMK*((OMOM*TAU)**N)/FN
-C  
+C
        RETURN
        END
 C
@@ -2050,7 +2050,7 @@ C
       IMPLICIT REAL*8(A-H,O-Z)
       COMMON X(4),R,PX,PY,PZ,BETA,OMEGA,U1,U2,MP,MC,NGC,NP,BINT
       COMMON OMU1,OMU2,OM1,OM2,OMOM,U1R,U2R
-      COMMON/BVP/ NBP,T0B,DMB,GPB(10),TPB(10),GEB,ALB,JB  
+      COMMON/BVP/ NBP,T0B,DMB,GPB(10),TPB(10),GEB,ALB,JB
       PARAMETER(ZERO=0.0D+00,ZIP=1.0D-10,ONE=1.0D+00,TWO=2.0D+00,
      & FOUR=4.0D+00)
 C
@@ -2063,7 +2063,7 @@ C
        K=1
        CK=ONE
        FNK=FN
-       FN=FN*N 
+       FN=FN*N
     9  CK=-CK
        SUMK=SUMK+CK*(X(1)-TAU)**(N-K+1)/(U**K)/FNK/(N-K+1)
        IF (N.EQ.K) GOTO 12
@@ -2071,6 +2071,6 @@ C
        K=K+1
        GOTO 9
    12  PHI2=PHI2+SUMK*((OMOM*TAU)**N)/FN
-C  
+C
        RETURN
        END

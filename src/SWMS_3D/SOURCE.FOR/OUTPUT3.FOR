@@ -110,7 +110,7 @@
      !Max'/)
 140   format(' All fluxes (v) are positive out of the region'//
      !'     Time       rAtm       rRoot      vAtm       vRoot      ',
-     !'vKode3     vKode1     vSeep      vKode5     vKode6 ...'/   
+     !'vKode3     vKode1     vSeep      vKode5     vKode6 ...'/
      !'      [T]      [L/T]       [L/T]     [L/T]       [L/T]      ',
      !'[L3/T]     [L3/T]    [L3/T]      [L3/T]     [L3/T]'/)
 150   format(//
@@ -352,12 +352,12 @@
       subroutine SolInf(K,NumNP,Kode,Qc,t,dt,TLevel,ShortF,TPrint,
      !                  AtmInF,NumKD,SMean,ChemS,CumCh0,CumCh1,CumChR,
      !                  cCumA,cCumT,lWat,PeCrMx)
-   
+
       integer TLevel
       logical ShortF,AtmInF,lWat
       dimension Qc(NumNP),Kode(NumNP),ChemS(NumKD),SMean(NumKD)
-      
-      if(K.eq.1) then  
+
+      if(K.eq.1) then
         do 11 i=1,NumKD
           SMean(i)=0.
 11      continue
@@ -375,10 +375,10 @@
           cCumA=cCumA+abs(ChemS(j))
 13      continue
         if(TLevel.eq.1) write(74,110)
-        if(.not.AtmInf.and.(.not.ShortF.or.abs(TPrint-t).lt.0.001*dt)) 
+        if(.not.AtmInf.and.(.not.ShortF.or.abs(TPrint-t).lt.0.001*dt))
      !    write(74,120) t,CumCh0,CumCh1,CumChR,(ChemS(j),j=1,NumKD),
      !                  (SMean(i),i=1,NumKD)
-      else 
+      else
         write(74,120) t,CumCh0,CumCh1,CumChR,(ChemS(j),j=1,NumKD),
      !                (SMean(i),i=1,NumKD)
       end if
@@ -398,16 +398,16 @@
 ***********************************************************************
 
       subroutine ObsNod(t,NumNP,NObs,Node,hNew,ThNew,Conc)
-      
+
       dimension Node(NObs),hNew(NumNP),ThNew(NumNP),Conc(NumNP)
 
       write(92,110) t,(hNew(Node(i)),ThNew(Node(i)),Conc(Node(i)),
      !              i=1,NObs)
-      
+
 110   format(f11.3,5(f11.3,f9.4,e11.3))
       return
       end
-      
+
 ************************************************************************
 
       subroutine hOut(hNew,x,y,z,NumNP,t,IJ)
@@ -523,7 +523,7 @@
           if(L.eq.L1) k=n+IJ-1
           write(83,120) m,x(m),y(m),z(m),(Conc(j),j=m,k)
 11      continue
-12    continue            
+12    continue
 
 110   format(//' Time  ***',f12.4,' ***'//
      !     '    n    x(n)   y(n)   z(n)      Conc(n)   Conc(n+1)  ...'/)

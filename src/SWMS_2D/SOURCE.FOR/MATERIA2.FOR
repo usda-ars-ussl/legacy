@@ -117,7 +117,7 @@
       Qm=Par(4)
       Alfa=Par(5)
       n=Par(6)
-      
+
       m=1.d0-1.d0/n
       HMin=-1.d300**(1.d0/n)/max(Alfa,1.d0)
       QeeM=(1.d0+(-Alfa*HMin)**n)**(-m)

@@ -1,9 +1,9 @@
- Example 3a - Comparison with the 2-D analytical solution                
- 
+ Example 3a - Comparison with the 2-D analytical solution
+
  Program SWMS_2D
  Time independent boundary conditions
  Vertical plane flow, V = L*L
- Units: L = m    , T = days , M = -    
+ Units: L = m    , T = days , M = -
 
  Max. number of iterations             20
  Absolute water content tolerance [-]  .00010
@@ -16,7 +16,7 @@
 
 
  MatNum          Qe     Q        h         C         K
- 
+
     1          1.000   .300      .000   .00E+00    .300E-01
     1           .990   .297    -3.386   .18E-02    .217E-01
     1           .900   .268   -11.779   .46E-02    .873E-02

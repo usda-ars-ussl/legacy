@@ -27,7 +27,7 @@ $
 
      INITIAL VALUES OF COEFFICIENTS
      ==============================
-     NAME        INITIAL VALUE 
+     NAME        INITIAL VALUE
       V........     .2000E+02
       D........     .1000E+02
       R........     .5000E+01
@@ -41,9 +41,9 @@ $
      ===========================================
        SINGLE PULSE OF CONC. =    1.0000 & DURATION =    5.0000
        SOLUTE FREE INITIAL CONDITION
-       NO PRODUCTION TERM 
- 
- 
+       NO PRODUCTION TERM
+
+
 $ Z= 50.0000     (FLUX CONC. VS. TIME)
 $ Sum(C1*dT)=      3.9526, Sum(C2*dT)=      2.1919
       .0000   .00000E+00   .00000E+00
@@ -176,7 +176,7 @@ $
 
      INITIAL VALUES OF COEFFICIENTS
      ==============================
-     NAME        INITIAL VALUE 
+     NAME        INITIAL VALUE
       V........     .2000E+02
       D........     .1000E+02
       R........     .1000E+02
@@ -190,9 +190,9 @@ $
      ===========================================
        SINGLE PULSE OF CONC. =    1.0000 & DURATION =    5.0000
        SOLUTE FREE INITIAL CONDITION
-       NO PRODUCTION TERM 
- 
- 
+       NO PRODUCTION TERM
+
+
 $ Z= 50.0000     (FLUX CONC. VS. TIME)
 $ Sum(C1*dT)=      3.3628, Sum(C2*dT)=       .9068
       .0000   .00000E+00   .00000E+00

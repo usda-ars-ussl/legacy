@@ -109,7 +109,7 @@
 130   format(//' TLevel   Time         dt        Peclet   Courant'/)
 140   format(' All fluxes (v) are positive out of the region'//
      !'     Time       rAtm       rRoot      vAtm       vRoot      ',
-     !'vKode3     vKode1     vSeep      vKode5     vKode6 ...'/   
+     !'vKode3     vKode1     vSeep      vKode5     vKode6 ...'/
      !'      [T]      [L/T]       [L/T]     [L/T]       [L/T]      ',
      !' [V/T]      [V/T]     [V/T]       [V/T]      [V/T]'/)
 150   format(//
@@ -350,11 +350,11 @@
       subroutine SolInf(NumNP,Kode,Qc,t,dt,TLevel,ShortF,TPrint,NumKD,
      !                  SMean,ChemS,CumCh0,CumCh1,CumChR,cCumA,cCumT,
      !                  lWat)
-   
+
       integer TLevel
       logical ShortF,lWat
       dimension Qc(NumNP),Kode(NumNP),ChemS(NumKD),SMean(NumKD)
-      
+
       do 11 i=1,NumKD
         SMean(i)=0.
 11    continue
@@ -391,16 +391,16 @@
 ***********************************************************************
 
       subroutine ObsNod(t,NumNP,NObs,NObsD,Node,hNew,ThNew,Conc)
-      
+
       dimension Node(NObsD),hNew(NumNP),ThNew(NumNP),Conc(NumNP)
 
       write(92,110) t,(hNew(Node(i)),ThNew(Node(i)),Conc(Node(i)),
      !              i=1,NObs)
-      
+
 110   format(f11.3,5(f11.3,f9.4,e11.3))
       return
       end
-      
+
 ************************************************************************
 
       subroutine hOut(hNew,x,y,NumNP,t,IJ)
@@ -512,7 +512,7 @@
           if(L.eq.L1) k=n+IJ-1
           write(83,120) m,x(m),y(m),(Conc(j),j=m,k)
 11      continue
-12    continue            
+12    continue
 
 110   format(//' Time  ***',f12.4,' ***'//
      !         '    n    x(n)   z(n)      Conc(n)   Conc(n+1)  ...'/)
@@ -520,4 +520,4 @@
       return
       end
 
-* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||

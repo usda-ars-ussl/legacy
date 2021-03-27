@@ -26,7 +26,7 @@ $
 
      INITIAL VALUES OF COEFFICIENTS
      ==============================
-     NAME        INITIAL VALUE 
+     NAME        INITIAL VALUE
       V........     .5000E+02
       D........     .1250E+04
       R........     .1000E+01
@@ -41,9 +41,9 @@ $
            .00000    .00000
           1.00000    .50000
            .00000   1.00000
-       NO PRODUCTION TERM 
- 
- 
+       NO PRODUCTION TERM
+
+
 $ T=   .05000   (FLUX-AVERAGED CONC. VS. DEPTH)
 $ Sum(C*dZ) =       .50648
 $    Z            C
@@ -176,7 +176,7 @@ $
 
      INITIAL VALUES OF COEFFICIENTS
      ==============================
-     NAME        INITIAL VALUE 
+     NAME        INITIAL VALUE
       V........     .5000E+02
       D........     .1250E+04
       R........     .1000E+01
@@ -191,9 +191,9 @@ $
            .00000    .00000
           1.00000    .50000
            .00000   1.00000
-       NO PRODUCTION TERM 
- 
- 
+       NO PRODUCTION TERM
+
+
 $ T=   .05000    (RESIDENT AND TOTAL RESIDENT CONC. VS. DEPTH)
 $ Sum(C*dZ) =      .50000   Sum(Ct*dZ) =      .50000 (TOTAL MASS)
 $    Z          C           Ct (=R*C)

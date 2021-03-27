@@ -109,7 +109,7 @@
 
      RESULTS FOR EACH ITERATION STEP
      ===============================
-     STEP      SSQ        R       MU      LAM     Dx      Dy      Dz 
+     STEP      SSQ        R       MU      LAM     Dx      Dy      Dz
        0      3.40837    1.000    .010    .010  50.000   5.000   2.500
        1      1.18791    2.078    .124    .035  66.485   9.622   2.111
        2       .44395    2.691    .245    .073   2.081  10.382   3.921
@@ -124,7 +124,7 @@
 
      CORRELATION MATRIX
      ==================
-          R          MU         LAM        Dx         Dy         Dz 
+          R          MU         LAM        Dx         Dy         Dz
    R     1.0000
    MU     .0128     1.0000
    LAM    .1296      .7416     1.0000

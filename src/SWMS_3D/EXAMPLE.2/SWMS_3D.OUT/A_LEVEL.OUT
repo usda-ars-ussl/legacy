@@ -1,13 +1,13 @@
- Example 2 - Grass Field Problem (Hupselse Beek 1982)                    
- 
+ Example 2 - Grass Field Problem (Hupselse Beek 1982)
+
  Program SWMS_3D
  Date:  21. 7.    Time:  12:34:19
  Time dependent boundary conditions
- Units: L = cm   , T = day  , M = -    
+ Units: L = cm   , T = day  , M = -
  All cumulative fluxes (CumQ) are positive out of the region
 
       Time      CumQAP     CumQRP     CumQA      CumQR      CumQ3        hAtm       hRoot     hKode3    A-level
-      [T]        [L3]       [L3]       [L3]       [L3]        [L3]          [L]        [L]        [L] 
+      [T]        [L3]       [L3]       [L3]       [L3]        [L3]          [L]        [L]        [L]
 
      91.0000   .000E+00   .160E+00   .000E+00   .160E+00   .373E-01      -58.2      -37.1      171.9       1
      92.0000  -.700E-01   .340E+00  -.700E-01   .340E+00   .722E-01      -59.5      -39.0      169.4       2

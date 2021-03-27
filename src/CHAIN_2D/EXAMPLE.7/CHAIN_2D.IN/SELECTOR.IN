@@ -19,7 +19,7 @@ thr     ths     tha     thm     Alfa    n       Ks      Kk      thk
 dt      dtMin   dtMax   DMul    DMul2   MPL
 .1      .001    1000.   1.33    .33     6
 TPrint(1),TPrint(2),...,TPrint(MPL)                                  (print-time array)
-720 1440 3600 7200 10800 14400 
+720 1440 3600 7200 10800 14400
 *** BLOCK G: SOLUTE TRANSPORT INFORMATION *********************************************
 Epsi    lUpW    lArtD   lTDep   cTolA  cTolR   MaxItC  PeCr
 0.5     t       f       t       0.0    0.0     1       2.
@@ -57,7 +57,7 @@ Dif.w.  Dif.g. ------------------------------------------------------------- (3.
 KodCB(1),KodCB(2),.....,KodCB(NumBP)
 -1     -1      -1      -1      -1       -7      -7      -7      -7      -7
 -7     -7      -7      -7      -7       -7      -7      -7      -7      -7
-2       2    
+2       2
 cTop   cBot
 1.      0.      0.      0.      0.      0.      0.      0.     0.5
 0.      0.      0.      0.      0.      0.      0.      0.     0.5
@@ -74,6 +74,6 @@ KodTB(1),KodTB(2),.....,KodTB(NumBP)
 -3      -3
 TBound(1),TBound(2),.....,TBound(6)
 30.      0.      0.      0.      0.      0.
-Amplit   tPeriod 
+Amplit   tPeriod
 0.       3600.
 *** END OF INPUT FILE 'SELECTOR.IN' ***************************************************

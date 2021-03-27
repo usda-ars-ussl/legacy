@@ -1,6 +1,6 @@
- Example 4 - Infiltration Test                                           
- 
+ Example 4 - Infiltration Test
+
  Program SWMS_2D
  Time independent boundary conditions
  Axisymmetric flow, V = L*L*L
- Units: L = cm   , T = min  , M = -    
+ Units: L = cm   , T = min  , M = -

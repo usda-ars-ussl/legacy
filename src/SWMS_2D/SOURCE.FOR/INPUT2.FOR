@@ -62,7 +62,7 @@ c        write(IU(i),100) iday,imonth,ihours,mins,isecs
 120   format(' Axisymmetric flow, V = L*L*L')
 130   format(' Vertical plane flow, V = L*L')
 140   format(/' Max. number of iterations           ',i4/
-     !        ' Absolute water content tolerance [-]',f8.5/ 
+     !        ' Absolute water content tolerance [-]',f8.5/
      !        ' Absolute pressure head tolerance [L]',f8.5/)
       return
       end
@@ -104,10 +104,10 @@ c        write(IU(i),100) iday,imonth,ihours,mins,isecs
 12      continue
 13    continue
 
-110   format(/' MatNum,        thR    thS    tha    thm      alpha      
+110   format(/' MatNum,        thR    thS    tha    thm      alpha
      !   n          Ks          Kk          thk'/)
 120   format(i5,8x,4f7.3,16e12.3)
-130   format(//' MatNum          Qe     Q        h         C         K') 
+130   format(//' MatNum          Qe     Q        h         C         K')
 140   format(i5,8x,2f7.3,f10.3,e10.2,e12.3)
       return
       end
@@ -424,7 +424,7 @@ c        write(IU(i),100) iday,imonth,ihours,mins,isecs
       if(.not.lConst) IJ=NumNP
       if(MBand.gt.10.or.NumNP.gt.200) lOrt=.true.
 
-110   format (////' Element Information'//' Element    C O R N E R    N 
+110   format (////' Element Information'//' Element    C O R N E R    N
      !O D E S   ConAxz    ConAxx    ConAzz  LayNum'/)
 120   format (i6,i9,3i6,e14.3,2f8.3,i5)
       return
@@ -557,8 +557,8 @@ c        write(IU(i),100) iday,imonth,ihours,mins,isecs
       read(30,*)
       read(30,*) epsi,lUpW,lArtD,PeCr
       PeCr=amax1(PeCr,0.01)
-      if(epsi.lt.0.999) NLevel=2      
-      read(30,*) 
+      if(epsi.lt.0.999) NLevel=2
+      read(30,*)
       if(lUpW) then
         write(50,120)
       else
@@ -566,10 +566,10 @@ c        write(IU(i),100) iday,imonth,ihours,mins,isecs
         if(lArtD) write(50,140) PeCr
       end if
       write(50,150)
-      do 11 M=1,NMat    
+      do 11 M=1,NMat
         read(30,*) (ChPar(j,M),j=1,9)
         write(50,160) (ChPar(j,M),j=1,9)
-11    continue   
+11    continue
       read(30,*)
       read(30,*) (KodCB(i),i=1,NumBP)
       read(30,*)
@@ -578,7 +578,7 @@ c        write(IU(i),100) iday,imonth,ihours,mins,isecs
       read(30,*)
       read(30,*) tPulse
       write(50,180) tPulse
-  
+
 110   format (/' Solute transport information'/1x,28('='))
 120   format (/' Upstream weighting finite-element method')
 130   format (/' Galerkin finite-element method')
@@ -586,7 +586,7 @@ c        write(IU(i),100) iday,imonth,ihours,mins,isecs
      !         ' higher than',f10.3)
 150   format (/'  Bulk.d.   Difus.         Disper.        Adsorp.    ',
      !         'SinkL1    SinkS1    SinkL0    SinkS0')
-160   format (10e10.3) 
+160   format (10e10.3)
 170   format (/'   Conc1     Conc2     Conc3     Conc4     cSink     ',
      !         'cWell'/8e10.3)
 180   format (/' tPulse =   ',f15.3)

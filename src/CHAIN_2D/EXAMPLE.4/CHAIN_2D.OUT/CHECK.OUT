@@ -1,10 +1,10 @@
- Example 4 - Solute Transport with Nitrification Chain                          
-                      
- 
+ Example 4 - Solute Transport with Nitrification Chain
+
+
  Program CHAIN_2D
  Time independent boundary conditions
  Vertical plane flow, V = L*L
- Units: L = m    , T = days , M = -    
+ Units: L = m    , T = days , M = -
 
  Max. number of iterations             20
  Absolute water content tolerance [-]  .00010
@@ -17,7 +17,7 @@
 
 
  MatNum          Qe     Q        h         C         K
- 
+
     1          1.000  1.000      .000   .22E-08    .100E+01
     1           .990   .990    -2.850   .69E-02    .734E+00
     1           .900   .900    -9.686   .18E-01    .302E+00

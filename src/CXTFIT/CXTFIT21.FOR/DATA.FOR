@@ -47,15 +47,15 @@ C  INITIALIZE PARAMETERS
        ZPRO2(I)=0.0
     3  CONTINUE
 C----- READ MODEL DESCRIPTION (BLOCK A)--------------------------
-      READ(5,*) 
+      READ(5,*)
       READ(5,1001) TITLE1
       READ(5,1001) TITLE2
-C      
+C
 C   MODE=1  EQUILIBRIUM  MODEL, MODE=2 NONEQUILIBRIUM  MODEL
-C   MODE>=3 STOCHASTIC   MODEL 
+C   MODE>=3 STOCHASTIC   MODEL
 C     3; Kd&V EQUILIBRIUM      4; Kd&V NONEQUILIBRIUM
-C     5; D&V EQUILIBRIUM      6; D&V NONEQUILIBRIUM 
-C     8; ALPHA & V NONEQUILIBRIUM 
+C     5; D&V EQUILIBRIUM      6; D&V NONEQUILIBRIUM
+C     8; ALPHA & V NONEQUILIBRIUM
 C
 C   MODC=1; flux conc. or area-averaged flux conc.
 C   MODC=2; field-scale flux conc.
@@ -63,7 +63,7 @@ C   MODC=3; third-type resident conc.
 C   MODC=4; third-type total resident concentration.
 C   MODC=5; first-type resident conc.
 C   MODC=6; first-type total resident conc.
-C     
+C
 C   MODC= 1,2,3,5  PHASE 1 CONC. IS USED FOR PARAMETER ESTIMATION.
 C
 C   NREDU=0  REAL t ,x ,<c2>  FOR MODE=4,6,8
@@ -72,15 +72,15 @@ C   NREDU=2; DIMENSIONLESS T & Z
 C   NREDU=3; DIMENSIONLESS T & REAL x
 C
 C
-      READ(5,*) 
-      READ(5,*) INVERSE,MODE,NREDU  
+      READ(5,*)
+      READ(5,*) INVERSE,MODE,NREDU
       IF(MODE.EQ.7) MODE=8
 C   [EQUILIBRIUM CDE WITH NREDU=1, ZL=MAX OF Z]
        IF((MOD(MODE,2).EQ.1).AND.NREDU.LE.1) THEN
-        READ(5,*) 
+        READ(5,*)
         READ(5,*) MODC
        ELSE
-        READ(5,*) 
+        READ(5,*)
         READ(5,*) MODC,ZL
        END IF
 C  ----- READ PARAMETERS FOR AN INVERSE PROBLEM (BLOCK B) ------------
@@ -89,8 +89,8 @@ C  ----- READ PARAMETERS FOR AN INVERSE PROBLEM (BLOCK B) ------------
       MDEG=0
       ILMT=0
       IF(INVERSE.EQ.1) THEN
-       READ(5,*) 
-       READ(5,*) 
+       READ(5,*)
+       READ(5,*)
        READ(5,*) MIT,ILMT,MASS
         IF(MOD(MODE,2).EQ.0) THEN
           READ(5,*)
@@ -116,7 +116,7 @@ C   [ MODE=4,6,8; ONE-SITE MODEL]
 C
 C
 C  ----  READ TRANSPORT PARAMETERS  (BLOCK C)--------------
-      READ(5,*) 
+      READ(5,*)
 C   NTP: NUMBER OF TRANSPORT PARAMETERS
 C   NVAR:TOTAL NUMBER OF PARAMETERS INCLUDING MASS ESTIMATION
       IF(MODE.EQ.1) NTP=4
@@ -130,7 +130,7 @@ C
       NVAR=NTP
 C
 C     ----- COEFFICIENTS NAMES -----
-      READ(5,*) 
+      READ(5,*)
       GOTO (70,71,72,73,72,73,74,73) MODE
    70 BI(1)=' V....'
       BI(2)=' D....'
@@ -207,8 +207,8 @@ C     MODB=3  SINGLE PULSE INPUT
 C     MODB=4  MULTIPLE PULSE INPUT
 C     MODB=5  EXPONENTIAL INPUT
 C     MODB=6  ARBITRARY INPUT (DEFINE FUNCTION CINPUT(T))
-   21 READ(5,*) 
-      READ(5,*) 
+   21 READ(5,*)
+      READ(5,*)
       MASSST=0
       READ(5,*) MODB
       DO 81 I=1,10
@@ -258,15 +258,15 @@ C        =0                  DEPENDS V (pulse*<v>/v)
            IF(MODE.LE.2) THEN
               READ(5,*) PULSE(1),TPULSE(2)
            ELSE
-C  MASSST=1 AMOUNT OF SOLUTE IS CONSTANT REGARDLESS OF V 
-C              DURATION TIME IS <T>*<v>/v   
+C  MASSST=1 AMOUNT OF SOLUTE IS CONSTANT REGARDLESS OF V
+C              DURATION TIME IS <T>*<v>/v
 C              [MODE=7 AND 8 IN CXTFIT]
 C        =0  DURATION TIME IS CONSTANT FOR ALL STREAM TUNES.
 C           AMOUNT OF SOLUTE IS PROPORTIONAL TO V.
 C              [MODE=5 AND 6 IN CXTFIT]
-C         
+C
               READ(5,*) PULSE(1),TPULSE(2),MASSST
-           END IF 
+           END IF
            TPULSE(1)=0.0
            PULSE(2)=0.0
            NPULSE=2
@@ -314,7 +314,7 @@ C      MODI=2   STEPWISE INITIAL CONCENTRATION
 C      MODI=3   EXPONENTIAL INITIAL CONCENTRATION
 C      MODI=4   DELTA(Z-Z1) & CONSTANT INITIAL CONCENTRATION
       READ(5,*)
-      READ(5,*) 
+      READ(5,*)
       READ(5,*) MODI
       DO 82 I=1,10
       CINI(I)=0.0
@@ -338,7 +338,7 @@ C      MODI=4   DELTA(Z-Z1) & CONSTANT INITIAL CONCENTRATION
        ELSE IF (MODI.EQ.4) THEN
           NINI=1
           ZINI(1)=0
-C DELTA CONDITION;  MASS:CINI(2) 
+C DELTA CONDITION;  MASS:CINI(2)
 C      Z1 (position of a spike):ZINI(2)  UNIFORM CONC: CINI(1)
           READ(5,*) CINI(2),ZINI(2),CINI(1)
       END IF
@@ -348,11 +348,11 @@ C      MODP=0   ZERO PRODUCTION
 C      MODP=1   CONSTANT PRODUCTION
 C      MODP=2   STEPWISE PRODUCTION
 C      MODP=3   EXPONENTIAL PRODUCTION
-C      
+C
 C      MPRO=0; SAME CONDITION FOR PHASE 1 & 2
 C      MPRO=1; DIFFERENT CONDITION FOR PHASE 1 & 2
    31 READ(5,*)
-      READ(5,*) 
+      READ(5,*)
       MPRO=0
       READ(5,*) MODP
       IF(MODP.EQ.0) THEN
@@ -408,15 +408,15 @@ C ----- READ DATA FOR INVERSE PROBLEM (BLOCK G) ----------
 C     INPUTM = 0  Z(I), T(I), C(I)
 C            = 1  T(I), C(I) FOR SAME Z (Breakthrough Curve)
 C            = 2  Z(I), C(I) FOR SAME T
-C            = 3  C(I), Z(I), T(I) FIXED FORMAT, 3F10.0, FOR CXTFIT DATA  
-C                    AT THE END OF DATA SET, GIVE "0,0,0" 
+C            = 3  C(I), Z(I), T(I) FIXED FORMAT, 3F10.0, FOR CXTFIT DATA
+C                    AT THE END OF DATA SET, GIVE "0,0,0"
 C                    TO INDICATE THE LAST LINE
-        READ(5,*) 
-        READ(5,*) 
+        READ(5,*)
+        READ(5,*)
         NOB=0
         READ(5,*) INPUTM
          IF(INPUTM.EQ.1.OR.INPUTM.EQ.2) READ(5,*)  DUMTZ
-        READ(5,*) 
+        READ(5,*)
         DO 10 I=1,MAXOB
          IF(INPUTM.EQ.1) THEN
           IF(MIT.GE.1) THEN
@@ -425,7 +425,7 @@ C                    TO INDICATE THE LAST LINE
             IF(ABS(T(I)).LT.1.E-7.AND.ABS(C(I)).LT.1.E-7) THEN
              IF(NOB.GE.1) GOTO 11
              NOB=NOB+1
-            ELSE 
+            ELSE
               NOB=NOB+1
             END IF
           ELSE IF(MIT.EQ.0) THEN
@@ -433,7 +433,7 @@ C                    TO INDICATE THE LAST LINE
             Z(I)=DUMTZ
             IF(ABS(T(I)).LT.1.E-10.AND.NOB.GE.1) THEN
               GOTO 11
-            ELSE 
+            ELSE
               NOB=NOB+1
             END IF
           END IF
@@ -444,7 +444,7 @@ C                    TO INDICATE THE LAST LINE
             IF(ABS(Z(I)).LT.1.E-7.AND.ABS(C(I)).LT.1.E-7) THEN
              IF(NOB.GE.1) GOTO 11
              NOB=NOB+1
-            ELSE 
+            ELSE
               NOB=NOB+1
             END IF
           ELSE IF(MIT.EQ.0) THEN
@@ -452,7 +452,7 @@ C                    TO INDICATE THE LAST LINE
             T(I)=DUMTZ
             IF(ABS(Z(I)).LT.1.E-10.AND.NOB.GE.1) THEN
               GOTO 11
-            ELSE 
+            ELSE
               NOB=NOB+1
             END IF
           END IF
@@ -463,7 +463,7 @@ C                    TO INDICATE THE LAST LINE
      &        ABS(C(I)).LT.1.E-7) THEN
              IF(NOB.GE.1) GOTO 11
              NOB=NOB+1
-            ELSE 
+            ELSE
               NOB=NOB+1
             END IF
           ELSE IF(MIT.EQ.0) THEN
@@ -471,17 +471,17 @@ C                    TO INDICATE THE LAST LINE
             IF(ABS(Z(I)).LT.1.E-7.AND.ABS(T(I)).LT.1.E-7.AND.
      &        NOB.GE.1) THEN
               GOTO 11
-            ELSE 
+            ELSE
               NOB=NOB+1
             END IF
           END IF
-         ELSE 
+         ELSE
             READ(5,1010) C(I),Z(I),T(I)
             IF(ABS(Z(I)).LT.1.E-7.AND.ABS(T(I)).LT.1.E-7.AND.
      &        ABS(C(I)).LT.1.E-7) THEN
              IF(NOB.GE.1) GOTO 11
              NOB=NOB+1
-            ELSE 
+            ELSE
               NOB=NOB+1
             END IF
          END IF
@@ -491,8 +491,8 @@ C                    TO INDICATE THE LAST LINE
 C-------T & Z FOR DIRECT PROBLEM (BLOCK H) ---------------
 C   MPRINT=1 PRINT CONC VS. TIME
 C   MPRINT=2       CONC VS.DEPTH
-        READ(5,*) 
-        READ(5,*) 
+        READ(5,*)
+        READ(5,*)
        READ(5,*) NZ,DZ,ZI,NT,DT,TI,MPRINT
 C
          Z(1)=ZI
@@ -597,7 +597,7 @@ C  Corrected on 2/12/05
 	  END IF
       GOTO (10,20,30,40,30,40,50,40) MODE
 C
-C  ----- MODE =1 -------------------------   
+C  ----- MODE =1 -------------------------
    10 DO 11 I=2,3
        IF(B(NVAR+I).LE.1.D-09) THEN
            WRITE(*,1000) BI(I),B(NVAR+I)
@@ -632,11 +632,11 @@ C  -----  MODE 2 --------------------------
            WRITE(KP,1002) BI(I),B(NVAR+I)
            NERR=NERR+1
          END IF
-   22 CONTINUE 
+   22 CONTINUE
       IF(B(NVAR+5).GT.100.0) THEN
-           WRITE(*,1042) 
+           WRITE(*,1042)
            WRITE(KP,1042)
-      END IF 
+      END IF
        GOTO 100
 C
 C  -------- MODE 3,5 (STOCHASTIC EQUILIBRIUM CDE) ---------------------
@@ -669,23 +669,23 @@ C  -------- MODE 3,5 (STOCHASTIC EQUILIBRIUM CDE) ---------------------
       END IF
       IF(MODE.EQ.3) THEN
         IF(B(NVAR+5).LT.1.D-07.AND.B(NVAR+6).LT.1.D-07) THEN
-         WRITE(*,1007) 
+         WRITE(*,1007)
          WRITE(KP,1007)
          NERR=NERR+1
         END IF
         IF(B(NVAR+5).LT.1.D-07.AND.B(NVAR+7).GE.1.D-07) THEN
-         WRITE(*,1020) 
+         WRITE(*,1020)
          WRITE(KP,1020)
          B(NVAR+7)=0.0
         END IF
       ELSE IF(MODE.EQ.5) THEN
         IF(B(NVAR+5).LT.1.D-07.AND.B(NVAR+7).LT.1.D-07) THEN
-         WRITE(*,1008) 
+         WRITE(*,1008)
          WRITE(KP,1008)
          NERR=NERR+1
         END IF
         IF(B(NVAR+5).LT.1.D-07.AND.B(NVAR+6).GE.1.D-07) THEN
-         WRITE(*,1022) 
+         WRITE(*,1022)
          WRITE(KP,1022)
          B(NVAR+6)=0.0
         END IF
@@ -749,58 +749,58 @@ C   ------MODE 4,6,8 (STOCHASTIC ONE-SITE MODEL)-----------------
 C
       IF(MODE.EQ.4) THEN
       IF (B(NVAR+7).LT.1.D-07.AND.B(NVAR+8).LT.1.D-07) THEN
-         WRITE(*,1007) 
+         WRITE(*,1007)
          WRITE(KP,1007)
          NERR=NERR+1
       END IF
         IF(B(NVAR+7).LT.1.D-07.AND.B(NVAR+9).GE.1.D-07) THEN
-         WRITE(*,1020) 
+         WRITE(*,1020)
          WRITE(KP,1020)
          B(NVAR+9)=0.0
         END IF
       ELSE IF(MODE.EQ.6) THEN
       IF (B(NVAR+7).LT.1.D-07.AND.B(NVAR+9).LT.1.D-07) THEN
-         WRITE(*,1008) 
+         WRITE(*,1008)
          WRITE(KP,1008)
          NERR=NERR+1
       END IF
         IF(B(NVAR+7).LT.1.D-07.AND.B(NVAR+8).GE.1.D-07) THEN
-         WRITE(*,1022) 
+         WRITE(*,1022)
          WRITE(KP,1022)
          B(NVAR+8)=0.0
         END IF
       ELSE IF(MODE.EQ.8) THEN
       IF (B(NVAR+7).LT.1.D-07.AND.B(NVAR+10).LT.1.D-07) THEN
-         WRITE(*,1009) 
+         WRITE(*,1009)
          WRITE(KP,1009)
          NERR=NERR+1
       END IF
         IF(B(NVAR+7).LT.1.D-07.AND.B(NVAR+9).GE.1.D-07) THEN
-         WRITE(*,1020) 
+         WRITE(*,1020)
          WRITE(KP,1020)
          B(NVAR+9)=0.0
         END IF
         IF(B(NVAR+7).LT.1.D-07.AND.B(NVAR+8).GE.1.D-07) THEN
-         WRITE(*,1022) 
+         WRITE(*,1022)
          WRITE(KP,1022)
          B(NVAR+8)=0.0
         END IF
       END IF
-      IF(MODE.EQ.4.OR.MODE.EQ.6) THEN 
+      IF(MODE.EQ.4.OR.MODE.EQ.6) THEN
         IF(B(NVAR+4).GT.100.0) THEN
-           WRITE(*,1042) 
+           WRITE(*,1042)
            WRITE(KP,1042)
         END IF
       ELSE IF(MODE.EQ.8) THEN
-         DOMEGA=B(NVAR+4)*RHOTH*B(NVAR+3)*ZL/B(NVAR+1) 
+         DOMEGA=B(NVAR+4)*RHOTH*B(NVAR+3)*ZL/B(NVAR+1)
         IF(DOMEGA.GT.100.0) THEN
-           WRITE(*,1044) 
+           WRITE(*,1044)
            WRITE(KP,1044)
         END IF
       END IF
       GOTO 100
    50 NERR=NERR+1
-C ------CHECK MAX & MIN COMSTRAINTS  ---------------------------- 
+C ------CHECK MAX & MIN COMSTRAINTS  ----------------------------
   100   INRHO=0
         IF(MODE.EQ.3.OR.MODE.EQ.5) THEN
            IF(INDEX(8).EQ.1) INRHO=1
@@ -809,7 +809,7 @@ C ------CHECK MAX & MIN COMSTRAINTS  ----------------------------
         ELSE IF (MODE.EQ.8) THEN
            IF(INDEX(11).EQ.1) INRHO=1
         END IF
-C        
+C
         IF(MIT.LE.0) GO TO 102
          DO 52 I=1,NVAR
           IF(ILMT.NE.1) GO TO 52
@@ -827,7 +827,7 @@ C
                BMAX(I)= 1.D+00
             END IF
             GOTO 56
-          END IF             
+          END IF
             IF(BMIN(I).LT.0.0) THEN
                WRITE(*,1026) BI(I)
                WRITE(KP,1026) BI(I)
@@ -839,7 +839,7 @@ C
                NERR=NERR+1
             END IF
    52  CONTINUE
-C  CONSTRAINT FOR BETA   
+C  CONSTRAINT FOR BETA
 C     BETA SHOULD BE LESS THAN 1 FOR THE NONEQUILIBRIUM CDE
       IF(MODE.NE.2) GOTO 92
       IF(ILMT.NE.1) GOTO 92
@@ -848,73 +848,73 @@ C  CHECK BMAX
       IF(MNEQ.LE.2) THEN
          IF(BMAX(4).LT.0.9999) GOTO 90
          IF(BMAX(4).GT.0.9999) THEN
-           WRITE(*,1027) 
+           WRITE(*,1027)
            WRITE(KP,1027)
            BMAX(4)=0.9999
            GOTO 90
          END IF
-      ELSE IF(MNEQ.EQ.3) THEN 
+      ELSE IF(MNEQ.EQ.3) THEN
          IF(INDEX(3).EQ.1) THEN
-               WRITE(*,1040) 
+               WRITE(*,1040)
                WRITE(KP,1040)
          END IF
-         BBMAX=(PHIM+B(NVAR+3)-1.0)/B(NVAR+3) 
+         BBMAX=(PHIM+B(NVAR+3)-1.0)/B(NVAR+3)
          IF(BMAX(4).LE.BBMAX) THEN
            GOTO 90
-         ELSE 
-           WRITE(*,1031) 
+         ELSE
+           WRITE(*,1031)
            WRITE(KP,1031)
            IF(INDEX(3).EQ.0) BMAX(4)=BBMAX
               IF(BMAX(4).GT.0.9999) THEN
-               WRITE(*,1027) 
+               WRITE(*,1027)
                WRITE(KP,1027)
                BMAX(4)=0.9999
              END IF
          END IF
       END IF
-C   CHECK BMIN      
-   90 IF(MNEQ.LE.1) GOTO 92 
+C   CHECK BMIN
+   90 IF(MNEQ.LE.1) GOTO 92
       IF(MNEQ.EQ.2) THEN
        IF(BMIN(4).GE.1.0/B(NVAR+3)) THEN
           GOTO 92
        ELSE
-          WRITE(*,1029) 
+          WRITE(*,1029)
           WRITE(KP,1029)
        END IF
       ELSE IF(MNEQ.EQ.3) THEN
        IF(BMIN(4).GE.PHIM/B(NVAR+3)) THEN
           GOTO 92
        ELSE
-          WRITE(*,1028) 
+          WRITE(*,1028)
           WRITE(KP,1028)
           IF(INDEX(3).EQ.0) BMIN(4)=PHIM/B(NVAR+3)
        END IF
       END IF
-C  CONSTRAINT FOR OMEGA   
+C  CONSTRAINT FOR OMEGA
 C     OMEGA SHOULD BE LESS THAN 1 FOR THE NONEQUILIBRIUM CDE
    92 IF(MODE.EQ.2.AND.ILMT.EQ.1) THEN
       IF(INDEX(5).NE.1) GOTO 102
          IF(BMAX(5).GT.100.0) THEN
-           WRITE(*,1046) 
-           WRITE(KP,1046) 
+           WRITE(*,1046)
+           WRITE(KP,1046)
            GOTO 102
          END IF
-      ELSE IF(MODE.EQ.4.OR.MODE.EQ.6) THEN 
+      ELSE IF(MODE.EQ.4.OR.MODE.EQ.6) THEN
          IF(INDEX(4).NE.1.OR.ILMT.EQ.0) GOTO 102
          IF(BMAX(4).GT.100.0) THEN
-           WRITE(*,1046) 
-           WRITE(KP,1046) 
+           WRITE(*,1046)
+           WRITE(KP,1046)
            GOTO 102
          END IF
       ELSE IF(MODE.EQ.8) THEN
          IF(INDEX(4).NE.1.OR.ILMT.EQ.0) GOTO 102
           DUMAX=BMAX(4)/RHOTH/B(NVAR+4)/ZL*B(NVAR+1)
          IF(DUMAX.GT.100) THEN
-           WRITE(*,1048) 
-           WRITE(KP,1048) 
+           WRITE(*,1048)
+           WRITE(KP,1048)
          END IF
       END IF
-C         
+C
 C  --- STOP PROGRAM IF NERR>=1  ----
   102 IF(NERR.GE.1) THEN
          WRITE(*,1010)
@@ -935,13 +935,13 @@ C   V HAS TO BE SPECIFIED FOR DIMENSIONLESS TIME
         IF(INDEX(1).EQ.1) THEN
            WRITE(*,1012)
            WRITE(KP,1012)
-           INDEX(1)=0                                                      
+           INDEX(1)=0
         END IF
       END IF
-C 
+C
 C    ----- DISPERSION COEFFICIENT FOR STOCHASTIC MODEL FOR MODE 3,4,8--------
 C    ASSUME POSITIVE CORRELATION V&D FOR MODEL 3,4,8
-C MODD; Index for a stochastic dispersion coefficient 
+C MODD; Index for a stochastic dispersion coefficient
 C    MODD=2  SDLND=SDLNV (FIELD SCALE DISPERSIVITY=CONSTANT)
 C    MODD=1 POSITIVE CORRELATION V&D.
 C    MODD=0  D=CONSTANT
@@ -951,7 +951,7 @@ C
       MODK=0
       MD56=0
       MK34=0
-      MAL8=0 
+      MAL8=0
       IF(MODE.LE.2) GOTO 70
       IF (MODE.EQ.3) THEN
         IF(B(NVAR+7).LT.1.D-07) THEN
@@ -974,8 +974,8 @@ C
       END IF
 C
 C  --- DISPERSION COEFFICIENT FOR STOCHASTIC MODEL FOR MODE 5,6--------
-C MD56; Index for a stochastic dispersion coefficient for MODE=5,6 
-C    MD56=1  SDLND=SDLNV 
+C MD56; Index for a stochastic dispersion coefficient for MODE=5,6
+C    MD56=1  SDLND=SDLNV
 C    MD56=0  SDLND AND SALNV ARE INDEPENSENT.
       IF (MODE.EQ.5) THEN
        IF(ABS(B(NVAR+5)-B(NVAR+7)).LT.1.D-05) THEN
@@ -1012,7 +1012,7 @@ C
           INDEX(9)=0
         END IF
        END IF
-C      
+C
        IF (MODE.EQ.6) THEN
          IF((INDEX(7)-INDEX(9)).EQ.0.AND.MD56.EQ.1) THEN
            INDEX(7)=0
@@ -1023,11 +1023,11 @@ C
       END IF
 C    ----- DISTRIBUTION COEF FOR STOCHASTIC MODEL FOR MODE 5,6,8--------
 C    ASSUME NEGATIVE CORRELATION V&Kd FOR MODE 5,6,8
-C MODK; Index for a stochastic distribution coefficient 
+C MODK; Index for a stochastic distribution coefficient
 C    MODK=1 POSITIVE CORRELATION V&Kd.
 C    MODK=0  R=CONSTANT
 C    MODK=-1 NEGATIVE CORRELATION V&Kd.
-C    MODK=-2  SDLNK=SDLNV 
+C    MODK=-2  SDLNK=SDLNV
 C
       IF (MODE.EQ.5) THEN
         IF(B(NVAR+6).LT.1.D-07) THEN
@@ -1051,8 +1051,8 @@ C
 C
 C
 C  --- DISTRIBUTION COEFFICIENT FOR MODE 3,4--------
-C MK34; Index for a stochastic distribution coefficient for MODE=3,4 
-C    MK34=1  SDLNK=SDLNV 
+C MK34; Index for a stochastic distribution coefficient for MODE=3,4
+C    MK34=1  SDLNK=SDLNV
 C    MK34=0  SDLNK AND SALNV ARE INDEPENSENT.
       IF (MODE.EQ.3) THEN
        IF(ABS(B(NVAR+5)-B(NVAR+6)).LT.1.D-05) THEN
@@ -1098,8 +1098,8 @@ C
       END IF
 C
 CC  --- ALPHA FOR MODE 8--------
-C MK34; Index for a stochastic ALPHA for MODE=8 
-C    MAL8=1  SDLNAL=SDLNV 
+C MK34; Index for a stochastic ALPHA for MODE=8
+C    MAL8=1  SDLNAL=SDLNV
 C    MAL8=0  SDLNAL AND SALNV ARE INDEPENSENT.
       IF(MODE.EQ.8) THEN
        IF(ABS(B(NVAR+7)-B(NVAR+10)).LT.1.D-05) THEN
@@ -1113,8 +1113,8 @@ C    MAL8=0  SDLNAL AND SALNV ARE INDEPENSENT.
         END IF
        END IF
       END IF
-C----  NO ESTIMATE FOR CORREATION WHEN EITHER OF PARAMETERS 
-C                   ARE DETERMINISTIC 
+C----  NO ESTIMATE FOR CORREATION WHEN EITHER OF PARAMETERS
+C                   ARE DETERMINISTIC
       IF(MIT.GE.1) THEN
        IF(MOD(MODE,2).EQ.1) THEN
           IF(B(NVAR+5).LT.1.D-07.AND.INDEX(5).EQ.0) THEN
@@ -1124,7 +1124,7 @@ C                   ARE DETERMINISTIC
             INDEX(8)=0
            END IF
           END IF
-       ELSE 
+       ELSE
           IF(B(NVAR+7).LT.1.D-07.AND.INDEX(7).EQ.0) THEN
             IF(MODE.EQ.8) THEN
                IF(INDEX(11).EQ.1) THEN
@@ -1141,7 +1141,7 @@ C                   ARE DETERMINISTIC
             END IF
           END IF
        END IF
-C      
+C
        IF(MODE.EQ.3) THEN
           IF(B(NVAR+6).LT.1.D-07.AND.INDEX(6).EQ.0) THEN
            IF(INDEX(8).EQ.1) THEN
@@ -1183,15 +1183,15 @@ C
            END IF
           END IF
        END IF
-      END IF 
-C        
+      END IF
+C
 C ------------- ONE-SITE MODEL (Beta=1/R) -------------
    70 IF(MIT.GE.1) THEN
       IF(MODE.EQ.2.AND.MNEQ.EQ.1) THEN
          IF(B(NVAR+3).LT.1.0) THEN
            WRITE(*,1016) BI(3),B(NVAR+3)
            WRITE(KP,1016) BI(3),B(NVAR+3)
-           STOP 
+           STOP
          END IF
          DUMMY=ABS(B(NVAR+4)-1.0/B(NVAR+3))
          IF(DUMMY.GE.0.001) THEN
@@ -1269,14 +1269,14 @@ C  IF # OF EDIMATED PARAMETERS IS ZERO, MIT=0
         DO 95 I=1,NVAR
           III=III+INDEX(I)
    95   CONTINUE
-        IF(III.EQ.0) THEN   
+        IF(III.EQ.0) THEN
           WRITE(*,1058)
           WRITE(KP,1058)
           MIT=0
-        END IF          
+        END IF
       END IF
-C   
-C  WARNING FOR PARAMETER ESTIMATION 
+C
+C  WARNING FOR PARAMETER ESTIMATION
    99    NP=0
       IF(MIT.GE.1) THEN
         DO 58 I=1,NVAR
@@ -1286,61 +1286,61 @@ C  WARNING FOR PARAMETER ESTIMATION
       IF(NP.GE.5) THEN
           WRITE(*,1030) NP
          WRITE(KP,1030) NP
-      END IF 
       END IF
- 1000 FORMAT(5X,A6,4(1H.),F10.4,' <= 0, USE POSITIVE VALUE !')  
+      END IF
+ 1000 FORMAT(5X,A6,4(1H.),F10.4,' <= 0, USE POSITIVE VALUE !')
  1001 FORMAT(5X,'RHO/THETA',2(1H.),F10.4,' < 0, DO NOT USE NEGATIVE VALU
-     &E !')  
- 1002 FORMAT(5X,A6,4(1H.),F10.4,' < 0, DO NOT USE NEGATIVE VALUE !')  
- 1004 FORMAT(5X,A6,4(1H.),F10.4,'  Beta SHOULD BE  0 < Beta < 1')  
- 1006 FORMAT(5X,A6,4(1H.),F10.4,'  Rho SHOULD BE  -1 =< Rho =< 1')  
- 1007 FORMAT(5X,'  USE DETERMINISTIC MODEL (SD.v=SD.Kd=0).')  
- 1008 FORMAT(5X,'  USE DETERMINISTIC MODEL (SD.v=SD.D=0).')  
- 1009 FORMAT(5X,'  USE DETERMINISTIC MODEL (SD.v=SD.alp=0).')  
- 1010 FORMAT(//5X,' WARNING ! PLEASE CHECK TRANSPORT PARAMETERS. ')  
+     &E !')
+ 1002 FORMAT(5X,A6,4(1H.),F10.4,' < 0, DO NOT USE NEGATIVE VALUE !')
+ 1004 FORMAT(5X,A6,4(1H.),F10.4,'  Beta SHOULD BE  0 < Beta < 1')
+ 1006 FORMAT(5X,A6,4(1H.),F10.4,'  Rho SHOULD BE  -1 =< Rho =< 1')
+ 1007 FORMAT(5X,'  USE DETERMINISTIC MODEL (SD.v=SD.Kd=0).')
+ 1008 FORMAT(5X,'  USE DETERMINISTIC MODEL (SD.v=SD.D=0).')
+ 1009 FORMAT(5X,'  USE DETERMINISTIC MODEL (SD.v=SD.alp=0).')
+ 1010 FORMAT(//5X,' WARNING ! PLEASE CHECK TRANSPORT PARAMETERS. ')
  1012 FORMAT(//5X,' WARNING ! V MUST BE SPECIFIED FOR DIMENSION LESS TI
-     &ME. ')  
+     &ME. ')
  1014 FORMAT(//5X,' WARNING ! ONE-SITE MODEL (Beta=1/R)',/,6X,'Beta CANN
-     &OT BE ESTIMATED FOR ONE-SITE MODEL (MNEQ=1).')  
- 1015 FORMAT(//5X,' WARNING ! ONE-SITE MODEL (Beta=1/R) !')  
- 1016 FORMAT(5X,A6,4(1H.),F10.4,'  R SHOULD BE LARGER THAN 1')  
- 1020 FORMAT(5X,' WARNING ! IF SD.v=0, SD.D SHOULD ALSO BE ZERO.')  
- 1022 FORMAT(5X,' WARNING ! IF SD.v=0, SD.Kd SHOULD ALSO BE ZERO.')  
- 1024 FORMAT(5X,' WARNING ! ARBITRARY INPUT FUNCTION CANNOT BE USED FOR 
-     &THE STOCHASTIC ONE-SITE MODEL (MODE=4,6,8).')  
- 1025 FORMAT(5X,A6,4(1H.),' MAX CONSTRAINT >= MIN CONSTRAINT.')  
+     &OT BE ESTIMATED FOR ONE-SITE MODEL (MNEQ=1).')
+ 1015 FORMAT(//5X,' WARNING ! ONE-SITE MODEL (Beta=1/R) !')
+ 1016 FORMAT(5X,A6,4(1H.),F10.4,'  R SHOULD BE LARGER THAN 1')
+ 1020 FORMAT(5X,' WARNING ! IF SD.v=0, SD.D SHOULD ALSO BE ZERO.')
+ 1022 FORMAT(5X,' WARNING ! IF SD.v=0, SD.Kd SHOULD ALSO BE ZERO.')
+ 1024 FORMAT(5X,' WARNING ! ARBITRARY INPUT FUNCTION CANNOT BE USED FOR
+     &THE STOCHASTIC ONE-SITE MODEL (MODE=4,6,8).')
+ 1025 FORMAT(5X,A6,4(1H.),' MAX CONSTRAINT >= MIN CONSTRAINT.')
  1026 FORMAT(5X,A6,4(1H.),' WARNING ! MIN CONSTRAINT SHOULD BE LARGER TH
-     &AN ZERO.')  
- 1027 FORMAT(5X,' WARNING ! MAX CONSTRAINT FOR BETA SHOULD BE LESS THAN 
-     &ONE ! ')  
+     &AN ZERO.')
+ 1027 FORMAT(5X,' WARNING ! MAX CONSTRAINT FOR BETA SHOULD BE LESS THAN
+     &ONE ! ')
  1028 FORMAT(5X,' WARNING ! MIN CONSTRAINTS ARE OUT OF RANGE.'/
-     &10X, '(PHIM/R < BETA < (PHIM+R-1)/R FOR TWO REGION MODEL)')  
+     &10X, '(PHIM/R < BETA < (PHIM+R-1)/R FOR TWO REGION MODEL)')
  1029 FORMAT(5X,' WARNING ! MIN CONSTRAINT FOR BETA SHOULD BE LARGER THA
-     &N 1/R')  
+     &N 1/R')
  1030 FORMAT(5X,' WARNING ! YOU ESTIMATE',I5,'  PARAMETERS (GENERALLY TO
-     &O MANY).')  
+     &O MANY).')
  1031 FORMAT(5X,' WARNING ! MAX CONSTRAINTS ARE OUT OF RANGE.'/
-     &10X, '(PHIM/R < BETA < (PHIM+R-1)/R FOR TWO REGION MODEL)')  
+     &10X, '(PHIM/R < BETA < (PHIM+R-1)/R FOR TWO REGION MODEL)')
  1032 FORMAT(5X,' WARNING ! THE STOCHASTIC ONE-SITE MODELS (MODE=4,6,8)'
-     &,/,10X,'      CAN NOT BE USED FOR PARAMETER ESTIMATIONS.')  
- 1036 FORMAT(//5X,' WARNING ! IF <Kd>= 0, SD.Kd should be 0.  ')  
+     &,/,10X,'      CAN NOT BE USED FOR PARAMETER ESTIMATIONS.')
+ 1036 FORMAT(//5X,' WARNING ! IF <Kd>= 0, SD.Kd should be 0.  ')
  1037 FORMAT(5X,A6,4(1H.),' WARNING ! MIN CONSTRAINT SHOULD BE LARGER TH
-     &AN -1.')  
+     &AN -1.')
  1038 FORMAT(5X,A6,4(1H.),' WARNING ! MAN CONSTRAINT SHOULD BE SMALLER T
-     &HAN 1.')  
+     &HAN 1.')
  1040 FORMAT(5X,' WARNING ! R SHOULD BE FIXED FOR MNEQ = 3')
  1042 FORMAT(5X,' WARNING ! OMEGA IS TOO LARGE ( > 100) FOR THE NONEQUIL
-     &IBRIUM')  
+     &IBRIUM')
  1044 FORMAT(5X,' WARNING ! ALPHA IS TOO LARGE (OMEGA > 100) FOR THE NON
-     &EQUILIBRIUM')  
+     &EQUILIBRIUM')
  1046 FORMAT(5X,' WARNING ! THE CONSTRAINT FOR OMEGA IS TOO LARGE (> 100
-     &)')  
+     &)')
  1048 FORMAT(5X,' WARNING ! THE CONSTRAINT FOR ALPHA IS TOO LARGE (> 100
-     &)')  
+     &)')
  1050 FORMAT(5X,'  NO ESTIMATION FOR RHO BECAUSE V IS DETERMINISTIC !')
  1052 FORMAT(5X,'  NO ESTIMATION FOR RHO BECAUSE Kd IS DETERMINISTIC !')
  1054 FORMAT(5X,'  NO ESTIMATION FOR RHO BECAUSE D IS DETERMINISTIC !')
- 1056 FORMAT(5X,'  NO ESTIMATION FOR RHO BECAUSE ALPHA IS DETERMINISTIC 
+ 1056 FORMAT(5X,'  NO ESTIMATION FOR RHO BECAUSE ALPHA IS DETERMINISTIC
      &!')
  1058 FORMAT(5X,'  SET MIT = 0 BECAUSE OF NO FITTED PARAMETER !')
       RETURN
@@ -1367,7 +1367,7 @@ C
       COMMON/INITI/MODI,NINI,CINI(50),ZINI(50)
       COMMON/PROD/MODP,NPRO1,NPRO2,GAMMA1(50),ZPRO1(50),GAMMA2(50),
      &        ZPRO2(50)
-C     
+C
 C ------ WRITE TITLE -----------------
       WRITE(*,800)
       IF(INVERSE.EQ.1.AND.MIT.GT.0) THEN
@@ -1398,21 +1398,21 @@ C    -------- WRITE MODEL DESCRIPTION -----------
       WRITE(KP,850)
       IF(MODE.GE.9) GOTO 17
       GO TO (11,12,13,14,15,16,17,18) MODE
-   11   WRITE(KP,852) 
-        GO TO 20    
-   12   WRITE(KP,854) 
-        GO TO 20    
-   13   WRITE(KP,856) 
-        GO TO 20    
-   14   WRITE(KP,858) 
-        GO TO 20    
-   15   WRITE(KP,860) 
-        GO TO 20    
-   16   WRITE(KP,862) 
-        GO TO 20    
+   11   WRITE(KP,852)
+        GO TO 20
+   12   WRITE(KP,854)
+        GO TO 20
+   13   WRITE(KP,856)
+        GO TO 20
+   14   WRITE(KP,858)
+        GO TO 20
+   15   WRITE(KP,860)
+        GO TO 20
+   16   WRITE(KP,862)
+        GO TO 20
    17   WRITE(KP,864)
-        GO TO 20    
-   18   WRITE(KP,866) 
+        GO TO 20
+   18   WRITE(KP,866)
 C
 C------  DISPERSION COEFF. FOR MODE=3,4,8
    20 IF(MODE.EQ.3.OR.MODE.EQ.4.OR.MODE.EQ.8) THEN
@@ -1428,8 +1428,8 @@ C------  DISPERSION COEFF. FOR MODE=5,6
       IF(MODE.EQ.5.OR.MODE.EQ.6) THEN
         IF(MD56.EQ.1) WRITE(KP,1151)
       END IF
-C 
-C------  RETARDATION FACTOR  ---------- 
+C
+C------  RETARDATION FACTOR  ----------
       IF(MODE.GE.3) THEN
         WRITE(KP,1170) R,RHOTH
       END IF
@@ -1443,7 +1443,7 @@ C------  DISTRIBUTION COEFF. FOR MODE=5,6,8
           WRITE(KP,1164)
         END IF
       END IF
-      
+
 C------  DISTRIBUTION COEFF. FOR MODE=3,4
       IF(MODE.EQ.3.OR.MODE.EQ.4) THEN
         IF(MK34.EQ.1) WRITE(KP,1161)
@@ -1459,60 +1459,60 @@ C -----------------------------------------
    21   IF(MODE.LE.2) THEN
         WRITE(KP,882)
         ELSE
-        WRITE(KP,884) 
+        WRITE(KP,884)
         END IF
         GO TO 30
    22   IF(MODE.LE.2) THEN
         WRITE(KP,882)
         ELSE
-        WRITE(KP,886) 
+        WRITE(KP,886)
         END IF
         GO TO 30
    23   IF(MODE.LE.2) THEN
         WRITE(KP,888)
         ELSE
-        WRITE(KP,890) 
+        WRITE(KP,890)
         END IF
         GO TO 30
    24   IF(MODE.LE.2) THEN
         WRITE(KP,892)
         ELSE
-        WRITE(KP,894) 
+        WRITE(KP,894)
         END IF
         GO TO 30
    25   IF(MODE.LE.2) THEN
         WRITE(KP,896)
         ELSE
-        WRITE(KP,898) 
+        WRITE(KP,898)
         END IF
         GO TO 30
    26   IF(MODE.LE.2) THEN
         WRITE(KP,900)
         ELSE
-        WRITE(KP,902) 
-        END IF  
+        WRITE(KP,902)
+        END IF
 C
    30   IF(NREDU.EQ.2) GOTO 32
         IF(NREDU.EQ.3) GOTO 33
 C
         IF(MOD(MODE,2).EQ.1) THEN
-        WRITE(KP,910) 
+        WRITE(KP,910)
         ELSE
-        WRITE(KP,912) 
+        WRITE(KP,912)
         WRITE(KP,1005) ZL
          IF(MOD(MODE,2).EQ.0.AND.MODE.GE.4) THEN
          IF(MODC.NE.4.AND.MODC.NE.6) THEN
           IF(NREDU.EQ.1) WRITE (KP,918)
           IF(NREDU.EQ.0) WRITE (KP,920)
          END IF
-         END IF                 
-         
+         END IF
+
         END IF
         GO TO 35
-   32   WRITE(KP,914) 
+   32   WRITE(KP,914)
         WRITE(KP,1005) ZL
         GO TO 35
-   33   WRITE(KP,916) 
+   33   WRITE(KP,916)
         WRITE(KP,1005) ZL
 C
    35 IF(INVERSE.LE.0) GO TO 38
@@ -1563,7 +1563,7 @@ C     ------- PARAMETERS FOR BOUNDARY VALUE PROBLEM ----------
          WRITE(KP,1071) PULSE(1),TPULSE(2)
       ELSE IF (MASSST.EQ.0) THEN
 C  MASSST=1 AMOUNT OF SOLUTE IS CONSTANT REGARDELESS IF V (pulse*<v>/v)
-C        =0                  DEPENDS V 
+C        =0                  DEPENDS V
          WRITE(KP,1061) PULSE(1),TPULSE(2)
       ELSE
          WRITE(KP,1062) PULSE(1),TPULSE(2)
@@ -1623,7 +1623,7 @@ C
         WRITE(KP,1095) GAMMA1(1),GAMMA1(2),ZPRO1(1)
       IF(MOD(MODE,2).EQ.1) GOTO 95
         WRITE(KP,1096) GAMMA2(1),GAMMA2(2),ZPRO2(1)
-C   
+C
 C  ------ PARAMETER ESTIMATION MODE  -------
    95 IF(INVERSE.LE.0) GOTO 99
         WRITE(KP,1025)
@@ -1677,7 +1677,7 @@ C
            WRITE(KP,1114) PHIM
         END IF
 C
-      END IF 
+      END IF
 C
   800 FORMAT('$',//5X,67(1H*),/5X,1H*,65X,1H*,/5X,1H*,5X,
      &'CXTFIT VERSION 2.1 (4/17/99)',32X,1H*,/5X,1H*,5X,
@@ -1693,7 +1693,7 @@ C
   854 FORMAT(8X,'DETERMINISTIC NONEQUILIBRIUM CDE (MODE=2)')
   856 FORMAT(8X,'STOCHASTIC EQUILIBRIUM CDE WITH VARIABLE V & Kd ',
      &'(MODE=3)')
-  858 FORMAT(8X,'STOCHASTIC ONE-SITE NONEQUILIBRIUM CDE WITH VARIABLE V 
+  858 FORMAT(8X,'STOCHASTIC ONE-SITE NONEQUILIBRIUM CDE WITH VARIABLE V
      && Kd (MODE=4)')
   860 FORMAT(8X,'STOCHASTIC EQUILIBRIUM CDE WITH VARIABLE V & D (MODE=5)
      &')
@@ -1707,13 +1707,13 @@ C
   884 FORMAT(8X,'ENSEMBLE AVERAGE OF FLUX-AVERAGED CONCENTRATION <Cf>')
   886 FORMAT(8X,'FIELD-SCALE FLUX-AVERAGED CONCENTRATION <VCf>/<V>')
   888 FORMAT(8X,'RESIDENT CONCENTRATION (THIRD-TYPE INPUT)')
-  890 FORMAT(8X,'ENSEMBLE AVERAGE OF RESIDENT CONCENTRATION (THIRD-TYPE 
+  890 FORMAT(8X,'ENSEMBLE AVERAGE OF RESIDENT CONCENTRATION (THIRD-TYPE
      &INPUT)')
   892 FORMAT(8X,'TOTAL RESIDENT CONCENTRATION (THIRD-TYPE INPUT)')
   894 FORMAT(8X,'ENSEMBLE AVERAGE OF TOTAL RESIDENT CONCENTRATION (THIRD
      &-TYPE INPUT)')
   896 FORMAT(8X,'RESIDENT CONCENTRATION (FIRST-TYPE INPUT)')
-  898 FORMAT(8X,'ENSEMBLE AVERAGE OF RESIDENT CONCENTRATION (FIRST-TYPE 
+  898 FORMAT(8X,'ENSEMBLE AVERAGE OF RESIDENT CONCENTRATION (FIRST-TYPE
      &INPUT)')
   900 FORMAT(8X,'TOTAL RESIDENT CONCENTRATION (FIRST-TYPE INPUT)')
   902 FORMAT(8X,'ENSEMBLE AVERAGE OF TOTAL RESIDENT CONCENTRATION (FIRST
@@ -1724,7 +1724,7 @@ C
      &ONAL;',/,13X,' R,beta,omega,mu, AND gamma ARE DIMENSIONLESS)')
   914 FORMAT(8X,'REDUCED TIME (T), POSITION(Z)',/,10X,'(ALL PARAMETERS E
      &XCEPT D AND V ARE DIMENSIONLESS)')
-  916 FORMAT(8X,'REDUCED TIME (T), DIMENSIONAL POSITION(Z)',/,10X,'(ALL 
+  916 FORMAT(8X,'REDUCED TIME (T), DIMENSIONAL POSITION(Z)',/,10X,'(ALL
      &PARAMETERS EXCEPT D AND V ARE DIMENSIONLESS)')
   918 FORMAT(9X,'REDUCED MEAN PHASE 2 CONC. <C2>=<c2/Kd>')
   920 FORMAT(9X,'DIMENSIONAL MEAN PHASE 2 CONC. <c2>')
@@ -1817,5 +1817,5 @@ C
  1170 FORMAT(9X,' <R> = 1+RHO*<Kd>/THETA = ',F9.4,',  RHO/THETA = ',
      & F9.4)
 C
-   99 RETURN 
+   99 RETURN
       END

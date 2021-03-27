@@ -1,9 +1,9 @@
- Example 3a - Comparison with the 2-D analytical solution                
- 
+ Example 3a - Comparison with the 2-D analytical solution
+
  Program SWMS_2D
  Time independent boundary conditions
  Vertical plane flow, V = L*L
- Units: L = m    , T = days , M = -    
+ Units: L = m    , T = days , M = -
  All fluxes (v) are positive out of the region
 
      Time       rAtm       rRoot      vAtm       vRoot      vKode3     vKode1     vSeep      vKode5     vKode6 ...

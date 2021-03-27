@@ -27,7 +27,7 @@ $
 
      INITIAL VALUES OF COEFFICIENTS
      ==============================
-     NAME        INITIAL VALUE 
+     NAME        INITIAL VALUE
       V........     .2000E+02
       D........     .1000E+02
       R........     .5000E+01
@@ -41,9 +41,9 @@ $
      ===========================================
        DIRAC DELTA INPUT , MASS =   1.0000
        SOLUTE FREE INITIAL CONDITION
-       NO PRODUCTION TERM 
- 
- 
+       NO PRODUCTION TERM
+
+
 $ Z= 50.0000     (FLUX CONC. VS. TIME)
 $ Sum(C1*dT)=       .7853, Sum(C2*dT)=       .5120
       .0000   .00000E+00   .00000E+00
@@ -176,7 +176,7 @@ $
 
      INITIAL VALUES OF COEFFICIENTS
      ==============================
-     NAME        INITIAL VALUE 
+     NAME        INITIAL VALUE
       V........     .2000E+02
       D........     .1000E+02
       R........     .5000E+01
@@ -190,9 +190,9 @@ $
      ===========================================
        DIRAC DELTA INPUT , MASS =   1.0000
        SOLUTE FREE INITIAL CONDITION
-       NO PRODUCTION TERM 
- 
- 
+       NO PRODUCTION TERM
+
+
 $ Z= 50.0000     (FLUX CONC. VS. TIME)
 $ Sum(C1*dT)=       .8207, Sum(C2*dT)=       .5062
       .0000   .00000E+00   .00000E+00
@@ -325,7 +325,7 @@ $
 
      INITIAL VALUES OF COEFFICIENTS
      ==============================
-     NAME        INITIAL VALUE 
+     NAME        INITIAL VALUE
       V........     .2000E+02
       D........     .1000E+02
       R........     .5000E+01
@@ -339,9 +339,9 @@ $
      ===========================================
        DIRAC DELTA INPUT , MASS =   1.0000
        SOLUTE FREE INITIAL CONDITION
-       NO PRODUCTION TERM 
- 
- 
+       NO PRODUCTION TERM
+
+
 $ Z= 50.0000     (FLUX CONC. VS. TIME)
 $ Sum(C1*dT)=       .8971, Sum(C2*dT)=       .4857
       .0000   .00000E+00   .00000E+00
@@ -471,7 +471,7 @@ $
 
      INITIAL VALUES OF COEFFICIENTS
      ==============================
-     NAME        INITIAL VALUE 
+     NAME        INITIAL VALUE
       V........     .2000E+02
       D........     .1000E+02
       R........     .5000E+01
@@ -482,9 +482,9 @@ $
      ===========================================
        DIRAC DELTA INPUT , MASS =   1.0000
        SOLUTE FREE INITIAL CONDITION
-       NO PRODUCTION TERM 
- 
- 
+       NO PRODUCTION TERM
+
+
 $ Z= 50.0000     (FLUX CONC. VS. TIME)
 $ Sum(C*dT)=       .9997
 $   TIME          C

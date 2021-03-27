@@ -440,7 +440,7 @@
       end if
 
 *     Free Drainage
-      if(FreeD) then      
+      if(FreeD) then
         do 15 i=1,NumBP
           n=KXB(i)
           k=Kode(n)
@@ -537,7 +537,7 @@
       do 11 i=1,NumNP
         Vx(i)=0.
         Vz(i)=0.
-11    continue    
+11    continue
       do 14 e=1,NumEl
         CAxx=ConAxx(e)
         CAzz=ConAzz(e)
@@ -561,7 +561,7 @@
           A=1./Area/2.
           Ai=CAxx*vi+CAxz*wi
           Aj=CAxx*vj+CAxz*wj
-          Ak=CAxx*vk+CAxz*wk  
+          Ak=CAxx*vk+CAxz*wk
           Vxx=A*(Ai*hNew(i)+Aj*hNew(j)+Ak*hNew(k))
           if(KAT.gt.0) Vxx=Vxx+CAxz
           Ai=CAxz*vi+CAzz*wi

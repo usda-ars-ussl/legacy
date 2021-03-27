@@ -1,10 +1,10 @@
- Example 6 - Solute Transport with Kinetic Linear Cation Adsorption             
-                      
- 
+ Example 6 - Solute Transport with Kinetic Linear Cation Adsorption
+
+
  Program CHAIN_2D
  Time independent boundary conditions
  Vertical plane flow, V = L*L
- Units: L = cm   , T = day  , M = -    
+ Units: L = cm   , T = day  , M = -
 
  Max. number of iterations             20
  Absolute water content tolerance [-]  .00010
@@ -17,7 +17,7 @@
 
 
  MatNum          Qe     Q        h         C         K
- 
+
     1          1.000   .445      .000   .00E+00    .171E+02
     1           .990   .441   -14.249   .62E-03    .126E+02
     1           .900   .400   -48.432   .16E-02    .517E+01

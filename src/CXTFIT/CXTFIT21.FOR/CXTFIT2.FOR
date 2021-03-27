@@ -23,9 +23,9 @@ C     *               TEL. +81-952-28-8756                             *
 C     *               FAX. +81-952-28-8709                             *
 C     *               E-MAIL NOBUO@CC.SAGA-U.AC.JP                     *
 C     ******************************************************************
-C   
+C
       IMPLICIT REAL*8(A-H,O-Z)
-C    MAXOB; No. OF OBSERVATION. 
+C    MAXOB; No. OF OBSERVATION.
       PARAMETER (MAXOB=405)
 C
 C
@@ -47,7 +47,7 @@ C
       COMMON/PROD/MODP,NPRO1,NPRO2,GAMMA1(50),ZPRO1(50),GAMMA2(50),
      &    ZPRO2(50)
 C
-C     ----- OPEN I/O FILES ----------- 
+C     ----- OPEN I/O FILES -----------
        KP=7
        WRITE(*, 1000)
        READ(*, 1001) FILEIN
@@ -64,7 +64,7 @@ C     ----- READ NUMBER OF CASES -----
       DO 155 NCASE=1,NC
        ISKIP=0
 C     ----  READ, CHECK, AND WRITE DATA -------
-C      
+C
       CALL DATAIN(NOB,NU1,NU2,T,Z,C,B,BMAX,BMIN,BI,ILMT,
      &   KP,MAXOB,MPRINT,DT,DZ,NT,NZ,FILEIN,INRHO)
 C
@@ -75,7 +75,7 @@ C    ------ DIRECT PROBLEM ----------------
       IF(INVERSE.LE.0) THEN
          CALL DIRECT(T,Z,B,C1,C2,VAR1,VAR2,MPRINT,DT,DZ,NT,NZ,MAXOB,KP)
         GOTO 154
-      END IF  
+      END IF
 C
 C    ------ PREPARE INVERSE PROBLEM -------
 C
@@ -132,7 +132,7 @@ C     ----- REARRANGE VARIABLE ARRAYS -----------------
 C
 C      ALL PARAMETERS SHOULD BE POSITIVE (EXCEPT RHO FOR MODE>=3).
 C       [MODE=1]>1.D-10  [MODE>=2] > 1.D-7
-C       [MODE>=3]  RHO < -1.D5, RHO > 1.D5 
+C       [MODE>=3]  RHO < -1.D5, RHO > 1.D5
           DO 22 I=1,NP
           IF(I.EQ.NP.AND.INRHO.EQ.1) THEN
              IF(TH(I).LT.-1.0) TH(I)=-1.D+00
@@ -145,7 +145,7 @@ C       [MODE>=3]  RHO < -1.D5, RHO > 1.D5
                END IF
              END IF
              GOTO 22
-          END IF 
+          END IF
           IF(MODE.EQ.1.AND.DABS(TH(I)).LT.1.D-10) TH(I)=1.D-10
           IF(MODE.GE.2.AND.DABS(TH(I)).LT.1.D-07) TH(I)=1.D-07
    22     CONTINUE
@@ -193,7 +193,7 @@ C     ----- BEGIN ITERATION ----FOR NIT=1 GA=GA/GD (=0.001)
       TEMP=TH(J)
 C
            TH(J)=(1.0+ISIG*DERL(J))*TH(J)
-C  
+C
       Q(J)=0.
 C
       ISKIP=0
@@ -229,7 +229,7 @@ C            (DERL(I) INCREMENT FOR PARAMETER I)
    52 A(I,J)=D(I,J)/(E(I)*E(J))
 C
 C     ----- A IS THE SCALED MOMENT MATRIX -----
-C           PHI IS THE SCALED VECOTR 
+C           PHI IS THE SCALED VECOTR
       DO 54 I=1,NP
       P(I)=Q(I)/E(I)
       PHI(I)=P(I)
@@ -288,7 +288,7 @@ C     STOCHASTIC MODEL RHO CANNOT BE ZERO TO EVALUATE DERIVATIVES
 C      STOCHASTIC MODEL   -1=<RHO<=1
            IF(I.EQ.NP.AND.INRHO.EQ.1) THEN
              IF(TB(I).LE.-1.0) TB(I)=-1.D+00
-             IF(TB(I).GE.1.0) TB(I)=1.D+00 
+             IF(TB(I).GE.1.0) TB(I)=1.D+00
              GOTO 58
            END IF
 C  PARAMETERS SHOULD BE POSITIVE
@@ -302,7 +302,7 @@ C  PARAMETERS SHOULD BE POSITIVE
        ELSE
          IF(TB(I).LT.1.D-07) THEN
              TB(I)=1.D-07
-             
+
            GOTO 58
          ELSE
           GO TO 59
@@ -319,7 +319,7 @@ C  PARAMETERS SHOULD BE POSITIVE
    59 CONTINUE
 C
 C  BETA SHOULD BE LESS THAN ONE
-         IF(MODE.EQ.2) THEN 
+         IF(MODE.EQ.2) THEN
           IF(INDEX(4).EQ.1.AND.TB(NB).GT.0.9999) THEN
             TB(NB)=0.9999
              P(NB)=(TB(NB)-TH(NB))*E(NB)/STEP
@@ -328,22 +328,22 @@ C  BETA SHOULD BE LESS THAN ONE
            TB(NB)=0.0001
            P(NB)=(TB(NB)-TH(NB))*E(NB)/STEP
           END IF
-          IF(ILMT.NE.0) GO TO 60 
+          IF(ILMT.NE.0) GO TO 60
 C
          IF(MNEQ.GE.2.AND.INDEX(4).EQ.1) THEN
            IF(MNEQ.EQ.2) THEN
-             IF(TB(NB).LE.1/CR) THEN 
+             IF(TB(NB).LE.1/CR) THEN
                TB(NB)=1/CR
                P(NB)=(TB(NB)-TH(NB))*E(NB)/STEP
              END IF
            ELSE IF(MNEQ.EQ.3) THEN
-             IF(TB(NB).LE.PHIM/CR)  THEN 
+             IF(TB(NB).LE.PHIM/CR)  THEN
               TB(NB)=PHIM/CR
                P(NB)=(TB(NB)-TH(NB))*E(NB)/STEP
              ELSE IF(TB(NB).GE.(PHIM+CR-1.0)/CR) THEN
               TB(NB)=(PHIM+CR-1.0)/CR
                P(NB)=(TB(NB)-TH(NB))*E(NB)/STEP
-             END IF            
+             END IF
            END IF
          END IF
 C  OMEGA IS LESS THAN OMMAX (=100)
@@ -357,11 +357,11 @@ C  OMEGA IS LESS THAN OMMAX (=100)
               TB(NOMEG)=OMMAX
               P(NOMEG)=(TB(NOMEG)-TH(NOMEG))*E(NOMEG)/STEP
             END IF
-          END IF   
-         IF(MODE.EQ.8.AND.INDEX(4).EQ.1) THEN 
-              DOMEGA=TB(NOMEG)*RHOTH*TB(NVAR+4)*ZL/TB(NVAR+1) 
+          END IF
+         IF(MODE.EQ.8.AND.INDEX(4).EQ.1) THEN
+              DOMEGA=TB(NOMEG)*RHOTH*TB(NVAR+4)*ZL/TB(NVAR+1)
            IF(DOMEGA.GT.OMMAX) THEN
-              TB(NOMEG)=OMMAX/RHOTH/TB(NVAR+4)/ZL*TB(NVAR+1) 
+              TB(NOMEG)=OMMAX/RHOTH/TB(NVAR+4)/ZL*TB(NVAR+1)
               P(NOMEG)=(TB(NOMEG)-TH(NOMEG))*E(NOMEG)/STEP
            END IF
          END IF
@@ -383,8 +383,8 @@ C
          END IF
   205 CONTINUE
 C ----- DEVIATION FROM THE STEEPEST DESCENT DIRECTION --------
-C         ANGLE BETWEEN PHI AND P (CORRECTION VECTOR) 
-C            AND PHI (STEEPEST DECENT DIRECTION)  
+C         ANGLE BETWEEN PHI AND P (CORRECTION VECTOR)
+C            AND PHI (STEEPEST DECENT DIRECTION)
       DO 64 I=1,NOB
       R(I)=C(I)-F(I)
    64 SUMB=SUMB+R(I)*R(I)
@@ -410,13 +410,13 @@ C     ----------
 C      write(7,*) 'ntrial step ga ',ntrial,step,ga
 C      write(7,*) 'ssq new/ssq angle',sumb/ssq,angle
 C
-C IF THE TRIAL SUCCEED, DECREASE GA. 
+C IF THE TRIAL SUCCEED, DECREASE GA.
 C FAILURE, IF ANGLE < 30, DECREASE THE SCALE OF THE CORRECTION VECTOR.
 C           OTHERWISE, INCREASE GA.
        IF(NTRIAL.GT.MAXTRY) GO TO 95
       IF((SUMB/SSQ-1.0).LE.1.D-10.OR.STEP.LT.1.D-20) GOTO 80
    74 IF(ANGLE-30.0)76,76,78
-C  IF 
+C  IF
    76 STEP=0.5*STEP
       GO TO 56
    78 GA=GA*GD
@@ -429,7 +429,7 @@ C   ----- PRINT COEFFICIENTS AFTER EACH ITERATION -----
       IF(MODE.GE.2) THEN
       WRITE(*,1012) NIT,SUMB,(TH(I),I=1,NP)
       END IF
-C  IF CHANGES OF ALL PARAMETE VALUES < STOPCR, STOP THE ITERATION.       
+C  IF CHANGES OF ALL PARAMETE VALUES < STOPCR, STOP THE ITERATION.
       DO 86 I=1,NP
        DUMX=DABS(P(I)*STEP/E(I))/DABS(1.0D-20+TH(I))
 C      WRITE(*,*) 'I STOP',I,DUMX
@@ -444,10 +444,10 @@ C STSQ=STOP CRITERIA TO EVALUATE THE IMPROVEMENT OF SSQ
          IF(NIT.GE.4) THEN
            DSSQ1=1.0-SSQ/SSQ1
            DSSQ2=1.0-SSQ1/SSQ2
-           DSSQ3=1.0-SSQ2/SSQ3 
-           IF(DSSQ3.LT.0.0) GOTO 91 
-           IF(DSSQ2.LT.0.0) GOTO 91 
-           IF(DSSQ1.LT.0.0) GOTO 91 
+           DSSQ3=1.0-SSQ2/SSQ3
+           IF(DSSQ3.LT.0.0) GOTO 91
+           IF(DSSQ2.LT.0.0) GOTO 91
+           IF(DSSQ1.LT.0.0) GOTO 91
            IF(DSSQ1.LT.STSQ.AND.DSSQ2.LT.STSQ.AND.DSSQ3.LT.STSQ) THEN
              WRITE(KP,1035) NIT-3,NIT
              GO TO 96
@@ -467,7 +467,7 @@ C     EVALUATE COVARIANCE MATRIX USING THE ESTIMATED PARAMETERS
       GOTO 34
 C
 C     ----- WRITE COVARIANCE MATRIX -----
-   97 DO 98 I=1,NP 
+   97 DO 98 I=1,NP
       IF(D(I,I).LT.0.0+00) THEN
         WRITE(KP,1020)
         GOTO 104
@@ -513,17 +513,17 @@ C     ----- CALCULATE 95% CONFIDENCE INTERVAL -----
       IF(NP.EQ.1) WRITE(KP,1043) BI(I),TH(I),SECOEF,TMCOE,TPCOE
       IF(NP.GT.1) WRITE(KP,1016) BI(I),TH(I),SECOEF,TVALUE,TMCOE,TPCOE
   108 CONTINUE
-C  
+C
 C   ------ COMMENT FOR THE NONEQUILIBRIUM CDE ---------
-C     FOR BETA = 0.9999  
-           IF(MODE.EQ.2) THEN 
+C     FOR BETA = 0.9999
+           IF(MODE.EQ.2) THEN
             IF(INDEX(4).EQ.1.AND.ABS(TB(NB)-0.9999).LT.1.E-5) THEN
              WRITE(KP,1045)
             END IF
            END IF
 C  FOR OMEGA = OMMAX (=100)
          IF(ILMT.NE.0) GO TO 250
-         IF(MODE.EQ.2) THEN 
+         IF(MODE.EQ.2) THEN
            IF(INDEX(5).EQ.1.AND.ABS(TB(NOMEG)-OMMAX).LT.
      &          OMMAX*1.E-04) THEN
              WRITE(KP,1047)
@@ -533,13 +533,13 @@ C  FOR OMEGA = OMMAX (=100)
            IF(INDEX(4).EQ.1.AND.(TB(NOMEG)-OMMAX).LT.OMMAX*1.E-04) THEN
             WRITE(KP,1047)
            END IF
-         END IF   
-         IF(MODE.EQ.8.AND.INDEX(4).EQ.1) THEN 
-            DOMEGA=TB(NOMEG)*RHOTH*TB(NVAR+4)*ZL/TB(NVAR+1) 
+         END IF
+         IF(MODE.EQ.8.AND.INDEX(4).EQ.1) THEN
+            DOMEGA=TB(NOMEG)*RHOTH*TB(NVAR+4)*ZL/TB(NVAR+1)
          IF((DOMEGA-OMMAX).LT.OMMAX*1.E-04) THEN
             WRITE(KP,1049)
          END IF
-         END IF  
+         END IF
 C     ----- PREPARE FINAL OUTPUT -----
   250 LSORT(1)=1
       DO 115 J=2,NOB
@@ -677,5 +677,5 @@ C
       I=I-1
    30 IF(I) 26,32,26
    32 RETURN
-      END     
-C 
+      END
+C

@@ -1,9 +1,9 @@
- Example 1 - Column Test                                                 
- 
+ Example 1 - Column Test
+
  Program SWMS_3D
  Date:  21. 7.    Time:  12:33:12
  Time independent boundary conditions
- Units: L = cm   , T = sec  , M = -    
+ Units: L = cm   , T = sec  , M = -
 
  Max. number of iterations             20
  Absolute water content tolerance [-]  .00010
@@ -16,7 +16,7 @@
 
 
  MatNum          Qe     Q        h         C         K
- 
+
     1          1.000   .350      .000   .00E+00    .722E-03
     1           .990   .347    -3.386   .19E-02    .717E-03
     1           .900   .317   -11.779   .47E-02    .704E-03

@@ -1,12 +1,12 @@
 C
          1        20         1       100
 1: TRANSIENT LONGITUDINAL AND STEADY TRANSVERSE PROFILE
-C					       
+C					
       50.0       1.5     10.00       0.0       0.0
          0         1         0         0         0
 C
       10.0       5.0       5.0
-         1         1         0  
+         1         1         0
 C
        1.0       0.0       0.0       0.0       0.0
 0.0000  0.10  20.00  -10.00 -10.00

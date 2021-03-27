@@ -3,7 +3,7 @@
 
                          Node( 20)                      Node( 30)                      Node( 40)                      Node(
 
-     time         hNew     theta     conc        hNew     theta     conc        hNew     theta     conc    
+     time         hNew     theta     conc        hNew     theta     conc        hNew     theta     conc
      90.000    -25.000    .3700   .000E+00     25.000    .3390   .000E+00     75.000    .3390   .000E+00
      90.020    -25.048    .3700   .000E+00     24.982    .3390   .000E+00     74.982    .3390   .000E+00
      90.046    -25.075    .3699   .000E+00     24.895    .3390   .000E+00     74.852    .3390   .000E+00

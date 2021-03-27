@@ -111,10 +111,10 @@
 12      continue
 13    continue
 
-110   format(/' MatNum         thR    thS    tha    thm      alpha      
+110   format(/' MatNum         thR    thS    tha    thm      alpha
      !   n          Ks          Kk          thk'/)
 120   format(i5,8x,4f7.3,16e12.3)
-130   format(//' MatNum          Qe     Q        h         C         K') 
+130   format(//' MatNum          Qe     Q        h         C         K')
 140   format(i5,8x,2f7.3,f10.3,e10.2,e12.3)
       return
       end
@@ -463,7 +463,7 @@
       if(.not.lConst) IJ=NumNP
       if(MBand.gt.10.or.NumNP.gt.200) lOrt=.true.
 
-110   format (////' Element Information'//' Element    C O R N E R    N 
+110   format (////' Element Information'//' Element    C O R N E R    N
      !O D E S   ConAxz    ConAxx    ConAzz  LayNum'/)
 120   format (i6,i9,3i6,e14.3,2f8.3,i5)
       return
@@ -486,7 +486,7 @@
       read(32,*) (Width(i),i=1,NumBP)
       read(32,*)
       read(32,*) rLen
-      
+
       do 11 i=1,NumKD
         SWidth(i)=0.
 11    continue
@@ -627,7 +627,7 @@
       read(30,*)
       read(30,*) epsi,lUpW,lArtD,lTDep,cTolA,cTolR,MaxItC,PeCr
       PeCr=amax1(PeCr,0.1)
-      if(epsi.lt.0.999) NLevel=2      
+      if(epsi.lt.0.999) NLevel=2
       if(lUpW) then
         write(50,120)
       else
@@ -658,7 +658,7 @@
             write(50,200) M
           else if(abs(ChPar(jjj+9,M)-1.).gt.0.001) then
             write(50,210) M
-          else 
+          else
             write(50,220) M
           end if
           if(abs(ChPar(jjj+8,M)-0.0).gt.0.001.or.
@@ -694,7 +694,7 @@
         do 17 j=1,NumKD
           ChemS(i,j)=0.
 17    continue
-  
+
 110   format (/' Solute transport information'/1x,28('='))
 120   format (/' Upstream weighting finite-element method')
 130   format (/' Galerkin finite-element method')
@@ -704,8 +704,8 @@
      !' Mat.     Bulk.D.    DispL     DispT    Fraction')
 160   format(i4,f13.4,3f10.4)
 170   format(/'    Dif.w.      Dif.g.   ',50('-'),' (',i2,'.solute)')
-180   format(2e12.4/' Mat.     KS         Nu         Beta      Henry    
-     !  SinkL1     SinkS1     SinkG1     SinkL1`    SinkS1`    SinkG1`  
+180   format(2e12.4/' Mat.     KS         Nu         Beta      Henry
+     !  SinkL1     SinkS1     SinkG1     SinkL1`    SinkS1`    SinkG1`
      !  SinkL0     SinkS0     SinkG0      Alfa')
 190   format(i4,14e11.4)
 200   format(/' Langmuir nonlinear adsorption isotherm for material ',
@@ -729,12 +729,12 @@
 
       write(*,*) 'reading heat transport information'
       write(50,110)
-      read(30,*)     
       read(30,*)
-      do 11 M=1,NMat    
+      read(30,*)
+      do 11 M=1,NMat
         read(30,*) (TPar(j,M),j=1,10)
         write(50,120) (TPar(j,M),j=1,10)
-11    continue   
+11    continue
       read(30,*)
       read(30,*) (KodTB(i),i=1,NumBP)
       read(30,*)
@@ -743,7 +743,7 @@
       read(30,*) Ampl,tPeriod
       write(50,130)
       write(50,140) (TBound(i),i=1,6)
-  
+
 110   format (/' Heat transport information'/1x,26('=')//
      !'    Qn     Qo      Thermal. Disper.      B1         B2         B3
      !        Cn         Co         Cw')

@@ -80,7 +80,7 @@
       open(81,file='CHAIN_2D.OUT\vz.out',      status='unknown')
       open(82,file='CHAIN_2D.OUT\vx.out',      status='unknown')
       open(92,file='CHAIN_2D.OUT\ObsNod.out',  status='unknown')
-            
+
 
       data SinkF  ,qGWLF  ,NTab,ItCum,IterW,IterC,TLevel,ALevel,PLevel
      !    /.false.,.false.,100 , 0   , 0   , 0   ,  1  ,  1    , 1   /
@@ -203,7 +203,7 @@ c      call seconds_since_1980@(RTime1)
      !             RQIDOT,ECNVRG,RCNVRG,ACNVRG,MNorth,MaxItO)
 
 *     Calculate heat transport
-      if(lTemp) 
+      if(lTemp)
      !  call Temper(NumNP,NumEl,NumElD,MBand,MBandD,NMat,NumBP,t,A,B,Q,
      !              x,y,KX,KAT,dt,DS,MatNum,VxO,VzO,VxN,VzN,Dispxx,
      !              Dispzz,Dispxz,TPar,ThNew,ThOld,Ac,TempO,TempN,
@@ -238,7 +238,7 @@ c      call seconds_since_1980@(RTime1)
       if(NObs.gt.0)
      !  call ObsNod(t,NumNP,NS,NSD,NObs,NObsD,Node,hNew,ThNew,Conc,Sorb,
      !              TempN)
-  
+
 *     P-Level information
       if(abs(TPrint(PLevel)-t).lt.0.001*dt) then
         if(lWat.or.(.not.lWat.and.PLevel.eq.1)) then

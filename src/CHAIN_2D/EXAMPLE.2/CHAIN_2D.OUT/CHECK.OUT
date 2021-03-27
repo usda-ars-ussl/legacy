@@ -1,10 +1,10 @@
- Example 2 - Grass Field Problem (Hupselse Beek 1982)                           
-                      
- 
+ Example 2 - Grass Field Problem (Hupselse Beek 1982)
+
+
  Program CHAIN_2D
  Time dependent boundary conditions
  Vertical plane flow, V = L*L
- Units: L = cm   , T = day  , M = -    
+ Units: L = cm   , T = day  , M = -
 
  Max. number of iterations             20
  Absolute water content tolerance [-]  .00050
@@ -18,7 +18,7 @@
 
 
  MatNum          Qe     Q        h         C         K
- 
+
     1          1.000   .399      .000   .30E-06    .298E+02
     1           .990   .395    -5.282   .10E-02    .105E+02
     1           .900   .359   -33.237   .13E-02    .202E+01
@@ -29,7 +29,7 @@
     1           .350   .140  -925.067   .55E-04    .611E-03
     1           .200   .080 -4159.356   .72E-05    .756E-05
     1           .100   .040-26368.180   .57E-06    .333E-07
- 
+
     2          1.000   .339      .000   .00E+00    .453E+02
     2           .990   .336    -7.568   .70E-03    .250E+02
     2           .900   .305   -35.571   .13E-02    .727E+01

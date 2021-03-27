@@ -7,14 +7,14 @@ C     *       INFINITE POROUS MEDIA (WRR 27(10):2719-2733, 1991)         *
 C     *        WITH FITTING BY NONLINEAR LEAST SQUARES ANALYSIS          *
 C     *                                                                  *
 C     *                FEIKE J. LEIJ AND SCOTT BRADFORD                  *
-C     *                                                                  * 
+C     *                                                                  *
 C     *                    U.S. SALINITY LABORATORY                      *
 C     *                      4500 GLENWOOD DRIVE                         *
 C     *                      RIVERSIDE, CA 92501                         *
-C     *                                                                  *           
+C     *                                                                  *
 C     *                      PHONE (714) 369-4846                        *
 C     *                      FAX   (714) 369-4818                        *
-C     *                                                                  *   
+C     *                                                                  *
 C     *                         VERSION  12/93                           *
 C     ********************************************************************
       IMPLICIT REAL*8(A-H,O-Z)
@@ -43,7 +43,7 @@ C
 C
 C     --- READ MODEL ---
       READ(5,201) JUNK
-      READ(5,203) MODEL,MIT,IND,NGC 
+      READ(5,203) MODEL,MIT,IND,NGC
 C
 C     --- INITIALIZATIONS ---			
       DO 2 I=1,8
@@ -56,12 +56,12 @@ C     --- INITIALIZATIONS ---
       IF ((MODEL.GE.1.AND.MODEL.LE.6).OR.MODEL.EQ.11.OR.MODEL.EQ.12)THEN
        NIV=4
        NPAR=16
-       BI(7)='Dy'         
+       BI(7)='Dy'
        VN(3)='y'
       ELSE IF ((MODEL.GE.7.AND.MODEL.LE.10).OR.MODEL.EQ.13) THEN
        NIV=3
        NPAR=15
-       BI(7)='Dr'                          
+       BI(7)='Dr'
        VN(3)='r'
       ENDIF
       PROD=.TRUE.
@@ -96,24 +96,24 @@ C
        GOTO 8
       ENDIF
 C
-C     --- INDIRECT PROBLEM --- 
+C     --- INDIRECT PROBLEM ---
       IF (MODEL.GT.10) INDEX(2)=0
       IF (MODEL.EQ.5 .OR. MODEL.EQ.6 .OR. MODEL.GT.8) INDEX(3)=0
       IF (MODEL.GT.10) INDEX(4)=0
       IF (MODEL.GT.10) INDEX(5)=0
       IF (MODEL.GT.10) INDEX(6)=0
-C			   
+C			
       NOB=0
       DO 6 I=1,NCON
-       IF(MODEL.GE.11) THEN	    
+       IF(MODEL.GE.11) THEN	
         READ(5,*,END=8) Y(I),(X(J,I),J=2,NIV)
-       ELSE    
+       ELSE
         READ(5,*,END=8) Y(I),(X(J,I),J=1,NIV)
        ENDIF
-    6 NOB=NOB+1 
+    6 NOB=NOB+1
 C
 C     --- ERROR MESSAGES ---
-    8 IF (MODEL.GT.13.OR.MODEL.LT.1) 
+    8 IF (MODEL.GT.13.OR.MODEL.LT.1)
      $ STOP 'LINE 2 INPUT FILE : MODEL NUMBER 1-13'
       IF (MIT.LT.0)
      $ STOP 'LINE 2 INPUT FILE : MIT >= 0'
@@ -126,13 +126,13 @@ C     --- ERROR MESSAGES ---
      $ (B(14).LE.0.0.OR.B(15).LE.0.0.OR.B(16).LE.0.0))
      $  STOP 'LINE 6 INPUT FILE : Dx, Dy, Dz > 0'
       IF ((MODEL.GE.7.AND.MODEL.LE.10).AND.
-     $ (B(14).LE.0.0.OR.B(15).LE.0.0))                  
-     $  STOP 'LINE 6 INPUT FILE : Dx, Dr > 0'        
+     $ (B(14).LE.0.0.OR.B(15).LE.0.0))
+     $  STOP 'LINE 6 INPUT FILE : Dx, Dr > 0'
       IF ((MODEL.EQ.11.OR.MODEL.EQ.12).AND.
      $ (B(15).LE.0.0.OR.B(16).LE.0.0))
      $  STOP 'LINE 6 INPUT FILE : Dy, Dz > 0'
-      IF (MODEL.EQ.13.AND.B(15).LE.0.0)                  
-     $  STOP 'LINE 6 INPUT FILE : Dr > 0'        
+      IF (MODEL.EQ.13.AND.B(15).LE.0.0)
+     $  STOP 'LINE 6 INPUT FILE : Dr > 0'
       IF (C(1).LT.0.0)
      $  STOP 'LINE 8 INPUT FILE : Co >=0'
       IF ((MODEL.EQ.3.OR.MODEL.EQ.4.OR.MODEL.EQ.12) .AND.
@@ -151,12 +151,12 @@ C     --- ERROR MESSAGES ---
      $  STOP 'LINE 8 INPUT FILE : x1 <= x2'
       IF(IND.EQ.1) GOTO 11
       DO 9 I=1,2
-    9 IF (XLOW(I).LT.0.0.OR.XUP(I).LT.0.0) 
+    9 IF (XLOW(I).LT.0.0.OR.XUP(I).LT.0.0)
      $  STOP 'INPUT ERROR GRID SYSTEM : x,t >= 0'
       DO 10 I=1,4
       IF (DX(I).LT.0.0)
      $  STOP 'INPUT ERROR GRID SYSTEM : INCREMENTS MUST BE POSITIVE'
-   10 IF (XLOW(I).GT.XUP(I)) 
+   10 IF (XLOW(I).GT.XUP(I))
      $  STOP 'INPUT ERROR GRID SYSTEM : UPPER AND LOWER LIMITS'
       IF (((MODEL.GE.7.AND.MODEL.LE.10).OR.MODEL.EQ.13).AND.
      $XLOW(3).LT.0.0)
@@ -178,7 +178,7 @@ C
 C     --- CLEAR SCREEN AND WRITE TITLE ---
    14 WRITE(*,180)
       IF (IND.EQ.0) WRITE(*,190) FILENAME
-      IF (IND.EQ.1) WRITE(*,191) FILENAME 
+      IF (IND.EQ.1) WRITE(*,191) FILENAME
       WRITE(*,195)
 C
 C     --- START MAIN PROGRAM ---
@@ -199,7 +199,7 @@ C     --- WRITE MODEL TYPE ---
       IF (MODEL.EQ.11) WRITE(7,324)
       IF (MODEL.EQ.12) WRITE(7,326)
       IF (MODEL.EQ.13) WRITE(7,328)
-C  
+C
 C     --- WRITE PARAMETER VALUES AND MODEL CONSTANTS ---
       IF (IND.EQ.0) WRITE(7,330)
       IF (IND.EQ.1) WRITE(7,331)
@@ -215,19 +215,19 @@ C     --- WRITE PARAMETER VALUES AND MODEL CONSTANTS ---
 	ELSE
          WRITE(7,332) BI(I-8),B(I),'+'
         ENDIF
-       ENDIF   
+       ENDIF
    15 CONTINUE
 C
       WRITE(7,334)
       DO 16 I=1,5
-       IF ((MODEL.LE.2.OR.MODEL.EQ.11).AND.I.GT.1) GOTO 16  
-       IF ((MODEL.EQ.3.OR.MODEL.EQ.4.OR.MODEL.EQ.12).AND.I.GT.3) GOTO 16  
+       IF ((MODEL.LE.2.OR.MODEL.EQ.11).AND.I.GT.1) GOTO 16
+       IF ((MODEL.EQ.3.OR.MODEL.EQ.4.OR.MODEL.EQ.12).AND.I.GT.3) GOTO 16
        IF ((MODEL.EQ.7.OR.MODEL.EQ.8.OR.MODEL.GE.13).AND.I.GT.2) GOTO 16
        IF ((MODEL.EQ.9.OR.MODEL.EQ.10).AND.I.EQ.3) GOTO 16
        WRITE(7,336) CN(I),C(I)
-   16 CONTINUE   
-C                   
-C     --- CALCULATE NODE SPACING ---  
+   16 CONTINUE
+C
+C     --- CALCULATE NODE SPACING ---
       IF (IND.EQ.0) THEN
       WRITE(7,338)
       DO 17 J=1,NIV
@@ -238,7 +238,7 @@ C     --- CALCULATE NODE SPACING ---
        ELSE
         NXST(I)=ZIP+(XUP(I)+DX(I)-XLOW(I))/DX(I)
        ENDIF
-       WRITE(7,340) VN(I),DX(I),XLOW(I),XUP(I) 
+       WRITE(7,340) VN(I),DX(I),XLOW(I),XUP(I)
        IF (MODEL.GT.10.AND.I.EQ.NIV) GOTO 18
    17 CONTINUE
 C
@@ -265,9 +265,9 @@ C
           NUM=NUM+1
           CALL MODELS(B,Y,NOB,NCON,X,NGC,PROD)
           PROD=.FALSE.
-          IF (C(1).GT.0.0) YY=Y(1)/C(1)  
+          IF (C(1).GT.0.0) YY=Y(1)/C(1)
        IF (MODEL.LE.10) WRITE(7,346) NUM,Y(1),YY,(X(JJ,1), JJ=1,NIV)
-   19  IF (MODEL.GT.10) WRITE(7,346) NUM,Y(1),YY,(X(JJ,1), JJ=2,NIV) 
+   19  IF (MODEL.GT.10) WRITE(7,346) NUM,Y(1),YY,(X(JJ,1), JJ=2,NIV)
        GO TO 119
       ENDIF
 C
@@ -284,7 +284,7 @@ C     --- ELSE WRITE EXPERIMENTAL DATA ---
       ENDIF
       DO 24 I=1,NOB
        IF (MODEL.LE.10) WRITE(7,346) I,Y(I),(X(J,I), J=1,NIV)
-   24  IF (MODEL.GT.10) WRITE(7,346) I,Y(I),(X(J,I), J=2,NIV) 
+   24  IF (MODEL.GT.10) WRITE(7,346) I,Y(I),(X(J,I), J=2,NIV)
 C
 C     --- BEGIN FITTING ---
       NP=0
@@ -311,7 +311,7 @@ C     ------
 C
 C     --- BEGIN OF ITERATION ---
    34 NIT=NIT+1
-      NTRIAL=0 
+      NTRIAL=0
       GA=0.1*GA
       DO 38 J=1,NP
       TEMP=TH(J)
@@ -334,7 +334,7 @@ C     --- Q=XT*R (STEEPEST DESCENT) ---
    42 D(J,I)=D(I,J)
    44 E(I)=DSQRT(D(I,I))
    50 DO 52 I=1,NP
-       DO 52 J=1,NP 
+       DO 52 J=1,NP
    52   A(I,J)=D(I,J)/(E(I) * E(J))
 C
 C     --- A IS THE SCALED MOMENT MATRIX ---
@@ -390,7 +390,7 @@ C     --- PRINT COEFFICIENTS AFTER EACH ITERATION ---
        IF(DABS(P(I)*STEP/E(I))/(1.0D-20+DABS(TH(I)))-STOPCR) 86,86,94
    86 CONTINUE
       GOTO 96
-   94 SSQ=SUMB        
+   94 SSQ=SUMB
       IF (NIT.LT.MIT) GOTO 34
       IF (NIT.EQ.MIT) WRITE(7,353) NIT
       GOTO 96
@@ -428,7 +428,7 @@ C
         SUM2=SUM2+(Y(I)-AVC)**2
   104  VARI=VARI+(DEV(I)-AVCDEV)**2
        RSQ=1-SUM1/SUM2
-       WRITE(7,355) RSQ     
+       WRITE(7,355) RSQ
 C
        IF(NOB.GT.NP) THEN
         UMSE=SUM1/(NOB-NP)
@@ -438,9 +438,9 @@ C
         VARI=100*VARI/SUM1
         BIAS=100*NOB*AVCDEV**2/SUM1
         WRITE(7,367) BIAS,VARI
-       ENDIF		       
+       ENDIF		
       ENDIF
-C       
+C
 C     --- CALCULATE 95% CONFIDENCE INTERVAL ---
       Z=1./FLOAT(NOB-NP)
       SDEV=DSQRT(Z*SUMB)
@@ -490,7 +490,7 @@ C     --- END OF PROBLEM ---
      $H*,65X,1H*/5X,1H*,2X,'PLEASE WAIT - The observed concentrations ar
      $e being fitted and',1X,1H*/5x,1H*,16X,'written to ',A15,23X,1H*/,5
      $X,1H*,65X,1H*)
-  195 FORMAT(5X,67(1H*),///) 
+  195 FORMAT(5X,67(1H*),///)
   200 FORMAT(5I5)
   201 FORMAT(A60)
   202 FORMAT(7F10.2)
@@ -505,7 +505,7 @@ C     --- END OF PROBLEM ---
   304 FORMAT(5X,1H*,5X,'MODEL 1                      FIRST-TYPE INLET CO
      $NDITION',5X,1H*/5X,1H*,5X,'SCENARIO 1: SOLUTE APPLICATION FROM A S
      $EMI-INFINITE',9X,1H*/5X,1H*,17X,'QUADRANT OF AN INFINITE SOIL SURF
-     $ACE',12X,1H*/5X,1H*,65X,1H*/5X,67(1H*)) 
+     $ACE',12X,1H*/5X,1H*,65X,1H*/5X,67(1H*))
   306 FORMAT(5X,1H*,5X,'MODEL 2                      THIRD-TYPE INLET CO
      $NDITION',5X,1H*/5X,1H*,5X,'SCENARIO 1: SOLUTE APPLICATION FROM A S
      $EMI-INFINITE',9X,1H*/5X,1H*,17X,'QUADRANT OF AN INFINITE SOIL SURF
@@ -513,47 +513,47 @@ C     --- END OF PROBLEM ---
   308 FORMAT(5X,1H*,5X,'MODEL 3                      FIRST-TYPE INLET CO
      $NDITION',5X,1H*/5X,1H*,5X,'SCENARIO 2: SOLUTE APPLICATION FROM A R
      $ECTANGULAR',11X,1H*/5X,1H*,17X,'SOURCE AT THE SOIL SURFACE',22X,1H
-     $*/5X,1H*,65X,1H*/5X,67(1H*)) 
+     $*/5X,1H*,65X,1H*/5X,67(1H*))
   310 FORMAT(5X,1H*,5X,'MODEL 4                      THIRD-TYPE INLET CO
      $NDITION',5X,1H*/5X,1H*,5X,'SCENARIO 2: SOLUTE APPLICATION FROM A R
      $ECTANGULAR',11X,1H*/5X,1H*,17X,'SOURCE AT THE SOIL SURFACE',22X,1H
-     $*/5X,1H*,65X,1H*/5X,67(1H*)) 
+     $*/5X,1H*,65X,1H*/5X,67(1H*))
   312 FORMAT(5X,1H*,5X,'MODEL 5                      FIRST-TYPE INLET CO
-     $NDITION',5X,1H*/5X,1H*,5X,'SCENARIO 3: SOLUTE INITIALLY UNIFORMLY 
+     $NDITION',5X,1H*/5X,1H*,5X,'SCENARIO 3: SOLUTE INITIALLY UNIFORMLY
      $DISTRIBUTED IN A',5X,1H*/5X,1H*,17X,'PARALLELEPIPEDAL REGION OF TH
-     $E SOIL',13X,1H*/5X,1H*,65X,1H*/5X,67(1H*)) 
+     $E SOIL',13X,1H*/5X,1H*,65X,1H*/5X,67(1H*))
   314 FORMAT(5X,1H*,5X,'MODEL 6                      THIRD-TYPE INLET CO
-     $NDITION',5X,1H*/5X,1H*,5X,'SCENARIO 3: SOLUTE INITIALLY UNIFORMLY 
+     $NDITION',5X,1H*/5X,1H*,5X,'SCENARIO 3: SOLUTE INITIALLY UNIFORMLY
      $DISTRIBUTED IN A',5X,1H*/5X,1H*,17X,'PARALLELEPIPEDAL REGION OF TH
-     $E SOIL',13X,1H*/5X,1H*,65X,1H*/5X,67(1H*)) 
+     $E SOIL',13X,1H*/5X,1H*,65X,1H*/5X,67(1H*))
   316 FORMAT(5X,1H*,5X,'MODEL 7                      FIRST-TYPE INLET CO
      $NDITION',5X,1H*/5X,1H*,5X,'SCENARIO 4: SOLUTE APPLICATION FROM A C
      $IRCULAR',14X,1H*/5X,1H*,17X,'SOURCE AT THE SOIL SURFACE',22X,1H*/5
-     $X,1H*,65X,1H*/5X,67(1H*)) 
+     $X,1H*,65X,1H*/5X,67(1H*))
   318 FORMAT(5X,1H*,5X,'MODEL 8                      THIRD-TYPE INLET CO
      $NDITION',5X,1H*/5X,1H*,5X,'SCENARIO 4: SOLUTE APPLICATION FROM A C
      $IRCULAR',14X,1H*/5X,1H*,17X,'SOURCE AT THE SOIL SURFACE',22X,1H*/5
-     $X,1H*,65X,1H*/5X,67(1H*)) 
+     $X,1H*,65X,1H*/5X,67(1H*))
   320 FORMAT(5X,1H*,5X,'MODEL 9                      FIRST-TYPE INLET CO
-     $NDITION',5X,1H*/5X,1H*,5X,'SCENARIO 5: SOLUTE INITIALLY UNIFORMLY 
+     $NDITION',5X,1H*/5X,1H*,5X,'SCENARIO 5: SOLUTE INITIALLY UNIFORMLY
      $DISTRIBUTED IN A',5X,1H*/5X,1H*,17X,'CYLINDRICAL REGION OF THE SOI
-     $L',18X,1H*/5X,1H*,65X,1H*/5X,67(1H*)) 
+     $L',18X,1H*/5X,1H*,65X,1H*/5X,67(1H*))
   322 FORMAT(5X,1H*,5X,'MODEL 10                     THIRD-TYPE INLET CO
-     $NDITION',5X,1H*/5X,1H*,5X,'SCENARIO 5: SOLUTE INITIALLY UNIFORMLY 
+     $NDITION',5X,1H*/5X,1H*,5X,'SCENARIO 5: SOLUTE INITIALLY UNIFORMLY
      $DISTRIBUTED IN A',5X,1H*/5X,1H*,17X,'CYLINDRICAL REGION OF THE SOI
-     $L',18X,1H*/5X,1H*,65X,1H*/5X,67(1H*)) 
+     $L',18X,1H*/5X,1H*,65X,1H*/5X,67(1H*))
   324 FORMAT(5X,1H*,5X,'MODEL 11                                   STEAD
      $Y STATE',5X,1H*/5X,1H*,5X,'SCENARIO 1: SOLUTE APPLICATION FROM A S
      $EMI-INFINITE',9X,1H*/5X,1H*,17X,'QUADRANT OF AN INFINITE SOIL SURF
-     $ACE',12X,1H*/5X,1H*,65X,1H*/5X,67(1H*)) 
+     $ACE',12X,1H*/5X,1H*,65X,1H*/5X,67(1H*))
   326 FORMAT(5X,1H*,5X,'MODEL 12                                   STEAD
      $Y STATE',5X,1H*/5X,1H*,5X,'SCENARIO 2: SOLUTE APPLICATION FROM A R
      $ECTANGULAR',11X,1H*/5X,1H*,17X,'SOURCE AT THE SOIL SURFACE',22X,1H
-     $*/5X,1H*,65X,1H*/5X,67(1H*)) 
+     $*/5X,1H*,65X,1H*/5X,67(1H*))
   328 FORMAT(5X,1H*,5X,'MODEL 13                                   STEAD
      $Y STATE',5X,1H*/5X,1H*,5X,'SCENARIO 4: SOLUTE APPLICATION FROM A C
      $IRCULAR',14X,1H*/5X,1H*,17X,'SOURCE AT THE SOIL SURFACE',22X,1H*/5
-     $X,1H*,65X,1H*/5X,67(1H*)) 
+     $X,1H*,65X,1H*/5X,67(1H*))
   330 FORMAT(//5X,'MODEL PARAMETERS'/5X,16(1H=)/5X,'NAME',11X,'VALUE')
   331 FORMAT(//5X,'INITIAL ESTIMATES OF MODEL PARAMETERS'/5X,37(1H=)/5X,
      $'NAME',11X,'VALUE',7X,'FITTING')
@@ -580,7 +580,7 @@ C     --- END OF PROBLEM ---
      $9X,'x',11X,'y',9X,'z',9X)
   350 FORMAT(/A1/5X,'OBSERVED CONCENTRATIONS'/5X,23(1H=)/8X,'NO',8X,'C',
      $9X,'x',11X,'r',9X)
-  353 FORMAT(/5X,'CONVERGENCE CRITERION NOT MET IN ',I2,' ITERATIONS') 
+  353 FORMAT(/5X,'CONVERGENCE CRITERION NOT MET IN ',I2,' ITERATIONS')
   354 FORMAT(/5X,'NO FURTHER DECREASE IN SSQ OBTAINED AFTER ',I2,' TRIAL
      $S')
   355 FORMAT(//5X,'r^2 FOR REGRESSION OF OBSERVED VS. PREDICTED VALUES =
@@ -671,13 +671,13 @@ C
 C     purpose: to calculate YY(X1,X2,X3,...)
 C
       IMPLICIT REAL*8 (A-H,L,O-Z)
-      LOGICAL PROD 
+      LOGICAL PROD
       COMMON NPAR,CC,MODEL,NIV,INDEX
       COMMON/EVAL/ T,X,Y,Z,V,R,TO,RMU,RLAM,DX,DY,DZ,CO,A,B,X1,X2,NGC
       PARAMETER(ZERO=0.0D+00,ZIP=1.0D-08,ONE=1.0D+00,TWO=2.0D+00,
      $FOUR=4.0D+00,EIGHT=8.0D+00)
       DIMENSION XX(4,NCON),YY(NCON),BB(16),CC(5),INDEX(8)
-      EXTERNAL CF1,CT1,CF2,CT2,CF4,LAM2,LAM2C,CT4,LAM4,LAM4C,CF5,CT5,CS3 		 
+      EXTERNAL CF1,CT1,CF2,CT2,CF4,LAM2,LAM2C,CT4,LAM4,LAM4C,CF5,CT5,CS3 		
       PI=FOUR*DATAN(ONE)
 C            			
       NGC=M
@@ -704,11 +704,11 @@ C
        T=XX(1,I)
        X=XX(2,I)
        Y=XX(3,I)
-       Z=XX(4,I)	     
+       Z=XX(4,I)	
 C
 C     --- INLET AND INITIAL CONCENTRATIONS ---
        ZIP1=ABS(X-X1)
-       ZIP2=ABS(X-X2)  
+       ZIP2=ABS(X-X2)
        ZIPA=ABS(ABS(Y)-A)
        ZIPB=ABS(ABS(Z)-B)
        GOTO (25,25,35,35,45,45,55,55,65,65,25,35,55) MODEL
@@ -723,27 +723,27 @@ C     --- INLET AND INITIAL CONCENTRATIONS ---
         YY(I)=ZERO
        ELSE
         GOTO 75
-       ENDIF                                      
+       ENDIF
        GOTO 85
 C
    35  IF (X.LT.ZIP .AND. MODEL.NE.4) THEN
 	YY(I)=ZERO
-        IF (ABS(Y).LT.A .AND. ABS(Z).LT.B) YY(I)=CO 
+        IF (ABS(Y).LT.A .AND. ABS(Z).LT.B) YY(I)=CO
         IF ((ZIPA.LE.ZIP .AND. ABS(Z).LT.B) .OR. (ABS
      $   (Y).LT.A .AND. ZIPB.LE.ZIP)) YY(I)=CO/TWO
-        IF (ZIPA.LE.ZIP .AND.ZIPB.LE.ZIP) YY(I)=CO/FOUR 
+        IF (ZIPA.LE.ZIP .AND.ZIPB.LE.ZIP) YY(I)=CO/FOUR
         IF (MODEL.NE.12. AND. T.GE.TO) YY(I)=ZERO
        ELSE IF (MODEL.NE.12 .AND. T.LT.ZIP) THEN
         YY(I)=ZERO
        ELSE
-        GOTO 75 
+        GOTO 75
        ENDIF
-       GOTO 85							      
+       GOTO 85							
 C
    45  IF (T.LT.ZIP) THEN
         IF (ZIP1.LE.ZIP .OR. ZIP2.LE.ZIP) THEN
          IF (ZIPA.LE.ZIP .AND. ZIPB.LE.ZIP) THEN
-          YY(I)=CO/EIGHT				  
+          YY(I)=CO/EIGHT				
          ELSE IF ((ABS(Y).LT.A .AND. ZIPB.LE.ZIP) .OR. (ZIPA
      $    .LE.ZIP .AND. ABS(Z).LT.B)) THEN
           YY(I)=CO/FOUR
@@ -763,18 +763,18 @@ C
           YY(I)=CO
          ELSE IF (ABS(Y).GT.A .OR. ABS(Z).GT.B) THEN
           YY(I)=ZERO
-         ENDIF 
+         ENDIF
         ELSE IF (X.LT.X1 .OR. X.GT.X2) THEN
          YY(I)=ZERO
         ENDIF
        ELSE
-        GOTO 75 
+        GOTO 75
        ENDIF
        GOTO 85
-C 
+C
   55   IF (X.LT.ZIP .AND. MODEL.NE.8) THEN
         YY(I)=ZERO
-        IF (Y.LT.A) YY(I)=CO 
+        IF (Y.LT.A) YY(I)=CO
         IF (ZIPA.LE.ZIP) YY(I)=CO/TWO
         IF (MODEL.NE.13 .AND. T.GE.TO) YY(I)=ZERO
        ELSE IF (T.LT.ZIP .AND. MODEL.NE.13) THEN
@@ -788,7 +788,7 @@ C
         IF (ZIP1.LE.ZIP .OR. ZIP2.LE.ZIP) THEN
          IF (ZIPA.LE.ZIP) YY(I)=CO/FOUR
          IF (Y.LT.A) YY(I)=CO/TWO
-         IF (Y.GT.A) YY(I)=ZERO 
+         IF (Y.GT.A) YY(I)=ZERO
         ELSE IF (X.GT.X1 .AND. X.LT.X2) THEN
          IF (ZIPA.LE.ZIP) YY(I)=CO/TWO
          IF (Y.LT.A) YY(I)=CO
@@ -926,14 +926,14 @@ C     ----------
       PARAMETER(ZERO=0.0D+00,ZIP=1.0D-08,FOUR=4.0D+00)
       PI=4.0D+00*DATAN(1.0D+00)
 C
-      IF(T.LE.ZIP) T=ZIP		 
+      IF(T.LE.ZIP) T=ZIP		
       CF2=(X/T)*DSQRT(R/(FOUR*PI*DX*T))
      $    *DEXP(-RMU*T/R-(R*X-V*T)**2/FOUR/R/DX/T)
      $    *(EXF(ZERO,(Y-A)/DSQRT(FOUR*DY*T/R))
      $    -EXF(ZERO,(Y+A)/DSQRT(FOUR*DY*T/R)))
      $    *(EXF(ZERO,(Z-B)/DSQRT(FOUR*DZ*T/R))
      $    -EXF(ZERO,(Z+B)/DSQRT(FOUR*DZ*T/R)))
-C			 
+C			
       RETURN
       END
 C
@@ -944,7 +944,7 @@ C     ----------
       PARAMETER(ZERO=0.0D+00,ZIP=1.0D-08,TWO=2.0D+00,FOUR=4.0D+00)
       PI=4.0D+00*DATAN(1.0D+00)
 C
-      IF(T.LE.ZIP) T=ZIP		 
+      IF(T.LE.ZIP) T=ZIP		
       CT2=(DSQRT(R/PI/DX/T)*DEXP(-RMU*T/R-(R*X-V*T)**2/FOUR/R/DX/T)
      $    -V/TWO/DX*EXF(V*X/DX-RMU*T/R,(R*X+V*T)/DSQRT(FOUR*R*DX*T)))
      $    *(EXF(ZERO,(Y-A)/DSQRT(FOUR*DY*T/R))
@@ -1003,7 +1003,7 @@ C     ----------
       COMMON/EVAL/TT,X,Y,Z,V,R,TO,RMU,RLAM,DX,DY,DZ,CO,A,B,X1,X2,NGC
       PARAMETER(ZERO=0.0D+00,ZIP=1.0D-08,TWO=2.0D+00,FOUR=4.0D+00)
       PI=4.0D+00*DATAN(1.0D+00)
-C					 
+C					
       IF(T.LE.ZIP) T=ZIP
       CT41=(DSQRT(R/PI/DX/T)*DEXP(-RMU*T/R-(R*X-V*T)**2/FOUR/R/DX/T)
      $     -V/TWO/DX*EXF(V*X/DX-RMU*T/R,(R*X+V*T)/DSQRT(FOUR*R*DX*T)))
@@ -1062,7 +1062,7 @@ C
       RETURN
       END
 C
-C     ----------	 
+C     ----------	
       REAL*8 FUNCTION GAMMA2(T)
       IMPLICIT REAL*8(A-M,O-Z)
       COMMON/EVAL/TT,X,Y,Z,V,R,TO,RMU,RLAM,DX,DY,DZ,CO,A,B,X1,X2,NGC
@@ -1086,7 +1086,7 @@ C
      $     -EXF(V*X/DX-RMU*T/R,(R*X+V*T)/DSQRT(FOUR*R*DX*T))
       RETURN
       END
-C			  
+C			
 C     ----------
       REAL*8 FUNCTION LAM4(T)
       IMPLICIT REAL*8(A-M,O-Z)
@@ -1132,7 +1132,7 @@ C
      $     -DEXP(V*X/DX-RMU*T/R-(R*(X+X1)+V*T)**2/FOUR/R/DX/T))
       RETURN
       END
-C						 
+C						
 C     --------------
       FUNCTION EXF(A,B)
 C
@@ -1173,7 +1173,7 @@ C
        EXPBI0=DEXP(Z)*(P1+Y*(P2+Y*(P3+Y*(P4+Y*(P5+Y*(P6+Y*P7))))))
       ELSE
        AX=DABS(X)
-       Y=3.75/AX 
+       Y=3.75/AX
        EXPBI0=DEXP(AX+Z)/DSQRT(AX)*(Q1+Y*(Q2+Y*(Q3+Y*(Q4+Y*(Q5+Y*
      $        (Q6+Y*(Q7+Y*(Q8+Y*Q9))))))))
       ENDIF

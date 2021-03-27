@@ -425,9 +425,9 @@
           end if
 14      continue
       end if
-      
-*     Free Drainage      
-      if(FreeD) then      
+
+*     Free Drainage
+      if(FreeD) then
         do 15 i=1,NumBP
           n=KXB(i)
           k=Kode(n)

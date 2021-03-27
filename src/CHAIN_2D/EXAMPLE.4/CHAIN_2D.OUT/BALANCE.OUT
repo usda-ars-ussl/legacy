@@ -1,10 +1,10 @@
- Example 4 - Solute Transport with Nitrification Chain                          
-                      
- 
+ Example 4 - Solute Transport with Nitrification Chain
+
+
  Program CHAIN_2D
  Time independent boundary conditions
  Vertical plane flow, V = L*L
- Units: L = m    , T = days , M = -    
+ Units: L = m    , T = days , M = -
 
  Time [T]             Total     Sub-region number ...
 
